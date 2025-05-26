@@ -2,8 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { AiOutlineCopyright } from "react-icons/ai";
-
 import BrandLogo from '@/assets/common/bloomimgLogo.png';
 import { contactInfo, creatorLink, followUs, quickLinks } from '@/constants/footerDatas';
 import FooterTitle from '../shared/FooterTitle';
