@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import BrandLogo from '@/assets/common/bloomimgLogo.png'
 import UserImage from '@/assets/common/user.png'
 import { Button } from '@/components/ui/button'
@@ -55,7 +55,7 @@ const Navbar = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <div className='max-md:hidden w-12 h-12 block rounded-full overflow-hidden border-2 border-primary cursor-pointer'>
-                  <Image src={UserImage} alt="User Profile" width={200} height={200} className='object-fit' /> shamim nader
+                  <Image src={UserImage} alt="User Profile" width={200} height={200} className='object-fit' /> 
                 </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-60 relative top-4 right-24">
