@@ -54,8 +54,11 @@ const Navbar = () => {
           ) : (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <div className='max-md:hidden w-12 h-12 block rounded-full overflow-hidden border-2 border-primary cursor-pointer'>
-                  <Image src={UserImage} alt="User Profile" width={200} height={200} className='object-fit' /> 
+                <div className='flex items-center gap-2 cursor-pointer'>
+                  <div className='max-md:hidden w-12 h-12 block rounded-full overflow-hidden border-2 border-primary cursor-pointer'>
+                    <Image src={UserImage} alt="User Profile" width={200} height={200} className='object-fit' />
+                  </div>
+                  <span>Shamim Nader</span>
                 </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-60 relative top-4 right-24">
@@ -83,7 +86,7 @@ const Navbar = () => {
                   <DropdownMenuItem className='cursor-pointer text-xl text-gray-600'>FAQ</DropdownMenuItem>
                 </Link>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem  className='cursor-pointer text-xl text-gray-600 font-semibold'>Sign Out</DropdownMenuItem>
+                <DropdownMenuItem className='cursor-pointer text-xl text-gray-600 font-semibold'>Sign Out</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           )}
@@ -133,7 +136,7 @@ const Navbar = () => {
                     <Link href="/faqs">FAQ</Link>
                   </li>}
                   <li className='px-3 py-4'>
-                    {!userRole ? <Link href="/signin" className='block bg-primary text-white px-4 py-2 rounded mt-2 text-center'>Sign In</Link> : <button  className='block w-full bg-primary text-white px-4 py-2 rounded mt-2 text-center'>Sign Out</button>}
+                    {!userRole ? <Link href="/signin" className='block bg-primary text-white px-4 py-2 rounded mt-2 text-center'>Sign In</Link> : <button className='block w-full bg-primary text-white px-4 py-2 rounded mt-2 text-center'>Sign Out</button>}
                   </li>
                 </ul>
               </SheetContent>
