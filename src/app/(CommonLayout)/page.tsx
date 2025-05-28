@@ -3,15 +3,27 @@ import DreamContent from "@/components/shared/DreamContent";
 import FAQ from "@/components/shared/FAQ";
 import NewBarandLooking from "@/components/shared/NewBarandLooking";
 import WhyChooseUs from "@/components/shared/WhyChooseUs";
+import HeroSection from "@/components/section/HeroSection";
+import BloomSection from "@/components/section/BloomSection";
+import CreatorAndBrands from "@/components/section/CreatorAndBrands";
 
 export default function Home() {
   return (
-      <main className="">
+      <main className="space-y-20">
+        <div>
+          <HeroSection />
+        </div>
+        <div>
+          <CreatorAndBrands />
+        </div>
         <div>
           <DreamContent />
         </div>
         <div>
           <NewBarandLooking />
+        </div>
+        <div>
+          <BloomSection />
         </div>
         <div className="py-10">
           <WhyChooseUs />

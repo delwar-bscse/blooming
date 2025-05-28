@@ -1,7 +1,30 @@
 import { ReactNode } from 'react';
 import { AnimationConfigWithData } from 'lottie-web';
+import { StaticImageData } from 'next/image';
 // import { StaticImageData } from 'next/image';
 
+
+// -------------------------- Why Chose Us Data Type -------------------------- //
+export interface subDataType {
+  title: string;
+  des: string;
+  features: string[];
+};
+
+// -------------------------- Why Chose Us Data Type -------------------------- //
+export interface counterDataType {
+  id: number;
+  number: string;
+  title: string;
+  bgColor: string;
+};
+
+// -------------------------- Why Chose Us Data Type -------------------------- //
+export interface reviewDataType {
+  id: number;
+  txt: string;
+  image: StaticImageData;
+};
 
 // -------------------------- Why Chose Us Data Type -------------------------- //
 export interface whyChoseUsType {

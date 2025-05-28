@@ -42,7 +42,7 @@ const Navbar = () => {
         <ul className='hidden lg:flex col-span-3 justify-center items-center gap-1 font-semibold text-gray-700'>
           {navbarItems.map((item) => (
             <li key={item.id} className='cursor-pointer px-3 py-1 rounded-sm hover:bg-[#FFECAC]'>
-              <Link href={`/${item.url}`}>{item.title}</Link>
+              <Link href={`${item.url}`}>{item.title}</Link>
             </li>
           ))}
         </ul>

@@ -14,6 +14,8 @@ const ContactUsTelephone = ({title}:{title:string}) => {
           <Image
             src={contactUsTelephone}
             alt="Contact Us Telephone"
+            width={200}
+            height={200}
             className="w-full h-auto object-cover"
           />
         </div>

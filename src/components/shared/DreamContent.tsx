@@ -8,23 +8,17 @@ import animationData from '@/assets/common/new/1.json'
 const DreamContent = () => {
   return (
     <div>
-      <div>
-        <div className='flex flex-col items-center gap-2 p-10'>
-          <h2 className='inline-block px-8 py-3 rounded-md text-2xl md:text-3xl xl:text-4xl font-semibold text-gray-800 bg-[#F6F2EA]'>only 3 steps to get your dream content</h2>
+      <div className='maxWidth'>
+        <div className='flex flex-col items-center gap-2 py-10'>
+          <h2 className='inline-block p-2 sm:px-8 sm:py-3 rounded-md text-2xl md:text-3xl xl:text-4xl font-semibold text-gray-800 bg-[#F6F2EA]'>only 3 steps to get your dream content</h2>
           <p>Collaborating with us is quick and hassle-free with only 3 steps</p>
         </div>
-        <Lottie
-          animationData={animationData}
-          className="w-full h-auto object-cover"
-          loop
-          autoplay
-        />
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
           {dreamContentDatas?.map((item) => (
             <div key={item.id} className='space-y-4'>
               {/* <Image src={item.image} alt={item.title} width={300} height={300} /> */}
               <Lottie
-                animationData={animationData}
+                animationData={item?.image || animationData}
                 className="w-full h-auto object-cover"
                 loop
                 autoplay
