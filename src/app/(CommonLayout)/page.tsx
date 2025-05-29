@@ -23,7 +23,7 @@ export default function Home() {
           <NewBarandLooking />
         </div>
         <div>
-          <BloomSection />
+          <BloomSection title='&quot;They Bloomed With Us. You Can Too!&quot;' des='Join the growing list of brands thriving with custom UGC content.' />
         </div>
         <div className="py-10">
           <WhyChooseUs />

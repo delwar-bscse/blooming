@@ -4,7 +4,18 @@ import { StaticImageData } from 'next/image';
 // import { StaticImageData } from 'next/image';
 
 
-// -------------------------- Why Chose Us Data Type -------------------------- //
+// -------------------------- Packages Data Type -------------------------- //
+export type packageDataType = {
+    id: number;
+    title: string;
+    videos: number;
+    des: string;
+    image: StaticImageData;
+    price: number;
+    features: string[];
+  };
+
+// -------------------------- Subscription Data Type -------------------------- //
 export interface subDataType {
   title: string;
   des: string;
