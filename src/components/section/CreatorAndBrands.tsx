@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import mapImage from "@/assets/common/map.png"
+import mapImage from "@/assets/common/map.jpg"
 import { counterDatas } from '@/constants/counterDatas'
 import { counterDataType } from '@/types/types'
 

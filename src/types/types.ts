@@ -5,6 +5,14 @@ import { StaticImageData } from 'next/image';
 
 
 // -------------------------- Packages Data Type -------------------------- //
+export type blogDatasType ={
+    id: number;
+    title: string;
+    des: string;
+    image: StaticImageData;
+}
+
+// -------------------------- Packages Data Type -------------------------- //
 export type packageDataType = {
     id: number;
     title: string;
