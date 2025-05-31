@@ -4,6 +4,22 @@ import { StaticImageData } from 'next/image';
 // import { StaticImageData } from 'next/image';
 
 
+// -------------------------- TimelineItem Data Type -------------------------- //
+export interface starterDataType {
+    id: number;
+    year: string;
+    title: string;
+    img: StaticImageData;
+};
+
+// -------------------------- TimelineItem Data Type -------------------------- //
+export interface TimelineItem {
+  year: string;
+  title: string;
+  description: string;
+  side: "left" | "right";
+}
+
 // -------------------------- Packages Data Type -------------------------- //
 export type blogDatasType ={
     id: number;
