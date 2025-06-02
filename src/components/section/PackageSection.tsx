@@ -6,8 +6,9 @@ import { LiaCheckCircle } from "react-icons/lia";
 const PackageSection = () => {
 
   const bgColor = ["#FFF9E5", "#E9EDF2", "#EBE2D1", "#E8E9E4"];
+
   return (
-    <div className='py-20'>
+    <div className='pt-20 pb-32'>
       <div className='maxWidth'>
         <div className='space-y-4 pb-10'>
           <h1 className='text-3xl dm:text-5xl lg:text-6xl font-bold text-center text-[#333333] capitalize'>our service</h1>

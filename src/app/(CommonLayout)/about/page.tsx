@@ -13,7 +13,7 @@ const About = () => {
     <section>
       <div>
         {/* --------------------------- He Sisters Behind Blooming Brands --------------------------- */}
-        <div className='maxWidth flex flex-col-reverse lg:flex-row gap-8 lg:gap-16 py-10'>
+        <div className='maxWidth flex flex-col-reverse lg:flex-row gap-8 lg:gap-16 py-32'>
           <div className='basis-[60%] flex flex-col justify-center gap-4 lg:p-8'>
             <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold'>He Sisters Behind Blooming Brands</h2>
             <p className='lg:leading-8'>Shamim and Fareshta Nader — sisters, creatives, and co-founders of Blooming Brands.With degrees in architecture and a deep-rooted love for creativity, we realized after university that the corporate world wasn’t for us. We wanted to build something of our own — something that gave us freedom, purpose, and a way to stay creative every single day.That’s how Blooming Brands was born.As creators ourselves, we understand both sides of the UGC world — the brand expectations and the creator experience. Our mission is to build an agency that empowers creators with real opportunities, and helps brands connect through authentic, scroll-stopping content.We’re not just an agency — we’re a creative home for brands and creators alike. Welcome to the house. 🏠</p>
@@ -29,7 +29,7 @@ const About = () => {
         </div>
 
         {/* --------------------------- Meet Our Team --------------------------- */}
-        <div className='maxWidth space-y-4 md:space-y-8 py-10'>
+        <div className='maxWidth space-y-4 md:space-y-8 pt-28'>
           <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-center'>Meet Our Team</h2>
           <div>
             <Image src={videoThumb} alt="Blooming Brands" className='' />
@@ -37,7 +37,7 @@ const About = () => {
         </div>
 
         {/* --------------------------- Our Vision --------------------------- */}
-        <div className='maxWidth flex flex-col lg:flex-row gap-8 lg:gap-16 py-10'>
+        <div className='maxWidth flex flex-col lg:flex-row gap-8 lg:gap-16 py-28'>
           <div className='w-full md:basis-[40%]'>
             <Image src={aboutImg2} alt="Blooming Brands" className='' />
           </div>
@@ -48,7 +48,7 @@ const About = () => {
         </div>
 
         {/* --------------------------- What We Offer --------------------------- */}
-        <div className='maxWidth flex flex-col lg:flex-row gap-8 lg:gap-16 py-10'>
+        <div className='maxWidth flex flex-col lg:flex-row gap-8 lg:gap-16 pb-28'>
           <div className='w-full md:basis-[40%]'>
             <Image src={aboutImg3} alt="Blooming Brands" className='' />
           </div>

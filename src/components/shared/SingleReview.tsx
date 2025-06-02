@@ -6,7 +6,7 @@ import { reviewDataType } from '@/types/types'
 const SingleReview = ({review}:{review:reviewDataType}) => {
   return (
     <>
-      <div className='border-[2px] border-gray-400 rounded-lg shadow-lg relative flex flex-col items-center justify-center mt-[90px]'>
+      <div className='border-[2px] border-gray-400 rounded-lg shadow-lg relative flex flex-col items-center justify-center mt-[90px] bg-white'>
         <div className='absolute -top-[75px] mx-auto w-[150px] h-[150px] rounded-full overflow-hidden'>
           <Image 
           src={review?.image || reviewImg}

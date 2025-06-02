@@ -31,7 +31,7 @@ const Navbar = () => {
   const userRole: boolean = true;
 
   return (
-    <div className='shadow-md'>
+    <div className='shadow-md bg-[#DEE5EC]'>
       <div className='maxWidth flex justify-between items-center maxWidth py-3 px-2'>
         {/* Brand Logo */}
         <Link href="/" className='flex justify-start items-center'>

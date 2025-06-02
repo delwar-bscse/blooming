@@ -19,7 +19,7 @@ const BloomSectionPortfolio = ({title,des}:{title:string,des:string}) => {
             <BloomComponent min={0} max={6} />
           )}
         </>
-        <div className='max-w-[200px] mx-auto py-8'>
+        <div className='max-w-[200px] mx-auto pt-16'>
           <button onClick={() => setShowMore(!showMore)} className='bg-[#FFECAC] hover:bg-[rgb(255,231,152)] block text-center py-2 px-2 w-full rounded-md shadow-sm cursor-pointer text-gray-700 hover:text-gray-500 font-semibold transition-all duration-500'>{showMore ? 'Show Less' : 'Show More'}</button>
         </div>
       </div>

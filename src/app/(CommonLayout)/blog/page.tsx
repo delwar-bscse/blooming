@@ -13,7 +13,7 @@ const Blog = () => {
           <Image src={blogBanner} alt="content image" width={500} height={500} className='object-cover w-full' />
         </div>
       </div>
-      <div className='maxWidth grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
+      <div className='maxWidth grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8'>
         {blogDatas?.map((data)=>(
           <div key={data.id} className='rounded-lg shadow-lg p-4 space-y-4'>
             <div className='rounded-lg overflow-hidden'>

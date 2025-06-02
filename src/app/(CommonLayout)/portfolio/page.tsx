@@ -11,13 +11,13 @@ const Protfolio = () => {
       <div>
         <PortfolioHeroSection />
       </div>
-      <div>
+      <div className='py-20'>
         <BloomSectionPortfolio title='&quot;They Bloomed With Us. You Can Too!&quot;' des='Join the growing list of brands thriving with custom UGC content.' />
       </div>
       <div className='py-20'>
         <NewBarandLooking />
       </div>
-      <div>
+      <div className='pt-20'>
         <ContactUsTelephone title="Let’s find the best fit for your goals  no pressure, just a chat." />
       </div>
     </div>

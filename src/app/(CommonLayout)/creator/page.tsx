@@ -12,7 +12,7 @@ const Creator = () => {
   return (
     <div>
       <div></div>
-      <div className='relative bg-[#F6F2EA] py-20 space-y-12'>
+      <div className='relative bg-[#F6F2EA] py-28 space-y-12'>
         <div className='relative z-10 flex flex-col justify-center items-center gap-3'>
           <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-font01'>Want to become</h2>
           <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-font01'>Blooming brands creator partner?</h2>
@@ -24,7 +24,7 @@ const Creator = () => {
         <Image src={butterfly} alt="butterfly" width={100} height={100} className='absolute top-10 left-10' />
         <Image src={butterfly} alt="butterfly" width={100} height={100} className='absolute bottom-10 right-10' />
       </div>
-      <div className='py-20'>
+      <div className='py-28'>
         <Title title="Turn Your Creativity Into Consistent Paid Work" />
         <div className='maxWidth space-y-10'>
           {turnCreativityDatas?.map((item: whyChoseUsType) => (

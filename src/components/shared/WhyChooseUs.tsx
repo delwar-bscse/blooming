@@ -10,7 +10,9 @@ const WhyChooseUs = () => {
       <Title title="Why Choose Us" />
       <div className='maxWidth space-y-10'>
         {whyChoseUsDatas?.map((item:whyChoseUsType)=>(
-          <SingleChooseUs key={item.id} item={item} />
+          <div key={item.id} className='sticky top-40 w-full bg-white shadow-md'>
+            <SingleChooseUs item={item} />
+          </div>
         ))}
       </div>
     </div>

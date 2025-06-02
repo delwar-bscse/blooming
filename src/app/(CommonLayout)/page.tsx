@@ -9,8 +9,8 @@ import CreatorAndBrands from "@/components/section/CreatorAndBrands";
 
 export default function Home() {
   return (
-      <main className="space-y-20">
-        <div>
+      <main className="space-y-40">
+        <div className="">
           <HeroSection />
         </div>
         <div>

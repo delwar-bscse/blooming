@@ -9,7 +9,7 @@ const Service = () => {
       <div>
         <PackageSection />
       </div>
-      <div className='py-20 bg-[#D9E2CF]'>
+      <div className='py-28 bg-[#D9E2CF]'>
         <SubSection />
       </div>
       <div>
