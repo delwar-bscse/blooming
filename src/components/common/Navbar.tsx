@@ -31,7 +31,7 @@ const Navbar = () => {
   const userRole: boolean = true;
 
   return (
-    <div className='shadow-md bg-[#DEE5EC]'>
+    <div className='shadow-md bg-[#DEE5EC] sticky top-0 z-50'>
       <div className='maxWidth flex justify-between items-center maxWidth py-3 px-2'>
         {/* Brand Logo */}
         <Link href="/" className='flex justify-start items-center'>
@@ -76,7 +76,7 @@ const Navbar = () => {
                   </DropdownMenuItem>
                 </Link>
                 <DropdownMenuSeparator />
-                <Link href="/terms-and-conditions" className='cursor-pointer'>
+                {/* <Link href="/terms-and-conditions" className='cursor-pointer'>
                   <DropdownMenuItem className='cursor-pointer text-xl text-gray-600'>Terms & Conditions</DropdownMenuItem>
                 </Link>
                 <Link href="/privacy-policy" className='cursor-pointer'>
@@ -85,7 +85,7 @@ const Navbar = () => {
                 <Link href="/faqs">
                   <DropdownMenuItem className='cursor-pointer text-xl text-gray-600'>FAQ</DropdownMenuItem>
                 </Link>
-                <DropdownMenuSeparator />
+                <DropdownMenuSeparator /> */}
                 <DropdownMenuItem className='cursor-pointer text-xl text-gray-600 font-semibold'>Sign Out</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

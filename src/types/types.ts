@@ -5,11 +5,21 @@ import { StaticImageData } from 'next/image';
 
 
 // -------------------------- TimelineItem Data Type -------------------------- //
+export interface contentDataType {
+  img: StaticImageData;
+  des: string;
+}
+export interface brandChooseDatasType {
+  title: string;
+  content: contentDataType[];
+}
+
+// -------------------------- TimelineItem Data Type -------------------------- //
 export interface starterDataType {
-    id: number;
-    year: string;
-    title: string;
-    img: StaticImageData;
+  id: number;
+  year: string;
+  title: string;
+  img: StaticImageData;
 };
 
 // -------------------------- TimelineItem Data Type -------------------------- //
@@ -21,23 +31,23 @@ export interface TimelineItem {
 }
 
 // -------------------------- Packages Data Type -------------------------- //
-export type blogDatasType ={
-    id: number;
-    title: string;
-    des: string;
-    image: StaticImageData;
+export type blogDatasType = {
+  id: number;
+  title: string;
+  des: string;
+  image: StaticImageData;
 }
 
 // -------------------------- Packages Data Type -------------------------- //
 export type packageDataType = {
-    id: number;
-    title: string;
-    videos: number;
-    des: string;
-    image: StaticImageData;
-    price: number;
-    features: string[];
-  };
+  id: number;
+  title: string;
+  videos: number;
+  des: string;
+  image: StaticImageData;
+  price: number;
+  features: string[];
+};
 
 // -------------------------- Subscription Data Type -------------------------- //
 export interface subDataType {

@@ -9,8 +9,6 @@ const BloomSection = ({ title, des }: { title: string, des: string }) => {
   return (
     <section className='bg-[#E9EDF2]'>
       <div className='maxWidth py-20'>
-        {/* <h2>See Why Brands Choose Blooming Brands And Why You Should Too.</h2>
-        <p>Explore real feedback from real clients then start your story with us.</p> */}
         <div className='pb-16'>
           <BloomHeading title="See Why Brands Choose Blooming Brands And Why You Should Too." des="Explore real feedback from real clients then start your story with us." />
         </div>
