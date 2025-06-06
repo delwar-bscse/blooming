@@ -18,25 +18,25 @@ import { Input } from "@/components/ui/input";
 
 // Schema
 const contactUsFormSchema = z.object({
-  instagramLink: z.string(),
-  instagramHandle: z.string(),
-  tiktokHandle: z.string(),
-  tiktokLink: z.string(),
-  websiteUrl: z.string(),
+  fullName: z.string(),
+  email: z.string().email({
+    message: "Please enter a valid email address.",
+  }),
+  phoneNumber: z.string(),
+  dob: z.string(),
 });
 
 // Type
 type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 
 const defaultValues: Partial<ContactUsFormValues> = {
-  instagramLink: "",
-  instagramHandle: "",
-  tiktokHandle: "",
-  tiktokLink: "",
-  websiteUrl: "",
+  fullName: "",
+  email: "",
+  phoneNumber: "",
+  dob: "",
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
-const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => {
+const Signup01 = ({ handleStep }: { handleStep: (step: number) => void }) => {
   const form = useForm<ContactUsFormValues>({
     resolver: zodResolver(contactUsFormSchema),
     defaultValues,
@@ -46,25 +46,25 @@ const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => 
   function onSubmit(data: ContactUsFormValues) {
     // toast.success("Message send successfully!");
     console.log("Submitted Data:", data);
-    handleStep(3);
+    handleStep(2);
   }
 
   return (
     <div className="w-full max-w-[700px] mx-auto flex text-center justify-center py-20 px-2">
       <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
-        <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Brand Social</h2>
+        <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Step One</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
 
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="instagramLink"
+              name="fullName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Instagram Link</FormLabel>
+                  <FormLabel className="text-white text-lg">Full Name</FormLabel>
                   <FormControl>
-                    <Input variant="borderwhite" placeholder="Type..." {...field} />
+                    <Input variant="borderwhite" placeholder="Enter full name" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -74,12 +74,12 @@ const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => 
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="instagramHandle"
+              name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Instagram Handle</FormLabel>
+                  <FormLabel className="text-white text-lg">Email</FormLabel>
                   <FormControl>
-                    <Input variant="borderwhite" placeholder="Type..." {...field} />
+                    <Input variant="borderwhite" placeholder="Enter email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -89,12 +89,12 @@ const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => 
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="tiktokLink"
+              name="phoneNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Tik Tok Link</FormLabel>
+                  <FormLabel className="text-white text-lg">Phone Number</FormLabel>
                   <FormControl>
-                    <Input variant="borderwhite" placeholder="Type..." {...field} />
+                    <Input variant="borderwhite" placeholder="Enter phone number" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -104,33 +104,17 @@ const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => 
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="tiktokHandle"
+              name="dob"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Tik Tok Handle</FormLabel>
+                  <FormLabel className="text-white text-lg">Date of Birth</FormLabel>
                   <FormControl>
-                    <Input variant="borderwhite" placeholder="Type..." {...field} />
+                    <Input variant="borderwhite" placeholder="01.01.2001" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-
-            {/* Brand Name */}
-            <FormField
-              control={form.control}
-              name="websiteUrl"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white text-lg">Website URL</FormLabel>
-                  <FormControl>
-                    <Input variant="borderwhite" placeholder="Type..." {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
 
             {/* Submit */}
             <Button variant="customWhite" type="submit" size="llg" className="w-full">
@@ -139,11 +123,11 @@ const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => 
           </form>
         </Form>
 
-      {/* <Toaster  position="top-right" reverseOrder={false}/> */}
+        {/* <Toaster  position="top-right" reverseOrder={false}/> */}
 
-    </div>
+      </div>
     </div>
   );
 };
 
-export default BrandSocial;
+export default Signup01;

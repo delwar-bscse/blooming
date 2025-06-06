@@ -14,8 +14,8 @@ const HeroSection = () => {
             <h2 className='text-[#636C43] text-3xl md:text-5xl lg:text-6xl font-bold'>Blooming Brands</h2>
             <p className='text-[#545454] text-center max-w-[650px]'>whether you are here to create or collaborate this is where it all starts.creator and brand connects a space for authentic collaboration and impactful ugc content</p>
             <div className="w-full max-w-[500px] flex flex-col md:flex-row gap-4 mt-4">
-              <CustomButton text="Apply As Creators" />
-              <CustomButton text="Hire a Creator" />
+              <CustomButton text="Apply As Creators" url="/creator-signup"/>
+              <CustomButton text="Hire a Creator" url="/brand-form" />
             </div>
           </div>
           <div>

@@ -14,29 +14,44 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { useRouter } from "next/navigation";
 // import toast, { Toaster } from 'react-hot-toast';
 
 // Schema
 const contactUsFormSchema = z.object({
-  instagramLink: z.string(),
-  instagramHandle: z.string(),
-  tiktokHandle: z.string(),
-  tiktokLink: z.string(),
-  websiteUrl: z.string(),
+  bankDetails: z.string(),
+  accountHolderName: z.string(),
+  bankName: z.string(),
+  iban: z.string(),
+  swiftBicCode: z.string(),
+  accountNumber: z.string(),
+  paypalEmail: z.string().email({
+    message: "Please enter a valid email address.",
+  }),
 });
 
 // Type
 type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 
 const defaultValues: Partial<ContactUsFormValues> = {
-  instagramLink: "",
-  instagramHandle: "",
-  tiktokHandle: "",
-  tiktokLink: "",
-  websiteUrl: "",
+  bankDetails: "",
+  accountHolderName: "",
+  bankName: "",
+  iban: "",
+  swiftBicCode: "",
+  accountNumber: "",
+  paypalEmail: "",
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
-const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => {
+const Signup07 = ({ handleStep }: { handleStep: (step: number) => void }) => {
+  const router = useRouter();
   const form = useForm<ContactUsFormValues>({
     resolver: zodResolver(contactUsFormSchema),
     defaultValues,
@@ -46,23 +61,47 @@ const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => 
   function onSubmit(data: ContactUsFormValues) {
     // toast.success("Message send successfully!");
     console.log("Submitted Data:", data);
-    handleStep(3);
+    router.push("/");
+    // handleStep(1);
   }
 
   return (
     <div className="w-full max-w-[700px] mx-auto flex text-center justify-center py-20 px-2">
       <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
-        <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Brand Social</h2>
+        <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Step Three</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-
+                        {/* Brand Name */}
+            <FormField
+              control={form.control}
+              name="bankDetails"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">Bank Details</FormLabel>
+                  <Select value={field.value} onValueChange={field.onChange} >
+                    <FormControl>
+                      <SelectTrigger variant="borderwhite" className="w-full">
+                        <SelectValue placeholder="Select a bank" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="Pay Pal">Pay Pal</SelectItem>
+                      <SelectItem value="Moor Ventures">Moor Ventures</SelectItem>
+                      <SelectItem value="Moor Industries">Moor Industries</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="instagramLink"
+              name="accountHolderName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Instagram Link</FormLabel>
+                  <FormLabel className="text-white text-lg">Full Name of The Account Holder</FormLabel>
                   <FormControl>
                     <Input variant="borderwhite" placeholder="Type..." {...field} />
                   </FormControl>
@@ -70,14 +109,14 @@ const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => 
                 </FormItem>
               )}
             />
-
+            
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="instagramHandle"
+              name="bankName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Instagram Handle</FormLabel>
+                  <FormLabel className="text-white text-lg">Bank Name</FormLabel>
                   <FormControl>
                     <Input variant="borderwhite" placeholder="Type..." {...field} />
                   </FormControl>
@@ -85,14 +124,14 @@ const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => 
                 </FormItem>
               )}
             />
-
+            
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="tiktokLink"
+              name="iban"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Tik Tok Link</FormLabel>
+                  <FormLabel className="text-white text-lg">IBAN</FormLabel>
                   <FormControl>
                     <Input variant="borderwhite" placeholder="Type..." {...field} />
                   </FormControl>
@@ -100,14 +139,14 @@ const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => 
                 </FormItem>
               )}
             />
-
+            
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="tiktokHandle"
+              name="swiftBicCode"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Tik Tok Handle</FormLabel>
+                  <FormLabel className="text-white text-lg">SWIFT/BIC Code</FormLabel>
                   <FormControl>
                     <Input variant="borderwhite" placeholder="Type..." {...field} />
                   </FormControl>
@@ -115,14 +154,14 @@ const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => 
                 </FormItem>
               )}
             />
-
+            
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="websiteUrl"
+              name="accountNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Website URL</FormLabel>
+                  <FormLabel className="text-white text-lg">Account Number (If IBAN Not Used)</FormLabel>
                   <FormControl>
                     <Input variant="borderwhite" placeholder="Type..." {...field} />
                   </FormControl>
@@ -130,20 +169,34 @@ const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => 
                 </FormItem>
               )}
             />
-
+            
+            {/* Brand Name */}
+            <FormField
+              control={form.control}
+              name="paypalEmail"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">PayPal Email</FormLabel>
+                  <FormControl>
+                    <Input variant="borderwhite" placeholder="Type..." {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
             {/* Submit */}
             <Button variant="customWhite" type="submit" size="llg" className="w-full">
-              Next
+              Confirm
             </Button>
           </form>
         </Form>
 
-      {/* <Toaster  position="top-right" reverseOrder={false}/> */}
+        {/* <Toaster  position="top-right" reverseOrder={false}/> */}
 
-    </div>
+      </div>
     </div>
   );
 };
 
-export default BrandSocial;
+export default Signup07;
