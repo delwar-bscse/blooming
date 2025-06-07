@@ -6,7 +6,7 @@ const variantClasses: Record<string, string> = {
   borderblack: "border-2 border-gray-400 focus-visible:ring-gray-200",
   borderwhite: "border-2 border-gray-300 focus-visible:ring-gray-200 placeholder:text-white text-white h-11 file:text-white",
   borderwhiteVideo: "border-2 border-gray-300 focus-visible:ring-gray-200 placeholder:text-white text-white h-20 file:text-white",
-  // Add more variants as needed
+  inputHidden: "hidden",
 }
 
 type InputProps = React.ComponentProps<"input"> & {

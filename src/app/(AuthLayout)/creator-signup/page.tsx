@@ -26,7 +26,7 @@ export default function CreatorSignup() {
           {formStep === 4 && <Signup04 handleStep={handleStep}/>}
           {formStep === 5 && <Signup05 handleStep={handleStep}/>}
           {formStep === 6 && <Signup06 handleStep={handleStep}/>}
-          {formStep === 7 && <Signup07 handleStep={handleStep}/>}
+          {formStep === 7 && <Signup07 />}
         </div>
       </div>
   );

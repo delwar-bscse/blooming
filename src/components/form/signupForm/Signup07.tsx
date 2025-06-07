@@ -50,7 +50,7 @@ const defaultValues: Partial<ContactUsFormValues> = {
   paypalEmail: "",
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
-const Signup07 = ({ handleStep }: { handleStep: (step: number) => void }) => {
+const Signup07 = () => {
   const router = useRouter();
   const form = useForm<ContactUsFormValues>({
     resolver: zodResolver(contactUsFormSchema),
