@@ -1,7 +1,6 @@
 
 
 import formBg from "@/assets/common/formBackground.png";
-import ForgotPassword from "@/components/form/authForm/ForgotPassword";
 import VerifyOtp from "@/components/form/authForm/VerifyOtp";
 
 export default function CreatorSignup() {

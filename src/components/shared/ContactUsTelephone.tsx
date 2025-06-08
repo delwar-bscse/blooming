@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import contactUsTelephone from '@/assets/common/freeCall.png' // Adjust the path as necessary
+import Link from 'next/link'
 
 const ContactUsTelephone = ({ title, des, btn = "Contact Us" }: { title: string, des?: string, btn?: string }) => {
   return (
@@ -11,7 +12,7 @@ const ContactUsTelephone = ({ title, des, btn = "Contact Us" }: { title: string,
             <p className='text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold text-gray-500 text-center'>{title}</p>
             {des && <p className='md:text-xl lg:text-2xl font-semibold text-gray-500 text-center'>{des}</p>}
           </div>
-          <button className='bg-[#B7C6D5] hover:bg-opacity-80 cursor-pointer text-gray-800 py-2 px-8 rounded-md font-semibold'>{btn}</button>
+          <Link href="/contactus" className='bg-[#B7C6D5] hover:bg-opacity-80 cursor-pointer text-gray-800 py-2 px-8 rounded-md font-semibold'>{btn}</Link>
         </div>
         <div className='sm:basis-[40%]'>
           <Image

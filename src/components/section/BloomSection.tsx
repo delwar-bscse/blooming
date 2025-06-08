@@ -28,7 +28,7 @@ const BloomSection = ({ title, des }: { title: string, des: string }) => {
           <BloomComponent min={0} max={3} />
         </>
         <div className='max-w-[200px] mx-auto pt-16'>
-          <CustomButton text="View Portfolio" url="#" />
+          <CustomButton text="View Portfolio" url="/portfolio" />
         </div>
       </div>
     </section>

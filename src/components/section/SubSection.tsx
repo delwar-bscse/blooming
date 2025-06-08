@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import subImage from "@/assets/common/subscription.png";
 import { subDatas } from "@/constants/subDatas"
+import { Button } from "@/components/ui/button"
 
 const SubSection = () => {
   return (
@@ -10,7 +11,7 @@ const SubSection = () => {
         <div className='border-2 border-gray-400 rounded-md w-full sm:max-w-80 h-full overflow-hidden'>
           <Image src={subImage} alt="Video Analysis" width={500} height={500} className='object-cover' />
         </div>
-        <div className='grow border-2 border-gray-400 rounded-md'>
+        <div className='relative grow border-2 border-gray-400 rounded-md'>
           <div className='border-b-2 border-gray-400 p-4'>
             <h2 className='text-2xl font-bold'>{subDatas?.title}</h2>
             <p className='text-gray-600'>{subDatas?.des}</p>
@@ -20,6 +21,9 @@ const SubSection = () => {
               <li key={index} className='list-disc list-inside text-gray-700'>{feature}</li>
             ))}
           </ul>
+          <div className='absolute right-4 bottom-6'>
+            <Button variant="customYellow" className='w-full mt-8 h-12'>Purchase Now</Button>
+          </div>
         </div>
       </div>
     </div>

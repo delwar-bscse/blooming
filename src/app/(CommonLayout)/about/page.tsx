@@ -55,7 +55,7 @@ const About = () => {
           <div className='basis-[60%] flex flex-col justify-center gap-8 lg:p-8'>
             <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-center'>It’s time your content worked as hard as you do. See what we offer</h2>
             <div className='w-full max-w-40 mx-auto'>
-              <CustomButton text="contact Us" />
+              <CustomButton text="contact Us" url='/contact'/>
             </div>
           </div>
         </div>

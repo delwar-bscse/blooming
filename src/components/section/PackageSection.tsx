@@ -2,6 +2,7 @@ import { packageData } from '@/constants/packageData'
 import Image from 'next/image'
 import React from 'react'
 import { LiaCheckCircle } from "react-icons/lia";
+import { Button } from "@/components/ui/button"
 
 const PackageSection = () => {
 
@@ -31,6 +32,7 @@ const PackageSection = () => {
                   </li>
                 ))}
               </ul>
+              <Button variant="customYellow" className='w-full mt-8 h-12'>Purchase Now</Button>
             </div>
           ))}
         </div>
