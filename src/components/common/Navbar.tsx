@@ -110,10 +110,8 @@ const Navbar = () => {
                   ))}
 
                   <li className='px-3 py-4'>
-                    {!userRole ? (
+                    {!userRole && (
                       <Link href="/signin" className='block bg-primary text-white px-4 py-2 rounded mt-2 text-center'>Sign In</Link>
-                    ) : (
-                      <button className='block w-full bg-primary text-white px-4 py-2 rounded mt-2 text-center'>Sign Out</button>
                     )}
                   </li>
                 </ul>
