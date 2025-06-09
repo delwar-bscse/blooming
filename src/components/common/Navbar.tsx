@@ -43,7 +43,7 @@ const Navbar = () => {
           {navbarItems.map((item) => (
             <li
               key={item.id}
-              className={`cursor-pointer px-3 py-1 rounded-sm transition-colors duration-200 ${
+              className={`cursor-pointer px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 ${
                 isActive(item.url)
                   ? 'bg-[#FFECAC] text-primary font-bold'
                   : 'hover:bg-[#FFECAC]'
@@ -63,7 +63,7 @@ const Navbar = () => {
               <div className='max-md:hidden w-12 h-12 rounded-full overflow-hidden border-2 border-primary'>
                 <Image src={UserImage} alt="User Profile" width={200} height={200} className='object-fit' />
               </div>
-              <Link href="/profile" className='hidden xl:inline-block'>Shamim Nader</Link>
+              <Link href="/profile" className='hidden xl:inline-block font-bold text-gray-700'>Shamim Nader</Link>
             </div>
           )}
 

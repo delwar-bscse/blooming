@@ -11,46 +11,46 @@ import { ContactItem, FollowUs, QuickLink } from "@/types/types";
 export const quickLinks:QuickLink[] = [
   {
     title:"Service",
-    url:"#"
+    url:"/service"
   },
   {
     title:"Portfolio",
-    url:"contact"
+    url:"/portfolio"
   },
   {
     title:"Contact Us",
-    url:"#"
+    url:"/contactus"
   },
   {
     title:"About Us",
-    url:"#"
+    url:"/about"
   },
   {
     title:"Blog",
-    url:"#"
+    url:"/blog"
   },
 ];
 
 export const creatorLink:QuickLink[] = [
   {
     title:"For Creator",
-    url:"#"
+    url:"/creator"
   },
   {
     title:"For Agency",
-    url:"#"
+    url:"/agency"
   },
   {
     title:"Contact Us",
-    url:"#"
+    url:"/contact"
   },
   {
     title:"Blog",
-    url:"#"
+    url:"/blog"
   },
   {
     title:"About Us",
-    url:"#"
+    url:"/about"
   },
 ];
 
@@ -60,7 +60,7 @@ export const contactInfo:ContactItem[] = [
     icon: <LuPhoneCall size={20} />
   },
   {
-    title:"info@example.com",
+    title:"shamimnadir@example.com",
     icon: <FiMail size={20} />
   },
   {
@@ -68,7 +68,7 @@ export const contactInfo:ContactItem[] = [
     icon: <GrLocation size={20} />
   },
   {
-    title:"Company Owner Name",
+    title:"Shamim Nader",
     icon: <FaRegUser size={20} />
   }
 ];

@@ -19,21 +19,25 @@ const Creator = () => {
           <p className=' text-sm text-center max-w-[800px] text-font02'>&quot;We’re kicking off the foundation of our blooming brands marketing funnel — laying the groundwork for a high-impact campaign, executed in three streamlined steps for maximum efficiency and results.&quot;</p>
         </div>
         <div className='w-full max-w-[200px] mx-auto'>
-          <CustomButton text="Apply As Creators" />
+          <CustomButton text="Apply As Creators" url="/creator-signup" />
         </div>
         <Image src={butterfly} alt="butterfly" width={100} height={100} className='absolute top-10 left-10' />
         <Image src={butterfly} alt="butterfly" width={100} height={100} className='absolute bottom-10 right-10' />
       </div>
       <div className='py-28'>
-        <Title title="Turn Your Creativity Into Consistent Paid Work" />
+        <div className='sticky top-40'>
+          <Title title="Turn Your Creativity Into Consistent Paid Work" />
+        </div>
         <div className='maxWidth space-y-10'>
           {turnCreativityDatas?.map((item: whyChoseUsType) => (
-            <SingleChooseUs key={item.id} item={item} />
+            <div key={item.id} className='sticky top-68 w-full bg-white border-2 h-[300px] px-4 lg:px-8 flex flex-col items-center justify-center rounded-md mt-20'>
+              <SingleChooseUs item={item} />
+            </div>
           ))}
         </div>
       </div>
       <div>
-        <ContactUsTelephone title="Join Our Creator Network Today" des="Get paid to create content you love, for brands you'll love even more" btn="Sign Up as Creator" />
+        <ContactUsTelephone title="Join Our Creator Network Today" des="Get paid to create content you love, for brands you'll love even more" btn="Sign Up as Creator" url='/creator-signup'/>
       </div>
     </div>
   )

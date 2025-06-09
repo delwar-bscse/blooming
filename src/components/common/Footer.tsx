@@ -58,7 +58,7 @@ const Footer = () => {
           <p>Follow Us : </p>
           <ul className="flex gap-2">
             {followUs?.map((item, index) => (
-              <li key={index} className="cursor-pointer bg-white p-2 rounded-full">
+              <li key={index} className="cursor-pointer bg-white p-2 rounded-full  hover:scale-110 transform-transition transition-all duration-200">
                 <a href={item?.url} target="_blank" rel="noopener noreferrer" className="text-[#6D715F]">
                   {item?.icon}
                 </a>

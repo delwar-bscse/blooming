@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button"
 const SubSection = () => {
   return (
     <div className='px-2 flex justify-center items-center'>
-      <div className='flex flex-col md:flex-row border-2 border-gray-400 rounded-md gap-4 p-4 bg-white'>
+      <div id='subscription' className='flex flex-col md:flex-row border-2 border-gray-400 rounded-md gap-4 p-4 bg-white'>
         <div className='border-2 border-gray-400 rounded-md w-full sm:max-w-80 h-full overflow-hidden'>
-          <Image src={subImage} alt="Video Analysis" width={500} height={500} className='object-cover' />
+          <Image id='subImage' src={subImage} alt="Video Analysis" width={500} height={500} className='object-cover transition-transform duration-500 ease-in-out' />
         </div>
         <div className='relative grow border-2 border-gray-400 rounded-md'>
           <div className='border-b-2 border-gray-400 p-4'>

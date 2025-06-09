@@ -6,6 +6,7 @@ import image2 from "@/assets/common/blog/blog2.png"
 import image3 from "@/assets/common/blog/blog3.png"
 import image4 from "@/assets/common/blog/blog4.png"
 import image5 from "@/assets/common/blog/blog5.png"
+import { TypingAnimation } from "@/components/magicui/typing-animation";
 
 const images = [image2, image3, image2]
 
@@ -15,7 +16,7 @@ const Blog = () => {
       <div className='maxWidth space-y-20'>
         {/* -------------------------- User Generated Content VS Artificially Generated Content */}
         <div className='space-y-8 pt-16'>
-          <h2 className='max-w-[600px] mx-auto text-center text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold text-font01 lg:leading-12'>User Generated Content VS Artificially Generated Content</h2>
+          <TypingAnimation duration={50} className='max-w-[600px] mx-auto text-center text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold text-font01 lg:leading-12'>User Generated Content VS Artificially Generated Content</TypingAnimation>
           <div className='max-w-[200px] mx-auto pb-8'>
             <CustomButton text="Get Started" />
           </div>
@@ -61,7 +62,7 @@ const Blog = () => {
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 pt-4 md:pt-8'>
             {images.map((image, index) => (
               <div key={index} className='w-full overflow-hidden'>
-                <Image src={image} alt="content image" className='object-cover w-full' />
+                <Image src={image} alt="content image" className='object-cover w-full hover:scale-105 transform-transition duration-300' />
               </div>
             ))}
           </div>

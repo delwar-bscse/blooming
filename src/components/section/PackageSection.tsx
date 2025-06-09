@@ -17,9 +17,9 @@ const PackageSection = () => {
         </div>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
           {packageData?.map((item) => (
-            <div key={item.id} style={{ backgroundColor: bgColor[item.id - 1] }} className='p-4 lg:p-6 rounded-4xl shadow-lg'>
+            <div id='package' key={item.id} style={{ backgroundColor: bgColor[item.id - 1] }} className='p-4 lg:p-6 rounded-4xl shadow-lg'>
               <div className='border-6 border-[#FFECAC] rounded-t-4xl overflow-hidden mb-4 h-[360px]'>
-                <Image src={item?.image} alt={item?.title} className='object-cover h-full'/>
+                <Image id='packageImg' src={item?.image} alt={item?.title} className='object-cover h-full transition-transform duration-500 ease-in-out'/>
               </div>
               <h2 className='text-2xl font-bold text-center'>{item?.title}</h2>
               <h2 className='text-2xl font-bold text-center'>{`${item?.videos}x videos`}</h2>

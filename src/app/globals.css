@@ -250,3 +250,27 @@
     @apply shadow-[0_0_5px_rgba(0,0,0,0.1)];
   }
 }
+
+#singleChooseUs:hover #singleChooseUsImg{
+  @apply scale-105 transition-transform duration-500 ease-in-out;
+}
+
+#package:hover #packageImg{
+  @apply scale-105 transition-transform duration-500 ease-in-out;
+}
+
+#subscription:hover #subImage{
+  @apply scale-105 transition-transform duration-500 ease-in-out;
+}
+
+#review:hover #reviewImage{
+  @apply scale-105 transition-transform duration-500 ease-in-out;
+}
+
+#contactUsTelephone:hover #contactUsTelephoneImg{
+  @apply scale-105 transition-transform duration-500 ease-in-out;
+}
+
+.parentDiv:hover .childDiv{
+  @apply scale-105 transition-transform duration-500 ease-in-out;
+}

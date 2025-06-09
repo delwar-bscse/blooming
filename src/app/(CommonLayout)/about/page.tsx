@@ -6,6 +6,7 @@ import Image from 'next/image'
 import CustomButton from '@/components/ui/CustomButton'
 import videoThumb from "@/assets/common/video_image.png"
 import TimelineComponent from '@/components/shared/Timeline'
+import { TypingAnimation } from "@/components/magicui/typing-animation";
 
 
 const About = () => {
@@ -15,10 +16,10 @@ const About = () => {
         {/* --------------------------- He Sisters Behind Blooming Brands --------------------------- */}
         <div className='maxWidth flex flex-col-reverse lg:flex-row gap-8 lg:gap-16 py-32'>
           <div className='basis-[60%] flex flex-col justify-center gap-4 lg:p-8'>
-            <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold'>He Sisters Behind Blooming Brands</h2>
-            <p className='lg:leading-8'>Shamim and Fareshta Nader — sisters, creatives, and co-founders of Blooming Brands.With degrees in architecture and a deep-rooted love for creativity, we realized after university that the corporate world wasn’t for us. We wanted to build something of our own — something that gave us freedom, purpose, and a way to stay creative every single day.That’s how Blooming Brands was born.As creators ourselves, we understand both sides of the UGC world — the brand expectations and the creator experience. Our mission is to build an agency that empowers creators with real opportunities, and helps brands connect through authentic, scroll-stopping content.We’re not just an agency — we’re a creative home for brands and creators alike. Welcome to the house. 🏠</p>
+            <TypingAnimation className='text-2xl md:text-3xl xl:text-4xl font-bold' duration={100}>He Sisters Behind Blooming Brands</TypingAnimation>
+            <TypingAnimation className='lg:leading-8 text-gray-500 text-base font-normal' duration={2}>Shamim and Fareshta Nader — sisters, creatives, and co-founders of Blooming Brands.With degrees in architecture and a deep-rooted love for creativity, we realized after university that the corporate world wasn’t for us. We wanted to build something of our own — something that gave us freedom, purpose, and a way to stay creative every single day.That’s how Blooming Brands was born.As creators ourselves, we understand both sides of the UGC world — the brand expectations and the creator experience. Our mission is to build an agency that empowers creators with real opportunities, and helps brands connect through authentic, scroll-stopping content.We’re not just an agency — we’re a creative home for brands and creators alike. Welcome to the house. 🏠</TypingAnimation>
           </div>
-          <div className='w-full md:basis-[40%]'>
+          <div className='hover:scale-102 transition-transform duration-500 ease-in-out w-full md:basis-[40%]'>
             <Image src={aboutImg1} alt="Blooming Brands" className='' />
           </div>
         </div>
@@ -37,8 +38,8 @@ const About = () => {
         </div>
 
         {/* --------------------------- Our Vision --------------------------- */}
-        <div className='maxWidth flex flex-col lg:flex-row gap-8 lg:gap-16 py-28'>
-          <div className='w-full md:basis-[40%]'>
+        <div className='parentDiv maxWidth flex flex-col lg:flex-row gap-8 lg:gap-16 py-28'>
+          <div className='childDiv transition-transform duration-500 ease-in-out w-full md:basis-[40%]'>
             <Image src={aboutImg2} alt="Blooming Brands" className='' />
           </div>
           <div className='basis-[60%] flex flex-col justify-center gap-4 lg:p-8'>
@@ -48,8 +49,8 @@ const About = () => {
         </div>
 
         {/* --------------------------- What We Offer --------------------------- */}
-        <div className='maxWidth flex flex-col lg:flex-row gap-8 lg:gap-16 pb-28'>
-          <div className='w-full md:basis-[40%]'>
+        <div className='parentDiv maxWidth flex flex-col lg:flex-row gap-8 lg:gap-16 pb-28'>
+          <div className='childDiv transition-transform duration-500 ease-in-out w-full md:basis-[40%]'>
             <Image src={aboutImg3} alt="Blooming Brands" className='' />
           </div>
           <div className='basis-[60%] flex flex-col justify-center gap-8 lg:p-8'>
