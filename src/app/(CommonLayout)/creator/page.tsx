@@ -25,12 +25,12 @@ const Creator = () => {
         <Image src={butterfly} alt="butterfly" width={100} height={100} className='absolute bottom-10 right-10' />
       </div>
       <div className='py-28'>
-        <div className='sticky top-40'>
+        <div className='block md:sticky md:top-40'>
           <Title title="Turn Your Creativity Into Consistent Paid Work" />
         </div>
-        <div className='maxWidth space-y-10'>
+        <div className='maxWidth'>
           {turnCreativityDatas?.map((item: whyChoseUsType) => (
-            <div key={item.id} className='sticky top-68 w-full bg-white border-2 h-[300px] px-4 lg:px-8 flex flex-col items-center justify-center rounded-md mt-20'>
+            <div key={item.id} className='sticky top-32 md:top-68 w-full bg-white border-2 h-[520px] md:h-[300px] px-4 lg:px-8 flex flex-col items-center justify-center rounded-md mt-20'>
               <SingleChooseUs item={item} />
             </div>
           ))}
