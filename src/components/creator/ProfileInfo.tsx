@@ -1,6 +1,6 @@
 "use client"
 
-import { User, Mail, Phone, MapPin, Calendar, Shield } from 'lucide-react';
+import { User, Mail, Phone, MapPin, Shield } from 'lucide-react';
 import { myFetch } from '@/utils/myFetch';
 import { useEffect, useState } from 'react';
 
@@ -23,20 +23,20 @@ const ProfileInfo = () => {
 
   const [userData, setUserData] = useState<Partial<UserData>>({});
   // Sample data from your backend
-  const userData2= {
-    "_id": "685e12b2aff4a5828e935678",
-    "profile": "/uploads/profile/default-user.jpg",
-    "fullName": "hggkjg",
-    "email": "cayox28621@asimarif.com",
-    "role": "user",
-    "phone": "",
-    "isActive": true,
-    "isDeleted": false,
-    "address": "",
-    "createdAt": "2025-06-27T03:40:34.444Z",
-    "updatedAt": "2025-06-27T05:30:29.546Z",
-    "__v": 0
-  };
+  // const userData2= {
+  //   "_id": "685e12b2aff4a5828e935678",
+  //   "profile": "/uploads/profile/default-user.jpg",
+  //   "fullName": "hggkjg",
+  //   "email": "cayox28621@asimarif.com",
+  //   "role": "user",
+  //   "phone": "",
+  //   "isActive": true,
+  //   "isDeleted": false,
+  //   "address": "",
+  //   "createdAt": "2025-06-27T03:40:34.444Z",
+  //   "updatedAt": "2025-06-27T05:30:29.546Z",
+  //   "__v": 0
+  // };
 
   useEffect(() => {
     async function getUserData() {
@@ -50,7 +50,8 @@ const ProfileInfo = () => {
   }, []);
 
 
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string | number | Date | undefined) => {
+    if (!dateString) return '';
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',

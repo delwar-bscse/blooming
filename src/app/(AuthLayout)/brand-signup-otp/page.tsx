@@ -2,7 +2,7 @@
 
 import formBg from "@/assets/common/formBackground.png";
 import BrandSignupOtp from "@/components/form/authForm/BrandSignupOtp";
-import VerifyOtp from "@/components/form/authForm/VerifyOtp";
+// import VerifyOtp from "@/components/form/authForm/VerifyOtp";
 
 export default function CreatorSignup() {
 

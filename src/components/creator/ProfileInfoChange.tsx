@@ -80,6 +80,7 @@ const ProfileInfoChange = () => {
       }); // Reset form with user data
     }
     getUserData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 
