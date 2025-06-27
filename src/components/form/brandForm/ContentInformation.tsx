@@ -21,7 +21,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import toast, { Toaster } from 'react-hot-toast';
+// import toast, { Toaster } from 'react-hot-toast';
+import { useBrand } from "@/context/BrandContext";
 
 // Schema
 const contactUsFormSchema = z.object({
@@ -54,20 +55,24 @@ const defaultValues: Partial<ContactUsFormValues> = {
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const ContentInformation = ({ handleStep }: { handleStep: (step: number) => void }) => {
+  const { brandForm, setBrandForm } = useBrand();
   const form = useForm<ContactUsFormValues>({
     resolver: zodResolver(contactUsFormSchema),
-    defaultValues,
+    defaultValues: brandForm || defaultValues,
     mode: "onChange",
   });
 
   function onSubmit(data: ContactUsFormValues) {
-    toast.success("Form submitted successfully!");
-    console.log("Submitted Data:", data);
+    // toast.success("Form submitted successfully!");
+    // console.log("Submitted Data:", data);
+    setBrandForm((prev) => ({
+      ...prev, ...data,
+    }));
     handleStep(7);
   }
 
   return (
-    <div className="w-full max-w-[700px] mx-auto flex text-center justify-center py-20 px-2">
+    <div className="w-full max-w-[700px] mx-auto flex text-center justify-center">
       <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
         <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Content Information</h2>
         <Form {...form}>
@@ -244,7 +249,7 @@ const ContentInformation = ({ handleStep }: { handleStep: (step: number) => void
           </form>
         </Form>
 
-        <Toaster  position="top-right" reverseOrder={false}/>
+        {/* <Toaster  position="top-right" reverseOrder={false}/> */}
 
       </div>
     </div>

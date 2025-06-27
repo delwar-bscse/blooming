@@ -8,26 +8,45 @@ import ContentInfo from "@/components/form/brandForm/ContentInfo";
 import ContentInformation from "@/components/form/brandForm/ContentInformation";
 import DoDont from "@/components/form/brandForm/DoDont";
 import FinalMessage from "@/components/form/brandForm/FinalMessage";
-import { useState } from "react";
+import { BrandProvider, useBrand } from "@/context/BrandContext";
+import { useEffect, useState } from "react";
 
 export default function BrandForm() {
   const [formStep, setFormStep] = useState(1);
+  const { brandForm, setBrandForm } = useBrand();
+
+  useEffect(() => {
+    console.log("brandForm", brandForm)
+  }, [brandForm, setBrandForm]);
 
   const handleStep = (step: number) => {
     setFormStep(step);
   };
 
+  const activeStepStyle = (idx: number) => `w-12 h-4 rounded-full transition-all duration-300 cursor-pointer ${formStep === idx + 1 ? "bg-yellow-400 scale-x-110" : "bg-gray-300 hover:bg-yellow-300 hover:scale-x-120"}`
+
   return (
-      <div className="bg-blue-100 h-screen box-border overflow-hidden bg-cover bg-no-repeat" style={{ backgroundImage: `url(${formBg.src})` }} >
-        <div className="h-full overflow-y-auto">
-          {formStep === 1 && <BrandInfo handleStep={handleStep}/>}
-          {formStep === 2 && <BrandSocial  handleStep={handleStep}/>}
-          {formStep === 3 && <ContentInfo  handleStep={handleStep}/>}
-          {formStep === 4 && <CharacteristicCreator  handleStep={handleStep}/>}
-          {formStep === 5 && <DoDont  handleStep={handleStep}/>}
-          {formStep === 6 && <ContentInformation  handleStep={handleStep}/>}
+    <BrandProvider >
+      <div className="bg-blue-100 min-h-screen box-border overflow-y-scroll bg-cover bg-no-repeat flex flex-col justify-center scrollbar-hide py-16" style={{ backgroundImage: `url(${formBg.src})` }} >
+        <div className="space-y-12">
+          {formStep === 1 && <BrandInfo handleStep={handleStep} />}
+          {formStep === 2 && <BrandSocial handleStep={handleStep} />}
+          {formStep === 3 && <ContentInfo handleStep={handleStep} />}
+          {formStep === 4 && <CharacteristicCreator handleStep={handleStep} />}
+          {formStep === 5 && <DoDont handleStep={handleStep} />}
+          {formStep === 6 && <ContentInformation handleStep={handleStep} />}
           {formStep === 7 && <FinalMessage />}
+          <div className="w-full max-w-[700px] bg-[#56515166] rounded-xl mx-auto flex items-center justify-center gap-4 h-10 py-1 px-3">
+            {[...Array(7)].map((_, idx) => (
+              <div
+                onClick={() => handleStep(idx + 1)}
+                key={idx}
+                className={activeStepStyle(idx)}
+              />
+            ))}
+          </div>
         </div>
       </div>
+    </BrandProvider>
   );
 }

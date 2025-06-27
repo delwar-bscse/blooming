@@ -21,6 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { useBrand } from "@/context/BrandContext";
 // import toast, { Toaster } from 'react-hot-toast';
 
 // Schema
@@ -54,20 +55,24 @@ const defaultValues: Partial<ContactUsFormValues> = {
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const ContentInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
+  const { brandForm, setBrandForm } = useBrand();
   const form = useForm<ContactUsFormValues>({
     resolver: zodResolver(contactUsFormSchema),
-    defaultValues,
+    defaultValues: brandForm || defaultValues,
     mode: "onChange",
   });
 
   function onSubmit(data: ContactUsFormValues) {
     // toast.success("Message send successfully!");
-    console.log("Submitted Data:", data);
+    // console.log("Submitted Data:", data);
+    setBrandForm((prev) => ({
+      ...prev, ...data,
+    }));
     handleStep(4);
   }
 
   return (
-    <div className="w-full max-w-[700px] mx-auto flex text-center justify-center py-20 px-2">
+    <div className="w-full max-w-[700px] mx-auto flex text-center justify-center">
       <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
         <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Content Info</h2>
         <Form {...form}>
@@ -160,7 +165,7 @@ const ContentInfo = ({ handleStep }: { handleStep: (step: number) => void }) => 
               )}
             />
 
-            
+
             {/* Brand Name */}
             <FormField
               control={form.control}
@@ -179,7 +184,7 @@ const ContentInfo = ({ handleStep }: { handleStep: (step: number) => void }) => 
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="hookCta"
+              name="videoLink"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white text-lg">Example Video Link</FormLabel>
@@ -190,7 +195,7 @@ const ContentInfo = ({ handleStep }: { handleStep: (step: number) => void }) => 
                 </FormItem>
               )}
             />
-   
+
             {/* Brand Name */}
             <FormField
               control={form.control}
@@ -199,12 +204,23 @@ const ContentInfo = ({ handleStep }: { handleStep: (step: number) => void }) => 
                 <FormItem>
                   <FormLabel className="text-white text-lg">UGC Photo</FormLabel>
                   <FormControl>
-                    <Input
-                      variant="borderwhite"
-                      type="file"
-                      accept="image/*"
-                      onChange={(e) => field.onChange(e.target.files?.[0])}
-                    />
+                    <FormControl>
+                      <div>
+                        <Input
+                          id="ugcPhotoControld"
+                          variant="inputHidden"
+                          type="file"
+                          accept="image/*"
+                          onChange={(e) => field.onChange(e.target.files?.[0])}
+                        />
+                        <div
+                          onClick={() => document.getElementById("ugcPhotoControld")?.click()}
+                          className="mt-2 text-sm text-gray-300 border border-dashed border-gray-500 rounded-lg p-4 cursor-pointer hover:bg-gray-500 transition-colors"
+                        >
+                          {field.value?.name || brandForm.ugcPhotos?.name || "Upload UGC Photo"}
+                        </div>
+                      </div>
+                    </FormControl>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
