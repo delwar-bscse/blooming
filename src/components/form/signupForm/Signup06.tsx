@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,6 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useCreator } from "@/context/CreatorContext";
 // import toast, { Toaster } from 'react-hot-toast';
 
 // Schema
@@ -46,20 +48,24 @@ const defaultValues: Partial<ContactUsFormValues> = {
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const Signup06 = ({ handleStep }: { handleStep: (step: number) => void }) => {
+  const { creatorForm, setCreatorForm } = useCreator();
   const form = useForm<ContactUsFormValues>({
     resolver: zodResolver(contactUsFormSchema),
-    defaultValues,
+    defaultValues: creatorForm || defaultValues,
     mode: "onChange",
   });
 
   function onSubmit(data: ContactUsFormValues) {
     // toast.success("Message send successfully!");
     console.log("Submitted Data:", data);
+    setCreatorForm((prev) => ({
+      ...prev, ...data
+    }))
     handleStep(7);
   }
 
   return (
-    <div className="w-full max-w-[700px] mx-auto flex text-center justify-center py-20 px-2">
+    <div className="w-full max-w-[700px] mx-auto flex text-center justify-center">
       <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
         <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Step Six</h2>
         <Form {...form}>
@@ -73,7 +79,8 @@ const Signup06 = ({ handleStep }: { handleStep: (step: number) => void }) => {
                 <FormItem>
                   <FormLabel className="text-white text-lg">UGC Example Videos (Upload Only 6 videos)</FormLabel>
                   <FormControl>
-                      <Input
+                      <div>
+                        <Input
                         variant="borderwhiteVideo"
                         type="file"
                         accept="video/*"
@@ -83,6 +90,8 @@ const Signup06 = ({ handleStep }: { handleStep: (step: number) => void }) => {
                           field.onChange(files);
                         }}
                       />
+                      <div className="flex flex-wrap space-x-4 text-gray-700">{creatorForm?.ugcExampleVideos?.map((file: any, index: number) => <p className="" key={index}>{file.name}</p>)}</div>
+                      </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -97,12 +106,15 @@ const Signup06 = ({ handleStep }: { handleStep: (step: number) => void }) => {
                 <FormItem>
                   <FormLabel className="text-white text-lg">Introduction Video (Upload Only 1 video 30 seconds)</FormLabel>
                   <FormControl>
-                      <Input
+                      <div>
+                        <Input
                         variant="borderwhiteVideo"
                         type="file"
                         accept="video/*"
                         onChange={(e) => field.onChange(e.target.files?.[0])}
                       />
+                      <div className="text-gray-700">{creatorForm?.introVideo?.name}</div>
+                      </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>

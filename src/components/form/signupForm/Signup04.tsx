@@ -20,6 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { useCreator } from "@/context/CreatorContext";
 // import toast, { Toaster } from 'react-hot-toast';
 
 // Schema
@@ -43,20 +44,24 @@ const defaultValues: Partial<ContactUsFormValues> = {
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const Signup04 = ({ handleStep }: { handleStep: (step: number) => void }) => {
+  const { creatorForm, setCreatorForm } = useCreator();
   const form = useForm<ContactUsFormValues>({
     resolver: zodResolver(contactUsFormSchema),
-    defaultValues,
+    defaultValues: creatorForm || defaultValues,
     mode: "onChange",
   });
 
   function onSubmit(data: ContactUsFormValues) {
     // toast.success("Message send successfully!");
     console.log("Submitted Data:", data);
+    setCreatorForm((prev) => ({
+      ...prev, ...data
+    }))
     handleStep(5);
   }
 
   return (
-    <div className="w-full max-w-[700px] mx-auto flex text-center justify-center py-20 px-2">
+    <div className="w-full max-w-[700px] mx-auto flex text-center justify-center">
       <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
         <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Step Four</h2>
         <Form {...form}>
