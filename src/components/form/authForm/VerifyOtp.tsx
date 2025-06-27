@@ -17,7 +17,9 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp"
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { myFetch } from "@/utils/myFetch";
+import { toast } from "sonner";
 
 // Schema
 const contactUsFormSchema = z
@@ -34,6 +36,8 @@ const defaultValues: Partial<ContactUsFormValues> = {
 
 const VerifyOtp = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const email = searchParams.get("email") || "";
 
   const form = useForm<ContactUsFormValues>({
     resolver: zodResolver(contactUsFormSchema),
@@ -41,9 +45,27 @@ const VerifyOtp = () => {
     mode: "onChange",
   });
 
-  function onSubmit(data: ContactUsFormValues) {
+  async function onSubmit(data: ContactUsFormValues) {
     console.log("Submitted Data:", data);
-    router.push("/reset-password");
+    const res = await myFetch("/auth/forgot-password-otp-match", {
+      method: "PATCH",
+      body: {
+        otp: data.verifyOtp,
+      },
+      headers: {
+        token: localStorage.getItem("forgetPasswordToken") || "", // Include email in the request header
+      },
+    });
+    console.log("Response Verify OTP:", res);
+    if (res.success) {
+      toast.success(res.message || "OTP verified successfully!");
+      localStorage.removeItem("forgetPasswordToken");
+      localStorage.setItem("forgetOtpMatchToken", res?.data?.forgetOtpMatchToken);
+      router.push("/reset-password");
+    } else {
+      toast.error(res.message || "Invalid OTP, please try again.");
+    }
+    // router.push("/reset-password");
   }
 
 

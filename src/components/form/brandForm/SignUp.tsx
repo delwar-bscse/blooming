@@ -267,7 +267,7 @@ const SignUp = () => {
               Sign Up
             </Button>
 
-            <Link href="/signin" className="w-full relative -top-2 text-center text-gray-100 hover:text-gray-200 font-semibold">
+            <Link href="/login" className="w-full relative -top-2 text-center text-gray-100 hover:text-gray-200 font-semibold">
               Already Have An Account?
             </Link>
           </form>

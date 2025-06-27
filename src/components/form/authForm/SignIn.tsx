@@ -129,7 +129,7 @@ const SignIn = () => {
 
             {/* Submit Button */}
             <Button variant="customWhite" type="submit" size="llg" className="w-full">
-              Sign Up
+              Sign In
             </Button>
 
             <div className="relative -top-2 flex justify-between items-center">
