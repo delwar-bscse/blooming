@@ -14,6 +14,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useEffect } from "react";
+import { myFetch } from "@/utils/myFetch";
+import { toast } from "sonner";
 // import toast, { Toaster } from 'react-hot-toast';
 
 // Schema
@@ -23,29 +26,61 @@ const contactUsFormSchema = z.object({
     message: "Please enter a valid email address.",
   }),
   phoneNumber: z.string(),
-  dob: z.string(),
+  dob: z.string().optional(),
 });
 
 // Type
 type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 
 const defaultValues: Partial<ContactUsFormValues> = {
-  fullName: "Shamim Nadir",
-  email: "shamimnadir@blooming.com",
-  phoneNumber: "+8801712345678",
+  fullName: "",
+  email: "",
+  phoneNumber: "",
 };
 
 const ProfileInfoChange = () => {
-    const form = useForm<ContactUsFormValues>({
-      resolver: zodResolver(contactUsFormSchema),
-      defaultValues,
-      mode: "onChange",
+  const form = useForm<ContactUsFormValues>({
+    resolver: zodResolver(contactUsFormSchema),
+    defaultValues,
+    mode: "onChange",
+  });
+
+   async function onSubmit(data: ContactUsFormValues) {
+    // toast.success("Message send successfully!");
+    // console.log("Submitted Data:", data);
+    const formData = new FormData();
+    formData.append("fullName", data.fullName);
+    formData.append("email", data.email);
+    formData.append("phone", data.phoneNumber);
+
+    const response = await myFetch("/users/update-my-profile", {
+      method: "PATCH",
+      body: formData,
     });
-  
-    function onSubmit(data: ContactUsFormValues) {
-      // toast.success("Message send successfully!");
-      console.log("Submitted Data:", data);
+    // console.log("User Data:", response);
+    if (response?.success) {
+      // toast.success("Profile updated successfully!");
+      toast.success(response?.message || "Profile updated successfully!");
+    } else {
+      // toast.error("Failed to update profile. Please try again.");
+      toast.error(response?.error || "Error updating profile");
     }
+  }
+
+  useEffect(() => {
+    async function getUserData() {
+      const response = await myFetch("/users/my-profile", {
+        method: "GET",
+      });
+      // console.log("User Data:", response);
+      form.reset({
+        fullName: response?.data?.fullName || "",
+        email: response?.data?.email || "",
+        phoneNumber: response?.data?.phone || "",
+      }); // Reset form with user data
+    }
+    getUserData();
+  }, []);
 
 
   return (
@@ -100,7 +135,7 @@ const ProfileInfoChange = () => {
             />
 
             {/* Submit */}
-            <Button variant="customYellow"  type="submit" size="llg" className="w-full">
+            <Button type="submit" variant="customYellow" size="llg" className="w-full">
               Save
             </Button>
           </form>

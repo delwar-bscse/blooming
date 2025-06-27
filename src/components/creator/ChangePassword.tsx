@@ -17,6 +17,8 @@ import { Input } from "@/components/ui/input";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { myFetch } from "@/utils/myFetch";
+import { toast } from "sonner";
 
 // Schema
 const contactUsFormSchema = z
@@ -56,9 +58,23 @@ const ChangePassword = () => {
     mode: "onChange",
   });
 
-  function onSubmit(data: ContactUsFormValues) {
-    console.log("Submitted Data:", data);
-    router.push("/login");
+  async function onSubmit(data: ContactUsFormValues) {
+    // console.log("Submitted Data:", data);
+    toast.loading("Changing password...", {id:"loading"});
+    
+    const res = await myFetch("/auth/change-password", {
+      method: "PATCH",
+      body: {
+        oldPassword: data.oldPassword,
+        newPassword: data.password,
+      },
+    })
+    // console.log("Response: Password Change Data:", res);
+    if(res.success) {
+      toast.success(res.message || "Password changed successfully!", {id:"loading"});
+    } else{
+      toast.error(res.message || "Failed to change password.", {id:"loading"});
+    }
   }
 
   return (

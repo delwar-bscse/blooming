@@ -16,7 +16,7 @@ const HeroSection = () => {
             <h2>
               <SparklesText>
                 <TypingAnimation className='text-[#636C43] text-3xl md:text-5xl lg:text-7xl font-bold' startOnView={true} duration={100}>
-                  Blooming
+                  The Social Chance
                 </TypingAnimation>
               </SparklesText>
             </h2>

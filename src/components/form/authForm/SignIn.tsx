@@ -3,6 +3,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { toast } from "sonner"
+import { setCookie } from "cookies-next/client";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -17,6 +19,8 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import { myFetch } from "@/utils/myFetch";
+import { useRouter } from "next/navigation";
 
 // Schema
 const contactUsFormSchema = z
@@ -39,6 +43,7 @@ const defaultValues: Partial<ContactUsFormValues> = {
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   const form = useForm<ContactUsFormValues>({
     resolver: zodResolver(contactUsFormSchema),
@@ -46,8 +51,26 @@ const SignIn = () => {
     mode: "onChange",
   });
 
-  function onSubmit(data: ContactUsFormValues) {
-    console.log("Submitted Data:", data);
+  async function onSubmit(data: ContactUsFormValues) {
+    // console.log("Submitted Data:", data);
+
+    const res = await myFetch("/auth/login", {
+      method: "POST",
+      body: {
+        email: data.email,
+        password: data.password,
+      },
+    });
+    // console.log("Response Login:", res);
+    if (res.success) {
+      setCookie("bloom_brand_accessToken", res?.data?.accessToken);
+      toast.success("Login Success");
+      router.push("/");
+    } else {
+      // Handle error, e.g., show a toast notification
+      console.error("Login failed:", res.message);
+    }
+
   }
 
 

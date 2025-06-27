@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
 import BrandLogo from '@/assets/common/bloomimgLogo.png'
@@ -18,17 +18,34 @@ import {
 
 import { Menu } from 'lucide-react'
 import { navbarItems } from '@/constants/navbarDatas'
+import { myFetch } from '@/utils/myFetch'
 
 const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
   const pathname = usePathname();
-
-  const userRole: boolean = true;
+  const [user, setUser] = useState<any>(null);
 
   const isActive = (url: string) => {
     if (url === "/") return pathname === "/";
     return pathname === url || pathname.startsWith(`${url}/`);
   };
+
+  useEffect(() => {
+    try {
+      const getUser = async () => {
+        const response = await myFetch("/users/my-profile", {
+          method: "GET"
+        });
+        // console.log("User Data:", response);
+        setUser(response?.data);
+      };
+      getUser();
+    } catch (error) {
+      console.log(error);
+    }
+
+  }, [pathname]);
+
 
   return (
     <div className='shadow-md bg-[#DEE5EC] sticky top-0 z-50'>
@@ -43,11 +60,10 @@ const Navbar = () => {
           {navbarItems.map((item) => (
             <li
               key={item.id}
-              className={`cursor-pointer px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 ${
-                isActive(item.url)
+              className={`cursor-pointer px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 ${isActive(item.url)
                   ? 'bg-[#FFECAC] text-primary font-bold'
                   : 'hover:bg-[#FFECAC]'
-              }`}
+                }`}
             >
               <Link href={item.url}>{item.title}</Link>
             </li>
@@ -56,8 +72,8 @@ const Navbar = () => {
 
         {/* Sign In / Mobile Menu Trigger */}
         <div className='flex justify-end items-center gap-4 relative'>
-          {!userRole ? (
-            <Link href="/signin" className='hidden md:inline-block bg-primary text-white py-2 px-4 rounded'>Sign In</Link>
+          {!user ? (
+            <Link href="/login" className='hidden md:inline-block bg-primary text-white py-2 px-4 rounded'>Sign In</Link>
           ) : (
             <div className='flex items-center gap-2 cursor-pointer'>
               <div className='max-md:hidden w-12 h-12 rounded-full overflow-hidden border-2 border-primary'>
@@ -81,7 +97,7 @@ const Navbar = () => {
                 </SheetHeader>
 
                 <ul className='flex flex-col mt-6 gap-2 font-medium text-gray-700'>
-                  {userRole && (
+                  {user && (
                     <li onClick={() => setOpen(false)} className='cursor-pointer hover:bg-gray-100 px-3 py-2 rounded'>
                       <Link href="/profile" className='flex gap-2 items-center'>
                         <span className='w-12 h-12 block rounded-full overflow-hidden border-2 border-primary'>
@@ -99,19 +115,18 @@ const Navbar = () => {
                     <li
                       key={item.id}
                       onClick={() => setOpen(false)}
-                      className={`cursor-pointer px-3 py-2 rounded transition-colors duration-200 ${
-                        isActive(item.url)
+                      className={`cursor-pointer px-3 py-2 rounded transition-colors duration-200 ${isActive(item.url)
                           ? 'bg-gray-200 text-primary font-semibold'
                           : 'hover:bg-gray-100'
-                      }`}
+                        }`}
                     >
                       <Link href={item.url}>{item.title}</Link>
                     </li>
                   ))}
 
                   <li className='px-3 py-4'>
-                    {!userRole && (
-                      <Link href="/signin" className='block bg-primary text-white px-4 py-2 rounded mt-2 text-center'>Sign In</Link>
+                    {!user && (
+                      <Link href="/login" className='block bg-primary text-white px-4 py-2 rounded mt-2 text-center'>Sign In</Link>
                     )}
                   </li>
                 </ul>

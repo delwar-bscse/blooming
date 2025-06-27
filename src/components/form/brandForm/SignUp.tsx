@@ -19,12 +19,17 @@ import { Eye, EyeOff } from "lucide-react";
 import profileInputIcon from "@/assets/common/ProfileInputIcon.png";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { myFetch } from "@/utils/myFetch";
+import { toast } from "sonner";
+import { routeModule } from "next/dist/build/templates/pages";
+import { useRouter } from "next/navigation";
 
 // Schema
 const contactUsFormSchema = z
   .object({
     profileImg: z
       .any()
+      .optional()
       .refine(
         (file) => file instanceof File && file.type.startsWith("image/"),
         "Please upload a valid image file"
@@ -60,6 +65,7 @@ const SignUp = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [imgUrl, setImgUrl] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const router = useRouter();
 
   const form = useForm<ContactUsFormValues>({
     resolver: zodResolver(contactUsFormSchema),
@@ -71,8 +77,28 @@ const SignUp = () => {
     setIsMounted(true);
   }, []);
 
-  function onSubmit(data: ContactUsFormValues) {
+  async function onSubmit(data: ContactUsFormValues) {
     console.log("Submitted Data:", data);
+
+    const res = await myFetch("/users/create", {
+      method: "POST",
+      body: {
+        fullName: data.name,
+        email: data.email,
+        password: data.password,
+        role: "user",
+      },
+    });
+
+    // console.log("Response from server:", res);
+    if(res.success){
+      toast.success(`res.message || "Check your email!"`);
+      localStorage.setItem("createUserToken", JSON.stringify(res?.data?.createUserToken));
+      router.push("/brand-signup-otp");
+    }else{
+      toast.error(res.message || "Something went wrong!");
+    }
+
   }
 
   const handleImgUrl = (file: File | null) => {

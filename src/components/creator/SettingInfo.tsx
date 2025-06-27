@@ -7,6 +7,8 @@ import { RiLogoutBoxRLine } from "react-icons/ri";
 import ProfileInfoChange from './ProfileInfoChange';
 import ChangePassword from './ChangePassword';
 import { useRouter } from 'next/navigation';
+import { deleteCookie } from "cookies-next/client";
+import { toast } from 'sonner';
 
 const profileSidebar = [
   {
@@ -39,6 +41,8 @@ const SettingInfo = () => {
 
   const handleOnClick = (id: number) => {
     if (id === 3) {
+      deleteCookie("bloom_brand_accessToken");
+      toast.success("Logout Success");
       router.push("/");
     } else {
       setStep(id);
