@@ -1,8 +1,4 @@
-"use server";
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
-import { getToken } from "./getToken";
 
 export interface FetchResponse {
   success: boolean;
@@ -17,32 +13,26 @@ export interface FetchResponse {
   error?: string | null;
 }
 
-// export type tagsType = "Admin" | "Entrepreneur" | "Investor" | "User";
-
 type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
 interface FetchOptions {
   method?: HttpMethod;
   body?: any;
-  tags?: string[];
   token?: string;
   headers?: Record<string, string>;
-  cache?: RequestCache;
+  baseUrl?: string;
 }
 
-export const myFetch = async (
-  url: string,
+export const myFetchClient = async (
+  endpoint: string,
   {
     method = "GET",
     body,
-    tags,
     token,
     headers = {},
-    cache = "no-store",
+    baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "",
   }: FetchOptions = {}
 ): Promise<FetchResponse> => {
-  const accessToken = token || (await getToken());
-
   const isFormData = body instanceof FormData;
   const hasBody = body !== undefined && method !== "GET";
 
@@ -50,16 +40,14 @@ export const myFetch = async (
     Accept: "application/json",
     ...headers,
     ...(isFormData ? {} : { "Content-Type": "application/json" }),
-    ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
   };
 
   try {
-    const response = await fetch(`${process.env.BASE_URL}${url}`, {
+    const response = await fetch(`${baseUrl}${endpoint}`, {
       method,
       headers: reqHeaders,
       ...(hasBody && { body: isFormData ? body : JSON.stringify(body) }),
-      ...(tags && { next: { tags } }),
-      ...(!(method === "GET") ? { cache: "no-store" } : { cache: cache }),
     });
 
     const data = await response.json();
@@ -78,13 +66,13 @@ export const myFetch = async (
       success: false,
       message: data?.message,
       data: null,
-      error: data?.errorSources || "Request failed",
+      error: data?.errorMessages || "Request failed",
     };
   } catch (error) {
     return {
       success: false,
-      data: null,
       message: "Network error",
+      data: null,
       error: error instanceof Error ? error.message : "Unknown error",
     };
   }

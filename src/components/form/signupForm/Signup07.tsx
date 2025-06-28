@@ -23,15 +23,14 @@ import {
 } from "@/components/ui/select"
 // import { useRouter } from "next/navigation";
 import { useCreator } from "@/context/CreatorContext";
-// import toast, { Toaster } from 'react-hot-toast';
 
 // Schema
 const contactUsFormSchema = z.object({
-  bankDetails: z.string(),
+  bankType: z.string(),
   accountHolderName: z.string(),
   bankName: z.string(),
   iban: z.string(),
-  swiftBicCode: z.string(),
+  swiftCode: z.string(),
   accountNumber: z.string(),
   paypalEmail: z.string().email({
     message: "Please enter a valid email address.",
@@ -42,32 +41,33 @@ const contactUsFormSchema = z.object({
 type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 
 const defaultValues: Partial<ContactUsFormValues> = {
-  bankDetails: "",
+  bankType: "",
   accountHolderName: "",
   bankName: "",
   iban: "",
-  swiftBicCode: "",
+  swiftCode: "",
   accountNumber: "",
   paypalEmail: "",
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
-const Signup07 = () => {
+const Signup07 = ({ handleStep }: { handleStep: (step: number) => void }) => {
   const { creatorForm, setCreatorForm } = useCreator();
-  // const router = useRouter();
   const form = useForm<ContactUsFormValues>({
     resolver: zodResolver(contactUsFormSchema),
     defaultValues: creatorForm || defaultValues,
     mode: "onChange",
   });
 
-  function onSubmit(data: ContactUsFormValues) {
+  async function onSubmit(data: ContactUsFormValues) {
+
+
     // toast.success("Message send successfully!");
     console.log("Submitted Data:", data);
     setCreatorForm((prev) => ({
       ...prev, ...data
     }))
-    // router.push("/");
-    // handleStep(1);
+    // console.log("Creator Form Updated:", creatorForm);
+    handleStep(8);
   }
 
   return (
@@ -76,13 +76,13 @@ const Signup07 = () => {
         <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Step Seven</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                        {/* Brand Name */}
+            {/* Brand Name */}
             <FormField
               control={form.control}
-              name="bankDetails"
+              name="bankType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Bank Details</FormLabel>
+                  <FormLabel className="text-white text-lg">Bank Type</FormLabel>
                   <Select value={field.value} onValueChange={field.onChange} >
                     <FormControl>
                       <SelectTrigger variant="borderwhite" className="w-full">
@@ -99,7 +99,7 @@ const Signup07 = () => {
                 </FormItem>
               )}
             />
-            
+
             {/* Brand Name */}
             <FormField
               control={form.control}
@@ -114,7 +114,7 @@ const Signup07 = () => {
                 </FormItem>
               )}
             />
-            
+
             {/* Brand Name */}
             <FormField
               control={form.control}
@@ -129,7 +129,7 @@ const Signup07 = () => {
                 </FormItem>
               )}
             />
-            
+
             {/* Brand Name */}
             <FormField
               control={form.control}
@@ -144,11 +144,11 @@ const Signup07 = () => {
                 </FormItem>
               )}
             />
-            
+
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="swiftBicCode"
+              name="swiftCode"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white text-lg">SWIFT/BIC Code</FormLabel>
@@ -159,7 +159,7 @@ const Signup07 = () => {
                 </FormItem>
               )}
             />
-            
+
             {/* Brand Name */}
             <FormField
               control={form.control}
@@ -174,7 +174,7 @@ const Signup07 = () => {
                 </FormItem>
               )}
             />
-            
+
             {/* Brand Name */}
             <FormField
               control={form.control}
@@ -196,8 +196,6 @@ const Signup07 = () => {
             </Button>
           </form>
         </Form>
-
-        {/* <Toaster  position="top-right" reverseOrder={false}/> */}
 
       </div>
     </div>

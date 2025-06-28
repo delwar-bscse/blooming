@@ -17,11 +17,12 @@ import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import profileInputIcon from "@/assets/common/ProfileInputIcon.png";
+import bgImage from "@/assets/common/formBackground.png";
 import { useCreator } from "@/context/CreatorContext";
 
 // Schema
 const contactUsFormSchema = z.object({
-  profileImg: z
+  profile: z
     .any()
     .refine(
       (file) => file instanceof File && file.type.startsWith("image/"),
@@ -32,8 +33,11 @@ const contactUsFormSchema = z.object({
   email: z.string().email({
     message: "Please enter a valid email address.",
   }),
-  phoneNumber: z.string(),
-  dob: z.string(),
+  phone: z.string(),
+  password: z.string().min(6, {
+    message: "Password must be at least 6 characters long.",
+  }),
+  dateOfBirth: z.string(),
 });
 
 // Type
@@ -42,8 +46,9 @@ type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 const defaultValues: Partial<ContactUsFormValues> = {
   fullName: "",
   email: "",
-  phoneNumber: "",
-  dob: "",
+  phone: "",
+  dateOfBirth: "",
+  password: "",
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const Signup01 = ({ handleStep }: { handleStep: (step: number) => void }) => {
@@ -77,11 +82,11 @@ const Signup01 = ({ handleStep }: { handleStep: (step: number) => void }) => {
     }
   }
   useEffect(() => {
-    // Set the initial image URL if profileImg is already set
-    if (creatorForm.profileImg) {
-      handleImgUrl(creatorForm.profileImg);
+    // Set the initial image URL if profile is already set
+    if (creatorForm.profile) {
+      handleImgUrl(creatorForm.profile);
     }
-  }, [creatorForm.profileImg]);
+  }, [creatorForm.profile]);
 
   return (
     <div className="w-full max-w-[700px] mx-auto flex text-center justify-center">
@@ -94,7 +99,7 @@ const Signup01 = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Profile Image */}
             <FormField
               control={form.control}
-              name="profileImg"
+              name="profile"
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
@@ -112,7 +117,7 @@ const Signup01 = ({ handleStep }: { handleStep: (step: number) => void }) => {
                       <div className="relative inline-block">
                         <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-3 border-white bg-gray-300">
                           <Image
-                            src={imgUrl || profileInputIcon} // Use a placeholder image if imgUrl is null
+                            src={imgUrl || bgImage} // Use a placeholder image if imgUrl is null
                             alt="content image"
                             className="object-cover w-full h-full"
                             width={128}
@@ -170,7 +175,7 @@ const Signup01 = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="phoneNumber"
+              name="phone"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white text-lg">Phone Number</FormLabel>
@@ -185,7 +190,22 @@ const Signup01 = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="dob"
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">Password</FormLabel>
+                  <FormControl>
+                    <Input variant="borderwhite" placeholder="Type password..." {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Brand Name */}
+            <FormField
+              control={form.control}
+              name="dateOfBirth"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white text-lg">Date of Birth</FormLabel>

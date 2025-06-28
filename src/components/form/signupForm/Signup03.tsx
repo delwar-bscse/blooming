@@ -27,7 +27,7 @@ import { useCreator } from "@/context/CreatorContext";
 // Schema
 const contactUsFormSchema = z.object({
   niche: z.string(),
-  Languages: z.string(),
+  language: z.string(),
   profession: z.string(),
 });
 
@@ -36,7 +36,7 @@ type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 
 const defaultValues: Partial<ContactUsFormValues> = {
   niche: "",
-  Languages: "",
+  language: "",
   profession: "",
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
@@ -100,7 +100,7 @@ const Signup03 = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="Languages"
+              name="language"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white text-lg">Languages Spoken</FormLabel>

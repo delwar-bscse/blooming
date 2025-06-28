@@ -20,7 +20,7 @@ import { useCreator } from "@/context/CreatorContext";
 
 // Schema
 const contactUsFormSchema = z.object({
-  ugcExampleVideos: z
+  ugcExampleVideo: z
     .any()
     .refine(
       (files) =>
@@ -30,7 +30,7 @@ const contactUsFormSchema = z.object({
         files.every((file) => file instanceof File && file.type.startsWith("video/")),
       "Please upload up to 6 valid video files"
     ),
-  introVideo: z
+  introductionvideo: z
     .any()
     .refine(
       (file) =>
@@ -43,8 +43,8 @@ const contactUsFormSchema = z.object({
 type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 
 const defaultValues: Partial<ContactUsFormValues> = {
-  introVideo: [],
-  ugcExampleVideos: [],
+  introductionvideo: [],
+  ugcExampleVideo: [],
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const Signup06 = ({ handleStep }: { handleStep: (step: number) => void }) => {
@@ -74,7 +74,7 @@ const Signup06 = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="ugcExampleVideos"
+              name="ugcExampleVideo"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white text-lg">UGC Example Videos (Upload Only 6 videos)</FormLabel>
@@ -90,7 +90,7 @@ const Signup06 = ({ handleStep }: { handleStep: (step: number) => void }) => {
                           field.onChange(files);
                         }}
                       />
-                      <div className="flex flex-wrap space-x-4 text-gray-700">{creatorForm?.ugcExampleVideos?.map((file: any, index: number) => <p className="" key={index}>{file.name}</p>)}</div>
+                      <div className="flex flex-wrap space-x-4 text-gray-700">{creatorForm?.ugcExampleVideo?.map((file: any, index: number) => <p className="" key={index}>{file.name}</p>)}</div>
                       </div>
                   </FormControl>
                   <FormMessage />
@@ -101,7 +101,7 @@ const Signup06 = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="introVideo"
+              name="introductionvideo"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white text-lg">Introduction Video (Upload Only 1 video 30 seconds)</FormLabel>
@@ -113,7 +113,7 @@ const Signup06 = ({ handleStep }: { handleStep: (step: number) => void }) => {
                         accept="video/*"
                         onChange={(e) => field.onChange(e.target.files?.[0])}
                       />
-                      <div className="text-gray-700">{creatorForm?.introVideo?.name}</div>
+                      <div className="text-gray-700">{creatorForm?.introductionvideo?.name}</div>
                       </div>
                   </FormControl>
                   <FormMessage />

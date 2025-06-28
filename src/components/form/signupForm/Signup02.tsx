@@ -24,7 +24,7 @@ const contactUsFormSchema = z.object({
   city: z.string(),
   postalCode: z.string(),
   street: z.string(),
-  houseNo: z.string(),
+  houseBuildingNo: z.string(),
 });
 
 // Type
@@ -36,7 +36,7 @@ const defaultValues: Partial<ContactUsFormValues> = {
   city: "",
   postalCode: "",
   street: "",
-  houseNo: "",
+  houseBuildingNo: "",
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const Signup02 = ({ handleStep }: { handleStep: (step: number) => void }) => {
@@ -156,7 +156,7 @@ const Signup02 = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="houseNo"
+              name="houseBuildingNo"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white text-lg">House, Building No</FormLabel>

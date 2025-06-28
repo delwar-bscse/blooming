@@ -21,9 +21,9 @@ import { useCreator } from "@/context/CreatorContext";
 const contactUsFormSchema = z.object({
   tiktokHandle: z.string(),
   tiktokLink: z.string(),
-  instagramHandle: z.string(),
-  instagramLink: z.string(),
-  otherSocials: z.string(),
+  instragramHandle: z.string(),
+  instragramLink: z.string(),
+  othersSocialLink: z.string(),
   portfolioLink: z.string(),
 });
 
@@ -33,9 +33,9 @@ type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 const defaultValues: Partial<ContactUsFormValues> = {
   tiktokHandle: "",
   tiktokLink: "",
-  instagramHandle: "",
-  instagramLink: "",
-  otherSocials: "",
+  instragramHandle: "",
+  instragramLink: "",
+  othersSocialLink: "",
   portfolioLink: "",
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
@@ -96,7 +96,7 @@ const Signup05 = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="instagramHandle"
+              name="instragramHandle"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white text-lg">Instagram Handle</FormLabel>
@@ -111,7 +111,7 @@ const Signup05 = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="instagramLink"
+              name="instragramLink"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white text-lg">Instagram Link</FormLabel>
@@ -126,7 +126,7 @@ const Signup05 = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="otherSocials"
+              name="othersSocialLink"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white text-lg">Other Socials (YouTube, Threads, Etc.)</FormLabel>
