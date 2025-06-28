@@ -9,7 +9,7 @@ import { SparklesText } from "@/components/magicui/sparkles-text";
 
 const HeroSection = () => {
   return (
-    <section className=" bg-[#F9F6F1] py-20 space-y-20">
+    <section className="bg-[#F9F6F1] py-20 space-y-20">
       <div className="relative z-10">
         <div className="parentDiv relative z-10 maxWidth flex flex-col-reverse sm:flex-row items-center justify-between gap-10 p-5">
           <div className=" basis-[60%] flex flex-col items-center justify-center gap-6">

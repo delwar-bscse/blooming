@@ -31,14 +31,22 @@ export const navbarItems: navItemsType[] = [
     id: 6,
     title: 'Blog',
     url: '/blog',
+  }
+];
+
+export const navbarItems2: navItemsType[] = [
+  {
+    id: 1,
+    title: 'AI vs Human Content',
+    url: '/ai-vs-human-content',
   },
   {
-    id: 7,
+    id: 2,
     title: 'For creator',
     url: '/creator',
   },
   {
-    id: 8,
+    id: 3,
     title: 'For agency',
     url: '/agency',
   }

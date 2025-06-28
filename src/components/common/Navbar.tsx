@@ -17,8 +17,15 @@ import {
 } from "@/components/ui/sheet"
 
 import { Menu } from 'lucide-react'
-import { navbarItems } from '@/constants/navbarDatas'
+import { navbarItems, navbarItems2 } from '@/constants/navbarDatas'
 import { myFetch } from '@/utils/myFetch'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -62,13 +69,29 @@ const Navbar = () => {
             <li
               key={item.id}
               className={`cursor-pointer px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 ${isActive(item.url)
-                  ? 'bg-[#FFECAC] text-primary font-bold'
-                  : 'hover:bg-[#FFECAC]'
+                ? 'bg-[#FFECAC] text-primary font-bold'
+                : 'hover:bg-[#FFECAC]'
                 }`}
             >
               <Link href={item.url}>{item.title}</Link>
             </li>
           ))}
+          <DropdownMenu>
+            <DropdownMenuTrigger className='px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 cursor-pointer'>More...</DropdownMenuTrigger>
+            <DropdownMenuContent>
+              {navbarItems2.map((item) => (
+                <DropdownMenuItem
+                  key={item.id}
+                  className={`cursor-pointer px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 ${isActive(item.url)
+                    ? 'bg-[#FFECAC] text-primary font-bold'
+                    : 'hover:bg-[#FFECAC]'
+                    }`}
+                >
+                  <Link href={item.url}>{item.title}</Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </ul>
 
         {/* Sign In / Mobile Menu Trigger */}
@@ -117,8 +140,21 @@ const Navbar = () => {
                       key={item.id}
                       onClick={() => setOpen(false)}
                       className={`cursor-pointer px-3 py-2 rounded transition-colors duration-200 ${isActive(item.url)
-                          ? 'bg-gray-200 text-primary font-semibold'
-                          : 'hover:bg-gray-100'
+                        ? 'bg-gray-200 text-primary font-semibold'
+                        : 'hover:bg-gray-100'
+                        }`}
+                    >
+                      <Link href={item.url}>{item.title}</Link>
+                    </li>
+                  ))}
+
+                  {navbarItems2.map((item) => (
+                    <li
+                      key={item.id}
+                      onClick={() => setOpen(false)}
+                      className={`cursor-pointer px-3 py-2 rounded transition-colors duration-200 ${isActive(item.url)
+                        ? 'bg-gray-200 text-primary font-semibold'
+                        : 'hover:bg-gray-100'
                         }`}
                     >
                       <Link href={item.url}>{item.title}</Link>
