@@ -66,7 +66,7 @@ const ContentInformation = ({ handleStep }: { handleStep: (step: number) => void
     // toast.success("Form submitted successfully!");
     // console.log("Submitted Data:", data);
     setBrandForm((prev) => ({
-      ...prev, ...data,
+      ...prev, ...data
     }));
     handleStep(7);
   }

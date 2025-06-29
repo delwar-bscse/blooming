@@ -1,15 +1,125 @@
-import Link from "next/link";
+import { useBrand } from "@/context/BrandContext";
+import { myFetch } from "@/utils/myFetch";
+import { toast } from "sonner";
+// import Link from "next/link";
 
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const FinalMessage = () => {
+  const { brandForm } = useBrand();
+
+  // console.log("brandForm", brandForm);
+
+  const packageId = "685d5063aff4a5828e9355d6"
+
+  const brandInfo = {
+    name: brandForm?.brandName,
+    email: brandForm?.brandEmail,
+    phone: brandForm?.phoneNumber,
+    productName: brandForm?.productName,
+    productLink: brandForm?.productLink,
+    productType: brandForm?.productType,
+  };
+
+  const brandSocial = {
+    tiktokHandle: brandForm?.tiktokHandle,
+    tiktokLink: brandForm?.tiktokLink,
+    instragramHandle: brandForm?.instagramHandle,
+    instragramLink: brandForm?.instagramLink,
+    websiteLink: brandForm?.websiteUrl,
+  };
+
+  const contentInfo = {
+    additionalFormate: brandForm?.additionFormats,
+    videoDuration: brandForm?.videoDuration,
+    platForm: brandForm?.platform,
+    usageType: brandForm?.usageType,
+    adHookOrCtaRequest: brandForm?.hookCta,
+    exampleVideoLink: brandForm?.videoLink,
+  };
+
+  const characteristicInfo = {
+    ageRange: brandForm?.ageRange,
+    gender: brandForm?.gender,
+    location: brandForm?.location,
+    language: brandForm?.languages,
+    script: brandForm?.script,
+  };
+
+  const doAndDonts = {
+    anyWordsNotToUse: brandForm?.anyWordsNotToUse,
+    anySpecificWordsUse: brandForm?.anySpecificWordsUse,
+    howToPronouncebrandName: brandForm?.howToPronouncebrandName,
+    anySpecialRequest: brandForm?.anySpecialRequest,
+    expressDelivery: brandForm?.expressDelivery,
+  };
+
+  const lastContentInfo = {
+    textOverlay: brandForm?.textOverlay,
+    captions: brandForm?.captions,
+    music: brandForm?.music,
+    extraHook: brandForm?.extraHook,
+    extraCta: brandForm?.extraCta,
+    videoType: brandForm?.kindOfVideo,
+    additionalPerson: brandForm?.additionalPerson,
+    offSiteAttraction: brandForm?.offSiteAttraction,
+    goalOfProject: brandForm?.projectGoal,
+    tergetAudience: brandForm?.targetAudience,
+  };
+
+  const ugcPhoto = brandForm?.ugcPhotos
+
+  // const finalObject = {
+  //   packageId,
+  //   brandInfo,
+  //   brandSocial,
+  //   contentInfo,
+  //   characteristicInfo,
+  //   doAndDonts,
+  //   lastContentInfo,
+  //   ugcPhoto
+  // }
+
+  const handleSubmit = async () => {
+    // const [paymentUrl, setPaymentUrl] = useState<string | null>(null);
+    // console.log("Submitted Data:", finalObject);
+    const formData = new FormData();
+    formData.append("packageId", packageId);
+    formData.append("brandInfo", JSON.stringify(brandInfo));
+    formData.append("brandSocial", JSON.stringify(brandSocial));
+    formData.append("contentInfo", JSON.stringify(contentInfo));
+    formData.append("characteristicInfo", JSON.stringify(characteristicInfo));
+    formData.append("doAndDonts", JSON.stringify(doAndDonts));
+    formData.append("lastContentInfo", JSON.stringify(lastContentInfo));
+    formData.append("ugcPhoto", ugcPhoto);
+
+    toast.loading("Loading...", { id: "loading" });
+    const res = await myFetch("/hire-creator/create", {
+      method: "POST",
+      body: formData
+    })
+    console.log("Response from server:", res);
+
+    if (res?.success) {
+      toast.success(res?.message || "Check your email!", { id: "loading" });
+      console.log(res?.data?.url);
+      if (res?.data?.url) {
+        window.location.href = res?.data?.url;
+      }
+    } else {
+      toast.error(res?.message || "Something went wrong!", { id: "loading" });
+    }
+  }
+
+
 
   return (
     <div className="w-full max-w-[700px] mx-auto h-full flex text-center justify-center items-center">
       <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
         <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Payment UI is under construction</h2>
-        <Link href="/" className="bg-white cursor-pointer text-[#565151] font-semibold py-3 px-8 rounded-md">
+        <button onClick={handleSubmit} className="bg-white cursor-pointer text-[#565151] font-semibold py-3 px-8 rounded-md">
           Go Home
-        </Link>
+        </button>
+        { }
       </div>
     </div>
   );

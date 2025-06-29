@@ -26,22 +26,22 @@ import { useBrand } from "@/context/BrandContext";
 
 // Schema
 const contactUsFormSchema = z.object({
-  ageRange: z.string(),
-  gender: z.string(),
-  location: z.string(),
-  languages: z.string(),
-  script: z.string(),
+  anyWordsNotToUse: z.string(),
+  anySpecificWordsUse: z.string(),
+  howToPronouncebrandName: z.string(),
+  anySpecialRequest: z.string(),
+  expressDelivery: z.string(),
 });
 
 // Type
 type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 
 const defaultValues: Partial<ContactUsFormValues> = {
-  ageRange: "18-25",
-  gender: "",
-  location: "",
-  languages: "",
-  script: "yes",
+  anyWordsNotToUse: "18-25",
+  anySpecificWordsUse: "",
+  howToPronouncebrandName: "",
+  anySpecialRequest: "",
+  expressDelivery: "yes",
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const DoDont = ({ handleStep }: { handleStep: (step: number) => void }) => {
@@ -71,23 +71,13 @@ const DoDont = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="ageRange"
+              name="anyWordsNotToUse"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Age Range</FormLabel>
-                  <Select value={field.value} onValueChange={field.onChange} >
-                    <FormControl>
-                      <SelectTrigger variant="borderwhite" className="w-full">
-                        <SelectValue placeholder="(E.G., 15s, 30s, 60s)" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="18-25">18-25</SelectItem>
-                      <SelectItem value="26-35">26-35</SelectItem>
-                      <SelectItem value="36-45">36-45</SelectItem>
-                      <SelectItem value="46-55">46-55</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <FormLabel className="text-white text-lg">Any Words Not To Use</FormLabel>
+                  <FormControl>
+                    <Input variant="borderwhite" placeholder="Type..." {...field} />
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
@@ -96,21 +86,13 @@ const DoDont = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="gender"
+              name="anySpecificWordsUse"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Gender Preference (If Any)</FormLabel>
-                  <Select value={field.value} onValueChange={field.onChange} >
-                    <FormControl>
-                      <SelectTrigger variant="borderwhite" className="w-full">
-                        <SelectValue placeholder="Select gender" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="male">Male</SelectItem>
-                      <SelectItem value="female">Female</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <FormLabel className="text-white text-lg">Any Specific Words To Use</FormLabel>
+                  <FormControl>
+                    <Input variant="borderwhite" placeholder="Type..." {...field} />
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
@@ -119,10 +101,10 @@ const DoDont = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="location"
+              name="howToPronouncebrandName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Location - Based Creator Requirement</FormLabel>
+                  <FormLabel className="text-white text-lg">How To Pronounce The Brand Name</FormLabel>
                   <FormControl>
                     <Input variant="borderwhite" placeholder="Type..." {...field} />
                   </FormControl>
@@ -135,10 +117,10 @@ const DoDont = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="languages"
+              name="anySpecialRequest"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Languages Requirement</FormLabel>
+                  <FormLabel className="text-white text-lg">Any Special Request</FormLabel>
                   <FormControl>
                     <Input variant="borderwhite" placeholder="Scripting" {...field} />
                   </FormControl>
@@ -150,10 +132,10 @@ const DoDont = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="script"
+              name="expressDelivery"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Will you provide a script ?</FormLabel>
+                  <FormLabel className="text-white text-lg">Express Delivery</FormLabel>
                   <Select value={field.value} onValueChange={field.onChange} >
                     <FormControl>
                       <SelectTrigger variant="borderwhite" className="w-full">
