@@ -15,7 +15,8 @@ const Blog = () => {
     <div>
       <div className='maxWidth space-y-20'>
         {/* -------------------------- User Generated Content VS Artificially Generated Content */}
-        <div className='space-y-8 pt-16'>
+        <div  className='flex items-center justify-center' style={{height: "calc(100vh - 60px)"}}>
+          <div className='space-y-8 pt-16'>
           <TypingAnimation duration={50} className='max-w-[600px] mx-auto text-center text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold text-font01 lg:leading-12'>User Generated Content VS Artificially Generated Content</TypingAnimation>
           <div className='max-w-[200px] mx-auto pb-8'>
             <CustomButton text="Get Started" />
@@ -24,6 +25,7 @@ const Blog = () => {
             <p className='shrink-1'>Following and keeping up to date with digital content trends involves understanding not only the ever-evolving landscape of User  -Generated Content (UGC) but also the emergence of Artificially Generated Content (AGC), particularly the controversial realm of deep fake content created by AI.</p>
             <h3 className='shrink-0 text-xl md:text-2xl xl:text-3xl font-semibold text-font01 text-center'>The Blooming<br />Brands Agency</h3>
           </div>
+        </div>
         </div>
         {/* -------------------------- Deep Fake Content -------------------------- */}
         <div>

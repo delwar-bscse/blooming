@@ -9,7 +9,7 @@ const PackageSection = () => {
   const bgColor = ["#FFF9E5", "#E9EDF2", "#EBE2D1", "#E8E9E4"];
 
   return (
-    <div className='pt-20 pb-32'>
+    <div className='pt-2 pb-32'>
       <div className='maxWidth'>
         <div className='space-y-4 pb-10'>
           <h1 className='text-3xl dm:text-5xl lg:text-6xl font-bold text-center text-[#333333] capitalize'>our service</h1>
@@ -18,7 +18,7 @@ const PackageSection = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
           {packageData?.map((item) => (
             <div id='package' key={item.id} style={{ backgroundColor: bgColor[item.id - 1] }} className='p-4 lg:p-6 rounded-4xl shadow-lg'>
-              <div className='border-6 border-[#FFECAC] rounded-t-4xl overflow-hidden mb-4 h-[360px]'>
+              <div className='border-6 border-[#FFECAC] rounded-t-4xl overflow-hidden mb-4 h-[300px]'>
                 <Image id='packageImg' src={item?.image} alt={item?.title} className='object-cover h-full transition-transform duration-500 ease-in-out'/>
               </div>
               <h2 className='text-2xl font-bold text-center'>{item?.title}</h2>

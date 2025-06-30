@@ -44,7 +44,7 @@ const Navbar = () => {
         const response = await myFetch("/users/my-profile", {
           method: "GET"
         });
-        // console.log("User Data:", response);
+        console.log("User Data:", response);
         setUser(response?.data);
       };
       getUser();
