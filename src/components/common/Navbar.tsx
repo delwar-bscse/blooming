@@ -101,9 +101,9 @@ const Navbar = () => {
           ) : (
             <div className='flex items-center gap-2 cursor-pointer'>
               <div className='max-md:hidden w-12 h-12 rounded-full overflow-hidden border-2 border-primary'>
-                <Image src={UserImage} alt="User Profile" width={200} height={200} className='object-fit' />
+                <Image src={user ? user?.profile : UserImage} alt="User Profile" width={200} height={200} className='object-fit' />
               </div>
-              <Link href="/profile" className='hidden xl:inline-block font-bold text-gray-700'>Shamim Nader</Link>
+              <Link href="/profile" className='hidden xl:inline-block font-bold text-gray-700'>{user?.fullName}</Link>
             </div>
           )}
 

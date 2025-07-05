@@ -102,7 +102,7 @@ const ChangePassword = () => {
                         className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-100 hover:text-gray-200 z-10"
                         onClick={() => setShowPassword(prev => !prev)}
                       >
-                        {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                        {showPassword ? <EyeOff size={20} className="text-gray-400"/> : <Eye size={20} className="text-gray-400"/>}
                       </div>
                     </div>
                   </FormControl>
@@ -120,7 +120,7 @@ const ChangePassword = () => {
                   <FormControl>
                     <div className="relative">
                       <Input
-                        type={showPassword ? "text" : "password"}
+                        type={showConfirmPassword ? "text" : "password"}
                         variant="borderblack"
                         placeholder="Enter password"
                         className="pr-10"
@@ -128,9 +128,9 @@ const ChangePassword = () => {
                       />
                       <div
                         className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-100 hover:text-gray-200 z-10"
-                        onClick={() => setShowPassword(prev => !prev)}
+                        onClick={() => setShowConfirmPassword(prev => !prev)}
                       >
-                        {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                        {showConfirmPassword ? <EyeOff size={20} className="text-gray-400"/> : <Eye size={20} className="text-gray-400"/>}
                       </div>
                     </div>
                   </FormControl>
@@ -159,7 +159,7 @@ const ChangePassword = () => {
                         className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-100 hover:text-gray-200 z-10"
                         onClick={() => setShowConfirmPassword(prev => !prev)}
                       >
-                        {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                        {showConfirmPassword ? <EyeOff size={20} className="text-gray-400"/> : <Eye size={20} className="text-gray-400"/>}
                       </div>
                     </div>
                   </FormControl>

@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import { Input } from "@/components/ui/input";
 import Image from 'next/image';
 import profileInputIcon from "@/assets/common/ProfileInputIcon.png";
+import { myFetch } from '@/utils/myFetch';
 
 const Profile = () => {
   const [step, setStep] = useState(1);
@@ -14,18 +15,44 @@ const Profile = () => {
   const [isMounted, setIsMounted] = useState(false);
 
 
+  async function getUserData() {
+    const response = await myFetch("/users/my-profile", {
+      method: "GET",
+    });
+    // console.log("User Data:", response?.data?.profile);
+    // setUserData(response?.data); 
+    if (response?.data?.profile) {
+      setImgUrl(response?.data?.profile);
+    }
+  }
+
+  useEffect(() => {
+    getUserData();
+  }, []);
+
+
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
 
-  const handleImgUrl = (file: File | null) => {
+  const handleImgUrl = async (file: File | null) => {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
         setImgUrl(reader.result as string);
       };
       reader.readAsDataURL(file);
+      const formData = new FormData();
+      formData.append("profile", file);
+      const response = await myFetch("/users/update-my-profile", {
+        method: "PATCH",
+        body: formData
+      });
+      // console.log("User Data:", response?.data);
+      if (response?.success) {
+        getUserData();
+      }
     } else {
       setImgUrl(null);
     }
