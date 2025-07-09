@@ -1,18 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
-import * as React from "react"
-import {
-  ColumnDef,
-  ColumnFiltersState,
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  SortingState,
-  useReactTable,
-  VisibilityState,
-} from "@tanstack/react-table"
+import dayjs from "dayjs"
+import { ColumnDef, flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table"
 
 import {
   Table,
@@ -24,6 +14,8 @@ import {
 } from "@/components/ui/table"
 import Link from "next/link"
 import { PiEyeLight } from "react-icons/pi";
+import { useEffect, useState } from "react";
+import { myFetch } from "@/utils/myFetch";
 
 export type OrderDataType = {
   id: string
@@ -32,56 +24,14 @@ export type OrderDataType = {
   status: "pending" | "complete"
 }
 
-const data: OrderDataType[] = [
-  {
-    id: "1",
-    deadline: "2023-06-01",
-    amount: 100,
-    status: "pending",
-  },
-  {
-    id: "2",
-    deadline: "2023-06-01",
-    amount: 100,
-    status: "complete",
-  },
-  {
-    id: "3",
-    deadline: "2023-06-01",
-    amount: 100,
-    status: "pending",
-  },
-  {
-    id: "4",
-    deadline: "2023-06-01",
-    amount: 100,
-    status: "pending",
-  },
-  {
-    id: "5",
-    deadline: "2023-06-01",
-    amount: 100,
-    status: "pending",
-  },
-  {
-    id: "6",
-    deadline: "2023-06-01",
-    amount: 100,
-    status: "pending",
-  },
-  {
-    id: "7",
-    deadline: "2023-06-01",
-    amount: 100,
-    status: "pending",
-  },
-  {
-    id: "8",
-    deadline: "2023-06-01",
-    amount: 100,
-    status: "pending",
-  }
-]
+// const data: OrderDataType[] = [
+//   {
+//     id: "1",
+//     deadline: "2023-06-01",
+//     amount: 100,
+//     status: "pending",
+//   },
+// ]
 
 
 export const columns: ColumnDef<OrderDataType>[] = [
@@ -94,9 +44,11 @@ export const columns: ColumnDef<OrderDataType>[] = [
   },
   {
     accessorKey: "deadline",
-    header: () => <div className="text-center">Deadline</div>,
+    header: () => <div className="text-center">Start Date</div>,
     cell: ({ row }) => (
-      <div className="capitalize text-center">{row.getValue("deadline")}</div>
+      <div className="capitalize text-center">
+        {dayjs(row.getValue("deadline")).format("YYYY-MM-DD")}
+      </div>
     ),
   },
   {
@@ -125,7 +77,7 @@ export const columns: ColumnDef<OrderDataType>[] = [
     accessorKey: "action",
     header: () => <div className="text-center">Action</div>,
     cell: ({ row }) => (
-      <Link href={`/creator/orders/${row.getValue("id")}`} className="capitalize flex items-center justify-center">
+      <Link href={`/orders/${row.getValue("id")}`} className="capitalize flex items-center justify-center">
         <PiEyeLight className="text-xl" />
       </Link>
     ),
@@ -133,32 +85,36 @@ export const columns: ColumnDef<OrderDataType>[] = [
 ]
 
 export function OrderHistory() {
-  const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  )
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({})
-  const [rowSelection, setRowSelection] = React.useState({})
+  const [orderData, setOrderData] = useState<OrderDataType[]>([])
 
   const table = useReactTable({
-    data,
+    data: orderData,
     columns,
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
-    onRowSelectionChange: setRowSelection,
-    state: {
-      sorting,
-      columnFilters,
-      columnVisibility,
-      rowSelection,
-    },
   })
+
+
+  const getBrandOrders = async() => { 
+    const res = await myFetch(`/hire-creator/user`);
+    console.log("Brand Order Data:", res);
+    if (res.success) {
+      console.log("Brand Order Data:", res.data);
+      const formatData = res.data.map((item: any) => {
+        return {
+          id: item._id,
+          deadline: item.createdAt,
+          amount: 200,
+          status: item.status,
+        }
+      })
+      setOrderData(formatData)
+    }
+  }
+
+  useEffect(() => {
+    getBrandOrders()
+  }, [])
+
 
   return (
     <div className="w-full pt-12">

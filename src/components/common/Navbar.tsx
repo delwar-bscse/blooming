@@ -42,7 +42,8 @@ const Navbar = () => {
     try {
       const getUser = async () => {
         const response = await myFetch("/users/my-profile", {
-          method: "GET"
+          method: "GET",
+          tags: ["user"]
         });
         console.log("User Data:", response);
         setUser(response?.data);

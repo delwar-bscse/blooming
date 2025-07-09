@@ -17,8 +17,6 @@ export interface FetchResponse {
   error?: string | null;
 }
 
-// export type tagsType = "Admin" | "Entrepreneur" | "Investor" | "User";
-
 type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
 interface FetchOptions {

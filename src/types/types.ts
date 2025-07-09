@@ -4,11 +4,19 @@ import { StaticImageData } from 'next/image';
 // import { StaticImageData } from 'next/image';
 
 
+// -------------------------- Step Data Type -------------------------- //
+export type StepDataType = {
+  id: number
+  title: string
+  label: string
+}
+
 // -------------------------- TimelineItem Data Type -------------------------- //
 export interface contentDataType {
   img: StaticImageData;
   des: string;
 }
+
 export interface brandChooseDatasType {
   title: string;
   content: contentDataType[];

@@ -8,11 +8,33 @@ import { Input } from "@/components/ui/input";
 import Image from 'next/image';
 import profileInputIcon from "@/assets/common/ProfileInputIcon.png";
 import { myFetch } from '@/utils/myFetch';
+import CustomStep from '@/components/cui/CustomStep';
+import { StepDataType } from '@/types/types';
+import { useSearchParams } from 'next/navigation';
+
+const stepDatas: StepDataType[] = [
+  {
+    id: 1,
+    title: "Profile",
+    label: "profile",
+  },
+  {
+    id: 2,
+    title: "Order",
+    label: "order",
+  },
+  {
+    id: 3,
+    title: "Setting",
+    label: "setting",
+  },
+];
 
 const Profile = () => {
-  const [step, setStep] = useState(1);
   const [imgUrl, setImgUrl] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const searchParams = useSearchParams();
+  const step = searchParams.get("step");
 
 
   async function getUserData() {
@@ -47,7 +69,8 @@ const Profile = () => {
       formData.append("profile", file);
       const response = await myFetch("/users/update-my-profile", {
         method: "PATCH",
-        body: formData
+        body: formData,
+        tags: ["user"]
       });
       // console.log("User Data:", response?.data);
       if (response?.success) {
@@ -58,18 +81,18 @@ const Profile = () => {
     }
   };
 
-  const handleStyle = (number?: number) => {
-    return `font-bold text-gray-600 border-b-4 pb-2 border-b-gray-300 hover:border-b-gray-500 pr-6 md:pr-20 text-xl cursor-pointer ${step === number ? 'border-b-gray-600 text-gray-800' : ''}`
-  }
+  // const handleStyle = (number?: number) => {
+  //   return `font-bold text-gray-600 border-b-4 pb-2 border-b-gray-300 hover:border-b-gray-500 pr-6 md:pr-20 text-xl cursor-pointer ${step === number ? 'border-b-gray-600 text-gray-800' : ''}`
+  // }
 
 
   return (
-    <div className='pb-20'>
+    <div className='pb-10'>
       <div className='bg-[#FFF2C7] h-48 relative w-full' />
       <div className='maxWidth'>
         <div>
           {isMounted && (
-            <div className="relative -top-20 left-0 inline-block">
+            <div className="relative -top-24 left-0 inline-block">
               <div className="w-40 h-40 mx-auto rounded-lg overflow-hidden border-3 border-gray-300 bg-gray-300">
                 {imgUrl ? (
                   <Image
@@ -108,17 +131,10 @@ const Profile = () => {
           )}
         </div>
         <div>
-          <div>
-            <ul className='flex relative z-10'>
-              <li onClick={() => setStep(1)} className={`${handleStyle(1)}`}>Profile</li>
-              <li onClick={() => setStep(2)} className={`${handleStyle(2)}`}>Order</li>
-              <li onClick={() => setStep(3)} className={`${handleStyle(3)}`}>Setting</li>
-            </ul>
-            <div className='border-b-4 border-b-gray-300 relative -top-1 w-full' />
-          </div>
-          {step === 1 && <ProfileInfo />}
-          {step === 2 && <OrderHistory />}
-          {step === 3 && <SettingInfo />}
+          <CustomStep stepDatas={stepDatas} />
+          {step === "profile" && <ProfileInfo />}
+          {step === "order" && <OrderHistory />}
+          {step === "setting" && <SettingInfo />}
         </div>
       </div>
     </div>
