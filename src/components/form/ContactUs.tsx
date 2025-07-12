@@ -14,26 +14,18 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-// import { toast } from "sonner";
-import toast, { Toaster } from 'react-hot-toast';
+import { toast } from "sonner";
 import { Textarea } from "@/components/ui/textarea"
 import { BsTelephoneOutbound } from "react-icons/bs";
 import { CiMail } from "react-icons/ci";
+import { myFetch } from "@/utils/myFetch";
 
 // Schema
 const contactUsFormSchema = z.object({
-  fullName: z.string().min(2, {
-    message: "Full name must be at least 2 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  phoneNumber: z.string().min(10, {
-    message: "Phone number must be at least 10 digits.",
-  }),
-  msg: z.string().min(2, {
-    message: "Full name must be at least 2 characters.",
-  }),
+  fullName: z.string().min(2, "Full name must be at least 2 characters."),
+  email: z.string().email("Please enter a valid email address."),
+  phoneNumber: z.string().min(10, "Phone number must be at least 10 digits."),
+  message: z.string().min(2, "Full name must be at least 2 characters."),
 });
 
 // Type
@@ -43,7 +35,7 @@ const defaultValues: Partial<ContactUsFormValues> = {
   fullName: "",
   email: "",
   phoneNumber: "",
-  msg: "",
+  message: "",
 };
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const ContactUs = () => {
@@ -53,9 +45,19 @@ const ContactUs = () => {
     mode: "onChange",
   });
 
-  function onSubmit(data: ContactUsFormValues) {
-    toast.success("Message send successfully!");
-    console.log("Submitted Data:", data);
+  async function onSubmit(data: ContactUsFormValues) {
+    toast.loading("Sending message...",{id:"contactus"});
+    // console.log("Contact Us Submitted Data:", data);
+    const res = await myFetch("/contact-us/create-contact",{
+      method: "POST",
+      body: data
+    })
+    if(res.success){
+      console.log("Contact Us Response from server:", res);
+      toast.success(res.message || "Message send successfully!",{id:"contactus"});
+    }else{
+      toast.error(res.message || "Something went wrong!",{id:"contactus"});
+    }
   }
 
   return (
@@ -130,7 +132,7 @@ const ContactUs = () => {
             {/* Full Name */}
             <FormField
               control={form.control}
-              name="msg"
+              name="message"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Message</FormLabel>
@@ -150,7 +152,7 @@ const ContactUs = () => {
         </Form>
       </div>
 
-      <Toaster  position="top-right" reverseOrder={false}/>
+      {/* <Toaster  position="top-right" reverseOrder={false}/> */}
 
     </div>
   );
