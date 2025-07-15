@@ -47,7 +47,6 @@ const ContactUs = () => {
 
   async function onSubmit(data: ContactUsFormValues) {
     toast.loading("Sending message...",{id:"contactus"});
-    // console.log("Contact Us Submitted Data:", data);
     const res = await myFetch("/contact-us/create-contact",{
       method: "POST",
       body: data
