@@ -3,7 +3,7 @@
 import { OrderHistory } from '@/components/creator/OrderHistory';
 import ProfileInfo from '@/components/creator/ProfileInfo';
 import SettingInfo from '@/components/creator/SettingInfo';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 import { Input } from "@/components/ui/input";
 import Image from 'next/image';
 import profileInputIcon from "@/assets/common/ProfileInputIcon.png";
@@ -11,6 +11,7 @@ import { myFetch } from '@/utils/myFetch';
 import CustomStep from '@/components/cui/CustomStep';
 import { StepDataType } from '@/types/types';
 import { useSearchParams } from 'next/navigation';
+import LoadingSpinner from '@/components/cui/LoadingSpinner';
 
 const stepDatas: StepDataType[] = [
   {
@@ -30,33 +31,26 @@ const stepDatas: StepDataType[] = [
   },
 ];
 
-const Profile = () => {
+// Move the main component logic to a separate component
+const ProfileContent = () => {
   const [imgUrl, setImgUrl] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState(false);
   const searchParams = useSearchParams();
   const step = searchParams.get("step");
 
-
   async function getUserData() {
     const response = await myFetch("/users/my-profile", {
       method: "GET",
     });
-    // console.log("User Data:", response?.data?.profile);
-    // setUserData(response?.data); 
     if (response?.data?.profile) {
       setImgUrl(response?.data?.profile);
     }
   }
 
   useEffect(() => {
+    setIsMounted(true);
     getUserData();
   }, []);
-
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
 
   const handleImgUrl = async (file: File | null) => {
     if (file) {
@@ -72,7 +66,6 @@ const Profile = () => {
         body: formData,
         tags: ["user"]
       });
-      // console.log("User Data:", response?.data);
       if (response?.success) {
         getUserData();
       }
@@ -81,17 +74,12 @@ const Profile = () => {
     }
   };
 
-  // const handleStyle = (number?: number) => {
-  //   return `font-bold text-gray-600 border-b-4 pb-2 border-b-gray-300 hover:border-b-gray-500 pr-6 md:pr-20 text-xl cursor-pointer ${step === number ? 'border-b-gray-600 text-gray-800' : ''}`
-  // }
-
-
   return (
     <div className='pb-10'>
       <div className='bg-[#FFF2C7] h-48 relative w-full' />
       <div className='maxWidth'>
         <div>
-          {isMounted && (
+          {isMounted ? (
             <div className="relative -top-24 left-0 inline-block">
               <div className="w-40 h-40 mx-auto rounded-lg overflow-hidden border-3 border-gray-300 bg-gray-300">
                 {imgUrl ? (
@@ -128,16 +116,30 @@ const Profile = () => {
                 }}
               />
             </div>
+          ) : (
+            <div className="relative -top-24 left-0 inline-block w-40 h-40 bg-gray-200 rounded-lg animate-pulse"></div>
           )}
         </div>
+
         <div>
           <CustomStep stepDatas={stepDatas} />
-          {step === "profile" && <ProfileInfo />}
-          {step === "order" && <OrderHistory />}
-          {step === "setting" && <SettingInfo />}
+          <Suspense fallback={<LoadingSpinner />}>
+            {step === "profile" && <ProfileInfo />}
+            {step === "order" && <OrderHistory />}
+            {step === "setting" && <SettingInfo />}
+          </Suspense>
         </div>
       </div>
     </div>
+  )
+}
+
+// Main exported component with Suspense boundary
+const Profile = () => {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <ProfileContent />
+    </Suspense>
   )
 }
 

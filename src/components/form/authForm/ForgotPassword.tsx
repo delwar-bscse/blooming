@@ -43,7 +43,7 @@ const ForgotPassword = () => {
   });
 
   async function onSubmit(data: ContactUsFormValues) {
-    console.log("Submitted Data:", data);
+    // console.log("Submitted Data:", data);
 
     const res = await myFetch("/auth/forgot-password-otp", {
       method: "POST",
@@ -51,7 +51,7 @@ const ForgotPassword = () => {
         email: data.email,
       },
     })
-    console.log("Response Forgot Password:", res);
+    // console.log("Response Forgot Password:", res);
 
     if (res.success) {
       // Handle success, e.g., show a toast notification

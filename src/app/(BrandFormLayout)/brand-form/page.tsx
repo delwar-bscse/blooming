@@ -16,7 +16,6 @@ export default function BrandForm() {
   const { brandForm, setBrandForm } = useBrand();
 
   useEffect(() => {
-    console.log("brandForm", brandForm)
   }, [brandForm, setBrandForm]);
 
   const handleStep = (step: number) => {

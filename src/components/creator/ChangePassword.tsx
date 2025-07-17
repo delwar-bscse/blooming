@@ -57,7 +57,6 @@ const ChangePassword = () => {
   });
 
   async function onSubmit(data: ContactUsFormValues) {
-    // console.log("Submitted Data:", data);
     toast.loading("Changing password...", {id:"loading"});
     
     const res = await myFetch("/auth/change-password", {
@@ -67,7 +66,6 @@ const ChangePassword = () => {
         newPassword: data.password,
       },
     })
-    // console.log("Response: Password Change Data:", res);
     if(res.success) {
       toast.success(res.message || "Password changed successfully!", {id:"loading"});
     } else{

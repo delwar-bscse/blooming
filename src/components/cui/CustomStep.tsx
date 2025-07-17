@@ -1,9 +1,8 @@
 "use client"
 
-
 import { StepDataType } from '@/types/types';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 
 const CustomStep = ({ stepDatas }: { stepDatas: StepDataType[] }) => {
   const searchParams = useSearchParams();
@@ -30,20 +29,22 @@ const CustomStep = ({ stepDatas }: { stepDatas: StepDataType[] }) => {
   }
 
   return (
-    <div>
-      <ul className='flex relative z-10'>
-        {stepDatas.map((item) => (
-          <li
-            key={item.id}
-            onClick={() => handleStepChange(item.label)}
-            className={`${handleStyle(item.label)}`}
-          >
-            {item.title}
-          </li>
-        ))}
-      </ul>
-      <div className='border-b-6 border-b-gray-300 relative -top-1.5 w-full' />
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div>
+        <ul className='flex relative z-10'>
+          {stepDatas.map((item) => (
+            <li
+              key={item.id}
+              onClick={() => handleStepChange(item.label)}
+              className={`${handleStyle(item.label)}`}
+            >
+              {item.title}
+            </li>
+          ))}
+        </ul>
+        <div className='border-b-6 border-b-gray-300 relative -top-1.5 w-full' />
+      </div>
+    </Suspense>
   )
 }
 

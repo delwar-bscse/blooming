@@ -32,18 +32,13 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    try {
-      const getUser = async () => {
-        const response = await myFetch("/users/my-profile", {
-          method: "GET"
-        });
-        // console.log("User Data:", response);
-        setUser(response?.data);
-      };
-      getUser();
-    } catch (error) {
-      console.log(error);
-    }
+    const getUser = async () => {
+      const response = await myFetch("/users/my-profile", {
+        method: "GET"
+      });
+      setUser(response?.data);
+    };
+    getUser();
 
   }, [pathname]);
 
@@ -62,8 +57,8 @@ const Navbar = () => {
             <li
               key={item.id}
               className={`cursor-pointer px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 ${isActive(item.url)
-                  ? 'bg-[#FFECAC] text-primary font-bold'
-                  : 'hover:bg-[#FFECAC]'
+                ? 'bg-[#FFECAC] text-primary font-bold'
+                : 'hover:bg-[#FFECAC]'
                 }`}
             >
               <Link href={item.url}>{item.title}</Link>
@@ -117,8 +112,8 @@ const Navbar = () => {
                       key={item.id}
                       onClick={() => setOpen(false)}
                       className={`cursor-pointer px-3 py-2 rounded transition-colors duration-200 ${isActive(item.url)
-                          ? 'bg-gray-200 text-primary font-semibold'
-                          : 'hover:bg-gray-100'
+                        ? 'bg-gray-200 text-primary font-semibold'
+                        : 'hover:bg-gray-100'
                         }`}
                     >
                       <Link href={item.url}>{item.title}</Link>

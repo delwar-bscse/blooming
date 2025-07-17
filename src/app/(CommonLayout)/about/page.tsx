@@ -4,12 +4,18 @@ import aboutImg2 from "@/assets/common/about02.png"
 import aboutImg3 from "@/assets/common/about03.png"
 import Image from 'next/image'
 import CustomButton from '@/components/ui/CustomButton'
-import videoThumb from "@/assets/common/video_image.png"
 import TimelineComponent from '@/components/shared/Timeline'
 import { TypingAnimation } from "@/components/magicui/typing-animation";
+import { myFetch } from '@/utils/myFetch'
 
 
-const About = () => {
+const About = async () => {
+
+  const res = await myFetch(`/upload-video?category=Meet Our Team`, {
+    method: "GET",
+  })
+
+
   return (
     <section>
       <div>
@@ -23,17 +29,27 @@ const About = () => {
             <Image src={aboutImg1} alt="Blooming Brands" className='' />
           </div>
         </div>
-        
+
 
         <div>
           <TimelineComponent />
         </div>
 
         {/* --------------------------- Meet Our Team --------------------------- */}
-        <div className='maxWidth space-y-4 md:space-y-8 pt-28'>
+        <div className='maxWidth space-y-4 md:space-y-8 pt-28 flex flex-col items-center'>
           <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-center'>Meet Our Team</h2>
           <div>
-            <Image src={videoThumb} alt="Blooming Brands" className='' />
+            {/* <VideoViewCard videoUrl={res.data.videos[0].url as string} /> */}
+            <video width="1000" height="500" controls className='h-full'>
+              <source src={res.data.videos[0].url as string ?? ""} type="video/mp4" />
+              <track
+                src="/path/to/captions.vtt"
+                kind="subtitles"
+                srcLang="en"
+                label="English"
+              />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
 
@@ -56,7 +72,7 @@ const About = () => {
           <div className='basis-[60%] flex flex-col justify-center gap-8 lg:p-8'>
             <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-center'>It’s time your content worked as hard as you do. See what we offer</h2>
             <div className='w-full max-w-40 mx-auto'>
-              <CustomButton text="contact Us" url='/contact'/>
+              <CustomButton text="contact Us" url='/contact' />
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ const BrandVideo = () => {
   const getAwsVideosUrls = async () => {
     toast.loading("Fetching uploaded videos...", { id: "fetch" })
     const res = await myFetch(`/hire-creator/${id}`, { method: 'GET' })
-    console.log("Fetch Uploaded Videos Response:", res)
+    // console.log("Fetch Uploaded Videos Response:", res)
 
     if (res.success) {
       setAwsVideoUrls(res?.data?.uploadedFiles)
@@ -36,7 +36,7 @@ const BrandVideo = () => {
       download(blob, filename, "video/mp4")
 
       toast.success("Download started!", { id: "download" })
-      console.log("Downloading:", filename)
+      // console.log("Downloading:", filename)
     } catch (error) {
       console.error("Download error:", error)
       toast.error("Download failed!", { id: "download" })

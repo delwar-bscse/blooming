@@ -96,9 +96,9 @@ export function OrderHistory() {
 
   const getBrandOrders = async() => { 
     const res = await myFetch(`/hire-creator/user`);
-    console.log("Brand Order Data:", res);
+    // console.log("Brand Order Data:", res);
     if (res.success) {
-      console.log("Brand Order Data:", res.data);
+      // console.log("Brand Order Data:", res.data);
       const formatData = res.data.map((item: any) => {
         return {
           id: item._id,

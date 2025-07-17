@@ -78,7 +78,7 @@ const SignUp = () => {
   }, []);
 
   async function onSubmit(data: ContactUsFormValues) {
-    console.log("Submitted Data:", data);
+    // console.log("Submitted Data:", data);
 
     const res = await myFetch("/users/create", {
       method: "POST",

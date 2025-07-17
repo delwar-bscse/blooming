@@ -1,24 +1,36 @@
-import React from 'react'
 import BloomComponent from '../shared/BloomComponent'
 import CustomButton from '../ui/CustomButton'
 import BloomHeading from '../shared/BloomHeading'
-import { heroSlideDatas } from '@/constants/heroSlideData'
-import Image from 'next/image'
+import { myFetch } from '@/utils/myFetch'
+import VideoViewCard, { VideoPlayerProvider } from '../cui/VideoViewCard'
 
-const BloomSection = ({ title, des }: { title: string, des: string }) => {
+const BloomSection = async ({ title, des }: { title: string, des: string }) => {
+
+  const res = await myFetch(`/upload-video?category=Landing Page`, {
+    method: "GET",
+  })
+
+
   return (
     <section className='bg-[#E9EDF2]'>
       <div className='maxWidth py-20'>
         <div className='pb-16'>
           <BloomHeading title="See Why Brands Choose Blooming Brands And Why You Should Too." des="Explore real feedback from real clients then start your story with us." />
         </div>
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-2 md:px-4 lg:px-8 xl:px-16'>
-          {heroSlideDatas?.slice(0, 5)?.map((review, index) => (
-            <div key={index}>
-              <Image src={review?.img} alt="content image" width={500} height={500} className='object-cover w-full' />
-            </div>
-          ))}
-        </div>
+        <VideoPlayerProvider>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-2 md:px-4 lg:px-8 xl:px-16'>
+            {res?.data?.videos?.slice(0, 5)?.map((video: Record<string, unknown>, index: number) => (
+              <VideoViewCard
+                key={index} // Better to use video.id if available
+                videoUrl={video.url as string}
+                videoId={`video-${index}`} // Add unique videoId
+                width="100%"
+                height="auto"
+                className="hover:scale-105 transition-transform duration-200" // Optional hover effect
+              />
+            ))}
+          </div>
+        </VideoPlayerProvider>
       </div>
       <div className='maxWidth pb-20'>
         <>

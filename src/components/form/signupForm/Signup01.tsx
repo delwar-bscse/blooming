@@ -55,7 +55,7 @@ const Signup01 = ({ handleStep }: { handleStep: (step: number) => void }) => {
   const { creatorForm, setCreatorForm } = useCreator();
   const [imgUrl, setImgUrl] = useState<string | null>(null);
 
-  console.log("Creator Form Data:", creatorForm);
+  // console.log("Creator Form Data:", creatorForm);
 
   const form = useForm<ContactUsFormValues>({
     resolver: zodResolver(contactUsFormSchema),
@@ -65,7 +65,7 @@ const Signup01 = ({ handleStep }: { handleStep: (step: number) => void }) => {
 
   function onSubmit(data: ContactUsFormValues) {
     // toast.success("Message send successfully!");
-    console.log("Submitted Data:", data);
+    // console.log("Submitted Data:", data);
     setCreatorForm((prev) => ({
       ...prev, ...data,
     }));

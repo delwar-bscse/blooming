@@ -62,7 +62,7 @@ const Signup07 = ({ handleStep }: { handleStep: (step: number) => void }) => {
 
 
     // toast.success("Message send successfully!");
-    console.log("Submitted Data:", data);
+    // console.log("Submitted Data:", data);
     setCreatorForm((prev) => ({
       ...prev, ...data
     }))

@@ -39,19 +39,14 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    try {
-      const getUser = async () => {
-        const response = await myFetch("/users/my-profile", {
-          method: "GET",
-          tags: ["user"]
-        });
-        console.log("User Data:", response);
-        setUser(response?.data);
-      };
-      getUser();
-    } catch (error) {
-      console.log(error);
-    }
+    const getUser = async () => {
+      const response = await myFetch("/users/my-profile", {
+        method: "GET",
+        tags: ["user"]
+      });
+      setUser(response?.data);
+    };
+    getUser();
 
   }, [pathname]);
 

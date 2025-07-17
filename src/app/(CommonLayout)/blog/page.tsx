@@ -20,7 +20,6 @@ const Blog = async() => {
 
   const res = await myFetch("/blog");
   const blogDatas = res?.data;
-  console.log(blogDatas);
 
   return (
     <div className='pb-20'>

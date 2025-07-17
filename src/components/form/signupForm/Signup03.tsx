@@ -50,7 +50,7 @@ const Signup03 = ({ handleStep }: { handleStep: (step: number) => void }) => {
 
   function onSubmit(data: ContactUsFormValues) {
     // toast.success("Message send successfully!");
-    console.log("Submitted Data:", data);
+    // console.log("Submitted Data:", data);
     setCreatorForm((prev) => ({
       ...prev, ...data
     }))

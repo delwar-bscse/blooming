@@ -20,13 +20,13 @@ const CreatorProjectDetails = () => {
 
 
   const getOrderDetails = async () => {
-    console.log(id);
+    // console.log(id);
 
     toast.loading("Order Details Fetching...", { id: "fetch" });
     const res = await myFetch(`/hire-creator/${id}`, {
       method: "GET",
     });
-    console.log(res?.data);
+    // console.log(res?.data);
 
     if (res?.data) {
       toast.success("Order Details fetched successfully!", { id: "fetch" });
@@ -38,18 +38,18 @@ const CreatorProjectDetails = () => {
 
   useEffect(() => {
     getOrderDetails();
-    console.log(orderDetails)
+    // console.log(orderDetails)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleDelete = async () => {
-    console.log(id);
+    // console.log(id);
 
     toast.loading("Deleting...", { id: "delete" });
     const res = await myFetch(`/hire-creator/cancel/${id}`, {
       method: "PATCH",
     });
-    console.log(res?.data);
+    // console.log(res?.data);
 
     if (res?.data) {
       toast.success("Deleted successfully!", { id: "delete" });
@@ -60,13 +60,13 @@ const CreatorProjectDetails = () => {
   }
 
   const handleApprove = async () => {
-    console.log(id);
+    // console.log(id);
 
     toast.loading("Approving...", { id: "approve" });
     const res = await myFetch(`/hire-creator/approved/${id}`, {
       method: "PATCH",
     });
-    console.log(res?.data);
+    // console.log(res?.data);
 
     if (res?.data) {
       toast.success("Approved successfully!", { id: "approve" });
