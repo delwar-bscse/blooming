@@ -1,13 +1,14 @@
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/magicui/marquee";
 import { myFetch } from "@/utils/myFetch";
+// import VideoView from "../cui/ViewVideo";
 
 
 
 const ReviewCard = ({
-  videoUrl,
+  video,
 }: {
-  videoUrl: string;
+  video: Record<string, unknown>;
 }) => {
   return (
     <figure
@@ -18,8 +19,8 @@ const ReviewCard = ({
       )}
     >
       <div className="">
-        <video autoPlay loop muted width="20" height="30" className='w-[200px]'>
-          <source src={videoUrl ?? ""} type="video/mp4" />
+        <video autoPlay loop muted width="2" height="3" className='w-[200px] h-[320px] object-fill rounded-sm border-4 border-gray-400'>
+          <source src={video.url as string ?? ""} type="video/mp4" />
           <track
             src="/path/to/captions.vtt"
             kind="subtitles"
@@ -28,6 +29,7 @@ const ReviewCard = ({
           />
           Your browser does not support the video tag.
         </video>
+        {/* <VideoView videoUrl={video.url as string} videoId={`video-${video.key as string}`} /> */}
       </div>
     </figure>
   );
@@ -38,14 +40,15 @@ export async function MarqueeDemo() {
   const res = await myFetch(`/upload-video?category=Landing Page`, {
     method: "GET",
   })
-  const videoDatas: string[] = res?.data?.videos?.map((video: Record<string, unknown>) => video.url);
+  const videoDatas: Record<string, unknown>[] = res?.data?.videos;
+  console.log(videoDatas)
 
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
       <Marquee pauseOnHover className="[--duration:60s]">
-        {videoDatas?.map((videoUrl: string, index: number) => (
-          <ReviewCard key={index} videoUrl={videoUrl} />
+        {videoDatas?.map((video: Record<string, unknown>, index: number) => (
+          <ReviewCard key={index} video={video} />
         ))}
       </Marquee>
     </div>

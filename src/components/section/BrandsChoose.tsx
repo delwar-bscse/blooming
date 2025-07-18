@@ -2,8 +2,9 @@
 import React from 'react'
 import Title from '../shared/Title'
 import { myFetch } from '@/utils/myFetch'
+import VideoView from '../cui/ViewVideo';
 
-export const selectOptions = ["Beauty And Skincare",, "Travel And Hotel",  "Food And Beverage",  "Teach And Digital Products", "Health And Fitness", "Fashion And Lifestyle"];
+export const selectOptions = ["Beauty And Skincare", , "Travel And Hotel", "Food And Beverage", "Teach And Digital Products", "Health And Fitness", "Fashion And Lifestyle"];
 
 const BrandsChoose = async () => {
 
@@ -13,11 +14,7 @@ const BrandsChoose = async () => {
   });
 
   const videoDatas = res?.data
-    ?.filter((section: Record<string, unknown>) => selectOptions.includes(section.category as string))
-    .map((section: Record<string, any>) => ({
-      category: section.category as string,
-      videos: section.videos.map((video: Record<string, unknown>) => video.url as string)
-    }));
+    ?.filter((section: Record<string, unknown>) => selectOptions.includes(section.category as string));
 
   // console.log("Video Data:", videoDatas);
 
@@ -32,23 +29,13 @@ const BrandsChoose = async () => {
               <Title title={item.category as string} />
             </div>
             <div className="scroll-container" style={{ overflowX: 'auto', scrollBehavior: 'smooth', whiteSpace: 'nowrap' }}>
-              <div className='flex justify-around h-[300px]'>
-                {item?.videos?.slice(0, 4)?.map((item: string, index: number) => (
-                  <div key={index} className="">
-                    {/* <VideoViewCard videoUrl={item as string} /> */}
-                    <video autoPlay muted loop width="10" height="15" className='h-[300px] w-[160px]'>
-                      <source src={item ?? ""} type="video/mp4" />
-                      <track
-                        src="/path/to/captions.vtt"
-                        kind="subtitles"
-                        srcLang="en"
-                        label="English"
-                      />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                ))}
-              </div>
+                <div className='flex justify-around h-[400px]'>
+                  {item?.videos?.slice(0, 4)?.map((item: Record<string, unknown>, index: number) => (
+                    <div key={index} className="">
+                      <VideoView videoUrl={item.url as string} videoId={`video-${item.key as string}`} />
+                    </div>
+                  ))}
+                </div>
             </div>
 
           </div>

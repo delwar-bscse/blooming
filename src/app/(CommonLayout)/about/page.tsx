@@ -39,8 +39,7 @@ const About = async () => {
         <div className='maxWidth space-y-4 md:space-y-8 pt-28 flex flex-col items-center'>
           <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-center'>Meet Our Team</h2>
           <div>
-            {/* <VideoViewCard videoUrl={res.data.videos[0].url as string} /> */}
-            <video width="1000" height="500" controls className='h-full'>
+            <video width="40" height="20" controls className='h-[500px] w-[1000px] object-contain'>
               <source src={res.data.videos[0].url as string ?? ""} type="video/mp4" />
               <track
                 src="/path/to/captions.vtt"

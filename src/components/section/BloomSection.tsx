@@ -2,7 +2,8 @@ import BloomComponent from '../shared/BloomComponent'
 import CustomButton from '../ui/CustomButton'
 import BloomHeading from '../shared/BloomHeading'
 import { myFetch } from '@/utils/myFetch'
-import VideoViewCard, { VideoPlayerProvider } from '../cui/VideoViewCard'
+// import VideoViewCard, { VideoPlayerProvider } from '../cui/VideoViewCard'
+import VideoView from '../cui/ViewVideo'
 
 const BloomSection = async ({ title, des }: { title: string, des: string }) => {
 
@@ -17,20 +18,11 @@ const BloomSection = async ({ title, des }: { title: string, des: string }) => {
         <div className='pb-16'>
           <BloomHeading title="See Why Brands Choose Blooming Brands And Why You Should Too." des="Explore real feedback from real clients then start your story with us." />
         </div>
-        <VideoPlayerProvider>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-2 md:px-4 lg:px-8 xl:px-16'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-2 md:px-4 lg:px-8 xl:px-16 justify-around'>
             {res?.data?.videos?.slice(0, 5)?.map((video: Record<string, unknown>, index: number) => (
-              <VideoViewCard
-                key={index} // Better to use video.id if available
-                videoUrl={video.url as string}
-                videoId={`video-${index}`} // Add unique videoId
-                width="100%"
-                height="auto"
-                className="hover:scale-105 transition-transform duration-200" // Optional hover effect
-              />
+              <VideoView key={index} videoUrl={video.url as string} videoId={`video-${video.key as string}`} />
             ))}
           </div>
-        </VideoPlayerProvider>
       </div>
       <div className='maxWidth pb-20'>
         <>
