@@ -1,10 +1,13 @@
 "use client"
 import Image from 'next/image'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { LiaCheckCircle } from "react-icons/lia";
 import { Button } from "@/components/ui/button"
 import { myFetch } from '@/utils/myFetch';
 import { formatImagePath } from '@/utils/formatImagePath';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useBrand } from '@/context/BrandContext';
+import { toast } from 'sonner';
 
 export interface IPackage {
   _id: string;
@@ -21,32 +24,69 @@ export interface IPackage {
 }
 
 const bgColor = ["#FFF9E5", "#E9EDF2", "#EBE2D1", "#E8E9E4", "#FFF9E5", "#E9EDF2", "#EBE2D1", "#E8E9E4"];
+
 const PackageSection = () => {
-  const [packageDatas, setPackageDatas] = React.useState<IPackage[]>([]);
+  const router = useRouter();
+  const { setBrandForm } = useBrand();
+  const [packageDatas, setPackageDatas] = useState<IPackage[]>([]);
+  const searchParams = useSearchParams();
+  const isPackage = searchParams.get("isPackage");
 
   useEffect(() => {
+    const url = isPackage === "true" ? `/subscription` : `/package/packages`;
     const getPost = async () => {
-      const res = await myFetch(`/package/packages`, {
+      const res = await myFetch(`${url}`, {
         method: "GET",
       })
       if (res.success) {
-        setPackageDatas(res.data)
+        if(isPackage === "true"){
+          const tempArray = res?.data as Record<string, unknown>[] || [];
+          const filteredData = tempArray.map((item: Record<string, unknown>)=>item?.packageId);
+          setPackageDatas(filteredData as IPackage[])
+        }else{
+          setPackageDatas(res.data as IPackage[])
+        }
         // console.log(res.data)
       }
 
     }
     getPost();
-  }, [])
+  }, [isPackage])
+
+  const handleSelectPackage = (packageId : string) => {
+    setBrandForm((prev) => ({
+      ...prev,
+      packageId
+    }))
+    router.back();
+  }
+
+  const handlePurchasePackage = async(packageId: string) =>{
+    const res = await myFetch("/hire-creator/createPackagePurchase", {
+      method: "POST",
+      body:{
+        packageId
+      }
+    });
+    // console.log(res);
+    if(res.success){
+      window.location.href = res?.data?.url
+    }else{
+      toast.error(res.message || "Something went wrong!")
+    }
+  }
 
 
 
   return (
     <div className='pt-2 pb-32'>
       <div className='maxWidth'>
-        <div className='space-y-4 pb-10'>
+        {!isPackage ? <div className='space-y-4 pb-10'>
           <h1 className='text-3xl dm:text-5xl lg:text-6xl font-bold text-center text-[#333333] capitalize'>our service</h1>
           <p className='text-center text-[#333333] text-lg font-semibold'>we offer 4 packages and a monthly services. you can purchase now or book a call.</p>
-        </div>
+        </div>: <div>
+          <h1 className='text-3xl dm:text-5xl lg:text-6xl font-bold text-center text-[#333333] capitalize'>Select A Package</h1>
+          </div>}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
           {packageDatas?.map((item, index: number) => (
             <div id='package' key={item._id} style={{ backgroundColor: bgColor[index] }} className='p-4 lg:p-6 rounded-4xl shadow-lg flex flex-col'>
@@ -66,7 +106,9 @@ const PackageSection = () => {
                   ))}
                 </ul>
                 <div className='flex-1 flex flex-col justify-end'>
-                  <Button variant="customYellow" className='w-full mt-8 h-12'>Purchase Now</Button>
+                  {(isPackage === "true") && <Button onClick={() => handleSelectPackage(item?._id)} className='w-full mt-4' variant="customYellow">Select</Button>}
+                  {(isPackage === "false") && <Button onClick={() => handleSelectPackage(item?._id)} className='w-full mt-4' variant="customYellow">Select</Button>}
+                  {(isPackage === null) && <Button onClick={() => handlePurchasePackage(item?._id)} className='w-full mt-4' variant="customYellow">Purchase Now</Button>}
                 </div>
               </div>
             </div>

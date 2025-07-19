@@ -95,10 +95,10 @@ const CreatorScript = () => {
 
             {/* Submit */}
             <div className="flex justify-center gap-4">
-              <Button variant="customYellow" type="submit" size="llg" className="w-32">
+              <Button disabled={true} variant="customYellow" type="submit" size="llg" className="w-32">
                 Revision
               </Button>
-              <Button variant="customYellow" type="submit" size="llg" className="w-32">
+              <Button disabled={true} variant="customYellow" type="submit" size="llg" className="w-32">
                 Done
               </Button>
             </div>

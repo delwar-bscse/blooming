@@ -8,24 +8,28 @@ import ContentInfo from "@/components/form/brandForm/ContentInfo";
 import ContentInformation from "@/components/form/brandForm/ContentInformation";
 import DoDont from "@/components/form/brandForm/DoDont";
 import FinalMessage from "@/components/form/brandForm/FinalMessage";
-import { BrandProvider, useBrand } from "@/context/BrandContext";
 import { useEffect, useState } from "react";
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 
 export default function BrandForm() {
   const [formStep, setFormStep] = useState(1);
-  const { brandForm, setBrandForm } = useBrand();
-
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  
   useEffect(() => {
-  }, [brandForm, setBrandForm]);
+    const step = searchParams.get('step');
+    setFormStep(parseInt(step || '1'));
+  }, [pathname, searchParams]);
 
   const handleStep = (step: number) => {
-    setFormStep(step);
+    router.replace(`/brand-form?step=${step.toString()}`);
   };
 
   const activeStepStyle = (idx: number) => `w-12 h-4 rounded-full transition-all duration-300 cursor-pointer ${formStep === idx + 1 ? "bg-yellow-400 scale-x-110" : "bg-gray-300 hover:bg-yellow-300 hover:scale-x-120"}`
 
   return (
-    <BrandProvider >
+    <>
       <div className="bg-blue-100 min-h-screen box-border overflow-y-scroll bg-cover bg-no-repeat flex flex-col justify-center scrollbar-hide py-16" style={{ backgroundImage: `url(${formBg.src})` }} >
         <div className="space-y-12">
           {formStep === 1 && <BrandInfo handleStep={handleStep} />}
@@ -46,6 +50,6 @@ export default function BrandForm() {
           </div>
         </div>
       </div>
-    </BrandProvider>
+    </>
   );
 }

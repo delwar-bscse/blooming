@@ -23,7 +23,7 @@ const HeroSection = () => {
             <p className='text-[#545454] text-center max-w-[650px]'>whether you are here to create or collaborate this is where it all starts.creator and brand connects a space for authentic collaboration and impactful ugc content</p>
             <div className="w-full max-w-[500px] flex flex-col md:flex-row gap-4 mt-4">
               <CustomButton text="Apply As Creators" url="/creator-signup" variant="button02"/>
-              <CustomButton text="Hire a Creator" url="/brand-form" variant="button02"/>
+              <CustomButton text="Hire a Creator" url="/brand-form?step=1" variant="button02"/>
             </div>
           </div>
           <div className="hover:scale-105 transition-transform duration-500 ease-in-out">
@@ -39,7 +39,7 @@ const HeroSection = () => {
         <Image src={butterfly} alt="butterfly" width={100} height={100} className='absolute bottom-10 right-10' />
       </div>
       <div className="py-10">
-        <MarqueeDemo />
+        {/* <MarqueeDemo /> */}
       </div>
     </section>
   )

@@ -1,15 +1,34 @@
 import { useBrand } from "@/context/BrandContext";
 import { myFetch } from "@/utils/myFetch";
+import Link from "next/link";
+// import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 // import Link from "next/link";
 
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const FinalMessage = () => {
+  // const router = useRouter();
   const { brandForm } = useBrand();
+  const [isPackage, setIsPackage] = useState<boolean>(false);
 
-  // console.log("brandForm", brandForm);
+  console.log("brandForm", brandForm);
 
-  const packageId = "685d5063aff4a5828e9355d6"
+  // const packageId = "685d5063aff4a5828e9355d6"
+
+  useEffect(() => {
+    const checkPackage = async () => {
+      const res = await myFetch("/subscription/existe", {
+        method: "GET",
+        cache: "no-cache"
+      });
+      // console.log(res);
+      if (res.success && res.data === "true") {
+        setIsPackage(true);
+      }
+    }
+    checkPackage();
+  }, []);
 
   const brandInfo = {
     name: brandForm?.brandName,
@@ -67,17 +86,9 @@ const FinalMessage = () => {
   };
 
   const ugcPhoto = brandForm?.ugcPhotos
+  const packageId = brandForm?.packageId
 
-  // const finalObject = {
-  //   packageId,
-  //   brandInfo,
-  //   brandSocial,
-  //   contentInfo,
-  //   characteristicInfo,
-  //   doAndDonts,
-  //   lastContentInfo,
-  //   ugcPhoto
-  // }
+ 
 
   const handleSubmit = async () => {
     // const [paymentUrl, setPaymentUrl] = useState<string | null>(null);
@@ -100,10 +111,12 @@ const FinalMessage = () => {
     console.log("Response from server:", res);
 
     if (res?.success) {
-      toast.success(res?.message || "Check your email!", { id: "loading" });
+      toast.success(res?.message || "Order created successfully!", { id: "loading" });
       console.log(res?.data?.url);
       if (res?.data?.url) {
         window.location.href = res?.data?.url;
+      }else{
+        // router.replace("/");
       }
     } else {
       toast.error(res?.message || "Something went wrong!", { id: "loading" });
@@ -115,10 +128,16 @@ const FinalMessage = () => {
   return (
     <div className="w-full max-w-[700px] mx-auto h-full flex text-center justify-center items-center">
       <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
-        <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Make a Payment</h2>
-        <button onClick={handleSubmit} className="bg-white cursor-pointer text-[#565151] font-semibold py-3 px-8 rounded-md">
+        {/* <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Make a Payment</h2> */}
+        {packageId && <button onClick={handleSubmit} className="bg-white cursor-pointer text-[#565151] font-semibold py-3 px-8 rounded-md">
           Continue
-        </button>
+        </button>}
+        {!packageId && isPackage===true && <Link href="/service?isPackage=true" onClick={handleSubmit} className="bg-white cursor-pointer text-[#565151] font-semibold py-3 px-8 rounded-md">
+          Select Package Or Subscription
+        </Link>}
+        {!packageId && isPackage===false && <Link href="/service?isPackage=false" className="bg-white cursor-pointer text-[#565151] font-semibold py-3 px-8 rounded-md">
+          Purchase Package Or Subscription
+        </Link>}
         { }
       </div>
     </div>

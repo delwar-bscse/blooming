@@ -68,6 +68,7 @@ const SignIn = () => {
       router.push("/");
     } else {
       // Handle error, e.g., show a toast notification
+      toast.error(res?.message || "Login failed!");
       console.error("Login failed:", res.message);
     }
 

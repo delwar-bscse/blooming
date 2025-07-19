@@ -19,7 +19,7 @@ const ReviewCard = ({
       )}
     >
       <div className="">
-        <video autoPlay loop muted width="2" height="3" className='w-[200px] h-[320px] object-fill rounded-sm border-4 border-gray-400'>
+        <video autoPlay={false} loop muted width="2" height="3" className='w-[200px] h-[320px] object-fill rounded-sm border-4 border-gray-400'>
           <source src={video.url as string ?? ""} type="video/mp4" />
           <track
             src="/path/to/captions.vtt"

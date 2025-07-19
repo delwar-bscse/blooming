@@ -1,19 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Image from 'next/image';
+// import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
-import StarEmogi from "@/assets/common/star.png"
-import LoveEmogi from "@/assets/common/loveEmoji.png"
+// import StarEmogi from "@/assets/common/star.png"
+// import LoveEmogi from "@/assets/common/loveEmoji.png"
 import { toast } from 'sonner';
 import { myFetch } from '@/utils/myFetch';
-import { useParams, useRouter } from 'next/navigation';
-import { Button } from '../ui/button';
+import { useParams } from 'next/navigation';
+// import { Button } from '../ui/button';
 import { TOrdersData } from '@/types/orderDataTypes';
 
 
 
 
-const CreatorProjectDetails = () => {
-  const router = useRouter();
+const BrandProjectDetails = () => {
+  // const router = useRouter();
   const [orderDetails, setOrderDetails] = useState<TOrdersData>({} as TOrdersData);
   const params = useParams();
   const id = params["id"];
@@ -42,48 +42,48 @@ const CreatorProjectDetails = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const handleDelete = async () => {
-    // console.log(id);
+  // const handleDelete = async () => {
+  //   // console.log(id);
 
-    toast.loading("Deleting...", { id: "delete" });
-    const res = await myFetch(`/hire-creator/cancel/${id}`, {
-      method: "PATCH",
-    });
-    // console.log(res?.data);
+  //   toast.loading("Deleting...", { id: "delete" });
+  //   const res = await myFetch(`/hire-creator/cancel/${id}`, {
+  //     method: "PATCH",
+  //   });
+  //   // console.log(res?.data);
 
-    if (res?.data) {
-      toast.success("Deleted successfully!", { id: "delete" });
-      router.push("/admin/creator/all-project");
-    } else {
-      toast.error(res?.message || "Failed to delete!", { id: "delete" });
-    }
-  }
+  //   if (res?.data) {
+  //     toast.success("Deleted successfully!", { id: "delete" });
+  //     router.push("/admin/creator/all-project");
+  //   } else {
+  //     toast.error(res?.message || "Failed to delete!", { id: "delete" });
+  //   }
+  // }
 
-  const handleApprove = async () => {
-    // console.log(id);
+  // const handleApprove = async () => {
+  //   // console.log(id);
 
-    toast.loading("Approving...", { id: "approve" });
-    const res = await myFetch(`/hire-creator/approved/${id}`, {
-      method: "PATCH",
-    });
-    // console.log(res?.data);
+  //   toast.loading("Approving...", { id: "approve" });
+  //   const res = await myFetch(`/hire-creator/approved/${id}`, {
+  //     method: "PATCH",
+  //   });
+  //   // console.log(res?.data);
 
-    if (res?.data) {
-      toast.success("Approved successfully!", { id: "approve" });
-      getOrderDetails();
-    } else {
-      toast.error(res?.message || "Failed to approve!", { id: "approve" });
-    }
-  }
+  //   if (res?.data) {
+  //     toast.success("Approved successfully!", { id: "approve" });
+  //     getOrderDetails();
+  //   } else {
+  //     toast.error(res?.message || "Failed to approve!", { id: "approve" });
+  //   }
+  // }
 
   return (
     <div className='max-w-[900px] mx-auto space-y-5 pb-16'>
       <div className='bg-white rounded-2xl p-8'>
-        <div className='flex items-center justify-center rounded-sm bg-[#FFF0BE] shadow gap-2 w-72 py-2.5 mb-6'>
+        {/* <div className='flex items-center justify-center rounded-sm bg-[#FFF0BE] shadow gap-2 w-72 py-2.5 mb-6'>
           <Image src={StarEmogi} alt="package" width={30} height={30} />
           <p className='text-xl font-semibold text-gray-700'>Price $200</p>
           <Image src={LoveEmogi} alt="package" width={30} height={30} />
-        </div>
+        </div> */}
         {orderDetails?.brandInfo && <SubComponent title="Project Info" list={orderDetails.brandInfo} />}
       </div>
       <div className='bg-white rounded-2xl p-8'>
@@ -99,10 +99,10 @@ const CreatorProjectDetails = () => {
         <SubComponent title="Characteristics Of The Creator" list={orderDetails.characteristicInfo} />
       </div>
 
-      {orderDetails.status === "pending" && <div className='flex items-center justify-end space-x-4'>
+      {/* {orderDetails.status === "pending" && <div className='flex items-center justify-end space-x-4'>
         <Button onClick={handleApprove}>Approve</Button>
         <Button onClick={handleDelete}>Delete</Button>
-      </div>}
+      </div>} */}
     </div>
   )
 }
@@ -129,4 +129,4 @@ const SubComponent = ({ title, list }: { title: string; list: any }) => {
 };
 
 
-export default CreatorProjectDetails
+export default BrandProjectDetails

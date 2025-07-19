@@ -19,7 +19,11 @@ const BrandVideo = () => {
 
     if (res.success) {
       setAwsVideoUrls(res?.data?.uploadedFiles)
-      toast.success("Videos fetched successfully!", { id: "fetch" })
+      if(res?.data?.uploadedFiles?.length === 0) {
+        toast.success("No videos found!", { id: "fetch" })
+      } else {
+        toast.success("Videos fetched successfully!", { id: "fetch" })
+      }
     } else {
       toast.error(res.message || "Fetching failed!", { id: "fetch" })
     }
