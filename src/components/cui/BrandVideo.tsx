@@ -14,7 +14,7 @@ const BrandVideo = () => {
 
   const getAwsVideosUrls = async () => {
     toast.loading("Fetching uploaded videos...", { id: "fetch" })
-    const res = await myFetch(`/hire-creator/${id}`, { method: 'GET' })
+    const res = await myFetch(`/hire-creator/${id}`, { method: 'GET' });
     // console.log("Fetch Uploaded Videos Response:", res)
 
     if (res.success) {

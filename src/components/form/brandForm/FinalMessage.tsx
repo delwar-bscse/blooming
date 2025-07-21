@@ -1,14 +1,14 @@
 import { useBrand } from "@/context/BrandContext";
 import { myFetch } from "@/utils/myFetch";
 import Link from "next/link";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 // import Link from "next/link";
 
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const FinalMessage = () => {
-  // const router = useRouter();
+  const router = useRouter();
   const { brandForm } = useBrand();
   const [isPackage, setIsPackage] = useState<boolean>(false);
 
@@ -87,12 +87,13 @@ const FinalMessage = () => {
 
   const ugcPhoto = brandForm?.ugcPhotos
   const packageId = brandForm?.packageId
+  const takeVideoCount = brandForm?.takeVideoCount
 
- 
+
 
   const handleSubmit = async () => {
     // const [paymentUrl, setPaymentUrl] = useState<string | null>(null);
-    // console.log("Submitted Data:", finalObject);
+    console.log("Submitted Data:", brandForm);
     const formData = new FormData();
     formData.append("packageId", packageId);
     formData.append("brandInfo", JSON.stringify(brandInfo));
@@ -102,6 +103,8 @@ const FinalMessage = () => {
     formData.append("doAndDonts", JSON.stringify(doAndDonts));
     formData.append("lastContentInfo", JSON.stringify(lastContentInfo));
     formData.append("ugcPhoto", ugcPhoto);
+    if (takeVideoCount) formData.append("takeVideoCount", takeVideoCount)
+
 
     toast.loading("Loading...", { id: "loading" });
     const res = await myFetch("/hire-creator/create", {
@@ -112,14 +115,19 @@ const FinalMessage = () => {
 
     if (res?.success) {
       toast.success(res?.message || "Order created successfully!", { id: "loading" });
-      console.log(res?.data?.url);
+      // console.log(res?.data?.url);
       if (res?.data?.url) {
         window.location.href = res?.data?.url;
-      }else{
-        // router.replace("/");
+      } else {
+        setTimeout(() => {
+          router.push("/");
+        }, 1000)
       }
     } else {
       toast.error(res?.message || "Something went wrong!", { id: "loading" });
+      setTimeout(() => {
+        router.push("/");
+      }, 3000)
     }
   }
 
@@ -132,10 +140,10 @@ const FinalMessage = () => {
         {packageId && <button onClick={handleSubmit} className="bg-white cursor-pointer text-[#565151] font-semibold py-3 px-8 rounded-md">
           Continue
         </button>}
-        {!packageId && isPackage===true && <Link href="/service?isPackage=true" onClick={handleSubmit} className="bg-white cursor-pointer text-[#565151] font-semibold py-3 px-8 rounded-md">
+        {!packageId && isPackage === true && <Link href="/service?isPackage=true" className="bg-white cursor-pointer text-[#565151] font-semibold py-3 px-8 rounded-md">
           Select Package Or Subscription
         </Link>}
-        {!packageId && isPackage===false && <Link href="/service?isPackage=false" className="bg-white cursor-pointer text-[#565151] font-semibold py-3 px-8 rounded-md">
+        {!packageId && isPackage === false && <Link href="/service?isPackage=false" className="bg-white cursor-pointer text-[#565151] font-semibold py-3 px-8 rounded-md">
           Purchase Package Or Subscription
         </Link>}
         { }

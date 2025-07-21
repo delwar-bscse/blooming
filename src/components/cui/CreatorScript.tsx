@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,6 +17,8 @@ import {
 import { myFetch } from "@/utils/myFetch";
 import { toast } from "sonner";
 import { Textarea } from "../ui/textarea";
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 
 
 // Schema
@@ -29,6 +32,9 @@ type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 
 {/* ---------------------------- Package Form ---------------------------- */ }
 const CreatorScript = () => {
+  const [status, setStatus] = useState<string>("");
+  const params = useParams()
+  const id = params["id"]
 
 
 
@@ -41,6 +47,31 @@ const CreatorScript = () => {
     defaultValues,
     mode: "onChange",
   });
+
+  const getAwsVideosUrls = async () => {
+    // toast.loading("Fetching uploaded videos...", { id: "fetch" })
+    const res = await myFetch(`/hire-creator/${id}`, { method: 'GET' });
+    console.log("Fetch Script Response:", res)
+
+    if (res.success) {
+      console.log(res?.data?.status)
+      setStatus(res?.data?.status)
+      form.reset({
+        details: res?.data?.isScript
+      })
+      if (res?.data?.uploadedFiles?.length === 0) {
+        // toast.success("No videos found!",)
+      } else {
+        // toast.success("Videos fetched successfully!",)
+      }
+    } else {
+      // toast.error(res.message || "Fetching failed!",)
+    }
+  }
+
+  useEffect(() => {
+    getAwsVideosUrls()
+  }, [])
 
 
   async function onSubmit(data: ContactUsFormValues) {
@@ -94,14 +125,14 @@ const CreatorScript = () => {
 
 
             {/* Submit */}
-            <div className="flex justify-center gap-4">
-              <Button disabled={true} variant="customYellow" type="submit" size="llg" className="w-32">
+            {status === "completed" && <div className="flex justify-center gap-4">
+              <Button  variant="customYellow" type="submit" size="llg" className="w-32">
                 Revision
               </Button>
-              <Button disabled={true} variant="customYellow" type="submit" size="llg" className="w-32">
+              <Button  variant="customYellow" type="submit" size="llg" className="w-32">
                 Done
               </Button>
-            </div>
+            </div>}
           </form>
         </Form>
 

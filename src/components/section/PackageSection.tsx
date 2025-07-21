@@ -31,9 +31,10 @@ const PackageSection = () => {
   const [packageDatas, setPackageDatas] = useState<IPackage[]>([]);
   const searchParams = useSearchParams();
   const isPackage = searchParams.get("isPackage");
+  const myPackage = searchParams.get("myPackage");
 
   useEffect(() => {
-    const url = isPackage === "true" ? `/subscription` : `/package/packages`;
+    const url = isPackage === "true" ? `/subscription?running=package` : `/package/packages`;
     const getPost = async () => {
       const res = await myFetch(`${url}`, {
         method: "GET",
@@ -83,9 +84,9 @@ const PackageSection = () => {
       <div className='maxWidth'>
         {!isPackage ? <div className='space-y-4 pb-10'>
           <h1 className='text-3xl dm:text-5xl lg:text-6xl font-bold text-center text-[#333333] capitalize'>our service</h1>
-          <p className='text-center text-[#333333] text-lg font-semibold'>we offer 4 packages and a monthly services. you can purchase now or book a call.</p>
+          <p className='text-center text-[#333333] text-lg font-semibold'>we offer packages and a monthly services. you can purchase now or book a call.</p>
         </div>: <div>
-          <h1 className='text-3xl dm:text-5xl lg:text-6xl font-bold text-center text-[#333333] capitalize'>Select A Package</h1>
+          <h1 className='text-3xl dm:text-5xl font-bold text-center text-[#333333] capitalize py-4'>My Package & Subscription</h1>
           </div>}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
           {packageDatas?.map((item, index: number) => (
@@ -106,8 +107,8 @@ const PackageSection = () => {
                   ))}
                 </ul>
                 <div className='flex-1 flex flex-col justify-end'>
-                  {(isPackage === "true") && <Button onClick={() => handleSelectPackage(item?._id)} className='w-full mt-4' variant="customYellow">Select</Button>}
-                  {(isPackage === "false") && <Button onClick={() => handleSelectPackage(item?._id)} className='w-full mt-4' variant="customYellow">Select</Button>}
+                  {(myPackage !== "true" && isPackage === "true") && <Button onClick={() => handleSelectPackage(item?._id)} className='w-full mt-4' variant="customYellow">Select</Button>}
+                  {(myPackage !== "true" && isPackage === "false") && <Button onClick={() => handleSelectPackage(item?._id)} className='w-full mt-4' variant="customYellow">Select</Button>}
                   {(isPackage === null) && <Button onClick={() => handlePurchasePackage(item?._id)} className='w-full mt-4' variant="customYellow">Purchase Now</Button>}
                 </div>
               </div>
