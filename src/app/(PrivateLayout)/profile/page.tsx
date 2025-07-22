@@ -55,7 +55,7 @@ const ProfileContent = () => {
   }, [pathname, step]);
 
   const handleImgUrl = async (file: File | null) => {
-    if (file && file.type.startsWith("image/")) {
+    if (file && file !== null && file.type.startsWith("image/")) {
       const reader = new FileReader();
       reader.onload = () => {
         setImgUrl(reader.result as string);
@@ -71,8 +71,6 @@ const ProfileContent = () => {
         getUserData();
         window.location.reload();
       }
-    } else {
-      setImgUrl(null);
     }
   };
 
