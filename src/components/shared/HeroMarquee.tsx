@@ -41,7 +41,7 @@ export async function MarqueeDemo() {
     method: "GET",
   })
   const videoDatas: Record<string, unknown>[] = res?.data?.videos;
-  console.log(videoDatas)
+  // console.log(videoDatas)
 
 
   return (

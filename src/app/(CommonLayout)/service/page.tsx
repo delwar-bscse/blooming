@@ -1,11 +1,11 @@
 import PackageSection from '@/components/section/PackageSection'
 import SubSection from '@/components/section/SubSection'
 import ContactUsTelephone from '@/components/shared/ContactUsTelephone'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 const Service = () => {
   return (
-    <div className=''>
+    <Suspense fallback={<div>Loading...</div>}>
       <div>
         <PackageSection />
       </div>
@@ -15,7 +15,7 @@ const Service = () => {
       <div>
         <ContactUsTelephone title='Let’s find the best fit for your goals no pressure, just a chat."'/>
       </div>
-    </div>
+    </Suspense>
   )
 }
 

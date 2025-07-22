@@ -10,7 +10,7 @@ import profileInputIcon from "@/assets/common/ProfileInputIcon.png";
 import { myFetch } from '@/utils/myFetch';
 import CustomStep from '@/components/cui/CustomStep';
 import { StepDataType } from '@/types/types';
-import { useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import LoadingSpinner from '@/components/cui/LoadingSpinner';
 
 const stepDatas: StepDataType[] = [
@@ -33,27 +33,29 @@ const stepDatas: StepDataType[] = [
 
 // Move the main component logic to a separate component
 const ProfileContent = () => {
+  const pathname = usePathname();
   const [imgUrl, setImgUrl] = useState<string | null>(null);
-  const [isMounted, setIsMounted] = useState(false);
   const searchParams = useSearchParams();
   const step = searchParams.get("step");
 
   async function getUserData() {
     const response = await myFetch("/users/my-profile", {
       method: "GET",
+      tags: ["user"],
+      cache: "no-cache",
     });
+    // console.log("User Data:", response);
     if (response?.data?.profile) {
       setImgUrl(response?.data?.profile);
     }
   }
 
   useEffect(() => {
-    setIsMounted(true);
     getUserData();
-  }, []);
+  }, [pathname, step]);
 
   const handleImgUrl = async (file: File | null) => {
-    if (file) {
+    if (file && file.type.startsWith("image/")) {
       const reader = new FileReader();
       reader.onload = () => {
         setImgUrl(reader.result as string);
@@ -64,10 +66,10 @@ const ProfileContent = () => {
       const response = await myFetch("/users/update-my-profile", {
         method: "PATCH",
         body: formData,
-        tags: ["user"]
       });
       if (response?.success) {
         getUserData();
+        window.location.reload();
       }
     } else {
       setImgUrl(null);
@@ -78,47 +80,41 @@ const ProfileContent = () => {
     <div className='pb-10'>
       <div className='bg-[#FFF2C7] h-48 relative w-full' />
       <div className='maxWidth'>
-        <div>
-          {isMounted ? (
-            <div className="relative -top-24 left-0 inline-block">
-              <div className="w-40 h-40 mx-auto rounded-lg overflow-hidden border-3 border-gray-300 bg-gray-300">
-                {imgUrl ? (
-                  <Image
-                    src={imgUrl}
-                    alt="content image"
-                    className="object-cover w-full h-full"
-                    width={128}
-                    height={128}
-                    unoptimized
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-gray-500">
-                    No Image
-                  </div>
-                )}
-              </div>
-
+        <div className="relative -top-24 left-0 inline-block">
+          <div className="w-40 h-40 mx-auto rounded-lg overflow-hidden border-3 border-gray-300 bg-gray-300">
+            {imgUrl ? (
               <Image
-                onClick={() => document.getElementById("profileImgCtrl")?.click()}
-                src={profileInputIcon}
-                alt="Upload Icon"
-                className="absolute -bottom-2 -right-2 w-8 h-8 z-10 cursor-pointer hover:scale-110 transition-all duration-300"
-                width={32}
-                height={32}
+                src={imgUrl}
+                alt="content image"
+                className="object-cover w-full h-full"
+                width={128}
+                height={128}
+                unoptimized
               />
-              <Input
-                id="profileImgCtrl"
-                type="file"
-                accept="image/*"
-                variant="inputHidden"
-                onChange={e => {
-                  handleImgUrl(e.target.files?.[0] ?? null);
-                }}
-              />
-            </div>
-          ) : (
-            <div className="relative -top-24 left-0 inline-block w-40 h-40 bg-gray-200 rounded-lg animate-pulse"></div>
-          )}
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-gray-500">
+                No Image
+              </div>
+            )}
+          </div>
+
+          <Image
+            onClick={() => document.getElementById("profileImgCtrl")?.click()}
+            src={profileInputIcon}
+            alt="Upload Icon"
+            className="absolute -bottom-2 -right-2 w-8 h-8 z-10 cursor-pointer hover:scale-110 transition-all duration-300"
+            width={32}
+            height={32}
+          />
+          <Input
+            id="profileImgCtrl"
+            type="file"
+            accept="image/*"
+            variant="inputHidden"
+            onChange={e => {
+              handleImgUrl(e.target.files?.[0] || null);
+            }}
+          />
         </div>
 
         <div>

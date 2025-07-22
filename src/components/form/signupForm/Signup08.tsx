@@ -34,7 +34,7 @@ const Signup08 = () => {
       body: formData,
     });
 
-    console.log("Response from server:", res);
+    // console.log("Response from server:", res);
 
     toast.dismiss("creator-account-loading");
 

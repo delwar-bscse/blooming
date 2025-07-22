@@ -3,7 +3,7 @@ import React from 'react'
 import contactUsTelephone from '@/assets/common/freeCall.png' // Adjust the path as necessary
 import Link from 'next/link'
 
-const ContactUsTelephone = ({ title, des, btn = "Contact Us", url="/contactus" }: { title: string, des?: string, btn?: string, url?: string }) => {
+const ContactUsTelephone = ({ title, des, btn = "Contact Us", url="/contact" }: { title: string, des?: string, btn?: string, url?: string }) => {
   return (
     <div id="contactUsTelephone" className='bg-[#FFF7DD]'>
       <div className='maxWidth flex flex-col-reverse sm:flex-row justify-between items-center gap-10 p-10'>

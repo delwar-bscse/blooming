@@ -23,7 +23,7 @@ import { useParams } from "next/navigation";
 
 // Schema
 const contactUsFormSchema = z.object({
-  details: z.string()
+  details: z.string().optional(),
 });
 
 // Type
@@ -39,7 +39,7 @@ const CreatorScript = () => {
 
 
   const defaultValues: Partial<ContactUsFormValues> = {
-    // image: null,
+    details: "",
   };
 
   const form = useForm<ContactUsFormValues>({
@@ -48,13 +48,12 @@ const CreatorScript = () => {
     mode: "onChange",
   });
 
-  const getAwsVideosUrls = async () => {
-    // toast.loading("Fetching uploaded videos...", { id: "fetch" })
+  const getScript = async () => {
     const res = await myFetch(`/hire-creator/${id}`, { method: 'GET' });
-    console.log("Fetch Script Response:", res)
+    // console.log("Fetch Script Response:", res)
 
     if (res.success) {
-      console.log(res?.data?.status)
+      // console.log(res?.data?.status)
       setStatus(res?.data?.status)
       form.reset({
         details: res?.data?.isScript
@@ -70,40 +69,51 @@ const CreatorScript = () => {
   }
 
   useEffect(() => {
-    getAwsVideosUrls()
+    getScript()
   }, [])
 
 
   async function onSubmit(data: ContactUsFormValues) {
-    toast.loading("Uploading blog...", { id: "upload" });
-    // toast.success("Message send successfully!");
-    // console.log("Submitted Data:", data);
+    toast.loading("loading...", { id: "revision" });
+    // console.log(data)
+    // const formData = new FormData();
+    // formData.append("revisionText", data.details || "");
 
-    const formData = new FormData();
-    formData.append("details", data.details);
-
-
-    const res = await myFetch("/blog/create-blog", {
-      method: "POST",
-      body: formData,
+    const res = await myFetch(`/hire-creator/revision/${id}?status=revision`, {
+      method: "PATCH",
+      body: {
+        revisionText: data.details
+      },
     });
-    // console.log("Blog Response:", res);
+
+    // console.log("Take Revision Response:", res);
     if (res.success) {
-      toast.success("Blog uploaded successfully!", { id: "upload" });
+      toast.success(res.message || "Take Revision successfully!", { id: "revision" });
       form.reset();
     } else {
-      toast.error(res.message || "Upload failed!", { id: "upload" });
-      // console.error("Upload failed:", res.message);
+      toast.error(res.message || "Take Revision failed!", { id: "revision" });
     }
+  }
 
-
+  const handleDone = async () => {
+    console.log("Done Order");
+    toast.loading("Updating status...", { id: "done" });
+    const res = await myFetch(`/hire-creator/revision/${id}?status=delivered`, {
+      method: "PATCH",
+    });
+    // console.log(res);
+    if (res.success) {
+      toast.success("Order Done successfully!", { id: "done" });
+      getScript()
+    } else {
+      toast.error(res.message || "Failed!", { id: "done" });
+    }
   }
 
   return (
     <div className="w-full max-w-[1200px] mx-auto flex text-center justify-center pb-10 px-2">
       <div className="bg-white px-2 sm:px-4 md:px-8 py-2 md:py-4 w-full rounded-4xl customShadow">
-
-
+        {/* <p className='text-2xl font-semibold py-4'>Status: {status}</p> */}
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -113,7 +123,10 @@ const CreatorScript = () => {
               name="details"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-gray-700 text-lg">Add script if you want to take revision</FormLabel>
+                  <FormLabel className="text-gray-700 text-lg flex items-center justify-between">
+                    <span>Add script if you want to take revision</span>
+                    <span>Status: {status}</span>
+                  </FormLabel>
                   <FormControl>
                     <Textarea variant="blackBorder" placeholder="Start typing here......" {...field} className="h-100" />
                   </FormControl>
@@ -122,14 +135,12 @@ const CreatorScript = () => {
               )}
             />
 
-
-
             {/* Submit */}
-            {status === "completed" && <div className="flex justify-center gap-4">
-              <Button  variant="customYellow" type="submit" size="llg" className="w-32">
+            {(status === "completed") && <div className="flex justify-center gap-4">
+              <Button variant="customYellow" type="submit" size="llg" className="w-32">
                 Revision
               </Button>
-              <Button  variant="customYellow" type="submit" size="llg" className="w-32">
+              <Button onClick={() => handleDone()} variant="customYellow" size="llg" className="w-32">
                 Done
               </Button>
             </div>}

@@ -8,10 +8,10 @@ import ContentInfo from "@/components/form/brandForm/ContentInfo";
 import ContentInformation from "@/components/form/brandForm/ContentInformation";
 import DoDont from "@/components/form/brandForm/DoDont";
 import FinalMessage from "@/components/form/brandForm/FinalMessage";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 
-export default function BrandForm() {
+function BrandFormSuspense() {
   const [formStep, setFormStep] = useState(1);
   const router = useRouter();
   const pathname = usePathname();
@@ -51,5 +51,13 @@ export default function BrandForm() {
         </div>
       </div>
     </>
+  );
+}
+
+export default function BrandForm() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <BrandFormSuspense />
+    </Suspense>
   );
 }

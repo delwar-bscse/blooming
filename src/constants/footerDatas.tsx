@@ -19,7 +19,7 @@ export const quickLinks:QuickLink[] = [
   },
   {
     title:"Contact Us",
-    url:"/contactus"
+    url:"/contact"
   },
   {
     title:"About Us",

@@ -37,7 +37,7 @@ const SubSection = () => {
       const res = await myFetch(`${url}`, {
         method: "GET",
       })
-      console.log(res);
+      // console.log(res);
       if (res.success) {
         if (myPackage === "true") {
           // const tempArray = res?.data as Record<string, unknown>[] || [];
@@ -87,7 +87,7 @@ const SubSection = () => {
         packageId
       }
     });
-    console.log(res);
+    // console.log(res);
     if (res.success && res?.data?.url) {
       window.location.href = res?.data?.url
     } else {
@@ -100,7 +100,7 @@ const SubSection = () => {
       method: "POST",
       cache: "no-cache",
     });
-    console.log(res);
+    // console.log(res);
     if (res.success && res?.data?.url) {
       window.location.href = res?.data?.url
     } else {

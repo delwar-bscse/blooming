@@ -39,7 +39,7 @@ const HeroSection = () => {
         <Image src={butterfly} alt="butterfly" width={100} height={100} className='absolute bottom-10 right-10' />
       </div>
       <div className="py-10">
-        {/* <MarqueeDemo /> */}
+        <MarqueeDemo />
       </div>
     </section>
   )
