@@ -2,10 +2,10 @@ import choose_us_01 from "@/assets/common/choose_us/chooseUs01.png";
 import choose_us_02 from "@/assets/common/choose_us/chooseUs02.png";
 import choose_us_03 from "@/assets/common/choose_us/chooseUs03.png";
 import choose_us_04 from "@/assets/common/choose_us/chooseUs04.png";
-import choose_us_05 from "@/assets/common/choose_us/chooseUs05.png";
-import choose_us_06 from "@/assets/common/choose_us/chooseUs06.png";
-import choose_us_07 from "@/assets/common/choose_us/chooseUs07.png";
-import choose_us_08 from "@/assets/common/choose_us/chooseUs08.png";
+// import choose_us_05 from "@/assets/common/choose_us/chooseUs05.png";
+// import choose_us_06 from "@/assets/common/choose_us/chooseUs06.png";
+// import choose_us_07 from "@/assets/common/choose_us/chooseUs07.png";
+// import choose_us_08 from "@/assets/common/choose_us/chooseUs08.png";
 import { whyChoseUsType } from "@/types/types";
 
 
@@ -34,28 +34,28 @@ export const whyChoseUsDatas:whyChoseUsType[] = [
     description: "Need content ASAP? No problem. Get your videos in just 5 business days. Want it faster? Use our express option and get them within 2 business days—because sometimes, deadlines just don’t care.",
     image: choose_us_04
   },
-  {
-    id: 5,
-    title: "Unlimited Usage Rights",
-    description: "Post it everywhere. Run it in ads, share it on socials, slap it on your website—do whatever you want. No time limits, no platform limits. Your content, your rules.",
-    image: choose_us_05
-  },
-  {
-    id: 6,
-    title: "Consistency You Can Count On",
-    description: "We’re all about delivering quality, not just once, but every single time. Whether it’s a one-off project or a long-term content flow, we’ve got your back with high-quality content that sticks to your brand’s vibe.",
-    image: choose_us_06
-  },
-  {
-    id: 7,
-    title: "Dual Perspective Advantage",
-    description: "We’ve been there. We know what brands want because we’ve worked in both creator and agency roles. That means we can see the big picture and understand both sides—so your content is on-point and your goals are hit, every time. We get the balance between creative freedom and marketing results.",
-    image: choose_us_07
-  },
-  {
-    id: 8,
-    title: "Proven Satisfaction",
-    description: "Our clients? Always happy. We’ve got a track record of satisfied brands who keep coming back for more. And we’re pretty confident you’ll love what we do too. Satisfaction guaranteed, no cap.",
-    image: choose_us_08
-  }
+  // {
+  //   id: 5,
+  //   title: "Unlimited Usage Rights",
+  //   description: "Post it everywhere. Run it in ads, share it on socials, slap it on your website—do whatever you want. No time limits, no platform limits. Your content, your rules.",
+  //   image: choose_us_05
+  // },
+  // {
+  //   id: 6,
+  //   title: "Consistency You Can Count On",
+  //   description: "We’re all about delivering quality, not just once, but every single time. Whether it’s a one-off project or a long-term content flow, we’ve got your back with high-quality content that sticks to your brand’s vibe.",
+  //   image: choose_us_06
+  // },
+  // {
+  //   id: 7,
+  //   title: "Dual Perspective Advantage",
+  //   description: "We’ve been there. We know what brands want because we’ve worked in both creator and agency roles. That means we can see the big picture and understand both sides—so your content is on-point and your goals are hit, every time. We get the balance between creative freedom and marketing results.",
+  //   image: choose_us_07
+  // },
+  // {
+  //   id: 8,
+  //   title: "Proven Satisfaction",
+  //   description: "Our clients? Always happy. We’ve got a track record of satisfied brands who keep coming back for more. And we’re pretty confident you’ll love what we do too. Satisfaction guaranteed, no cap.",
+  //   image: choose_us_08
+  // }
 ];

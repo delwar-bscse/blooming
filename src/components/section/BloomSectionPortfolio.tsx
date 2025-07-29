@@ -8,7 +8,7 @@ const BloomSectionPortfolio = ({title,des}:{title:string,des:string}) => {
   const [showMore, setShowMore] = React.useState(false);
   return (
     <section>
-      <div className='maxWidth pt-20'>
+      <div className='max-w-[1000px] w-full mx-auto pt-20'>
         <>
           <BloomHeading title={title} des={des} />
         </>

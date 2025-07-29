@@ -13,24 +13,38 @@ export default function Home() {
         <div className="">
           <HeroSection />
         </div>
+
+        {/* trusted by 600+ leading creators and brands  */}
         <div>
           <CreatorAndBrands />
         </div>
+
+        {/* only 3 steps to get your dream content  */}
         <div>
           <DreamContent />
         </div>
+
+        {/* New brand looking to be seen  */}
         <div>
           <NewBarandLooking />
         </div>
+
+        {/*See Why Brands Choose Blooming Brands And Why You Should Too.*/}
+        {/*"They Bloomed With Us. You Can Too!"*/}
         <div>
           <BloomSection title='&quot;They Bloomed With Us. You Can Too!&quot;' des='Join the growing list of brands thriving with custom UGC content.' />
         </div>
+
+        {/* Why Choose Us  */}
         <div className="py-10">
           <WhyChooseUs />
         </div>
+
+        {/* FAQ  */}
         <div className="py-10">
           <FAQ />
         </div>
+
         <div>
           <ContactUsTelephone title="Let’s find the best fit for your goals no pressure, just a chat"/>
         </div>

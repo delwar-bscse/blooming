@@ -11,9 +11,9 @@ import Title from './Title'
 
 const FAQ = () => {
   return (
-    <div>
+    <div className='max-w-[960px] w-full mx-auto'>
       <Title title="Frequently Asked Questions" />
-      <div className='maxWidth'>
+      <div>
         <Accordion type="single" collapsible>
           {faqDatas?.map((faq:faqType)=>(
             <AccordionItem key={faq.id} value={faq.id.toString()}>

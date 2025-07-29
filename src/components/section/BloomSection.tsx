@@ -24,7 +24,7 @@ const BloomSection = async ({ title, des }: { title: string, des: string }) => {
             ))}
           </div>
       </div>
-      <div className='maxWidth pb-20'>
+      <div className='max-w-[1000px] w-full mx-auto pb-20'>
         <>
           <BloomHeading title={title} des={des} />
         </>

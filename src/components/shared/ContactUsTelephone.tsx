@@ -12,7 +12,7 @@ const ContactUsTelephone = ({ title, des, btn = "Contact Us", url="/contact" }: 
             <p className='text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold text-gray-500 text-center'>{title}</p>
             {des && <p className='md:text-xl lg:text-2xl font-semibold text-gray-500 text-center'>{des}</p>}
           </div>
-          <Link href={url} className='bg-[#B7C6D5] hover:bg-opacity-80 cursor-pointer text-gray-800 py-2 px-8 rounded-md font-semibold'>{btn}</Link>
+          <Link href={url} className='bg-[#B7C6D5] customShadow hover:bg-opacity-80 cursor-pointer text-gray-800 py-2 px-8 rounded-md font-semibold'>{btn}</Link>
         </div>
         <div className='sm:basis-[40%]'>
           <Image

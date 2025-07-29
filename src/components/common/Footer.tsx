@@ -15,7 +15,7 @@ const Footer = () => {
           <h3>
             <Image src={BrandLogo} alt="Blooming Brands" width={200} height={50} />
           </h3>
-          <p className='py-2 tracking-wide leading-8 text-base md:text-lg'>At blooming brands, we specialize in delivering creative and impactful solutions that help brands grow. Through authenticity, innovation, and a deep understanding of your audience, we create content that drives engagement and builds lasting connections.</p>
+          <p className='py-2 tracking-wide leading-8 text-base md:text-lg'>At The Social Chance, we specialize in delivering creative and impactful solutions that help brands grow. Through authenticity, innovation, and a deep understanding of your audience, we create content that drives engagement and builds lasting connections.</p>
         </div>
         <div className='lg:basis-[60%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6'>
           <div>
