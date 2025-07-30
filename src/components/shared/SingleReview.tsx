@@ -16,7 +16,7 @@ const SingleReview = ({review}:{review:reviewDataType}) => {
           height={200}
         />
         </div>
-        <p className='rounded-lg bg-white text-gray-700 pt-[90px] pb-8 max-w-[300px] text-center'>{review?.txt}</p>
+        <p className='rounded-lg bg-white text-gray-700 pt-[70px] pb-8 max-w-[300px] text-center'>{review?.txt}</p>
       </div>
     </>
   )

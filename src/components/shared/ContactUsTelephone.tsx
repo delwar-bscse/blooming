@@ -6,7 +6,7 @@ import Link from 'next/link'
 const ContactUsTelephone = ({ title, des, btn = "Contact Us", url="/contact" }: { title: string, des?: string, btn?: string, url?: string }) => {
   return (
     <div id="contactUsTelephone" className='bg-[#FFF7DD]'>
-      <div className='maxWidth flex flex-col-reverse sm:flex-row justify-between items-center gap-10 p-10'>
+      <div className='maxWidth flex flex-col-reverse sm:flex-row justify-between items-center gap-10 py-20'>
         <div className='sm:basis-[60%] flex flex-col items-center gap-16'>
           <div className='space-y-4'>
             <p className='text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold text-gray-500 text-center'>{title}</p>

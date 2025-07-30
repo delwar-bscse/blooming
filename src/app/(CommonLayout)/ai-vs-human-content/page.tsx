@@ -124,7 +124,7 @@ const Blog = () => {
             <p>While UGC thrives on authenticity and diversity, AGC introduces precision and customisation but at the cost of ethical concerns. Businesses must tread carefully, leveraging the benefits of both without compromising integrity and trust. The future of content creation lies in striking the right balance between these two realms, adapting to evolving trends while staying mindful of ethical considerations.</p>
           </div>
           <div className='flex flex-col md:flex-row items-center gap-4 md:gap-8 py-16'>
-            <h2 className='grow text-3xl md:text-4xl xl:text-5xl font-bold text-font02 text-center md:text-left'>The Blooming Brands Agency</h2>
+            <h2 className='grow text-3xl md:text-4xl xl:text-5xl font-bold text-font02 text-center md:text-left'>The Social Chance Agency</h2>
             <button className='max-w-[160px] mx-auto py-2 px-6 bg-amber-300 rounded-lg'>Get Started</button>
             <button className='max-w-[160px] mx-auto py-2 px-6 border-2 border-font01 rounded-lg'>Learn More</button>
           </div>

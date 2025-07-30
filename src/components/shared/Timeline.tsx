@@ -38,7 +38,7 @@ const TimelineComponent: React.FC = () => {
 
         {/* Timeline */}
         <div className="relative">
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-purple-400 via-blue-400 to-indigo-400 h-full rounded-full" />
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-[#FFECAC] via-[#FFECAC] to-[#FFECAC] h-full rounded-full" />
 
           {timelineData.map((item, index) => {
             const sideClass = item.side === "left" ? "md:justify-start md:pr-8" : "md:justify-end md:pl-8";
@@ -58,8 +58,8 @@ const TimelineComponent: React.FC = () => {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="hidden md:block absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20"
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white">
-                    <span className="text-white font-bold text-sm">{item.year}</span>
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#FFECAC] to-[#FFECAC] rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+                    <span className="text-[#6D715F] font-bold text-sm">{item.year}</span>
                   </div>
                 </motion.div>
 
@@ -72,8 +72,8 @@ const TimelineComponent: React.FC = () => {
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                   >
-                    <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 relative group">
-                      <h3 className="text-2xl font-bold text-gray-800 mb-4 leading-tight group-hover:text-purple-600 transition-colors duration-300">
+                    <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 relative cursor-pointer group">
+                      <h3 className="text-2xl font-bold text-gray-700 mb-4 leading-tight group-hover:text-[#6D715F]  transition-colors duration-300">
                         {item.title}
                       </h3>
                       <p className="text-gray-600 leading-relaxed text-lg">

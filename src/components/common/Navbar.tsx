@@ -64,7 +64,7 @@ const Navbar = () => {
           {navbarItems.map((item) => (
             <li
               key={item.id}
-              className={`cursor-pointer px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 ${isActive(item.url)
+              className={`cursor-pointer px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 customShadow ${isActive(item.url)
                 ? 'bg-[#FFECAC] text-primary font-bold'
                 : 'hover:bg-[#FFECAC]'
                 }`}

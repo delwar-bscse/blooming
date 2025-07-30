@@ -11,11 +11,11 @@ const Footer = () => {
   return (
     <div className='bg-[#F2ECE0] py-6 text-[#6D715F]'>
       <div className='maxWidth flex flex-col lg:flex-row lg:gap-4'>
-        <div className='lg:basis-[40%]'>
+        <div className='lg:basis-[40%] pr-6'>
           <h3>
-            <Image src={BrandLogo} alt="Blooming Brands" width={200} height={50} />
+            <Image src={BrandLogo} alt="Blooming Brands" width={200} height={40}  className='w-[200px] h-[90px]'/>
           </h3>
-          <p className='py-2 tracking-wide leading-8 text-base md:text-lg'>At The Social Chance, we specialize in delivering creative and impactful solutions that help brands grow. Through authenticity, innovation, and a deep understanding of your audience, we create content that drives engagement and builds lasting connections.</p>
+          <p className='py-2 tracking-wide leading-8 text-base text-justify '>At The Social Chance, we specialize in delivering creative and impactful solutions that help brands grow. Through authenticity, innovation, and a deep understanding of your audience, we create content that drives engagement and builds lasting connections.</p>
         </div>
         <div className='lg:basis-[60%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6'>
           <div>
@@ -52,7 +52,7 @@ const Footer = () => {
         </div>
       </div>
       <div className='h-[4px] bg-gray-400/40 my-4' />
-      <div className='maxWidth flex flex-col md:flex-row justify-between items-center gap-4'>
+      <div className='maxWidth flex flex-col md:flex-row justify-between items-center gap-4 py-3'>
         <p className='flex items-center justify-center gap-1 text-sm md:text-base flex-wrap'>copyright@2025 and all right reserved </p>
         <div className='flex items-center gap-2'>
           <p>Follow Us : </p>

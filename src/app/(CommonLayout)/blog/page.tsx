@@ -49,7 +49,7 @@ const Blog = async() => {
   return (
     <div className='pb-20'>
       <div className='maxWidth flex justify-between items-center py-10'>
-        <h1 className='text-3xl md:text-4xl xl:text-5xl font-bold text-font01 lg:leading-16'>The Blooming Journal<br />Where Ideas Take Root</h1>
+        <h1 className='text-3xl md:text-4xl xl:text-5xl font-bold text-font01 lg:leading-16'>The Social Chance Journal<br />Where Ideas Take Root</h1>
         <div className='basis-[40%]'>
           <Image src={blogBanner} alt="content image" width={500} height={500} className='object-cover w-full' />
         </div>
@@ -58,7 +58,7 @@ const Blog = async() => {
         {blogDatas?.map((data : IBlog)=>(
           <div key={data._id} className='parentDiv rounded-lg shadow-lg p-4 space-y-4'>
             <div className='rounded-lg overflow-hidden'>
-              <Image src={formatImagePath(data.image)} width={500} height={500} alt="content image" className='object-cover w-full childDiv transition-transform duration-500 ease-in-out' />
+              <Image src={formatImagePath(data.image)} width={500} height={300} alt="content image" className='object-cover w-full h-[240px] childDiv transition-transform duration-500 ease-in-out' />
             </div>
             <div className='flex flex-col items-center gap-4'>
               <h3 className='text-lg md:text-xl font-bold text-font01'>{data.title}</h3>

@@ -10,36 +10,66 @@ const NewBarandLooking = () => {
     <div>
       <div className='maxWidth grid grid-cols-1-reverse sm:grid-cols-2 items-center justify-between gap-20'>
         <div>
-          <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-gray-800 pb-4'>New brand looking to be seen ?</h2>
-          <p className='text-gray-600'>&quot;New brand looking to be seen? Established brand ready to reignite the spark?No worries! we&apos;re here to make it all work for you.&quot;</p>
+          <h2 className='text-2xl md:text-xl xl:text-2xl text-gray-700 font-bold pb-4 capitalize'>New brand looking to be seen?<br />Established brand ready to reignite the spark?<br />No worries! we&apos;re here to make it all work for you.</h2>
+          {/* <p className='text-gray-600 uppercase'></p> */}
         </div>
         <div className='grid grid-cols-3 gap-4'>
           <motion.div
-            initial={{ opacity: 0, }}
-            whileInView={{ opacity: 1,  }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
+            initial={{ opacity: 0, y: 300 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
             viewport={{ once: false }}
-            className='mt-12'
+            className='mt-12 relative flex flex-col items-center'
           >
-          <Image src={video_analysis} alt="video analysis"  />
+            <Image src={video_analysis} alt="video analysis" />
+            <div
+              className="absolute -bottom-10 w-[90%] h-8 mx-auto mt-4 bg-gray-400 rounded-b-full blur-md shadow opacity-70"
+              style={{
+                borderBottomLeftRadius: '50%',
+                borderBottomRightRadius: '50%',
+                borderTopLeftRadius: '50%',
+                borderTopRightRadius: '50%',
+                transform: 'scaleY(0.3)'
+              }}
+            />
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, }}
-            whileInView={{ opacity: 1,  }}
-            transition={{ duration: 1, ease: "easeOut", delay: 1.2 }}
+            initial={{ opacity: 0, y: 300 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
             viewport={{ once: false }}
-            className=''
+            className='relative flex flex-col items-center'
           >
-          <Image src={video_analysis} alt="video analysis"  />
+            <Image src={video_analysis} alt="video analysis" />
+            <div
+              className="absolute -bottom-0 w-[90%] h-8 mx-auto mt-4 bg-gray-400 rounded-b-full blur-md shadow opacity-70"
+              style={{
+                borderBottomLeftRadius: '50%',
+                borderBottomRightRadius: '50%',
+                borderTopLeftRadius: '50%',
+                borderTopRightRadius: '50%',
+                transform: 'scaleY(0.3)'
+              }}
+            />
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, }}
-            whileInView={{ opacity: 1,  }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
+            initial={{ opacity: 0, y: 300 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
             viewport={{ once: false }}
-            className='mt-12'
+            className='mt-12 relative flex flex-col items-center'
           >
-          <Image src={video_analysis} alt="video analysis"  />
+            <Image src={video_analysis} alt="video analysis" />
+            <div
+              className="absolute -bottom-10 w-[90%] h-8 mx-auto mt-4 bg-gray-400 rounded-b-full blur-md shadow opacity-70"
+              style={{
+                borderBottomLeftRadius: '50%',
+                borderBottomRightRadius: '50%',
+                borderTopLeftRadius: '50%',
+                borderTopRightRadius: '50%',
+                transform: 'scaleY(0.3)'
+              }}
+            />
           </motion.div>
         </div>
       </div>
