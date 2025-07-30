@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Blooming",
-  description: "Wonder application for creating videos for you brand.",
+  title: "The Social Chance",
+  description: "whether you are here to create or collaborate this is where it all starts.creator and brand connects a space for authentic collaboration and impactful ugc content",
 };
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {

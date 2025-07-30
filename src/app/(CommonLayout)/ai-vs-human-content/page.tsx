@@ -7,6 +7,11 @@ import image3 from "@/assets/common/blog/blog3.png"
 import image4 from "@/assets/common/blog/blog4.png"
 import image5 from "@/assets/common/blog/blog5.png"
 import { TypingAnimation } from "@/components/magicui/typing-animation";
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'AI vs Human Content - The Social Chance',
+}
 
 const images = [image2, image3, image2]
 

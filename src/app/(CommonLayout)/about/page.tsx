@@ -7,6 +7,12 @@ import CustomButton from '@/components/ui/CustomButton'
 import TimelineComponent from '@/components/shared/Timeline'
 import { TypingAnimation } from "@/components/magicui/typing-animation";
 import { myFetch } from '@/utils/myFetch'
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'About - The Social Chance',
+  description: "He Sisters Behind Blooming Brands - Shamim and Fareshta Nader — sisters, creatives, and co-founders of Blooming Brands.With degrees in architecture and a deep-rooted love for creativity, we realized after university that the corporate world wasn’t for us. We wanted to build something of our own — something that gave us freedom, purpose, and a way to stay creative every single day.That’s how Blooming Brands was born.As creators ourselves, we understand both sides of the UGC world — the brand expectations and the creator experience. Our mission is to build an agency that empowers creators with real opportunities, and helps brands connect through authentic, scroll-stopping content.We’re not just an agency — we’re a creative home for brands and creators alike. Welcome to the house."
+}
 
 
 const About = async () => {

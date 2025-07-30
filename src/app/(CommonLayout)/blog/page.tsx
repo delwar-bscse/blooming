@@ -5,6 +5,7 @@ import React from 'react'
 import blogBanner from "@/assets/common/blog/blogBanner.png"
 import { myFetch } from '@/utils/myFetch'
 import { formatImagePath } from '@/utils/formatImagePath'
+import type { Metadata } from 'next'
 
 export interface IBlog {
   _id: string;
@@ -15,6 +16,30 @@ export interface IBlog {
   updatedAt: string; // or `Date` if you parse it
   __v: number;
 }
+ 
+export async function generateMetadata(): Promise<Metadata> {
+ 
+  const res = await myFetch("/blog");
+  const blogDatas = res?.data?.map((blog: IBlog) => ({
+    title: blog.title,
+    description: blog.details.slice(0, 100), // Short description for metadata
+    image: formatImagePath(blog.image), // Ensure the image path is formatted correctly
+    url: `/blog/${blog._id}`, // URL for the blog post
+  }));
+ 
+  const blogDatasJson = JSON.stringify(blogDatas);
+ 
+  return {
+    title: 'Blog - The Social Chance',
+    description: blogDatasJson,
+  }
+}
+ 
+// export const metadata: Metadata = {
+//   title: 'Blog - The Social Chance',
+// }
+
+
 
 const Blog = async() => {
 

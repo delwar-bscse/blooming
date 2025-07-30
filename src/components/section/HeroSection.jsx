@@ -2,7 +2,7 @@ import Image from "next/image"
 import heroImage from "@/assets/common/heroImage2.png"
 import CustomButton from "../ui/CustomButton"
 import { MarqueeDemo } from "../shared/HeroMarquee";
-import butterfly from "@/assets/common/butterfly.png"
+// import butterfly from "@/assets/common/butterfly.png"
 import { TypingAnimation } from "@/components/magicui/typing-animation";
 import { SparklesText } from "@/components/magicui/sparkles-text";
 

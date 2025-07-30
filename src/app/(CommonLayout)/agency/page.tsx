@@ -1,6 +1,11 @@
 import BloomSection from '@/components/section/BloomSection'
 import CustomButton from '@/components/ui/CustomButton'
 import React from 'react'
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Agency - The Social Chance',
+}
 
 const Agency = () => {
   return (

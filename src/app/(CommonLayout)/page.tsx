@@ -7,6 +7,12 @@ import HeroSection from "@/components/section/HeroSection";
 import BloomSection from "@/components/section/BloomSection";
 import CreatorAndBrands from "@/components/section/CreatorAndBrands";
 
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Home - The Social Chance',
+}
+
 export default function Home() {
   return (
       <main className="space-y-40">

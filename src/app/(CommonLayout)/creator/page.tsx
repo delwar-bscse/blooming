@@ -7,6 +7,11 @@ import SingleChooseUs from '@/components/shared/SingleChooseUs';
 import { turnCreativityDatas } from '@/constants/turnCreativity';
 import { whyChoseUsType } from '@/types/types';
 import Title from '@/components/shared/Title';
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Creator - The Social Chance',
+}
 
 const Creator = () => {
   return (

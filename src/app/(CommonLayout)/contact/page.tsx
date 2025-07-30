@@ -3,6 +3,11 @@ import ContactUs from '@/components/form/ContactUs'
 import Image from 'next/image'
 import React from 'react'
 import haveQuestion from "@/assets/common/haveQuestions.png";
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Contact Us - The Social Chance',
+}
 
 const Contact = () => {
   return (

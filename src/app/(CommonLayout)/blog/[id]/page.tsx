@@ -1,29 +1,43 @@
-"use client"
 
 import Image from 'next/image'
-import React, { useEffect } from 'react'
-import { useParams } from 'next/navigation'
+import React from 'react'
 import { myFetch } from '@/utils/myFetch'
 import { formatImagePath } from '@/utils/formatImagePath'
-import { IBlog } from '../page'
+import { Metadata } from 'next';
+import { IBlog } from '../page';
 
-const Blog = () => {
-  const [blogData, setBlogData] = React.useState<IBlog>({} as IBlog);
-  const params = useParams();
-  const id = params.id
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
 
-  useEffect(() => {
-    const getPost = async () => {
-      const res = await myFetch(`/blog/${id}`, {
-        method: "GET",
-      })
-      if(res.success){
-        setBlogData(res.data)
-      }
+  const id = (await params).id;
 
-    }
-    getPost();
-  },[id])
+  const res = await myFetch(`/blog/${id}`, {
+    method: "GET",
+  })
+  const blog: IBlog = res?.data;
+
+  const blogData = {
+    title: blog.title,
+    description: blog.details.slice(0, 100), // Short description for metadata
+    image: formatImagePath(blog.image), // Ensure the image path is formatted correctly
+    url: `/blog/${blog._id}`, // URL for the blog post
+  }
+
+  const blogJson = JSON.stringify(blogData);
+
+  return {
+    title: 'Blog - The Social Chance',
+    description: blogJson,
+  }
+}
+
+
+const Blog = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const id = (await params).id;
+
+  const res = await myFetch(`/blog/${id}`, {
+    method: "GET",
+  })
+  const blogData = res?.data;
 
   return (
     <div>

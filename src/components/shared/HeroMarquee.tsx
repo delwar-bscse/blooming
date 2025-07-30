@@ -6,6 +6,7 @@ import { myFetch } from "@/utils/myFetch";
 import Image from "next/image";
 import mobileFrame from "@/assets/common/mobileFrame.png";
 import { useEffect, useRef, useState, memo } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 interface Video {
   id: string;
@@ -137,7 +138,7 @@ export const MarqueeDemo = () => {
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden py-8">
       <Marquee pauseOnHover className="[--duration:180s]">
         {videos.map((video) => (
-          <VideoCard key={video.id} video={video} />
+          <VideoCard key={uuidv4()} video={video} />
         ))}
       </Marquee>
     </div>
