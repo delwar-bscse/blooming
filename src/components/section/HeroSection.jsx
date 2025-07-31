@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image"
 import heroImage from "@/assets/common/heroImage2.png"
 import CustomButton from "../ui/CustomButton"
@@ -5,6 +6,7 @@ import { MarqueeDemo } from "../shared/HeroMarquee";
 // import butterfly from "@/assets/common/butterfly.png"
 import { TypingAnimation } from "@/components/magicui/typing-animation";
 import { SparklesText } from "@/components/magicui/sparkles-text";
+import { motion } from "framer-motion"
 
 
 const HeroSection = () => {
@@ -18,7 +20,13 @@ const HeroSection = () => {
                 The Social Chance
               </TypingAnimation>
             </SparklesText>
-            <p className='text-[#545454]  max-w-[650px]'>whether you are here to create or collaborate this is where it all starts.creator and brand connects a space for authentic collaboration and impactful ugc content</p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 2 }}
+              viewport={{ once: false }}
+              className='text-[#545454]  max-w-[650px]'>whether you are here to create or collaborate this is where it all starts.creator and brand connects a space for authentic collaboration and impactful ugc content
+            </motion.p>
             <div className="w-full max-w-[500px] flex flex-col md:flex-row gap-4 mt-4">
               <CustomButton text="Apply As Creator" url="/creator-signup" variant="button02" />
               <CustomButton text="Hire a Creator" url="/brand-form?step=1" variant="button02" />

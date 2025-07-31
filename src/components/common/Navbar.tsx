@@ -75,17 +75,20 @@ const Navbar = () => {
           <DropdownMenu>
             <DropdownMenuTrigger className='px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 cursor-pointer'>More...</DropdownMenuTrigger>
             <DropdownMenuContent>
-              {navbarItems2.map((item) => (
-                <DropdownMenuItem
-                  key={item.id}
-                  className={`cursor-pointer px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 ${isActive(item.url)
-                    ? 'bg-[#FFECAC] text-primary font-bold'
-                    : 'hover:bg-[#FFECAC]'
-                    }`}
-                >
-                  <Link href={item.url}>{item.title}</Link>
-                </DropdownMenuItem>
-              ))}
+              {navbarItems2.map((item) => {
+                if(item.title === 'My Package' && !user) return null; // Hide 'My Package' if user is not logged in
+                return (
+                  <DropdownMenuItem
+                    key={item.id}
+                    className={`cursor-pointer px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 ${isActive(item.url)
+                      ? 'bg-[#FFECAC] text-primary font-bold'
+                      : 'hover:bg-[#FFECAC]'
+                      }`}
+                  >
+                    <Link href={item.url}>{item.title}</Link>
+                  </DropdownMenuItem>
+                )
+              })}
             </DropdownMenuContent>
           </DropdownMenu>
         </ul>

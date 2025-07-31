@@ -35,7 +35,10 @@ const BrandsChooseSlider = () => {
     const fetchVideoData = async () => {
       try {
         const response = await myFetch("/upload-video");
-        setVideoDatas(response.data);
+        const newArray = response?.data.filter((item: Record<string, any>) => {
+          return selectOptions.includes(item.category);
+        });
+        setVideoDatas(newArray);
       } catch (error) {
         console.error("Error fetching video data:", error);
       }
@@ -45,8 +48,8 @@ const BrandsChooseSlider = () => {
 
 
   return (
-    <div className='w-full px-3'>
-      <div className='max-w-[1200px] w-full mx-auto h-[600px] customShadow rounded-xl'>
+    <div className='w-full px-3 '>
+      <div className='max-w-[1200px] bg-white w-full mx-auto h-[600px] customShadow rounded-xl'>
         <Swiper
           direction={'vertical'}
           slidesPerView={1}

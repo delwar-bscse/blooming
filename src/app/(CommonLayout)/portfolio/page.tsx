@@ -16,13 +16,13 @@ export const metadata: Metadata = {
 const Protfolio = () => {
   return (
     <div>
-      <div>
+      <div className=''>
         <PortfolioHeroSection />
       </div>
       <div className='py-20'>
         <BloomSectionPortfolio title='&quot;They Bloomed With Us. You Can Too!&quot;' des='Join the growing list of brands thriving with custom UGC content.' />
       </div>
-      <div>
+      <div className='bg-[#D9E2CF] py-20'>
         {/* <BrandsChoose /> */}
         <BrandsChooseSlider />
       </div>

@@ -35,23 +35,23 @@ export const navbarItems: navItemsType[] = [
 ];
 
 export const navbarItems2: navItemsType[] = [
+  // {
+  //   id: 1,
+  //   title: 'AI vs Human Content',
+  //   url: '/ai-vs-human-content',
+  // },
   {
     id: 1,
-    title: 'AI vs Human Content',
-    url: '/ai-vs-human-content',
-  },
-  {
-    id: 2,
     title: 'For creator',
     url: '/creator',
   },
   {
-    id: 3,
+    id: 2,
     title: 'For agency',
     url: '/agency',
   },
   {
-    id: 4,
+    id: 3,
     title: 'My Package',
     url: '/service?isPackage=true&myPackage=true',
   },
