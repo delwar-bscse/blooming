@@ -19,7 +19,7 @@ const Creator = () => {
       <div className='flex items-center justify-center bg-[#F6F2EA]' style={{ height: "calc(100vh - 100px)"}}>
         <div className='relative w-full bg-[#F6F2EA] py-28 space-y-12'>
           <div className='relative z-10 flex flex-col justify-center items-center gap-3'>
-            <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-font01 text-center'>Want to become</h2>
+            <h2 className='text-2xl md:text-3xl xl:text-5xl font-bold text-font01 text-center'>Want to become</h2>
             <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-font01 text-center'>Blooming brands creator partner?</h2>
             <p className=' text-sm text-center max-w-[800px] text-font02'>&quot;We’re kicking off the foundation of our blooming brands marketing funnel — laying the groundwork for a high-impact campaign, executed in three streamlined steps for maximum efficiency and results.&quot;</p>
           </div>
