@@ -23,11 +23,11 @@ const DreamContent = () => {
                 loop
                 autoplay
               />
-              <div className='flex items-center gap-2'>
+              <div className='flex items-center gap-2 capitalize'>
                 <span className='h-10 w-10 font-bold flex items-center justify-center text-gray-800 rounded-full bg-[#EBE2D1]'>{item.id}</span>
                 <h3 className="text-[#6D715F] text-xl font-semibold">{item.title}</h3>
               </div>
-              <p className="text-[#6D715F]">{item.description}</p>
+              <p className="text-[#6D715F] capitalize">{item.description}</p>
             </div>
           ))}
         </div>

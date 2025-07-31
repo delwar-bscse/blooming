@@ -1,11 +1,12 @@
 
 import BloomSectionPortfolio from '@/components/section/BloomSectionPortfolio'
-import BrandsChoose from '@/components/section/BrandsChoose'
+// import BrandsChoose from '@/components/section/BrandsChoose'
 import PortfolioHeroSection from '@/components/section/PortfolioHeroSection'
 import ContactUsTelephone from '@/components/shared/ContactUsTelephone'
 import NewBarandLooking from '@/components/shared/NewBarandLooking'
 import React from 'react'
 import type { Metadata } from 'next'
+import BrandsChooseSlider from '@/components/section/BrandsChooseSlider'
  
 export const metadata: Metadata = {
   title: 'Portfolio - The Social Chance',
@@ -22,7 +23,8 @@ const Protfolio = () => {
         <BloomSectionPortfolio title='&quot;They Bloomed With Us. You Can Too!&quot;' des='Join the growing list of brands thriving with custom UGC content.' />
       </div>
       <div>
-        <BrandsChoose />
+        {/* <BrandsChoose /> */}
+        <BrandsChooseSlider />
       </div>
       <div className='py-20'>
         <NewBarandLooking />

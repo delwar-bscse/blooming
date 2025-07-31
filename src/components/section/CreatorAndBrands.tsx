@@ -30,7 +30,7 @@ const CreatorAndBrands = () => {
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
             viewport={{ once: false }}
           >
-            <Image src={mapImage} alt="creator and brands" className='w-full mx-auto'/>
+            <Image src={mapImage} width={1200} height={600} alt="creator and brands" className='w-full h-auto mx-auto'/>
           </motion.div>
         </div>
       </div>

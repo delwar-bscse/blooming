@@ -8,6 +8,7 @@ import image4 from "@/assets/common/blog/blog4.png"
 import image5 from "@/assets/common/blog/blog5.png"
 import { TypingAnimation } from "@/components/magicui/typing-animation";
 import type { Metadata } from 'next'
+import Link from 'next/link'
  
 export const metadata: Metadata = {
   title: 'AI vs Human Content - The Social Chance',
@@ -125,8 +126,8 @@ const Blog = () => {
           </div>
           <div className='flex flex-col md:flex-row items-center gap-4 md:gap-8 py-16'>
             <h2 className='grow text-3xl md:text-4xl xl:text-5xl font-bold text-font02 text-center md:text-left'>The Social Chance Agency</h2>
-            <button className='max-w-[160px] mx-auto py-2 px-6 bg-amber-300 rounded-lg'>Get Started</button>
-            <button className='max-w-[160px] mx-auto py-2 px-6 border-2 border-font01 rounded-lg'>Learn More</button>
+            <Link href="/" className='block w-full max-w-[160px] mx-auto py-2 px-6 bg-amber-300 rounded-lg text-center'>Get Started</Link>
+            {/* <button className='max-w-[160px] mx-auto py-2 px-6 border-2 border-font01 rounded-lg'>Learn More</button> */}
           </div>
         </div>
       </div>

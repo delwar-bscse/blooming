@@ -5,7 +5,7 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
-import BrandLogo from '@/assets/common/bloomimgLogo.png'
+import BrandLogo from '@/assets/common/TheSocialChance.png'
 import UserImage from '@/assets/common/user.png'
 
 import {
@@ -135,7 +135,7 @@ const Navbar = () => {
                     <li
                       key={item.id}
                       onClick={() => setOpen(false)}
-                      className={`cursor-pointer px-3 py-2 rounded transition-colors duration-200 ${isActive(item.url)
+                      className={`cursor-pointer px-3 py-1 rounded transition-colors duration-200 ${isActive(item.url)
                         ? 'bg-gray-200 text-primary font-semibold'
                         : 'hover:bg-gray-100'
                         }`}
@@ -148,7 +148,7 @@ const Navbar = () => {
                     <li
                       key={item.id}
                       onClick={() => setOpen(false)}
-                      className={`cursor-pointer px-3 py-2 rounded transition-colors duration-200 ${isActive(item.url)
+                      className={`cursor-pointer px-3 py-1 rounded transition-colors duration-200 ${isActive(item.url)
                         ? 'bg-gray-200 text-primary font-semibold'
                         : 'hover:bg-gray-100'
                         }`}

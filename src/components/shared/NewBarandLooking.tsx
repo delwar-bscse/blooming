@@ -10,7 +10,7 @@ const NewBarandLooking = () => {
     <div>
       <div className='maxWidth grid grid-cols-1-reverse sm:grid-cols-2 items-center justify-between gap-20'>
         <div>
-          <h2 className='text-2xl md:text-xl xl:text-2xl text-gray-700 font-bold pb-4 capitalize'>New brand looking to be seen?<br />Established brand ready to reignite the spark?<br />No worries! we&apos;re here to make it all work for you.</h2>
+          <h2 className='text-lg md:text-xl xl:text-2xl text-gray-700 font-bold pb-4 capitalize'>New brand looking to be seen?<br />Established brand ready to reignite the spark?<br />No worries! we&apos;re here to make it all work for you.</h2>
           {/* <p className='text-gray-600 uppercase'></p> */}
         </div>
         <div className='grid grid-cols-3 gap-4'>

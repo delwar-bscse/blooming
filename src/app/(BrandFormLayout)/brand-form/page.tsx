@@ -16,7 +16,7 @@ function BrandFormSuspense() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  
+
   useEffect(() => {
     const step = searchParams.get('step');
     setFormStep(parseInt(step || '1'));
@@ -31,7 +31,7 @@ function BrandFormSuspense() {
   return (
     <>
       <div className="bg-blue-100 min-h-screen box-border overflow-y-scroll bg-cover bg-no-repeat flex flex-col justify-center scrollbar-hide py-16" style={{ backgroundImage: `url(${formBg.src})` }} >
-        <div className="space-y-12">
+        <div className="space-y-8">
           {formStep === 1 && <BrandInfo handleStep={handleStep} />}
           {formStep === 2 && <BrandSocial handleStep={handleStep} />}
           {formStep === 3 && <ContentInfo handleStep={handleStep} />}
@@ -39,14 +39,16 @@ function BrandFormSuspense() {
           {formStep === 5 && <DoDont handleStep={handleStep} />}
           {formStep === 6 && <ContentInformation handleStep={handleStep} />}
           {formStep === 7 && <FinalMessage />}
-          <div className="w-full max-w-[700px] bg-[#56515166] rounded-xl mx-auto flex items-center justify-center gap-4 h-10 py-1 px-3">
-            {[...Array(7)].map((_, idx) => (
-              <div
-                onClick={() => handleStep(idx + 1)}
-                key={idx}
-                className={activeStepStyle(idx)}
-              />
-            ))}
+          <div className="w-full px-2">
+            <div className="w-full max-w-[588px] bg-[#56515166] rounded-xl mx-auto flex items-center justify-center gap-4 h-10 py-1 px-3">
+              {[...Array(7)].map((_, idx) => (
+                <div
+                  onClick={() => handleStep(idx + 1)}
+                  key={idx}
+                  className={activeStepStyle(idx)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

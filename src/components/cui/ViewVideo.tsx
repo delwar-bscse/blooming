@@ -111,7 +111,7 @@ const VideoView: React.FC<VideoViewProps> = ({
         )}
       </div>
       <div
-        className="w-[90%] h-8 mx-auto mt-4 bg-gray-400 rounded-b-full blur-md shadow opacity-70"
+        className="w-[90%] max-w-[182px] h-8 mx-auto mt-4 bg-gray-400 rounded-b-full blur-md shadow opacity-70"
         style={{
           borderBottomLeftRadius: '50%',
           borderBottomRightRadius: '50%',

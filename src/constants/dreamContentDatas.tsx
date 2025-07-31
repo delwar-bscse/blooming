@@ -6,8 +6,8 @@ import { whyChoseUsType as dreamContentDatasType } from "@/types/types";
 export const dreamContentDatas: dreamContentDatasType[] = [
   {
     id: 1,
-    title: "Dream Big",
-    description: "We believe in the power of dreams. Our mission is to help you turn your dreams into reality, no matter how big or small.",
+    title: "Place Order",
+    description: "Browse our UGC packages and select the one that suits your brand best.",
     image: dreamContent01
   },
   {

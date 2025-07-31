@@ -49,10 +49,10 @@ const Signup08 = () => {
   };
 
   return (
-    <div className="w-full max-w-[700px] mx-auto flex text-center justify-center">
+    <div className="w-full max-w-[600px] mx-auto flex text-center justify-center">
       <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
         <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">If everythin ok then click submit</h2>
-        <Button onClick={handleCreateAccount} variant="customWhite" size="llg" className="w-full">
+        <Button onClick={handleCreateAccount} variant="customWhite" size="llg" className="w-full ">
           Submit
         </Button>
       </div>

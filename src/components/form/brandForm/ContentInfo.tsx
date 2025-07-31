@@ -72,11 +72,11 @@ const ContentInfo = ({ handleStep }: { handleStep: (step: number) => void }) => 
   }
 
   return (
-    <div className="w-full max-w-[700px] mx-auto flex text-center justify-center">
-      <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
+    <div className="w-full max-w-[600px] mx-auto px-2 flex text-center justify-center">
+      <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-2xl">
         <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Content Info</h2>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
 
             {/* Brand Name */}
             <FormField
@@ -215,7 +215,7 @@ const ContentInfo = ({ handleStep }: { handleStep: (step: number) => void }) => 
                         />
                         <div
                           onClick={() => document.getElementById("ugcPhotoControld")?.click()}
-                          className="mt-2 text-sm text-gray-300 border border-dashed border-gray-500 rounded-lg p-4 cursor-pointer hover:bg-gray-500 transition-colors"
+                          className=" text-sm text-white border border-dashed border-gray-200 rounded-lg p-2 cursor-pointer hover:bg-gray-500 transition-colors"
                         >
                           {field.value?.name || brandForm.ugcPhotos?.name || "Upload UGC Photo"}
                         </div>
@@ -228,7 +228,7 @@ const ContentInfo = ({ handleStep }: { handleStep: (step: number) => void }) => 
             />
 
             {/* Submit */}
-            <Button variant="customWhite" type="submit" size="llg" className="w-full">
+            <Button variant="customWhite" type="submit" size="llg" className="w-full h-9 mt-2">
               Next
             </Button>
           </form>

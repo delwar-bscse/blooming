@@ -57,11 +57,11 @@ const Signup05 = ({ handleStep }: { handleStep: (step: number) => void }) => {
   }
 
   return (
-    <div className="w-full max-w-[700px] mx-auto flex text-center justify-center">
+    <div className="w-full max-w-[600px] mx-auto flex text-center justify-center">
       <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
         <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Step Five</h2>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
             
             {/* Brand Name */}
             <FormField
@@ -154,7 +154,7 @@ const Signup05 = ({ handleStep }: { handleStep: (step: number) => void }) => {
             />
 
             {/* Submit */}
-            <Button variant="customWhite" type="submit" size="llg" className="w-full">
+            <Button variant="customWhite" type="submit" size="llg" className="w-full h-9 mt-2">
               Next
             </Button>
           </form>

@@ -39,7 +39,7 @@ function SelectTrigger({
     outline: "border border-primary/40 bg-transparent",
     ghost: "border-transparent bg-transparent hover:bg-accent/30",
     unstyled: "border-none bg-transparent shadow-none px-0 py-0",
-    borderwhite: "border-2 border-gray-300 placeholder:text-white text-white h-12 py-2",
+    borderwhite: "border-2 border-gray-300 placeholder:text-white text-white h-9 py-1",
   }
 
   return (
@@ -51,7 +51,7 @@ function SelectTrigger({
         "flex w-fit items-center justify-between gap-2 rounded-md px-3 py-2 text-sm outline-none transition-[color,box-shadow]",
         "focus-visible:ring-[3px] focus-visible:ring-ring/50",
         "disabled:cursor-not-allowed disabled:opacity-50",
-        "data-[size=default]:h-12 data-[size=sm]:h-10",
+        "data-[size=default]:h-9 data-[size=sm]:h-8",
         "border-input data-[placeholder]:text-white",
         "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         "*:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2",

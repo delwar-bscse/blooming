@@ -134,16 +134,16 @@ const FinalMessage = () => {
 
 
   return (
-    <div className="w-full max-w-[700px] mx-auto h-full flex text-center justify-center items-center">
-      <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
+    <div className="w-full max-w-[600px] mx-auto px-2 h-full flex text-center justify-center items-center">
+      <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-2xl">
         {/* <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Make a Payment</h2> */}
-        {packageId && <button onClick={handleSubmit} className="bg-white cursor-pointer text-[#565151] font-semibold py-3 px-8 rounded-md">
+        {packageId && <button onClick={handleSubmit} className="bg-white cursor-pointer text-[#565151] font-semibold py-2 px-8 rounded-md">
           Continue
         </button>}
-        {!packageId && isPackage === true && <Link href="/service?isPackage=true" className="bg-white cursor-pointer text-[#565151] font-semibold py-3 px-8 rounded-md">
+        {!packageId && isPackage === true && <Link href="/service?isPackage=true" className="bg-white cursor-pointer text-[#565151] font-semibold py-2 px-8 rounded-md">
           Select Package Or Subscription
         </Link>}
-        {!packageId && isPackage === false && <Link href="/service?isPackage=false" className="bg-white cursor-pointer text-[#565151] font-semibold py-3 px-8 rounded-md">
+        {!packageId && isPackage === false && <Link href="/service?isPackage=false" className="bg-white cursor-pointer text-[#565151] font-semibold py-2 px-8 rounded-md">
           Purchase Package Or Subscription
         </Link>}
         { }
