@@ -52,7 +52,7 @@ const Navbar = () => {
 
 
   return (
-    <div className='shadow-md h-22 bg-[#DEE5EC] sticky top-0 z-50'>
+    <div className='shadow-md h-22 flex items-center fl bg-[#DEE5EC] sticky top-0 z-50'>
       <div className='maxWidth flex justify-between items-center py-3 px-2'>
         {/* Brand Logo */}
         <Link href="/" className='flex justify-start items-center'>
