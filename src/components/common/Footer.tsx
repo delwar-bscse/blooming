@@ -9,8 +9,8 @@ import FooterTitle from '../shared/FooterTitle';
 
 const Footer = () => {
   return (
-    <div className='bg-[#F2ECE0] py-6 text-[#6D715F]'>
-      <div className='maxWidth flex flex-col lg:flex-row lg:gap-4'>
+    <div className='bg-[#F2ECE0] py-6 text-[#6D715F] flex flex-col'  style={{ minHeight: "50vh" }}>
+      <div className='maxWidth flex-1 flex flex-col lg:flex-row lg:gap-4'>
         <div className='lg:basis-[40%] pr-6'>
           <h3>
             <Image src={BrandLogo} alt="Blooming Brands" width={200} height={40}  className='w-[200px] h-[90px]'/>

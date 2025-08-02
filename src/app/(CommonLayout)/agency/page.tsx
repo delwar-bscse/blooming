@@ -14,7 +14,7 @@ const Agency = () => {
         <div className='maxWidth flex flex-col-reverse sm:flex-row justify-between items-center py-20'>
           <div className='basis-[60%] space-y-3'>
             <h2 className='text-3xl md:text-4xl xl:text-5xl font-bold text-font01 lg:leading-16'>Your Agency. Our Creators. Seamless UGC Delivery.</h2>
-            <p className=' md:text-xl text-font02'>&quot;We’re kicking off the foundation of our blooming brands marketing funnel — laying the groundwork for a high-impact campaign, executed in three streamlined steps for maximum efficiency and results.&quot;</p>
+            <p className=' md:text-xl text-font02'>&quot;We’re kicking off the foundation of our The Social Chance brands marketing funnel — laying the groundwork for a high-impact campaign, executed in three streamlined steps for maximum efficiency and results.&quot;</p>
             <div className='max-w-[200px] pt-8'>
               <CustomButton text="Contact Us" url='/contact' />
             </div>

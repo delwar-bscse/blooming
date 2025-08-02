@@ -11,12 +11,14 @@ import { motion } from "framer-motion"
 
 const HeroSection = () => {
   return (
-    <section className="bg-[#F9F6F1] py-10 space-y-2" style={{ minHeight: 'calc(100vh - 88px)' }}>
+    <section className="bg-[#F9F6F1] py-10 space-y-2" style={{ minHeight: 'calc(100vh - 80px)' }}>
       <div className="relative z-10">
         <div className="parentDiv relative z-10 maxWidth flex flex-col-reverse sm:flex-row items-center justify-between gap-10 p-5">
           <div className=" basis-[60%] flex flex-col  justify-center gap-6">
             <SparklesText>
-              <TypingAnimation className='text-[#636C43] text-3xl md:text-5xl lg:text-7xl font-bold' startOnView={true} duration={100}>
+              <TypingAnimation className='text-[#636C43] text-3xl md:text-5xl lg:text-7xl font-bold' startOnView={true} duration={100}
+              style={{ textShadow: '4px 4px 8px rgba(1, 1, 0, 0.6)' }}
+              >
                 The Social Chance
               </TypingAnimation>
             </SparklesText>
@@ -44,7 +46,7 @@ const HeroSection = () => {
         {/* <Image src={butterfly} alt="butterfly" width={100} height={100} className='absolute top-10 left-10' />
         <Image src={butterfly} alt="butterfly" width={100} height={100} className='absolute bottom-10 right-10' /> */}
       </div>
-      <div className="py-10">
+      <div className="pb-10">
         <MarqueeDemo />
       </div>
     </section>
