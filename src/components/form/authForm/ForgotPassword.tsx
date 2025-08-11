@@ -57,7 +57,7 @@ const ForgotPassword = () => {
       // Handle success, e.g., show a toast notification
       toast.success(res?.message || "Reset code sent successfully.");
       localStorage.setItem("forgetPasswordToken", res?.data?.forgetToken);
-      
+
       // Optionally redirect to the OTP verification page
       router.push(`/verify-otp?email=${data.email}`);
     } else {
@@ -69,36 +69,34 @@ const ForgotPassword = () => {
 
 
   return (
-    <div className="w-full max-w-[700px] mx-auto flex text-center justify-center py-20 px-2">
-      <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
-        <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Forgot Password</h2>
+    <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
+      <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12 text-center">Forgot Password</h2>
 
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
 
-            {/* Email */}
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white text-lg">Email</FormLabel>
-                  <FormControl>
-                    <Input variant="borderwhite" placeholder="Enter email" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+          {/* Email */}
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-white text-lg">Email</FormLabel>
+                <FormControl>
+                  <Input variant="borderwhite" placeholder="Enter email" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-            {/* Submit Button */}
-            <Button variant="customWhite" type="submit" size="llg" className="w-full">
-              Send Reset Code
-            </Button>
+          {/* Submit Button */}
+          <Button variant="customWhite" type="submit" size="llg" className="w-full">
+            Send Reset Code
+          </Button>
 
-          </form>
-        </Form>
-      </div>
+        </form>
+      </Form>
     </div>
   );
 };

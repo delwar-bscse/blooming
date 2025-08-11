@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { BrandProvider } from "@/context/BrandContext";
+import { TriggerProvider } from "@/context/TriggerContext";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,12 +21,14 @@ export const metadata: Metadata = {
   description: "whether you are here to create or collaborate this is where it all starts.creator and brand connects a space for authentic collaboration and impactful ugc content",
 };
 
-export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <BrandProvider>
-        {children}
+          <TriggerProvider>
+            {children}
+          </TriggerProvider>
         </BrandProvider>
         <Toaster />
       </body>

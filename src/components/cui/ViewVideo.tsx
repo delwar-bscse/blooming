@@ -4,6 +4,7 @@ import { useVideoPlayer } from '@/context/VideoPlayContext';
 import Image from 'next/image';
 import React, { useState, useRef, useEffect } from 'react';
 import mobileFrame from "@/assets/common/mobileFrame.png"
+import { cn } from "@/lib/utils"
 
 interface VideoViewProps {
   videoUrl: string;
@@ -55,7 +56,7 @@ const VideoView: React.FC<VideoViewProps> = ({
   return (
     <div className='flex flex-col items-center'>
       <div
-        className={`relative flex items-center justify-center overflow-hidden ${className}`}
+        className={`relative flex items-center justify-center overflow-hidden`}
         style={{ width, height }}
       >
         <video
@@ -63,7 +64,7 @@ const VideoView: React.FC<VideoViewProps> = ({
           loop
           width="5"
           height="8"
-          className="absolute inset-0 w-[180px] h-[340px] object-fill rounded-4xl"
+          className={cn("absolute inset-0 w-[180px] h-[340px] object-fill rounded-2xl", className)}
           onClick={togglePlay}
           autoPlay={autoPlay}
           data-video-id={videoId}
@@ -96,7 +97,7 @@ const VideoView: React.FC<VideoViewProps> = ({
               e.stopPropagation();
               togglePlay();
             }}
-            className="absolute inset-0 m-auto transform-[translateY(-50%] w-16 h-16 bg-black/30 rounded-full flex items-center justify-center transition-all hover:bg-opacity-70 focus:outline-none"
+            className="absolute inset-0 m-auto transform-[translateY(-50%] w-14 h-14 bg-black/30 rounded-full flex items-center justify-center transition-all hover:bg-opacity-70 focus:outline-none"
             aria-label={currentlyPlaying === videoId ? 'Pause video' : 'Play video'}
           >
             <svg

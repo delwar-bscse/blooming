@@ -91,11 +91,11 @@ const SignUp = () => {
     });
 
     // console.log("Response from server:", res);
-    if(res.success){
+    if (res.success) {
       toast.success(`res.message || "Check your email!"`);
       localStorage.setItem("createUserToken", JSON.stringify(res?.data?.createUserToken));
       router.push("/brand-signup-otp");
-    }else{
+    } else {
       toast.error(res.message || "Something went wrong!");
     }
 
@@ -114,11 +114,11 @@ const SignUp = () => {
   };
 
   return (
-    <div className="w-full max-w-[700px] mx-auto flex text-center justify-center py-20 px-2">
-      <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
-        <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Sign Up</h2>
+    <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
+      <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12 text-center">Sign Up</h2>
 
-        {isMounted && (
+      {isMounted && (
+        <div className="flex items-center justify-center">
           <div className="relative inline-block">
             <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-3 border-white bg-gray-300">
               {imgUrl ? (
@@ -146,133 +146,133 @@ const SignUp = () => {
               height={32}
             />
           </div>
-        )}
+        </div>
+      )}
 
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
 
-            {/* Profile Image */}
-            <FormField
-              control={form.control}
-              name="profileImg"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
+          {/* Profile Image */}
+          <FormField
+            control={form.control}
+            name="profileImg"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input
+                    id="profileImgCtrl"
+                    type="file"
+                    accept="image/*"
+                    variant="inputHidden"
+                    onChange={e => {
+                      field.onChange(e.target.files?.[0]);
+                      handleImgUrl(e.target.files?.[0] ?? null);
+                    }}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {/* Name */}
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-white text-lg">Name</FormLabel>
+                <FormControl>
+                  <Input variant="borderwhite" placeholder="Enter Your Name" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {/* Email */}
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-white text-lg">Email</FormLabel>
+                <FormControl>
+                  <Input variant="borderwhite" placeholder="Enter email" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {/* Password */}
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-white text-lg">New Password</FormLabel>
+                <FormControl>
+                  <div className="relative">
                     <Input
-                      id="profileImgCtrl"
-                      type="file"
-                      accept="image/*"
-                      variant="inputHidden"
-                      onChange={e => {
-                        field.onChange(e.target.files?.[0]);
-                        handleImgUrl(e.target.files?.[0] ?? null);
-                      }}
+                      type={showPassword ? "text" : "password"}
+                      variant="borderwhite"
+                      placeholder="Enter password"
+                      className="pr-10"
+                      {...field}
                     />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* Name */}
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white text-lg">Name</FormLabel>
-                  <FormControl>
-                    <Input variant="borderwhite" placeholder="Enter Your Name" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* Email */}
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white text-lg">Email</FormLabel>
-                  <FormControl>
-                    <Input variant="borderwhite" placeholder="Enter email" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* Password */}
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white text-lg">New Password</FormLabel>
-                  <FormControl>
-                    <div className="relative">
-                      <Input
-                        type={showPassword ? "text" : "password"}
-                        variant="borderwhite"
-                        placeholder="Enter password"
-                        className="pr-10"
-                        {...field}
-                      />
-                      <div
-                        className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-100 hover:text-gray-200 z-10"
-                        onClick={() => setShowPassword(prev => !prev)}
-                      >
-                        {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-                      </div>
+                    <div
+                      className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-100 hover:text-gray-200 z-10"
+                      onClick={() => setShowPassword(prev => !prev)}
+                    >
+                      {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                     </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-            {/* Confirm Password */}
-            <FormField
-              control={form.control}
-              name="confirmPassword"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white text-lg">Confirm Password</FormLabel>
-                  <FormControl>
-                    <div className="relative">
-                      <Input
-                        type={showConfirmPassword ? "text" : "password"}
-                        variant="borderwhite"
-                        placeholder="Enter confirm password"
-                        className="pr-10"
-                        {...field}
-                      />
-                      <div
-                        className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-100 hover:text-gray-200 z-10"
-                        onClick={() => setShowConfirmPassword(prev => !prev)}
-                      >
-                        {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-                      </div>
+          {/* Confirm Password */}
+          <FormField
+            control={form.control}
+            name="confirmPassword"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-white text-lg">Confirm Password</FormLabel>
+                <FormControl>
+                  <div className="relative">
+                    <Input
+                      type={showConfirmPassword ? "text" : "password"}
+                      variant="borderwhite"
+                      placeholder="Enter confirm password"
+                      className="pr-10"
+                      {...field}
+                    />
+                    <div
+                      className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-100 hover:text-gray-200 z-10"
+                      onClick={() => setShowConfirmPassword(prev => !prev)}
+                    >
+                      {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                     </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-            {/* Submit Button */}
-            <Button variant="customWhite" type="submit" size="llg" className="w-full">
-              Sign Up
-            </Button>
+          {/* Submit Button */}
+          <Button variant="customWhite" type="submit" size="llg" className="w-full">
+            Sign Up
+          </Button>
 
-            <Link href="/login" className="w-full relative -top-2 text-center text-gray-100 hover:text-gray-200 font-semibold">
-              Already Have An Account?
-            </Link>
-          </form>
-        </Form>
-      </div>
+          <Link href="/login" className="w-full relative -top-2 text-center text-gray-100 hover:text-gray-200 font-semibold">
+            Already Have An Account?
+          </Link>
+        </form>
+      </Form>
     </div>
   );
 };

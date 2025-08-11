@@ -7,6 +7,7 @@ import { MarqueeDemo } from "../shared/HeroMarquee";
 import { TypingAnimation } from "@/components/magicui/typing-animation";
 import { SparklesText } from "@/components/magicui/sparkles-text";
 import { motion } from "framer-motion"
+import HeroSectionSlider from "./HeroSectionSlider";
 
 
 const HeroSection = () => {
@@ -17,7 +18,7 @@ const HeroSection = () => {
           <div className=" basis-[60%] flex flex-col  justify-center gap-6">
             <SparklesText>
               <TypingAnimation className='text-[#636C43] text-3xl md:text-5xl lg:text-7xl font-bold' startOnView={true} duration={100}
-              style={{ textShadow: '4px 4px 8px rgba(1, 1, 0, 0.6)' }}
+                style={{ textShadow: '4px 4px 8px rgba(1, 1, 0, 0.6)' }}
               >
                 The Social Chance
               </TypingAnimation>
@@ -47,7 +48,8 @@ const HeroSection = () => {
         <Image src={butterfly} alt="butterfly" width={100} height={100} className='absolute bottom-10 right-10' /> */}
       </div>
       <div className="pb-10">
-        <MarqueeDemo />
+        {/* <MarqueeDemo /> */}
+        <HeroSectionSlider url="/upload-video?category=Hero Section"  />
       </div>
     </section>
   )

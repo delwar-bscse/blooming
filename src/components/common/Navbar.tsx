@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation'
 import BrandLogo from '@/assets/common/TheSocialChance.png'
 import UserImage from '@/assets/common/user.png'
 
+
 import {
   Sheet,
   SheetContent,
@@ -25,6 +26,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+
+
 
 
 const Navbar = () => {
@@ -47,7 +50,6 @@ const Navbar = () => {
       setUser(response?.data);
     };
     getUser();
-
   }, [pathname]);
 
 

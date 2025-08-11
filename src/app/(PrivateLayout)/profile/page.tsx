@@ -13,6 +13,7 @@ import { StepDataType } from '@/types/types';
 import { usePathname, useSearchParams } from 'next/navigation';
 import LoadingSpinner from '@/components/cui/LoadingSpinner';
 
+
 const stepDatas: StepDataType[] = [
   {
     id: 1,
@@ -39,12 +40,13 @@ const ProfileContent = () => {
   const step = searchParams.get("step");
 
   async function getUserData() {
+
     const response = await myFetch("/users/my-profile", {
       method: "GET",
       tags: ["user"],
       cache: "no-cache",
     });
-    // console.log("User Data:", response);
+
     if (response?.data?.profile) {
       setImgUrl(response?.data?.profile);
     }
@@ -54,7 +56,8 @@ const ProfileContent = () => {
     getUserData();
   }, [pathname, step]);
 
-  const handleImgUrl = async (file: File | null) => {
+  const handleImgUrl = async (file: File) => {
+    console.log("File:", file);
     if (file && file !== null && file.type.startsWith("image/")) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -68,7 +71,7 @@ const ProfileContent = () => {
         body: formData,
       });
       if (response?.success) {
-        getUserData();
+        await getUserData();
         window.location.reload();
       }
     }
@@ -110,7 +113,7 @@ const ProfileContent = () => {
             accept="image/*"
             variant="inputHidden"
             onChange={e => {
-              handleImgUrl(e.target.files?.[0] || null);
+              handleImgUrl(e.target.files?.[0] as File);
             }}
           />
         </div>
