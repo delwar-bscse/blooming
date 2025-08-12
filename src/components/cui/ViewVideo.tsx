@@ -64,7 +64,7 @@ const VideoView: React.FC<VideoViewProps> = ({
           loop
           width="5"
           height="8"
-          className={cn("absolute inset-0 w-[180px] h-[340px] object-fill rounded-2xl", className)}
+          className={cn("absolute inset-0 w-[180px] h-[340px] object-fill rounded-4xl pl-1", className)}
           onClick={togglePlay}
           autoPlay={autoPlay}
           data-video-id={videoId}
@@ -86,9 +86,9 @@ const VideoView: React.FC<VideoViewProps> = ({
           src={mobileFrame}
           onClick={togglePlay}
           alt="Video Frame"
-          width={182}
+          width={188}
           height={340}
-          className="absolute inset-0 w-[202px] h-[340px] object-fill"
+          className="absolute inset-0 w-[182px] h-[340px] object-fill"
         />
 
         {showPlayButton && (

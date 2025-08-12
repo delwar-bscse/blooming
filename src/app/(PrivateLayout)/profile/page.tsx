@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
 import { OrderHistory } from '@/components/creator/OrderHistory';
@@ -31,10 +32,23 @@ const stepDatas: StepDataType[] = [
     label: "setting",
   },
 ];
+const stepDatas2: StepDataType[] = [
+  {
+    id: 1,
+    title: "Profile",
+    label: "profile",
+  },
+  {
+    id: 2,
+    title: "Setting",
+    label: "setting",
+  },
+];
 
 // Move the main component logic to a separate component
 const ProfileContent = () => {
   const pathname = usePathname();
+  const [user, setUser] = useState<any>(null);
   const [imgUrl, setImgUrl] = useState<string | null>(null);
   const searchParams = useSearchParams();
   const step = searchParams.get("step");
@@ -48,6 +62,7 @@ const ProfileContent = () => {
     });
 
     if (response?.data?.profile) {
+      setUser(response?.data);
       setImgUrl(response?.data?.profile);
     }
   }
@@ -71,7 +86,7 @@ const ProfileContent = () => {
         body: formData,
       });
       if (response?.success) {
-        await getUserData();
+        // await getUserData();
         window.location.reload();
       }
     }
@@ -119,10 +134,10 @@ const ProfileContent = () => {
         </div>
 
         <div>
-          <CustomStep stepDatas={stepDatas} />
+          <CustomStep stepDatas={user?.role === "user" ? stepDatas : stepDatas2} />
           <Suspense fallback={<LoadingSpinner />}>
             {step === "profile" && <ProfileInfo />}
-            {step === "order" && <OrderHistory />}
+            {(user?.role === "user" && step === "order") && <OrderHistory />}
             {step === "setting" && <SettingInfo />}
           </Suspense>
         </div>

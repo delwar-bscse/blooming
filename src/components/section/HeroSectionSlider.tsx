@@ -37,10 +37,11 @@ export default function HeroSectionSlider({ url }: { url: string }) {
       <Swiper
         // slidesPerView={count}
         // spaceBetween={20}
+        speed={2000}
         loop={true}
         pagination={{ clickable: true }}
         autoplay={{
-          delay: 5000,
+          delay: 2000,
           disableOnInteraction: false,
         }}
         navigation={{

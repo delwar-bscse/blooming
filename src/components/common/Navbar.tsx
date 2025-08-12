@@ -47,6 +47,7 @@ const Navbar = () => {
         method: "GET",
         tags: ["user"]
       });
+      console.log("Nav User Data:", response);
       setUser(response?.data);
     };
     getUser();
@@ -78,7 +79,7 @@ const Navbar = () => {
             <DropdownMenuTrigger className='px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 cursor-pointer'>More...</DropdownMenuTrigger>
             <DropdownMenuContent>
               {navbarItems2.map((item) => {
-                if(item.title === 'My Package' && !user) return null; // Hide 'My Package' if user is not logged in
+                if(item.title === 'My Package' && user?.role !== "user") return null; // Hide 'My Package' if user is not logged in
                 return (
                   <DropdownMenuItem
                     key={item.id}
