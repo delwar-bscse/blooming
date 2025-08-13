@@ -16,8 +16,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { Textarea } from "@/components/ui/textarea"
-import { BsTelephoneOutbound } from "react-icons/bs";
-import { CiMail } from "react-icons/ci";
+// import { BsTelephoneOutbound } from "react-icons/bs";
+// import { CiMail } from "react-icons/ci";
 import { myFetch } from "@/utils/myFetch";
 
 // Schema
