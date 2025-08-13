@@ -19,8 +19,8 @@ const Creator = () => {
       <div className='flex items-center justify-center bg-[#F6F2EA]' style={{ height: "calc(100vh - 80px)" }}>
         <div className='relative w-full bg-[#F6F2EA] py-28 space-y-12'>
           <div className='relative z-10 flex flex-col justify-center items-center gap-3'>
-            <h2 className='text-2xl md:text-3xl xl:text-6xl font-bold text-font01 text-center'>Want to become</h2>
-            <h2 className='text-2xl md:text-3xl xl:text-6xl font-bold text-font01 text-center'>The Social Chance brands creator partner?</h2>
+            <h2 className='text-2xl md:text-3xl xl:text-6xl font-bold text-font01 text-center' style={{ textShadow: '2px 2px 6px rgba(1, 1, 0, 0.6)' }}>Want to become</h2>
+            <h2 className='text-2xl md:text-3xl xl:text-6xl font-bold text-font01 text-center' style={{ textShadow: '2px 2px 6px rgba(1, 1, 0, 0.6)' }}>The Social Chance brands creator partner?</h2>
             <p className=' text-sm lg:text-xl text-center max-w-[1000px] text-font02 pt-4'>&quot;We’re kicking off the foundation of our The Social Chance brands marketing funnel — laying the groundwork for a high-impact campaign, executed in three streamlined steps for maximum efficiency and results.&quot;</p>
           </div>
           <div className='w-full max-w-[200px] mx-auto'>

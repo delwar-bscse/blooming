@@ -51,7 +51,7 @@ const ForgotPassword = () => {
         email: data.email,
       },
     })
-    // console.log("Response Forgot Password:", res);
+    console.log("Response Forgot Password:", res);
 
     if (res.success) {
       // Handle success, e.g., show a toast notification
@@ -62,6 +62,7 @@ const ForgotPassword = () => {
       router.push(`/verify-otp?email=${data.email}`);
     } else {
       // Handle error, e.g., show a toast notification
+      toast.error(res?.message || "Failed to send reset code.");
       console.error("Failed to send reset code:", res.message);
     }
     // router.push("/verify-otp");

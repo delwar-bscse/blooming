@@ -61,7 +61,7 @@ const ContactUs = () => {
 
   return (
     <div className="w-full max-w-[1000px] mx-auto flex flex-col-reverse sm:flex-row text-center justify-center gap-2 md:gap-4 lg:gap-8 py-20 px-2">
-      <div className="bg-[#E9EDF2] p-6 py-20 basis-[40%] rounded-md">
+      {/* <div className="bg-[#E9EDF2] p-6 py-20 basis-[40%] rounded-md">
         <h2 className="text-2xl font-semibold mb-6 pb-3 border-b-4 border-white">Need More Help?</h2>
         <ul className="space-y-2">
           <li className="flex items-center gap-2">
@@ -77,7 +77,7 @@ const ContactUs = () => {
             <span className="text-gray-700">shamimnader@gmail.com</span>
           </li>
         </ul>
-      </div>
+      </div> */}
 
       <div className="bg-[#E9EDF2] px-2 sm:px-4 md:px-8 py-6 md:py-8 basis-[60%] rounded-md">
         <Form {...form}>

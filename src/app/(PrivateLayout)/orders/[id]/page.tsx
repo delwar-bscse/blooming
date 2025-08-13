@@ -16,8 +16,8 @@ const CreatorProjectDetailsPage = () => {
   const stepDatas: StepDataType[] = [
     {
       id: 1,
-      title: "Project Details",
-      label: "project-details",
+      title: "Details",
+      label: "details",
     },
     {
       id: 2,
@@ -39,9 +39,9 @@ const CreatorProjectDetailsPage = () => {
 
       <Suspense fallback={<div>Loading...</div>}>
         <AnimatePresence mode="wait">
-          {step === "project-details" && (
+          {step === "details" && (
             <motion.div
-              key="project-details"
+              key="details"
               initial={{ opacity: 0}}
               animate={{ opacity: 1}}
               exit={{ opacity: 0 }}

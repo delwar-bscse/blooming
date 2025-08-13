@@ -1,7 +1,7 @@
 "use client"
 import { Toaster } from "sonner";
 
-import formBg from "@/assets/common/formBackground.png";
+
 import Signup01 from "@/components/form/signupForm/Signup01";
 import Signup02 from "@/components/form/signupForm/Signup02";
 import Signup03 from "@/components/form/signupForm/Signup03";
@@ -24,7 +24,7 @@ export default function CreatorSignup() {
 
   return (
     <CreatorProvider >
-      <div className="bg-blue-100 min-h-screen box-border overflow-y-scroll bg-cover bg-no-repeat flex flex-col justify-center scrollbar-hide py-16" style={{ backgroundImage: `url(${formBg.src})` }} >
+      <div className="min-h-screen box-border overflow-y-scroll bg-cover bg-no-repeat flex flex-col justify-center scrollbar-hide py-16">
         <div className="space-y-8">
           {formStep === 1 && <Signup01 handleStep={handleStep} />}
           {formStep === 2 && <Signup02 handleStep={handleStep} />}

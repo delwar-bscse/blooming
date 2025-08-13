@@ -124,7 +124,7 @@ const Signup02 = ({ handleStep }: { handleStep: (step: number) => void }) => {
             />
 
             {/* Brand Name */}
-            <FormField
+            {/* <FormField
               control={form.control}
               name="city"
               render={({ field }) => (
@@ -136,7 +136,7 @@ const Signup02 = ({ handleStep }: { handleStep: (step: number) => void }) => {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
 
             {/* Brand Name */}
             <FormField

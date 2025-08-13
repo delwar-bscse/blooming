@@ -119,9 +119,9 @@ const Signup01 = ({ handleStep }: { handleStep: (step: number) => void }) => {
                           <Image
                             src={imgUrl || bgImage} // Use a placeholder image if imgUrl is null
                             alt="content image"
-                            className="object-cover w-full h-full"
-                            width={128}
-                            height={128}
+                            className="object-fill w-full h-full"
+                            width={328}
+                            height={328}
                             unoptimized
                           />
                         </div>

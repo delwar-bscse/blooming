@@ -15,39 +15,39 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-      <main className="space-y-40">
+      <main className="">
         <div className="">
           <HeroSection />
         </div>
 
         {/* trusted by 600+ leading creators and brands  */}
-        <div>
+        <div className="py-10">
           <CreatorAndBrands />
         </div>
 
         {/* only 3 steps to get your dream content  */}
-        <div>
+        <div className="py-10">
           <DreamContent />
         </div>
 
         {/* New brand looking to be seen  */}
-        <div>
+        <div className="py-10">
           <NewBarandLooking />
         </div>
 
         {/*See Why Brands Choose Blooming Brands And Why You Should Too.*/}
         {/*"They Bloomed With Us. You Can Too!"*/}
-        <div>
+        <div className="">
           <BloomSection title='&quot;They Bloomed With Us. You Can Too!&quot;' des='Join the growing list of brands thriving with custom UGC content.' />
         </div>
 
         {/* Why Choose Us  */}
-        <div className="py-10">
+        <div className="bg-[#D9E2CF] h-screen flex items-center justify-center">
           <WhyChooseUs />
         </div>
 
         {/* FAQ  */}
-        <div className="py-10">
+        <div className="py-20">
           <FAQ />
         </div>
 

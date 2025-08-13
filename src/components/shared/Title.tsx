@@ -1,8 +1,9 @@
+import { cn } from '@/lib/utils'
 import React from 'react'
 
-const Title = ({title}:{title:string}) => {
+const Title = ({title, className}:{title:string, className?:string}) => {
   return (
-    <h2 className='text-3xl md:text-4xl xl:text-5xl font-bold text-center text-gray-800 pb-10'>{title}</h2>
+    <h2 className={cn("text-2xl md:text-3xl xl:text-4xl font-bold text-gray-800 pb-4", className)}>{title}</h2>
 
   )
 }

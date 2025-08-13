@@ -8,82 +8,70 @@ import { LuPhoneCall } from "react-icons/lu";
 import { ContactItem, FollowUs, QuickLink } from "@/types/types";
 
 
-export const quickLinks:QuickLink[] = [
+export const quickLinks: QuickLink[] = [
   {
-    title:"Service",
-    url:"/service"
+    title: "For Creator",
+    url: "/creator"
   },
   {
-    title:"Portfolio",
-    url:"/portfolio"
+    title: "For Agency",
+    url: "/agency"
   },
   {
-    title:"Contact Us",
-    url:"/contact"
+    title: "Service",
+    url: "/service"
   },
   {
-    title:"About Us",
-    url:"/about"
-  },
-  {
-    title:"Blog",
-    url:"/blog"
+    title: "Portfolio",
+    url: "/portfolio"
   },
 ];
 
-export const creatorLink:QuickLink[] = [
+export const creatorLink: QuickLink[] = [
   {
-    title:"For Creator",
-    url:"/creator"
+    title: "Contact Us",
+    url: "/contact"
   },
   {
-    title:"For Agency",
-    url:"/agency"
+    title: "Blog",
+    url: "/blog"
   },
   {
-    title:"Contact Us",
-    url:"/contact"
-  },
-  {
-    title:"Blog",
-    url:"/blog"
-  },
-  {
-    title:"About Us",
-    url:"/about"
+    title: "About Us",
+    url: "/about"
   },
 ];
 
-export const contactInfo:ContactItem[] = [
+export const contactInfo: ContactItem[] = [
   {
-    title:"+2123 654 7898",
+    title: "+2123 654 7898",
     icon: <LuPhoneCall size={20} />
   },
   {
-    title:"shamimnadir@example.com",
+    title: "shamimnadir@example.com",
     icon: <FiMail size={20} />
   },
   {
-    title:"Company Address",
+    title: "Company Address",
     icon: <GrLocation size={20} />
   },
   {
-    title:"Shamim Nader",
+    title: "Shamim Nader",
     icon: <FaRegUser size={20} />
   }
 ];
 
-export const followUs:FollowUs[] = [
+export const followUs: FollowUs[] = [
   {
-    icon:<SlSocialFacebook size={20} />,
-    url:"https://www.facebook.com"
+    icon: <SlSocialFacebook size={20} />,
+    url: "https://www.facebook.com/share/19b3DdSvMx/?mibextid=wwXIfr"
   },
   {
-    icon:<SlSocialInstagram size={20} />,
-    url:"https://www.instagram.com"
+    icon: <SlSocialInstagram size={20} />,
+    url: "https://www.instagram.com/thesocialchance?igsh=cW15MXhwZ21sOHFu&utm_source=qr"
   },
   {
-    icon:<PiTiktokLogoThin size={20} />,
-    url:"https://www.tiktok.com"
+    icon: <PiTiktokLogoThin size={20} />,
+    url: "https://www.tiktok.com/@thesocialchance?_t=ZN-8yWcc2oq9LS&_r=1"
   },
 ]

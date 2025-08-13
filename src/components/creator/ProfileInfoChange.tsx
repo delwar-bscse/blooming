@@ -50,7 +50,7 @@ const ProfileInfoChange = () => {
     // console.log("Submitted Data:", data);
     const formData = new FormData();
     formData.append("fullName", data.fullName);
-    formData.append("email", data.email);
+    // formData.append("email", data.email);
     formData.append("phone", data.phoneNumber);
 
     const response = await myFetch("/users/update-my-profile", {
@@ -113,7 +113,7 @@ const ProfileInfoChange = () => {
                 <FormItem>
                   <FormLabel className="text-gray-600 text-lg">Email</FormLabel>
                   <FormControl>
-                    <Input variant="borderblack" placeholder="Enter email" {...field} />
+                    <Input disabled variant="borderblack" placeholder="Enter email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -128,7 +128,7 @@ const ProfileInfoChange = () => {
                 <FormItem>
                   <FormLabel className="text-gray-600 text-lg">Phone Number</FormLabel>
                   <FormControl>
-                    <Input variant="borderblack" placeholder="Enter phone number" {...field} />
+                    <Input maxLength={16} variant="borderblack" placeholder="Enter phone number" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

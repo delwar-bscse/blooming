@@ -35,9 +35,9 @@ const Service = () => {
       <div>
         <PackageSection />
       </div>
-      <div className='py-28 bg-[#D9E2CF]'>
+      <>
         <SubSection />
-      </div>
+      </>
       <div>
         <ContactUsTelephone title='Let’s find the best fit for your goals no pressure, just a chat."'/>
       </div>

@@ -125,7 +125,7 @@ const SignUp = () => {
                 <Image
                   src={imgUrl}
                   alt="content image"
-                  className="object-cover w-full"
+                  className="object-cover w-full h-full"
                   width={128}
                   height={128}
                   unoptimized

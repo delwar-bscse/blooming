@@ -12,7 +12,7 @@ import { whyChoseUsType } from "@/types/types";
 export const whyChoseUsDatas:whyChoseUsType[] = [
   {
     id: 1,
-    title: "trategy Meets Creativity",
+    title: "Strategy Meets Creativity",
     description: "We don’t just slap a pretty video together. We blend data-driven strategy with real creator energy to make content that actually performs—not just looks good on your feed. We're talking the whole package: engagement, reach, and conversions.",
     image: choose_us_01
   },

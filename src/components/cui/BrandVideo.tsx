@@ -53,7 +53,7 @@ const BrandVideo = () => {
   }, [])
 
   return (
-    <div className='px-2 max-w-[1200px] mx-auto'>
+    <div className='px-2 max-w-[1200px] mx-auto mb-8'>
       <div className='bg-white p-4 rounded-lg shadow-md min-h-200'>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 py-16">
           {awsVideoUrls?.map((singleVideo: any) => (

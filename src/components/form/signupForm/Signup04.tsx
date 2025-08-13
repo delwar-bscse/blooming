@@ -194,28 +194,6 @@ const Signup04 = ({ handleStep }: { handleStep: (step: number) => void }) => {
               )}
             />
 
-            {/* Brand Name */}
-            <FormField
-              control={form.control}
-              name="gender"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white text-lg">Gender</FormLabel>
-                  <Select value={field.value} onValueChange={field.onChange} >
-                    <FormControl>
-                      <SelectTrigger variant="borderwhite" className="w-full">
-                        <SelectValue placeholder="Select Gender" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="Male">Male</SelectItem>
-                      <SelectItem value="Female">Female</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
 
             {/* Submit */}
             <Button variant="customWhite" type="submit" size="llg" className="w-full h-9 mt-2">

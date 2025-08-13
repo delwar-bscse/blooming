@@ -24,13 +24,13 @@ const SubSection = () => {
   const myPackage = searchParams.get("myPackage");
 
   useEffect(() => {
-    let url:string = "";
+    let url: string = "";
     if (myPackage === "true") {
       url = `/subscription?all=subscription`;
-    }else if (isPackage === "true") {
+    } else if (isPackage === "true") {
       url = `/subscription?running=subscription`;
-    }else{
-       url = `/package/subscription-packages`;
+    } else {
+      url = `/package/subscription-packages`;
     }
 
     const getPost = async () => {
@@ -108,10 +108,17 @@ const SubSection = () => {
     }
   }
 
+  if (packageDatas?.title === undefined || packageDatas?.title === null) return (
+    <div className='py-32'>
+      <div className='maxWidth'>
+        <h1 className='text-xl dm:text-5xl font-bold text-center text-[#333333] capitalize py-4'>No Subscription Found</h1>
+      </div>
+    </div>
+  )
 
   return (
-    <div className='px-2 flex justify-center items-center'>
-      {packageDatas?.title && <div id='subscription' className='flex flex-col md:flex-row border-2 border-gray-400 rounded-md gap-4 p-4 bg-white'>
+    <div className='px-2 flex justify-center items-center py-28 bg-[#D9E2CF]'>
+      {packageDatas?.title && <div id='subscription' className='flex flex-col md:flex-row border-2 border-gray-400 rounded-md gap-4 p-4 bg-white customShadow3'>
         <div className='border-2 border-gray-400 rounded-md w-full sm:max-w-80 h-full overflow-hidden'>
           <Image id='subImage' src={formatImagePath(packageDatas?.image ?? "")} alt="Video Analysis" width={500} height={500} className='object-cover transition-transform duration-500 ease-in-out' />
         </div>

@@ -112,7 +112,7 @@ const CreatorScript = () => {
 
   return (
     <div className="w-full max-w-[1200px] mx-auto flex text-center justify-center pb-10 px-2">
-      <div className="bg-white px-2 sm:px-4 md:px-8 py-2 md:py-4 w-full rounded-4xl customShadow">
+      <div className="bg-white px-2 sm:px-4 md:px-8 py-3 md:py-4 w-full rounded-xl customShadow">
         {/* <p className='text-2xl font-semibold py-4'>Status: {status}</p> */}
 
         <Form {...form}>
