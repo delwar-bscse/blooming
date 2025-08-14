@@ -90,8 +90,8 @@ const PackageSection = () => {
     <div className='py-20 bg-[#FFECAC]/50'>
       <div className='maxWidth'>
         {!isPackage ? <div className='space-y-4 pb-20'>
-          <h1 className={`${courgette.className} text-3xl dm:text-5xl lg:text-8xl font-semibold text-center text-[#333333] capitalize text-shadow`} style={{ textShadow: '2px 2px 6px rgba(0, 0, 0, 0.1)' }}>our service</h1>
-          <p className='text-center text-[#333333] text-lg font-semibold'>we offer packages and a monthly services. you can purchase now or book a call.</p>
+          <h1 className={`${courgette.className} text-3xl dm:text-5xl lg:text-8xl font-semibold text-center text-[#333333] capitalize text-shadow`} style={{ textShadow: '2px 2px 6px rgba(0, 0, 0, 0.1)' }}>our services</h1>
+          <p className='text-center text-[#333333] text-lg font-semibold'>We offer packages and a monthly services. you can purchase now or book a call.</p>
         </div> : <div>
           <h1 className='text-3xl dm:text-5xl font-bold text-center text-[#333333] capitalize py-8 courgette-regular'>My Package & Subscription</h1>
         </div>}

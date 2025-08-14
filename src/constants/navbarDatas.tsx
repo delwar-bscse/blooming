@@ -9,7 +9,7 @@ export const navbarItems: navItemsType[] = [
   },
   {
     id: 2,
-    title: 'Service',
+    title: 'Services',
     url: '/service',
   },
   {

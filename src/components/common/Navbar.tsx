@@ -99,7 +99,7 @@ const Navbar = () => {
         {/* Sign In / Mobile Menu Trigger */}
         <div className='flex justify-end items-center gap-4 relative'>
           {!user ? (
-            <Link href="/login" className='hidden md:inline-block bg-[#FFECAC] text-black font-semibold py-2 px-4 rounded'>Sign In</Link>
+            <Link href="/login" className='hidden md:inline-block bg-[#FFECAC] text-black font-semibold py-2 px-4 rounded customShadow4'>Sign In</Link>
           ) : (
             <div className='flex items-center gap-2 cursor-pointer'>
               <div className='max-md:hidden w-12 h-12 rounded-full overflow-hidden border-2 border-primary'>
@@ -165,7 +165,7 @@ const Navbar = () => {
 
                   <li className='px-3 py-4'>
                     {!user && (
-                      <Link href="/login" className='block bg-[#FFECAC] text-black font-semibold px-4 py-2 rounded mt-2 text-center'>Sign In</Link>
+                      <Link href="/login" className='block bg-[#FFECAC] text-black font-semibold px-4 py-2 rounded mt-2 text-center customShadow4'>Sign In</Link>
                     )}
                   </li>
                 </ul>

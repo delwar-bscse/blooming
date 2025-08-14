@@ -19,6 +19,7 @@ import { Textarea } from "@/components/ui/textarea"
 // import { BsTelephoneOutbound } from "react-icons/bs";
 // import { CiMail } from "react-icons/ci";
 import { myFetch } from "@/utils/myFetch";
+import { contactFollowUs } from "@/constants/footerDatas";
 
 // Schema
 const contactUsFormSchema = z.object({
@@ -46,38 +47,35 @@ const ContactUs = () => {
   });
 
   async function onSubmit(data: ContactUsFormValues) {
-    toast.loading("Sending message...",{id:"contactus"});
-    const res = await myFetch("/contact-us/create-contact",{
+    toast.loading("Sending message...", { id: "contactus" });
+    const res = await myFetch("/contact-us/create-contact", {
       method: "POST",
       body: data
     })
-    if(res.success){
+    if (res.success) {
       // console.log("Contact Us Response from server:", res);
-      toast.success(res.message || "Message send successfully!",{id:"contactus"});
-    }else{
-      toast.error(res.message || "Something went wrong!",{id:"contactus"});
+      toast.success(res.message || "Message send successfully!", { id: "contactus" });
+    } else {
+      toast.error(res.message || "Something went wrong!", { id: "contactus" });
     }
   }
 
   return (
-    <div className="w-full max-w-[1000px] mx-auto flex flex-col-reverse sm:flex-row text-center justify-center gap-2 md:gap-4 lg:gap-8 py-20 px-2">
-      {/* <div className="bg-[#E9EDF2] p-6 py-20 basis-[40%] rounded-md">
-        <h2 className="text-2xl font-semibold mb-6 pb-3 border-b-4 border-white">Need More Help?</h2>
-        <ul className="space-y-2">
-          <li className="flex items-center gap-2">
-            <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-              <BsTelephoneOutbound className="text-sm text-gray-600" />
-            </span>
-            <span className="text-gray-700">0133327633</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-              <CiMail className="text-sm text-gray-600" />
-            </span>
-            <span className="text-gray-700">shamimnader@gmail.com</span>
-          </li>
+    <div className="w-full max-w-[1000px] mx-auto flex flex-col sm:flex-row text-center justify-center gap-2 md:gap-4 lg:gap-8 py-20 px-2">
+      <div className=" flex-1 rounded-md flex flex-col justify-start items-center gap-8">
+        <p className="font-semibold text-3xl md:text-5xl text-gray-700 text-center pt-8">Social Media</p>
+        <ul className="flex flex-col gap-2">
+          {contactFollowUs?.map((item, index) => (
+            <li key={index} className="cursor-pointer bg-white p-2 rounded-full  hover:scale-110 transform-transition transition-all duration-200">
+              <a href={item?.url} target="_blank" rel="noopener noreferrer" className="text-gray-800 text-8xl">
+                {item?.icon}
+              </a>
+            </li>
+          ))}
         </ul>
-      </div> */}
+      </div>
+
+      <div className="w-[3px] h-[640px] bg-gray-500 text-gray-800 hidden md:block"/>
 
       <div className="bg-[#E9EDF2] px-2 sm:px-4 md:px-8 py-6 md:py-8 basis-[60%] rounded-md">
         <Form {...form}>

@@ -5,6 +5,7 @@ import { FaRegUser } from "react-icons/fa";
 import { GrLocation } from "react-icons/gr";
 import { FiMail } from "react-icons/fi";
 import { LuPhoneCall } from "react-icons/lu";
+import { PiTiktokLogo } from "react-icons/pi";
 import { ContactItem, FollowUs, QuickLink } from "@/types/types";
 
 
@@ -72,6 +73,21 @@ export const followUs: FollowUs[] = [
   },
   {
     icon: <PiTiktokLogoThin size={20} />,
+    url: "https://www.tiktok.com/@thesocialchance?_t=ZN-8yWcc2oq9LS&_r=1"
+  },
+]
+
+export const contactFollowUs: FollowUs[] = [
+  {
+    icon: <SlSocialFacebook size={40} />,
+    url: "https://www.facebook.com/share/19b3DdSvMx/?mibextid=wwXIfr"
+  },
+  {
+    icon: <SlSocialInstagram size={40} />,
+    url: "https://www.instagram.com/thesocialchance?igsh=cW15MXhwZ21sOHFu&utm_source=qr"
+  },
+  {
+    icon: <PiTiktokLogo size={40} />,
     url: "https://www.tiktok.com/@thesocialchance?_t=ZN-8yWcc2oq9LS&_r=1"
   },
 ]
