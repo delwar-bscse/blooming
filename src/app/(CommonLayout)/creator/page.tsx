@@ -19,8 +19,8 @@ import { TypingAnimation } from "@/components/magicui/typing-animation";
 const Creator = () => {
   return (
     <div>
-      <div className='flex items-center justify-center bg-[#F6F2EA]' style={{ height: "calc(100vh - 80px)" }}>
-        <div className='relative w-full bg-[#F6F2EA] py-28 space-y-12'>
+      <div className='flex items-center justify-center bg-[#F6F2EA]/50' style={{ height: "calc(100vh - 80px)" }}>
+        <div className='relative w-full py-28 space-y-12'>
           <div className='relative z-10 flex flex-col justify-center items-center gap-3'>
               <TypingAnimation
                 className='text-2xl md:text-3xl xl:text-6xl font-bold text-[#6D715F] capitalize'
