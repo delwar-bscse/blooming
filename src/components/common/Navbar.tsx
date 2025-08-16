@@ -79,7 +79,7 @@ const Navbar = () => {
             <DropdownMenuTrigger className='px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 cursor-pointer'>More...</DropdownMenuTrigger>
             <DropdownMenuContent>
               {navbarItems2.map((item) => {
-                if(item.title === 'My Package' && user?.role !== "user") return null; // Hide 'My Package' if user is not logged in
+                if (item.title === 'My Package' && user?.role !== "user") return null; // Hide 'My Package' if user is not logged in
                 return (
                   <DropdownMenuItem
                     key={item.id}
@@ -127,11 +127,10 @@ const Navbar = () => {
                     <li onClick={() => setOpen(false)} className='cursor-pointer hover:bg-gray-100 px-3 py-2 rounded'>
                       <Link href="/profile" className='flex gap-2 items-center'>
                         <span className='w-12 h-12 block rounded-full overflow-hidden border-2 border-primary'>
-                          <Image src={UserImage} alt="User Profile" width={100} height={100} />
+                          <Image src={user ? user?.profile : UserImage}  alt="User Profile" width={100} height={100} />
                         </span>
                         <span className='flex flex-col text-gray-600 text-sm'>
-                          <span>Rohan Chopra</span>
-                          <span>@jennywilson</span>
+                          {user?.fullName}
                         </span>
                       </Link>
                     </li>
@@ -150,18 +149,21 @@ const Navbar = () => {
                     </li>
                   ))}
 
-                  {navbarItems2.map((item) => (
-                    <li
-                      key={item.id}
-                      onClick={() => setOpen(false)}
-                      className={`cursor-pointer px-3 py-1 rounded transition-colors duration-200 ${isActive(item.url)
-                        ? 'bg-gray-200 text-primary font-semibold'
-                        : 'hover:bg-gray-100'
-                        }`}
-                    >
-                      <Link href={item.url}>{item.title}</Link>
-                    </li>
-                  ))}
+                  {navbarItems2.map((item) => {
+                    if(item.title === 'My Package' && user?.role !== "user") return null;
+                    return (
+                      <li
+                        key={item.id}
+                        onClick={() => setOpen(false)}
+                        className={`cursor-pointer px-3 py-1 rounded transition-colors duration-200 ${isActive(item.url)
+                          ? 'bg-gray-200 text-primary font-semibold'
+                          : 'hover:bg-gray-100'
+                          }`}
+                      >
+                        <Link href={item.url}>{item.title}</Link>
+                      </li>
+                    )
+                  })}
 
                   <li className='px-3 py-4'>
                     {!user && (

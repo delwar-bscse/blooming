@@ -9,7 +9,7 @@ import { Mousewheel, Pagination } from 'swiper/modules'
 
 const WhyChooseUs = () => {
   return (
-    <div className='space-y-14'>
+    <div className='space-y-14 px-2'>
       <div className=''>
         <Title title="Why Choose Us" className='xl:text-5xl text-center'/>
       </div>

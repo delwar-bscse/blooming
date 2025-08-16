@@ -19,7 +19,7 @@ import { TypingAnimation } from "@/components/magicui/typing-animation";
 const Creator = () => {
   return (
     <div>
-      <div className='flex items-center justify-center bg-[#F6F2EA]/50' style={{ height: "calc(100vh - 80px)" }}>
+      <div className='flex items-center justify-center bg-[#F6F2EA]/50 px-2' style={{ height: "calc(100vh - 80px)" }}>
         <div className='relative w-full py-28 space-y-12'>
           <div className='relative z-10 flex flex-col justify-center items-center gap-3'>
               <TypingAnimation
@@ -30,7 +30,7 @@ const Creator = () => {
                 want to become
               </TypingAnimation>
             <TypingAnimation
-              className='text-2xl md:text-3xl xl:text-6xl font-bold text-[#6D715F] capitalize'
+              className='text-2xl md:text-3xl xl:text-6xl font-bold max-md:text-center text-[#6D715F] capitalize'
               style={{ textShadow: '2px 2px 6px rgba(1, 1, 0, 0.1)' }}
               delay={2400} duration={100}
             >

@@ -1,5 +1,6 @@
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
+// import SmoothScroll from "@/components/section/SmoothScroller";
 import { VideoPlayerProvider } from "@/context/VideoPlayContext";
 import { Metadata } from "next";
 
@@ -14,7 +15,9 @@ export default function CommonLayout({children}: Readonly<{children: React.React
   return (
     <VideoPlayerProvider>
       <Navbar />
+      {/* <SmoothScroll> */}
       {children}
+      {/* </SmoothScroll> */}
       <Footer />
     </VideoPlayerProvider>
   );

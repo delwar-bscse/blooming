@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import { BrandProvider } from "@/context/BrandContext";
 import { TriggerProvider } from "@/context/TriggerContext";
+// import SmoothScroll from "@/components/section/SmoothScroller";
 
 
 const geistSans = Geist({
@@ -27,7 +28,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <BrandProvider>
           <TriggerProvider>
-            {children}
+            {/* <SmoothScroll> */}
+              {children}
+            {/* </SmoothScroll> */}
           </TriggerProvider>
         </BrandProvider>
         <Toaster />

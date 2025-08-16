@@ -7,7 +7,7 @@ const SingleChooseUs = ({item}:{item:whyChoseUsType}) => {
     <div id="singleChooseUs" className={`flex flex-col-reverse  ${item.id % 2 === 0 ? 'sm:flex-row-reverse' : 'sm:flex-row'} items-center justify-between gap-6 md:gap-10`}>
       <div className='sm:basis-[70%] space-y-4'>
         <h3 className='text-xl lg:text-2xl font-semibold'>{item.title}</h3>
-        <p className='text-gray-500 lg:text-lg'>{item.description}</p>
+        <p className='text-gray-500 text-sm lg:text-lg'>{item.description}</p>
       </div>
       <div className={`sm:basis-[30%] flex justify-center items-center`}>
         <Image id="singleChooseUsImg" src={item.image} alt={item.title} width={200} height={200} className='transition-transform duration-500 ease-in-out'/>

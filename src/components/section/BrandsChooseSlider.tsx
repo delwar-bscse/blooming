@@ -49,7 +49,7 @@ const BrandsChooseSlider = () => {
 
   return (
     <div className='w-full px-3 '>
-      <div className='max-w-[1200px] bg-white w-full mx-auto h-[600px] customShadow rounded-xl'>
+      <div className='max-w-[1200px] bg-white w-full mx-auto h-[500px] md:h-[600px] customShadow rounded-xl'>
         <Swiper
           direction={'vertical'}
           slidesPerView={1}

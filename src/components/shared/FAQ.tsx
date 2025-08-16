@@ -12,7 +12,7 @@ const bgColor = ["#FFF9E5", "#E9EDF2", "#EBE2D1", "#E8E9E4", "#FFF9E5", "#E9EDF2
 
 const FAQ = () => {
   return (
-    <div className='max-w-[960px] w-full mx-auto'>
+    <div className='max-w-[960px] w-full mx-auto px-2'>
       <Title title="Frequently Asked Questions" />
       <div>
         <Accordion type="single" collapsible>

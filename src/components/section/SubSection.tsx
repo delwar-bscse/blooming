@@ -143,7 +143,7 @@ const SubSection = () => {
                 {/* <p className='text-gray-600 flex-1'>Limit: {limit}</p> */}
                 <Input type="number" min={1} placeholder='Enter Video Amount' onChange={(e) => setTakeVideoCount(parseInt(e.target.value))} /></div>}
             </div>
-            <div className=''>
+            <div className='pb-4'>
               {(myPackage === "true" && isPackage === "true") && <Button onClick={() => handleRenewPackage(subscriptionId)} className='w-full h-12' variant="customYellow">Renew Now</Button>}
               {(myPackage !== "true" && isPackage === "true") && <Button onClick={() => handleSelectPackage(packageDatas?._id)} className='w-full h-12' variant="customYellow">Select</Button>}
               {(myPackage !== "true" && isPackage === "false") && <Button onClick={() => handleSelectPackage(packageDatas?._id)} className='w-full h-12' variant="customYellow">Select</Button>}
