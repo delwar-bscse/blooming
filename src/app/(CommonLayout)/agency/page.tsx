@@ -33,8 +33,13 @@ const Agency = async () => {
               </div>
             </div>
             <div className='sm:basis-[50%] h-full flex items-center justify-end'>
-              <div className='flex items-center justify-center w-full lg:w-100 h-130 relative bg-no-repeat bg-cover customShadow4' style={{ backgroundImage: `url(${agencyImg3.src})` }}>
-                <Image src={agencyImg1} alt="content image" className='w-80 h-100 hidden lg:block lg:absolute right-30 xl:right-60 customShadow4 object-cover' />
+              <div className='flex justify-center w-full gap-8'>
+                <div className=''>
+                  <Image src={agencyImg3} alt="content image" className='relative -bottom-10 w-60 h-80 object-cover' />
+                </div>
+                <div className=''>
+                  <Image src={agencyImg1} alt="content image" className='relative bottom-20 w-72 h-100 object-cover' />
+                </div>
               </div>
             </div>
           </div>

@@ -61,7 +61,6 @@ const VideoView: React.FC<VideoViewProps> = ({
       >
         <video
           ref={videoRef}
-          loop
           width="5"
           height="8"
           className={cn("absolute inset-0 w-[180px] h-[340px] object-fill rounded-4xl pl-1", className)}

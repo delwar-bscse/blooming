@@ -22,13 +22,6 @@ export const selectOptions = ["Beauty And Skincare", , "Travel And Hotel", "Food
 const BrandsChooseSlider = () => {
   const [videoDatas, setVideoDatas] = useState<Record<string, any>[]>([]);
 
-  const screenWidth = useScreenSize();
-
-  // Define how many videos to show based on screen size
-  let videosToShow = 1;
-  if (screenWidth > 768) videosToShow = 2;
-  if (screenWidth > 1024) videosToShow = 3;
-  if (screenWidth > 1280) videosToShow = 4;
 
 
   useEffect(() => {
@@ -52,7 +45,6 @@ const BrandsChooseSlider = () => {
       <div className='max-w-[1200px] bg-white w-full mx-auto h-[500px] md:h-[600px] customShadow rounded-xl'>
         <Swiper
           direction={'vertical'}
-          slidesPerView={1}
           spaceBetween={30}
           mousewheel={true}
           pagination={{
@@ -65,12 +57,37 @@ const BrandsChooseSlider = () => {
               <div className='pt-8'>
                 <Title title={item.category as string} />
               </div>
-              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center gap-16 mb-8'>
-                {item?.videos?.slice(0, videosToShow)?.map((item: Record<string, unknown>, index: number) => (
-                  <div key={index} className="">
-                    <VideoView videoUrl={item.url as string} videoId={`video-${item.key as string}`} />
-                  </div>
-                ))}
+              <div className='w-full mb-8'>
+                <Swiper
+                  // slidesPerView={count}
+                  // spaceBetween={20}
+                  pagination={{ clickable: true }}
+                  loop={true}
+                  modules={[Pagination]}
+                  breakpoints={{
+                    520: {
+                      slidesPerView: 1,
+                    },
+                    640: {
+                      slidesPerView: 2,
+                    },
+                    768: {
+                      slidesPerView: 3,
+                    },
+                    1024: {
+                      slidesPerView: 4,
+                    }
+                  }}
+                  className="mySwiper"
+                >
+                  {item?.videos?.map((video: Record<string, unknown>, index: number) => (
+                    <SwiperSlide key={index}>
+                      <div className='pb-8'>
+                        <VideoView videoUrl={video.url as string} videoId={`video-${video.key as string}`} />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
 
             </SwiperSlide>
@@ -81,19 +98,7 @@ const BrandsChooseSlider = () => {
   )
 }
 
-const useScreenSize = () => {
-  const [screenWidth, setScreenWidth] = useState(0);
 
-  useEffect(() => {
-    const updateWidth = () => setScreenWidth(window.innerWidth);
-
-    updateWidth(); // Set initially
-    window.addEventListener("resize", updateWidth); // Watch resize
-    return () => window.removeEventListener("resize", updateWidth);
-  }, []);
-
-  return screenWidth;
-};
 
 export default BrandsChooseSlider
 
