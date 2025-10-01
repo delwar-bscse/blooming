@@ -102,10 +102,10 @@ const Navbar = () => {
             <Link href="/login" className='hidden md:inline-block bg-[#FFECAC] text-black font-semibold py-2 px-4 rounded customShadow4'>Sign In</Link>
           ) : (
             <div className='flex items-center gap-2 cursor-pointer'>
-              <div className='max-md:hidden w-12 h-12 rounded-full overflow-hidden border-2 border-primary'>
-                <Image src={user ? user?.profile : UserImage} alt="User Profile" width={200} height={200} className='object-fit' />
-              </div>
-              <Link href="/profile" className='hidden xl:inline-block font-bold text-gray-700'>{user?.fullName}</Link>
+              <Link href="/profile" className='hidden lg:flex items-center gap-3 font-bold text-gray-700'>
+                <Image src={user ? user?.profile : UserImage} alt="User Profile" width={40} height={40} className='w-12 h-12 rounded-full object-fit' />
+                <span>{user?.fullName}</span>
+                </Link>
             </div>
           )}
 
@@ -127,7 +127,7 @@ const Navbar = () => {
                     <li onClick={() => setOpen(false)} className='cursor-pointer hover:bg-gray-100 px-3 py-2 rounded'>
                       <Link href="/profile" className='flex gap-2 items-center'>
                         <span className='w-12 h-12 block rounded-full overflow-hidden border-2 border-primary'>
-                          <Image src={user ? user?.profile : UserImage}  alt="User Profile" width={100} height={100} />
+                          <Image src={user ? user?.profile : UserImage} alt="User Profile" width={100} height={100} />
                         </span>
                         <span className='flex flex-col text-gray-600 text-sm'>
                           {user?.fullName}
@@ -150,7 +150,7 @@ const Navbar = () => {
                   ))}
 
                   {navbarItems2.map((item) => {
-                    if(item.title === 'My Package' && user?.role !== "user") return null;
+                    if (item.title === 'My Package' && user?.role !== "user") return null;
                     return (
                       <li
                         key={item.id}

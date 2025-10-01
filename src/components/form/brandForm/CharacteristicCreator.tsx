@@ -26,23 +26,41 @@ import { useBrand } from "@/context/BrandContext";
 
 // Schema
 const contactUsFormSchema = z.object({
-  ageRange: z.string(),
   gender: z.string(),
-  location: z.string(),
-  languages: z.string(),
-  script: z.string(),
+  ageRange: z.string(),
+  creatorLocation: z.string(),
+  anySpecialRequest: z.string(),
+  targetAudience: z.string(),
+  targetAudienceAgeGroup: z.string(),
+  productSolveForThem: z.string(),
+  topPerformingAdsLast30Days: z.string(),
 });
 
 // Type
 type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 
 const defaultValues: Partial<ContactUsFormValues> = {
-  ageRange: "18-25",
   gender: "",
-  location: "",
-  languages: "",
-  script: "yes",
+  ageRange: "18-25",
+  creatorLocation: "",
+  anySpecialRequest: "",
+  targetAudience: "yes",
+  targetAudienceAgeGroup: "",
+  productSolveForThem: "",
+  topPerformingAdsLast30Days: "",
 };
+
+  // "characteristicInfo": {
+  //   "gender": "Unisex",
+  //   "ageRange": "18-45",
+  //   "creatorLocation": "New York",
+  //   "anySpecialRequest": "No",
+  //   "targetAudience": "Young Adults",
+  //   "targetAudienceAgeGroup": "18-35",
+  //   "productSolveForThem": "Convenience and Style",
+  //   "topPerformingAdsLast30Days": "Brand X"
+  // },
+
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const CharacteristicCreator = ({ handleStep }: { handleStep: (step: number) => void }) => {
   const { brandForm, setBrandForm } = useBrand();
@@ -71,35 +89,10 @@ const CharacteristicCreator = ({ handleStep }: { handleStep: (step: number) => v
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="ageRange"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white text-lg">Age Range</FormLabel>
-                  <Select value={field.value} onValueChange={field.onChange} >
-                    <FormControl>
-                      <SelectTrigger variant="borderwhite" className="w-full">
-                        <SelectValue placeholder="(E.G., 15s, 30s, 60s)" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="18-25">18-25</SelectItem>
-                      <SelectItem value="26-35">26-35</SelectItem>
-                      <SelectItem value="36-45">36-45</SelectItem>
-                      <SelectItem value="46-55">46-55</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* Brand Name */}
-            <FormField
-              control={form.control}
               name="gender"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Gender Preference (If Any)</FormLabel>
+                  <FormLabel className="text-white text-lg">Creator Gender</FormLabel>
                   <Select value={field.value} onValueChange={field.onChange} >
                     <FormControl>
                       <SelectTrigger variant="borderwhite" className="w-full">
@@ -119,10 +112,37 @@ const CharacteristicCreator = ({ handleStep }: { handleStep: (step: number) => v
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="location"
+              name="ageRange"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Location - Based Creator Requirement</FormLabel>
+                  <FormLabel className="text-white text-lg">Age Range</FormLabel>
+                  <Select value={field.value} onValueChange={field.onChange} >
+                    <FormControl>
+                      <SelectTrigger variant="borderwhite" className="w-full">
+                        <SelectValue placeholder="Select age range" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="18-25">18-25</SelectItem>
+                      <SelectItem value="25-35">25-35</SelectItem>
+                      <SelectItem value="35-45">35-45</SelectItem>
+                      <SelectItem value="45-55">45-55</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+
+
+            {/* Brand Name */}
+            <FormField
+              control={form.control}
+              name="creatorLocation"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">Location Of The Creator</FormLabel>
                   <FormControl>
                     <Input variant="borderwhite" placeholder="Type..." {...field} />
                   </FormControl>
@@ -135,10 +155,10 @@ const CharacteristicCreator = ({ handleStep }: { handleStep: (step: number) => v
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="languages"
+              name="anySpecialRequest"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Languages Requirement</FormLabel>
+                  <FormLabel className="text-white text-lg">Any Special Request</FormLabel>
                   <FormControl>
                     <Input variant="borderwhite" placeholder="Scripting" {...field} />
                   </FormControl>
@@ -150,21 +170,78 @@ const CharacteristicCreator = ({ handleStep }: { handleStep: (step: number) => v
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="script"
+              name="targetAudience"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Will you provide a script ?</FormLabel>
+                  <FormLabel className="text-white text-lg">Target Audience</FormLabel>
                   <Select value={field.value} onValueChange={field.onChange} >
                     <FormControl>
                       <SelectTrigger variant="borderwhite" className="w-full">
-                        <SelectValue placeholder="Yes" />
+                        <SelectValue placeholder="Select gender" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="yes">Yes</SelectItem>
-                      <SelectItem value="no">No</SelectItem>
+                      <SelectItem value="Male">Male</SelectItem>
+                      <SelectItem value="Female">Female</SelectItem>
+                      <SelectItem value="Both">Both</SelectItem>
                     </SelectContent>
                   </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            {/* Brand Name */}
+            <FormField
+              control={form.control}
+              name="targetAudienceAgeGroup"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">Target Audience Age Group</FormLabel>
+                  <Select value={field.value} onValueChange={field.onChange} >
+                    <FormControl>
+                      <SelectTrigger variant="borderwhite" className="w-full">
+                        <SelectValue placeholder="Select age group" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="18-25">18-25</SelectItem>
+                      <SelectItem value="25-35">25-35</SelectItem>
+                      <SelectItem value="35-45">35-45</SelectItem>
+                      <SelectItem value="45-55">45-55</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+                        
+            {/* Brand Name */}
+            <FormField
+              control={form.control}
+              name="productSolveForThem"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">What Does Your Product Solve For Them ?</FormLabel>
+                  <FormControl>
+                    <Input variant="borderwhite" placeholder="Scripting" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+                        
+            {/* Brand Name */}
+            <FormField
+              control={form.control}
+              name="topPerformingAdsLast30Days"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">Share 2-3 Link Of Your Top Performing Ads From Last 30 Days</FormLabel>
+                  <FormControl>
+                    <Input variant="borderwhite" placeholder="Scripting" {...field} />
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}

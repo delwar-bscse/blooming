@@ -19,7 +19,7 @@ const BrandVideo = () => {
 
     if (res.success) {
       setAwsVideoUrls(res?.data?.uploadedFiles)
-      if(res?.data?.uploadedFiles?.length === 0) {
+      if (res?.data?.uploadedFiles?.length === 0) {
         toast.success("No videos found!", { id: "fetch" })
       } else {
         toast.success("Videos fetched successfully!", { id: "fetch" })
@@ -30,12 +30,15 @@ const BrandVideo = () => {
   }
 
   const handleDownload = async (videoLink: string, filename: string) => {
+    console.log("Downloading:", videoLink, filename)
     try {
       toast.loading("Downloading video...", { id: "download" })
 
       const response = await fetch(videoLink)
       if (!response.ok) throw new Error("Network error")
 
+      // const blob = await response.blob()
+      // download(blob, filename, "video/mp4")
       const blob = await response.blob()
       download(blob, filename, "video/mp4")
 
@@ -46,6 +49,28 @@ const BrandVideo = () => {
       toast.error("Download failed!", { id: "download" })
     }
   }
+  
+  // const handleDownload = async (videoLink: string, filename: string) => {
+  //   console.log("Downloading:", videoLink, filename)
+  //   try {
+  //     const response = await fetch(videoLink)
+  //     const blob = await response.blob()
+  //     const url = window.URL.createObjectURL(blob)
+
+  //     const a = document.createElement("a")
+  //     a.href = url
+  //     a.download = filename
+  //     document.body.appendChild(a)
+  //     a.click()
+  //     a.remove()
+
+  //     window.URL.revokeObjectURL(url)
+
+  //   } catch (error) {
+  //     console.error("Download error:", error)
+  //     toast.error("Download failed!", { id: "download" })
+  //   }
+  // }
 
   useEffect(() => {
     getAwsVideosUrls()

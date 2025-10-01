@@ -28,67 +28,59 @@ interface TSubscription {
   __v: number;
 }
 
-interface TBrandInfo {
-  _id: string;
+interface TBrandInfo  {
   name: string;
   email: string;
   phone: string;
+  websiteUrl: string;
   productName: string;
-  productLink: string;
-  productType: string;
-}
+  brandPronounceName: string;
+  isScript: string;
+  isVideoCaption: string;
+};
 
 interface TBrandSocial {
-  _id: string;
   tiktokHandle: string;
   tiktokLink: string;
   instragramHandle: string;
   instragramLink: string;
-  websiteLink: string;
-}
+  othersSocialLink: string;
+};
 
-interface TContentInfo {
-  _id: string;
-  additionalFormate: string;
-  videoDuration: string;
-  platForm: string;
-  usageType: string;
-  adHookOrCtaRequest: string;
-  exampleVideoLink: string;
-  ugcPhoto: string;
-}
+interface TVideoInfo {
+  productName: string;
+  productLink: string;
+  productType: string;            // e.g., "Physical", "Digital"
+  videoType: string;              // e.g., "Promo", "Tutorial"
+  videoLink: string;
+  videoLanguage: string;          // e.g., "English"
+  specificWordsOrFeatures: string;
+  specificWordsNotToUse: string;
+  projectGoal: string;
+};
 
 interface TCharacteristicInfo {
-  _id: string;
-  ageRange: string;
-  gender: string;
-  location: string;
-  language: string;
-  script: string;
-}
-
-interface TDoAndDonts {
-  _id: string;
-  anyWordsNotToUse: string;
-  anySpecificWordsUse: string;
-  howToPronouncebrandName: string;
+  gender: string; 
+  ageRange: string; 
+  creatorLocation: string;  
   anySpecialRequest: string;
-  expressDelivery: string;
-}
+  targetAudience: string;   
+  targetAudienceAgeGroup: string;
+  productSolveForThem: string; 
+  topPerformingAdsLast30Days: string;
+};
 
-interface TLastContentInfo {
-  _id: string;
-  textOverlay: string;
-  captions: string;
-  music: string;
-  extraHook: string;
-  extraCta: string;
-  videoType: string;
-  additionalPerson: string;
-  offSiteAttraction: string;
-  goalOfProject: string;
-  tergetAudience: string;
-}
+
+interface AddOns{
+  isExtraHook: string;
+  isExtraCta: string;
+  isRowFootagePerConcept: string;
+  isOffSiteFilming: string;
+  isUgc5Photos: string;      // e.g., "5" (keep as string to match your JSON)
+  isExpressDelivery: string;
+  isFilmingEssentials: string;
+  isAdditionalPerson: string;
+};
 
 export interface TOrdersData {
   _id: string;
@@ -96,13 +88,12 @@ export interface TOrdersData {
   subscriptionId: TSubscription;
   brandInfo: TBrandInfo;
   brandSocial: TBrandSocial;
-  contentInfo: TContentInfo;
+  videoInfo: TVideoInfo;
   characteristicInfo: TCharacteristicInfo;
-  doAndDonts: TDoAndDonts;
-  lastContentInfo: TLastContentInfo;
+  addOns: AddOns;
   status: string;
   paymentStatus: string;
   takeVideoCount: number;
-  createdAt: string; // ISO Date String
-  updatedAt: string; // ISO Date String
+  createdAt: string;
+  updatedAt: string; 
 }

@@ -19,6 +19,8 @@ import { toast } from "sonner";
 import { Textarea } from "../ui/textarea";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import { CustomModal } from "./CustomModal";
+import AppReview from "./AppReview";
 
 
 // Schema
@@ -33,6 +35,7 @@ type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 {/* ---------------------------- Package Form ---------------------------- */ }
 const CreatorScript = () => {
   const [status, setStatus] = useState<string>("");
+  const [revisionCount, setRevisionCount] = useState<number>(0);
   const params = useParams()
   const id = params["id"]
 
@@ -50,11 +53,12 @@ const CreatorScript = () => {
 
   const getScript = async () => {
     const res = await myFetch(`/hire-creator/${id}`, { method: 'GET' });
-    // console.log("Fetch Script Response:", res)
+    console.log("Fetch Script Response:", res)
 
     if (res.success) {
       // console.log(res?.data?.status)
       setStatus(res?.data?.status)
+      setRevisionCount(res?.data?.revisionCount || 0)
       form.reset({
         details: res?.data?.isScript
       })
@@ -74,6 +78,8 @@ const CreatorScript = () => {
 
 
   async function onSubmit(data: ContactUsFormValues) {
+
+    console.log("Take Revision Data:", data);
     toast.loading("loading...", { id: "revision" });
     // console.log(data)
     // const formData = new FormData();
@@ -136,17 +142,28 @@ const CreatorScript = () => {
             />
 
             {/* Submit */}
-            {(status === "completed") && <div className="flex justify-center gap-4">
+            {/* <div className="flex justify-center gap-4">
               <Button variant="customYellow" type="submit" size="llg" className="w-32">
                 Revision
               </Button>
-              <Button onClick={() => handleDone()} variant="customYellow" size="llg" className="w-32">
+              <Button type="button" onClick={() => console.log("Done")} variant="customYellow" size="llg" className="w-32">
+                Done
+              </Button>
+            </div> */}
+            {(status === "completed") && <div className="flex justify-center gap-4">
+              {(revisionCount > 0) && <Button variant="customYellow" type="submit" size="llg" className="w-32">
+                Revision
+              </Button>}
+              <Button type="button" onClick={() => handleDone()} variant="customYellow" size="llg" className="w-32">
                 Done
               </Button>
             </div>}
           </form>
         </Form>
 
+        <CustomModal trigger={<Button variant="customYellow" type="button" size="llg" className="w-32 mt-4">Revision</Button>} title="Submit Your Review">
+          <AppReview />
+        </CustomModal>
       </div>
     </div>
   );

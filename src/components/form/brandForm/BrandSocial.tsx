@@ -23,7 +23,7 @@ const contactUsFormSchema = z.object({
   instagramHandle: z.string(),
   tiktokHandle: z.string(),
   tiktokLink: z.string(),
-  websiteUrl: z.string(),
+  othersSocialLink: z.string(),
 });
 
 // Type
@@ -34,8 +34,9 @@ const defaultValues: Partial<ContactUsFormValues> = {
   instagramHandle: "",
   tiktokHandle: "",
   tiktokLink: "",
-  websiteUrl: "",
+  othersSocialLink: "",
 };
+
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => {
   const {  brandForm, setBrandForm } = useBrand();
@@ -123,10 +124,10 @@ const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => 
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="websiteUrl"
+              name="othersSocialLink"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Website URL</FormLabel>
+                  <FormLabel className="text-white text-lg">Other Socials</FormLabel>
                   <FormControl>
                     <Input variant="borderwhite" placeholder="Type..." {...field} />
                   </FormControl>

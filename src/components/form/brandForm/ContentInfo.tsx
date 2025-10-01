@@ -26,33 +26,43 @@ import { useBrand } from "@/context/BrandContext";
 
 // Schema
 const contactUsFormSchema = z.object({
-  additionFormats: z.string(),
-  videoDuration: z.string(),
-  platform: z.string(),
-  usageType: z.string(),
-  hookCta: z.string(),
+  productName: z.string(),
+  productLink: z.string(),
+  productType: z.string(),
+  videoType: z.string(),
   videoLink: z.string(),
-  ugcPhotos: z
-    .any()
-    .refine(
-      (file) =>
-        file instanceof File && file.type.startsWith("image/"),
-      "Please upload a valid image file"
-    ),
+  videoLanguage: z.string(),
+  specificWordsOrFeatures: z.string(),
+  specificWordsNotToUse: z.string(),
+  projectGoal: z.string()
 });
 
 // Type
 type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 
 const defaultValues: Partial<ContactUsFormValues> = {
-  additionFormats: "",
-  videoDuration: "",
-  platform: "",
-  usageType: "",
-  hookCta: "",
+  productName: "",
+  productLink: "",
+  productType: "",
+  videoType: "",
   videoLink: "",
-  ugcPhotos: undefined,
+  videoLanguage: "",
+  specificWordsOrFeatures: "",
+  specificWordsNotToUse: "",
+  projectGoal: "",
 };
+// "videoInfo": {
+//   "productName": "Product Video",
+//   "productLink": "https://www.brand.com/product",
+//   "productType": "Physical",
+//   "videoType": "Promo",
+//   "videoLink": "https://www.brand.com/video",
+//   "videoLanguage": "English",
+//   "specificWordsOrFeatures": "New, Affordable, Durable",
+//   "specificWordsNotToUse": "Cheap, Low quality",
+//   "projectGoal": "Increase brand awareness"
+// },
+
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const ContentInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
   const { brandForm, setBrandForm } = useBrand();
@@ -74,17 +84,17 @@ const ContentInfo = ({ handleStep }: { handleStep: (step: number) => void }) => 
   return (
     <div className="w-full max-w-[600px] mx-auto px-2 flex text-center justify-center">
       <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-2xl">
-        <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Content Info</h2>
+        <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Video Info</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
 
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="additionFormats"
+              name="productName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Addition Formats</FormLabel>
+                  <FormLabel className="text-white text-lg">Product Name</FormLabel>
                   <FormControl>
                     <Input variant="borderwhite" placeholder="(E.G. Stories, Photos, Horizontal/Vertical versions)" {...field} />
                   </FormControl>
@@ -96,86 +106,63 @@ const ContentInfo = ({ handleStep }: { handleStep: (step: number) => void }) => 
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="videoDuration"
+              name="productLink"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Video Duration</FormLabel>
-                  <Select value={field.value} onValueChange={field.onChange} >
-                    <FormControl>
-                      <SelectTrigger variant="borderwhite" className="w-full">
-                        <SelectValue placeholder="(E.G., 15s, 30s, 60s)" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="15s">15s</SelectItem>
-                      <SelectItem value="30s">30s</SelectItem>
-                      <SelectItem value="60s">60s</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* Brand Name */}
-            <FormField
-              control={form.control}
-              name="platform"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white text-lg">Platform</FormLabel>
-                  <Select value={field.value} onValueChange={field.onChange} >
-                    <FormControl>
-                      <SelectTrigger variant="borderwhite" className="w-full">
-                        <SelectValue placeholder="Select a platform" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="tiktok">TikTok</SelectItem>
-                      <SelectItem value="instagram">Instagram</SelectItem>
-                      <SelectItem value="youtubeshorts">YouTube Shorts</SelectItem>
-                      <SelectItem value="others">Others</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* Brand Name */}
-            <FormField
-              control={form.control}
-              name="usageType"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white text-lg">Usage Type</FormLabel>
-                  <Select value={field.value} onValueChange={field.onChange} >
-                    <FormControl>
-                      <SelectTrigger variant="borderwhite" className="w-full">
-                        <SelectValue placeholder="Select usage type" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="organic">Organic</SelectItem>
-                      <SelectItem value="paid">Paid Ad</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-
-            {/* Brand Name */}
-            <FormField
-              control={form.control}
-              name="hookCta"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white text-lg">Ad Hook Or CTA Requests</FormLabel>
+                  <FormLabel className="text-white text-lg">Product Link</FormLabel>
                   <FormControl>
-                    <Input variant="borderwhite" placeholder="(Optional - Leave Blank if not applicable)" {...field} />
+                    <Input variant="borderwhite" placeholder="Enter product link" {...field} />
                   </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Brand Name */}
+            <FormField
+              control={form.control}
+              name="productType"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">Product Type</FormLabel>
+                  <Select value={field.value} onValueChange={field.onChange} >
+                    <FormControl>
+                      <SelectTrigger variant="borderwhite" className="w-full">
+                        <SelectValue placeholder="Select product type" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="Physical">Physical</SelectItem>
+                      <SelectItem value="Digital">Digital</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Brand Name */}
+            <FormField
+              control={form.control}
+              name="videoType"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">Video Type</FormLabel>
+                  <Select value={field.value} onValueChange={field.onChange} >
+                    <FormControl>
+                      <SelectTrigger variant="borderwhite" className="w-full">
+                        <SelectValue placeholder="Select video type" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="Unboxing">Unboxing</SelectItem>
+                      <SelectItem value="Skit">Skit</SelectItem>
+                      <SelectItem value="Green Screen">Green Screen</SelectItem>
+                      <SelectItem value="Voice Over">Voice Over</SelectItem>
+                      <SelectItem value="Taking To Camera">Taking To Camera</SelectItem>
+                      <SelectItem value="Life Style">Life Style</SelectItem>
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}
@@ -195,37 +182,69 @@ const ContentInfo = ({ handleStep }: { handleStep: (step: number) => void }) => 
                 </FormItem>
               )}
             />
-
+            
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="ugcPhotos"
+              name="videoLanguage"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">UGC Photo</FormLabel>
+                  <FormLabel className="text-white text-lg">Video Language</FormLabel>
                   <FormControl>
-                    <FormControl>
-                      <div>
-                        <Input
-                          id="ugcPhotoControld"
-                          variant="inputHidden"
-                          type="file"
-                          accept="image/*"
-                          onChange={(e) => field.onChange(e.target.files?.[0])}
-                        />
-                        <div
-                          onClick={() => document.getElementById("ugcPhotoControld")?.click()}
-                          className=" text-sm text-white border border-dashed border-gray-200 rounded-lg p-2 cursor-pointer hover:bg-gray-500 transition-colors"
-                        >
-                          {field.value?.name || brandForm.ugcPhotos?.name || "Upload UGC Photo"}
-                        </div>
-                      </div>
-                    </FormControl>
+                    <Input variant="borderwhite" placeholder="Type here..." {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
+
+
+            {/* Brand Name */}
+            <FormField
+              control={form.control}
+              name="specificWordsOrFeatures"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">Any Specific Words Or Features To Use</FormLabel>
+                  <FormControl>
+                    <Input variant="borderwhite" placeholder="Type here..." {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Brand Name */}
+            <FormField
+              control={form.control}
+              name="specificWordsNotToUse"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">Any Specific Words Not To Use</FormLabel>
+                  <FormControl>
+                    <Input variant="borderwhite" placeholder="Type here..." {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Brand Name */}
+            <FormField
+              control={form.control}
+              name="projectGoal"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">Goal Of The Projects</FormLabel>
+                  <FormControl>
+                    <Input variant="borderwhite" placeholder="Type here..." {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+
 
             {/* Submit */}
             <Button variant="customWhite" type="submit" size="llg" className="w-full h-9 mt-2">

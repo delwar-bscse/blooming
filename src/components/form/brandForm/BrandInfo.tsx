@@ -22,36 +22,42 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { useBrand } from "@/context/BrandContext";
+import { useState } from "react";
 // import { useEffect } from "react";
 // import toast, { Toaster } from 'react-hot-toast';
 
 // Schema
 const contactUsFormSchema = z.object({
-  brandName: z.string(),
-  brandEmail: z.string().email({
+  name: z.string(),
+  email: z.string().email({
     message: "Please enter a valid email address.",
   }),
-  phoneNumber: z.string(),
+  phone: z.string(),
   productName: z.string(),
-  productLink: z.string(),
-  productType: z.string(),
+  websiteUrl: z.string(),
+  brandPronounceName: z.string(),
+  isScript: z.string().optional(),
+  isVideoCaption: z.string(),
 });
 
 // Type
 type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 
 const defaultValues: Partial<ContactUsFormValues> = {
-  brandName: "",
-  brandEmail: "",
-  phoneNumber: "",
+  name: "",
+  email: "",
+  phone: "",
+  websiteUrl: "",
   productName: "",
-  productLink: "",
-  productType: "",
+  brandPronounceName: "",
+  isScript: "",
+  isVideoCaption: "",
 };
 
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const BrandInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
   const { brandForm, setBrandForm } = useBrand();
+  const [isScriptHave, setIsScriptHave] = useState<boolean>(false);
 
   const form = useForm<ContactUsFormValues>({
     resolver: zodResolver(contactUsFormSchema),
@@ -60,7 +66,7 @@ const BrandInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
   });
 
   function onSubmit(data: ContactUsFormValues) {
-    // console.log("Submitted Data:", data);
+    console.log("Submitted Data:", data);
     setBrandForm((prev) => ({
       ...prev, ...data
     }));
@@ -77,7 +83,7 @@ const BrandInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="brandName"
+              name="name"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white text-lg">Brand Name</FormLabel>
@@ -92,7 +98,7 @@ const BrandInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="brandEmail"
+              name="email"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white text-lg">Brand Email</FormLabel>
@@ -107,7 +113,7 @@ const BrandInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="phoneNumber"
+              name="phone"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white text-lg">Phone Number</FormLabel>
@@ -137,12 +143,12 @@ const BrandInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              name="productLink"
+              name="brandPronounceName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Product Link</FormLabel>
+                  <FormLabel className="text-white text-lg">How To Pronounce Your Brand Name</FormLabel>
                   <FormControl>
-                    <Input variant="borderwhite" placeholder="Enter product link" {...field} />
+                    <Input variant="borderwhite" placeholder="Type ..." {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -152,20 +158,65 @@ const BrandInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              defaultValue={brandForm.productType || ""}
-              name="productType"
+              name="websiteUrl"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Product Type</FormLabel>
+                  <FormLabel className="text-white text-lg">Website URL</FormLabel>
+                  <FormControl>
+                    <Input variant="borderwhite" placeholder="Enter website url" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Brand Name */}
+            <Select value={isScriptHave ? "yes" : "no"} onValueChange={(val) => {
+              setIsScriptHave(val === "yes" ? true : false);
+            }} >
+              <FormControl>
+                <SelectTrigger variant="borderwhite" className="w-full">
+                  <SelectValue placeholder={"Select Yes/No"} />
+                </SelectTrigger>
+              </FormControl>
+              <SelectContent>
+                <SelectItem value="yes">Yes</SelectItem>
+                <SelectItem value="no">No</SelectItem>
+              </SelectContent>
+            </Select>
+
+            {/* Brand Name */}
+            {isScriptHave && <FormField
+              control={form.control}
+              name="isScript"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input variant="borderwhite" placeholder="Enter script link" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />}
+
+
+            {/* Brand Name */}
+            <FormField
+              control={form.control}
+              defaultValue={brandForm.isVideoCaption || "Yes"}
+              name="isVideoCaption"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">Caption On Video ?</FormLabel>
                   <Select value={field.value} onValueChange={field.onChange} >
                     <FormControl>
                       <SelectTrigger variant="borderwhite" className="w-full">
-                        <SelectValue placeholder={"Select product type"} />
+                        <SelectValue placeholder={"Select Yes/No"} />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="Physical">Physical</SelectItem>
-                      <SelectItem value="Digital">Digital</SelectItem>
+                      <SelectItem value="yes">Yes</SelectItem>
+                      <SelectItem value="no">No</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />

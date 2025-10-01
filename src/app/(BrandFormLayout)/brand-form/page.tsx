@@ -6,7 +6,6 @@ import BrandSocial from "@/components/form/brandForm/BrandSocial";
 import CharacteristicCreator from "@/components/form/brandForm/CharacteristicCreator";
 import ContentInfo from "@/components/form/brandForm/ContentInfo";
 import ContentInformation from "@/components/form/brandForm/ContentInformation";
-import DoDont from "@/components/form/brandForm/DoDont";
 import FinalMessage from "@/components/form/brandForm/FinalMessage";
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
@@ -26,7 +25,7 @@ function BrandFormSuspense() {
     router.replace(`/brand-form?step=${step.toString()}`);
   };
 
-  const activeStepStyle = (idx: number) => `w-12 h-4 rounded-full transition-all duration-300 cursor-pointer ${formStep === idx + 1 ? "bg-yellow-400 scale-x-110" : "bg-gray-300 hover:bg-yellow-300 hover:scale-x-120"}`
+  const activeStepStyle = (idx: number) => `h-4 w-10 rounded-full transition-all duration-300 cursor-pointer ${formStep === idx + 1 ? "bg-yellow-400 scale-x-110" : "bg-gray-300 hover:bg-yellow-300 hover:scale-x-120"}`
 
   return (
     <>
@@ -36,12 +35,11 @@ function BrandFormSuspense() {
           {formStep === 2 && <BrandSocial handleStep={handleStep} />}
           {formStep === 3 && <ContentInfo handleStep={handleStep} />}
           {formStep === 4 && <CharacteristicCreator handleStep={handleStep} />}
-          {formStep === 5 && <DoDont handleStep={handleStep} />}
-          {formStep === 6 && <ContentInformation handleStep={handleStep} />}
-          {formStep === 7 && <FinalMessage />}
+          {formStep === 5 && <ContentInformation handleStep={handleStep} />}
+          {formStep === 6 && <FinalMessage />}
           <div className="w-full px-2">
-            <div className="w-full max-w-[588px] bg-[#56515166] rounded-xl mx-auto flex items-center justify-center gap-4 h-10 py-1 px-3">
-              {[...Array(7)].map((_, idx) => (
+            <div className="w-full max-w-[588px] flex justify-center items-center bg-[#56515166] rounded-xl mx-auto  gap-2 md:gap-4 h-10 py-2 px-2">
+              {[...Array(6)].map((_, idx) => (
                 <div
                   onClick={() => handleStep(idx + 1)}
                   key={idx}
