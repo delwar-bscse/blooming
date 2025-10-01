@@ -74,8 +74,8 @@ export interface counterDataType {
 
 // -------------------------- Why Chose Us Data Type -------------------------- //
 export interface reviewDataType {
-  id: number;
-  txt: string;
+  _id: number;
+  details: string;
   image: StaticImageData;
 };
 

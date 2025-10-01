@@ -32,7 +32,7 @@ const HeroSection = () => {
             </motion.p>
             <div className="w-full max-w-[500px] mx-auto flex flex-col md:flex-row gap-4 mt-4">
               <CustomButton text="Apply As Creator" url="/creator-signup" variant="button02" />
-              <CustomButton text="Hire a Creator" url="/brand-form?step=1" variant="button02" />
+              <CustomButton text="Hire a Creator" url="/service" variant="button02" />
             </div>
           </div>
           <div className="hover:scale-105 transition-transform duration-500 ease-in-out">
