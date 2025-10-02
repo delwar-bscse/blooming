@@ -51,21 +51,21 @@ export const columns: ColumnDef<OrderDataType>[] = [
       </div>
     ),
   },
-  // {
-  //   accessorKey: "amount",
-  //   header: () => <div className="text-center">Amount</div>,
-  //   cell: ({ row }) => {
-  //     const amount = parseFloat(row.getValue("amount"))
+  {
+    accessorKey: "amount",
+    header: () => <div className="text-center">Amount</div>,
+    cell: ({ row }) => {
+      const amount = parseFloat(row.getValue("amount"))
 
-  //     // Format the amount as a dollar amount
-  //     const formatted = new Intl.NumberFormat("en-US", {
-  //       style: "currency",
-  //       currency: "USD",
-  //     }).format(amount)
+      // Format the amount as a dollar amount
+      const formatted = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(amount)
 
-  //     return <div className="font-medium text-center">{formatted}</div>
-  //   },
-  // },
+      return <div className="font-medium text-center">{formatted}</div>
+    },
+  },
   {
     accessorKey: "status",
     header: () => <div className="text-center">Status</div>,
@@ -103,7 +103,7 @@ export function OrderHistory() {
         return {
           id: item._id,
           deadline: item.createdAt,
-          amount: 200,
+          amount: item.brandPrice || 0,
           status: item.status,
         }
       })

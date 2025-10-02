@@ -93,6 +93,7 @@ export interface TOrdersData {
   addOns: AddOns;
   status: string;
   paymentStatus: string;
+  brandPrice: number;
   takeVideoCount: number;
   createdAt: string;
   updatedAt: string; 

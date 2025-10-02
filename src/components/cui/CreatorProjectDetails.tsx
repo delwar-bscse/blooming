@@ -4,6 +4,9 @@ import { toast } from 'sonner';
 import { myFetch } from '@/utils/myFetch';
 import { useParams } from 'next/navigation';
 import { TOrdersData } from '@/types/orderDataTypes';
+import Image from 'next/image';
+import StarEmogi from "@/assets/common/star.png"
+import LoveEmogi from "@/assets/common/loveEmoji.png"
 
 
 
@@ -40,6 +43,11 @@ const BrandProjectDetails = () => {
 
   return (
     <div className='max-w-[900px] mx-auto space-y-5 pb-16'>
+      <div className='flex items-center justify-center rounded-sm bg-[#FFF0BE] shadow gap-2 w-72 py-2.5 mb-6'>
+        <Image src={StarEmogi} alt="package" width={30} height={30} />
+        <p className='text-xl font-semibold text-gray-700'>Price ${orderDetails?.brandPrice}</p>
+        <Image src={LoveEmogi} alt="package" width={30} height={30} />
+      </div>
       <div className='bg-white rounded-2xl p-8'>
         {orderDetails?.brandInfo && <SubComponent title="Brand Info" list={orderDetails.brandInfo} />}
       </div>

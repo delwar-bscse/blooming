@@ -95,7 +95,7 @@ const CreatorScript = () => {
     // console.log("Take Revision Response:", res);
     if (res.success) {
       toast.success(res.message || "Take Revision successfully!", { id: "revision" });
-      form.reset();
+      getScript()
     } else {
       toast.error(res.message || "Take Revision failed!", { id: "revision" });
     }
@@ -103,16 +103,17 @@ const CreatorScript = () => {
 
   const handleDone = async () => {
     console.log("Done Order");
-    toast.loading("Updating status...", { id: "done" });
+    // toast.loading("Updating status...", { id: "done" });
+
     const res = await myFetch(`/hire-creator/revision/${id}?status=delivered`, {
       method: "PATCH",
     });
-    // console.log(res);
+    console.log(res);
     if (res.success) {
-      toast.success("Order Done successfully!", { id: "done" });
       getScript()
+      document.getElementById("openAppReview")?.click()
     } else {
-      toast.error(res.message || "Failed!", { id: "done" });
+      toast.error(res.message || "Failed!");
     }
   }
 
@@ -142,14 +143,6 @@ const CreatorScript = () => {
             />
 
             {/* Submit */}
-            {/* <div className="flex justify-center gap-4">
-              <Button variant="customYellow" type="submit" size="llg" className="w-32">
-                Revision
-              </Button>
-              <Button type="button" onClick={() => console.log("Done")} variant="customYellow" size="llg" className="w-32">
-                Done
-              </Button>
-            </div> */}
             {(status === "completed") && <div className="flex justify-center gap-4">
               {(revisionCount > 0) && <Button variant="customYellow" type="submit" size="llg" className="w-32">
                 Revision
@@ -161,7 +154,8 @@ const CreatorScript = () => {
           </form>
         </Form>
 
-        <CustomModal trigger={<Button variant="customYellow" type="button" size="llg" className="w-32 mt-4">Revision</Button>} title="Submit Your Review">
+        {/* App Review Modal - Button hidden */}
+        <CustomModal trigger={<Button id="openAppReview" variant="customYellow" type="button" size="llg" className="w-32 mt-4 hidden">Done 2</Button>} title="">
           <AppReview />
         </CustomModal>
       </div>

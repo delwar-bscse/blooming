@@ -50,9 +50,4 @@ export const navbarItems2: navItemsType[] = [
     title: 'For agency',
     url: '/agency',
   },
-  {
-    id: 3,
-    title: 'My Package',
-    url: '/service?isPackage=true&myPackage=true',
-  },
 ];
