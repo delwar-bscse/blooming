@@ -23,11 +23,13 @@ export default function HeroSectionSlider({ url }: { url: string }) {
       const res = await myFetch(`${url}`, {
         method: "GET",
       });
+      console.log("Hero videos:", res);
       setVideos(res?.data?.videos || []);
     };
     getVideos();
   }, []);
 
+  
   return (
     <div
       className="relative w-full px-16  cursor-pointer"
