@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
@@ -8,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import { useBrand } from '@/context/BrandContext';
 import { FaCircle } from "react-icons/fa";
 import { Courgette } from 'next/font/google';
+import { toast } from 'sonner';
 
 const courgette = Courgette({
   subsets: ['latin'],
@@ -35,6 +37,19 @@ const PackageSection = () => {
   const router = useRouter();
   const { setBrandForm } = useBrand();
   const [packageDatas, setPackageDatas] = useState<IPackage[]>([]);
+  const [user, setUser] = useState<any>(null);
+
+   useEffect(() => {
+    const getUser = async () => {
+      const response = await myFetch("/users/my-profile", {
+        method: "GET",
+        tags: ["user"]
+      });
+      // console.log("Nav User Data:", response);
+      setUser(response?.data);
+    };
+    getUser();
+  }, []);
 
   useEffect(() => {
     const getPost = async () => {
@@ -50,6 +65,11 @@ const PackageSection = () => {
   }, [])
 
   const handleSelectPackage = (packageId: string) => {
+    if (!user) {
+      toast.error("Please login first!");
+      router.push("/login");
+      return;
+    }
     setBrandForm((prev) => ({
       ...prev,
       packageId
