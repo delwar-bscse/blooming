@@ -116,7 +116,7 @@ const BrandInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">Phone Number</FormLabel>
+                  <FormLabel className="text-white text-lg">Phone Number(Country Code)</FormLabel>
                   <FormControl>
                     <Input variant="borderwhite" placeholder="Enter phone number" {...field} />
                   </FormControl>
@@ -124,36 +124,7 @@ const BrandInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
                 </FormItem>
               )}
             />
-
-            {/* Brand Name */}
-            <FormField
-              control={form.control}
-              name="productName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white text-lg">Product Name</FormLabel>
-                  <FormControl>
-                    <Input variant="borderwhite" placeholder="Enter product name" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* Brand Name */}
-            <FormField
-              control={form.control}
-              name="brandPronounceName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white text-lg">How To Pronounce Your Brand Name</FormLabel>
-                  <FormControl>
-                    <Input variant="borderwhite" placeholder="Type ..." {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            
 
             {/* Brand Name */}
             <FormField
@@ -171,6 +142,38 @@ const BrandInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
             />
 
             {/* Brand Name */}
+            {/* <FormField
+              control={form.control}
+              name="productName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">Product Name</FormLabel>
+                  <FormControl>
+                    <Input variant="borderwhite" placeholder="Enter product name" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            /> */}
+
+            {/* Brand Name */}
+            <FormField
+              control={form.control}
+              name="brandPronounceName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">How To Pronounce Your Brand Name</FormLabel>
+                  <FormControl>
+                    <Input variant="borderwhite" placeholder="Type ..." {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Brand Name */}
+            
+            <p className="text-white text-left text-lg pt-1">Will You Provide Script ?</p>
             <Select value={isScriptHave ? "yes" : "no"} onValueChange={(val) => {
               setIsScriptHave(val === "yes" ? true : false);
             }} >
@@ -192,7 +195,7 @@ const BrandInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input variant="borderwhite" placeholder="Enter script link" {...field} />
+                    <Input variant="borderwhite" placeholder="Enter Script Link" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -203,7 +206,7 @@ const BrandInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
             {/* Brand Name */}
             <FormField
               control={form.control}
-              defaultValue={brandForm.isVideoCaption || "Yes"}
+              defaultValue={brandForm.isVideoCaption || "yes"}
               name="isVideoCaption"
               render={({ field }) => (
                 <FormItem>
@@ -211,7 +214,7 @@ const BrandInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
                   <Select value={field.value} onValueChange={field.onChange} >
                     <FormControl>
                       <SelectTrigger variant="borderwhite" className="w-full">
-                        <SelectValue placeholder={"Select Yes/No"} />
+                        <SelectValue placeholder="Select Yes/No" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>

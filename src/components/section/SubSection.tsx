@@ -7,7 +7,6 @@ import { IPackage } from './PackageSection';
 import { myFetch } from '@/utils/myFetch';
 import { formatImagePath } from '@/utils/formatImagePath';
 import { useSearchParams } from 'next/navigation';
-import { toast } from 'sonner';
 
 const SubSection = () => {
   const [packageDatas, setPackageDatas] = useState<IPackage[]>([] as IPackage[]);
@@ -31,10 +30,10 @@ const SubSection = () => {
   }, [isPackage, myPackage])
 
 
-  const handlePurchasePackage = async (packageId: string) => {
-    console.log("packageId", packageId);
-    toast.success("Admin will contact you as soon as possible!")
-  }
+  // const handlePurchasePackage = async (packageId: string) => {
+  //   // console.log("packageId", packageId);
+  //   toast.success("Admin will contact you as soon as possible!")
+  // }
 
   return (
     <div className='px-2 flex justify-center items-center py-28 bg-[#D9E2CF]'>
@@ -56,7 +55,7 @@ const SubSection = () => {
             </ul>
             <div className='flex items-center justify-end mt-4 px-4'>
               <div className='pb-4'>
-                <Button onClick={() => handlePurchasePackage(item?._id)} className='w-full h-12' variant="customYellow">Purchase Now</Button>
+                <Button className='w-full h-12' variant="customYellow">Coming Soon</Button>
               </div>
             </div>
           </div>
