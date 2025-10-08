@@ -1,39 +1,19 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 
 import { useBrand } from "@/context/BrandContext";
 import { myFetch } from "@/utils/myFetch";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/components/ui/radio-group"
-import { useForm } from "react-hook-form";
+import Image from "next/image";
+import cardPayment from "@/assets/common/cardPayment.png";
+import paypalPayment from "@/assets/common/paypalPayment.png";
+import { useEffect, useState } from "react";
 
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const FinalMessage = () => {
   const router = useRouter();
   const { brandForm } = useBrand();
-
-
-  const defaultValues = {
-    selectPaymentOption: ""
-  };
-
-  const form = useForm({
-    defaultValues,
-    mode: "onChange",
-  });
-
-  console.log("brandForm", brandForm);
+  const [paymentMethod, setPaymentMethod] = useState<string>("card");
 
   const payload = {
     method: "card",
@@ -44,7 +24,7 @@ const FinalMessage = () => {
       email: brandForm?.email,
       phone: brandForm?.phone,
       websiteUrl: brandForm?.websiteUrl,
-      productName: brandForm?.productName,
+      productName: "It should remove",
       brandPronounceName: brandForm?.brandPronounceName,
       isScript: brandForm?.isScript,
       isVideoCaption: brandForm?.isVideoCaption
@@ -93,6 +73,10 @@ const FinalMessage = () => {
     }
   };
 
+  useEffect(() => {
+    payload.method = paymentMethod;
+  }, [paymentMethod]);
+
 
 
   const handleSubmit = async () => {
@@ -118,72 +102,32 @@ const FinalMessage = () => {
       }
     } else {
       toast.error(res?.message || "Something went wrong!", { id: "loading" });
-      setTimeout(() => {
-        router.push("/");
-      }, 3000)
+      // setTimeout(() => {
+      //   router.push("/");
+      // }, 3000)
     }
   }
 
-  async function onSubmit(data: any) {
-
-    console.log("Submitted Data:", data);
-    if (!data.selectPaymentOption) {
-      toast.error("Please select a payment option");
-      return;
-    } else {
-      payload.method = data.selectPaymentOption;
-      console.log(`You have selected ${data.selectPaymentOption}`);
-      toast.success(`You have selected ${data.selectPaymentOption}`);
-      handleSubmit();
-    }
-  }
 
 
 
   return (
     <div className="w-full max-w-[600px] mx-auto px-2 h-full flex text-center justify-center items-center">
-      <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-2xl">
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
-            <FormField
-              control={form.control}
-              name="selectPaymentOption"
-              render={({ field }) => (
-                <FormItem className="space-y-3">
-                  <FormLabel className="text-xl text-gray-100">Select a payment option and continue</FormLabel>
-                  <FormControl>
-                    <RadioGroup
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                      className="flex justify-center gap-6 py-8"
-                    >
-                      <FormItem className="flex items-center gap-3">
-                        <FormControl>
-                          <RadioGroupItem value="paypal" className="text-white" />
-                        </FormControl>
-                        <FormLabel className="font-bold text-4xl text-gray-50 cursor-pointer">
-                          PayPal
-                        </FormLabel>
-                      </FormItem>
-                      <FormItem className="flex items-center gap-3">
-                        <FormControl>
-                          <RadioGroupItem value="card" className="text-white w-4 h-4" />
-                        </FormControl>
-                        <FormLabel className="font-bold text-4xl text-gray-50 cursor-pointer">
-                          Card
-                        </FormLabel>
-                      </FormItem>
-                    </RadioGroup>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <button type="submit" className="bg-white cursor-pointer text-[#565151] font-semibold py-2 px-8 rounded-md">
-              Continue
-            </button>
-          </form>
-        </Form>
+      <div className="bg-white px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-2xl">
+        <p className="text-lg md:text-xl font-bold text-left text-gray-700">Please Select Payment Option And Continue</p>
+        <div className="flex flex-col items-start gap-2 mt-4">
+          <span className="font-semibold text-left text-gray-600">Cards</span>
+          <div onClick={() => setPaymentMethod("card")} className={`${paymentMethod === "card" ? "bg-gray-100 border-gray-200" : "border-gray-50"} w-full flex justify-start items-center border   shadow rounded-sm py-1 px-2 cursor-pointer transition-colors duration-200`}>
+            <Image src={cardPayment} alt="cardPayment" width={400} height={100} className="h-[40px] w-fit object-contain"/>
+          </div>
+        </div>
+        <div className="flex flex-col items-start gap-2 mt-4">
+          <span className="font-semibold text-left text-gray-600">Pay With Another Payment Method Paypal</span>
+          <div onClick={() => setPaymentMethod("paypal")} className={`${paymentMethod === "paypal" ? "bg-gray-100 border-gray-200" : "border-gray-50"} w-full flex justify-start items-center border   shadow rounded-sm py-1 px-2 cursor-pointer transition-colors duration-200`}>
+            <Image src={paypalPayment} alt="cardPayment" width={400} height={100} className="h-[40px] w-fit object-contain"/>
+          </div>
+        </div>
+        <button onClick={() => handleSubmit()} className="mt-8 block text-center py-2 px-2 w-full rounded-sm shadow border border-gray-100 cursor-pointer text-gray-700 hover:text-gray-500 font-semibold transition-all duration-500">Continue</button>
       </div>
     </div>
   );
