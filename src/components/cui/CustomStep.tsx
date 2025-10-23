@@ -19,7 +19,7 @@ const CustomStep = ({ stepDatas }: { stepDatas: StepDataType[] }) => {
   }, [searchParams, stepDatas, router]);
 
   const handleStyle = (label?: string) => {
-    return `font-bold text-gray-600 border-b-6 pb-2 border-b-gray-300 hover:border-b-gray-500 px-6 md:pr-20 text-xl cursor-pointer transition-colors duration-500 ${currentStep === label ? 'border-b-gray-600 text-gray-800' : ''}`
+    return `font-bold text-gray-600 border-b-6 pb-2 border-b-gray-300 hover:border-b-gray-500 px-2 sm:px-3 md:px-6 md:pr-20 text-xl sm:text-xl break-words cursor-pointer transition-colors duration-500 ${currentStep === label ? 'border-b-gray-600 text-gray-800' : ''}`
   }
 
   const handleStepChange = (label: string) => {

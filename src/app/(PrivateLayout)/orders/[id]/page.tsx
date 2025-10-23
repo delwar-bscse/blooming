@@ -1,36 +1,86 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
-import { useSearchParams } from 'next/navigation';
-import React, { Suspense } from 'react'
+import { useParams, useSearchParams } from 'next/navigation';
+import React, { Suspense, useEffect } from 'react'
 import { AnimatePresence, motion } from "framer-motion";
 import CustomStep from '@/components/cui/CustomStep';
 import CreatorProjectDetails from '@/components/cui/CreatorProjectDetails';
 import { StepDataType } from '@/types/types';
 import CreatorScript from '@/components/cui/CreatorScript';
 import BrandVideo from '@/components/cui/BrandVideo';
+import CustomTableSelection from '@/components/table/CustomTableSelection';
+import { TCreator } from '@/types/creatorDataTypes';
+import { creatorListColumns } from '@/components/table/creatorsListColumns';
+import { toast } from 'sonner';
+import { myFetch } from '@/utils/myFetch';
+
+
+const stepDatas: StepDataType[] = [
+  {
+    id: 1,
+    title: "Details",
+    label: "details",
+  },
+  {
+    id: 2,
+    title: "Script",
+    label: "script",
+  },
+  {
+    id: 3,
+    title: "Creator List",
+    label: "creator-list",
+  },
+  {
+    id: 4,
+    title: "Video",
+    label: "video",
+  },
+];
 
 const CreatorProjectDetailsPage = () => {
+  const [creatorList, setCreatorList] = React.useState<TCreator[]>([]);
+  const params = useParams();
+  const hireCreatorId = params["id"];
   const searchParams = useSearchParams();
   const step = searchParams.get("step");
 
-  const stepDatas: StepDataType[] = [
-    {
-      id: 1,
-      title: "Details",
-      label: "details",
-    },
-    {
-      id: 2,
-      title: "Video",
-      label: "video",
-    },
-    {
-      id: 3,
-      title: "Action",
-      label: "script",
-    },
-  ];
-  
+  console.log("Hirecreator Id: ", hireCreatorId);
+
+  const getAdminApprovedCreators = async () => {
+    toast.loading("Fetching Agreed Creators...", { id: "fetchAgreedCreators" });
+    const res = await myFetch(`/hire-creator/all-assigned-creators-by-hirecreator/${hireCreatorId}`);
+    console.log("Creator List : ", res?.data);
+
+    if (res?.data) {
+      // console.log(res?.data);
+      const modifyDatas = await res?.data?.map((item: any) => {
+        return {
+          _id: item?._id,
+          name: item?.creatorUserId?.fullName,
+          jobProfession: item?.creatorId?.profession,
+          status: item?.status,
+        }
+      });
+      console.log("Modify Data: ", modifyDatas);
+      setCreatorList(modifyDatas);
+      toast.success("Agreed Creators Fetched Successfully!", { id: "fetchAgreedCreators" });
+    } else {
+      toast.error(res?.message || "Agreed Creators Fetching failed!", { id: "fetchAgreedCreators" });
+    }
+  }
+  useEffect(() => {
+    if (step === "creator-list") {
+      getAdminApprovedCreators();
+    }
+  }, [hireCreatorId, step]);
+
+
+
+
+
   return (
     <div>
       <div className="py-8 max-w-[1200px] mx-auto">
@@ -42,8 +92,8 @@ const CreatorProjectDetailsPage = () => {
           {step === "details" && (
             <motion.div
               key="details"
-              initial={{ opacity: 0}}
-              animate={{ opacity: 1}}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
@@ -54,11 +104,22 @@ const CreatorProjectDetailsPage = () => {
             <motion.div
               key="video"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1}}
-              exit={{ opacity: 0}}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
               <BrandVideo />
+            </motion.div>
+          )}
+          {step === "creator-list" && (
+            <motion.div
+              key="project-details"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {creatorList && <CustomTableSelection<TCreator> data={creatorList} columns={creatorListColumns} />}
             </motion.div>
           )}
           {step === "script" && (

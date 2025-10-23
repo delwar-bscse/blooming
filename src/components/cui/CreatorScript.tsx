@@ -19,8 +19,6 @@ import { toast } from "sonner";
 import { Textarea } from "../ui/textarea";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { CustomModal } from "./CustomModal";
-import AppReview from "./AppReview";
 
 
 // Schema
@@ -101,20 +99,20 @@ const CreatorScript = () => {
     }
   }
 
-  const handleDone = async () => {
-    console.log("Done Order");
+  const approveScript = async () => {
+    console.log("Script Approved");
     // toast.loading("Updating status...", { id: "done" });
 
-    const res = await myFetch(`/hire-creator/revision/${id}?status=delivered`, {
-      method: "PATCH",
-    });
-    console.log(res);
-    if (res.success) {
-      getScript()
-      document.getElementById("openAppReview")?.click()
-    } else {
-      toast.error(res.message || "Failed!");
-    }
+    // const res = await myFetch(`/hire-creator/revision/${id}?status=delivered`, {
+    //   method: "PATCH",
+    // });
+    // console.log(res);
+    // if (res.success) {
+    //   getScript()
+    //   document.getElementById("openAppReview")?.click()
+    // } else {
+    //   toast.error(res.message || "Failed!");
+    // }
   }
 
   return (
@@ -131,11 +129,10 @@ const CreatorScript = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-gray-700 text-lg flex items-center justify-between">
-                    <span>Add script if you want to take revision</span>
-                    <span>Status: {status}</span>
+                    <span>Order Status: {status}</span>
                   </FormLabel>
                   <FormControl>
-                    <Textarea variant="blackBorder" placeholder="Start typing here......" {...field} className="h-100" />
+                    <Textarea readOnly variant="blackBorder" placeholder="Nothing Admin write here" {...field} className="min-h-50" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -143,21 +140,16 @@ const CreatorScript = () => {
             />
 
             {/* Submit */}
-            {(status === "completed") && <div className="flex justify-center gap-4">
+            {true && <div className="flex justify-center gap-4">
               {(revisionCount > 0) && <Button variant="customYellow" type="submit" size="llg" className="w-32">
-                Revision
+                Decline
               </Button>}
-              <Button type="button" onClick={() => handleDone()} variant="customYellow" size="llg" className="w-32">
-                Done
+              <Button type="button" onClick={() => approveScript()} variant="customYellow" size="llg" className="w-32">
+                Approved
               </Button>
             </div>}
           </form>
         </Form>
-
-        {/* App Review Modal - Button hidden */}
-        <CustomModal trigger={<Button id="openAppReview" variant="customYellow" type="button" size="llg" className="w-32 mt-4 hidden">Done 2</Button>} title="">
-          <AppReview />
-        </CustomModal>
       </div>
     </div>
   );

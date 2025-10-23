@@ -179,6 +179,7 @@ const ContentInformation = ({ handleStep }: { handleStep: (step: number) => void
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
+                      <SelectItem value="0">0</SelectItem>
                       <SelectItem value="5">5</SelectItem>
                       <SelectItem value="10">10</SelectItem>
                       <SelectItem value="15">15</SelectItem>

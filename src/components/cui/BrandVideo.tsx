@@ -6,6 +6,9 @@ import { myFetch } from '@/utils/myFetch'
 import { toast } from 'sonner'
 import { useParams } from 'next/navigation'
 import download from 'downloadjs'
+import { Button } from '../ui/button'
+import { CustomModal } from './CustomModal'
+import AppReview from './AppReview'
 
 const BrandVideo = () => {
   const [awsVideoUrls, setAwsVideoUrls] = useState<any[]>([])
@@ -49,33 +52,26 @@ const BrandVideo = () => {
       toast.error("Download failed!", { id: "download" })
     }
   }
-  
-  // const handleDownload = async (videoLink: string, filename: string) => {
-  //   console.log("Downloading:", videoLink, filename)
-  //   try {
-  //     const response = await fetch(videoLink)
-  //     const blob = await response.blob()
-  //     const url = window.URL.createObjectURL(blob)
-
-  //     const a = document.createElement("a")
-  //     a.href = url
-  //     a.download = filename
-  //     document.body.appendChild(a)
-  //     a.click()
-  //     a.remove()
-
-  //     window.URL.revokeObjectURL(url)
-
-  //   } catch (error) {
-  //     console.error("Download error:", error)
-  //     toast.error("Download failed!", { id: "download" })
-  //   }
-  // }
 
   useEffect(() => {
     getAwsVideosUrls()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  const handleDone = async () => {
+    console.log("Done Order");
+    // toast.loading("Updating status...", { id: "done" });
+
+    // const res = await myFetch(`/hire-creator/revision/${id}?status=delivered`, {
+    //   method: "PATCH",
+    // });
+    // console.log(res);
+    if (true) {
+      document.getElementById("openAppReview")?.click()
+    } else {
+      // toast.error(res.message || "Failed!");
+    }
+  }
 
   return (
     <div className='px-2 max-w-[1200px] mx-auto mb-8'>
@@ -107,7 +103,22 @@ const BrandVideo = () => {
             </div>
           ))}
         </div>
+        {true && <div className="flex justify-center gap-4">
+          {true && <Button variant="customYellow" type="submit" size="llg" className="w-32">
+            Revision
+          </Button>}
+          <Button type="button" onClick={() => handleDone()} variant="customYellow" size="llg" className="w-32">
+            Done
+          </Button>
+        </div>}
       </div>
+
+      
+
+        {/* App Review Modal - Button hidden */}
+        <CustomModal trigger={<Button id="openAppReview" variant="customYellow" type="button" size="llg" className="w-32 mt-4 hidden">Done 2</Button>} title="">
+          <AppReview />
+        </CustomModal>
     </div>
   )
 }
