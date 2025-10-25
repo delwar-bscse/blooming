@@ -13,10 +13,9 @@ export const metadata: Metadata = {
 }
 
 const Contact = async () => {
-  const res = await myFetch(`/upload-video?category=Contact Us`, {
+  await myFetch(`/upload-video?category=Contact Us`, {
     method: "GET",
-  })
-  console.log("Contact Us Response from server:", res);
+  });
 
   return (
     <div>
@@ -33,7 +32,7 @@ const Contact = async () => {
         <div className=''>
           <Image src={contactusImg} alt="contact image" width={1900} height={500} className='w-full h-auto object-cover' />
         </div>
-        <div className='flex items-center justify-center pt-10'  style={{ minHeight: "calc(100vh - 680px)" }}>
+        <div className='flex items-center justify-center pt-10' style={{ minHeight: "calc(100vh - 680px)" }}>
           <p className={`font-semibold text-lg md:text-3xl text-gray-700 text-center leading-12`}>CONTACT US VIA THE FORM BELOW & <br />WE&apos;LL GET BACK TO YOUR AS SOON AS WE CAN.</p>
         </div>
       </div>

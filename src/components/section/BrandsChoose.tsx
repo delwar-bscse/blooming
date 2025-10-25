@@ -16,8 +16,6 @@ const BrandsChoose = async () => {
   const videoDatas = res?.data
     ?.filter((section: Record<string, unknown>) => selectOptions.includes(section.category as string));
 
-  // console.log("Video Data:", videoDatas);
-
 
   return (
     <div>

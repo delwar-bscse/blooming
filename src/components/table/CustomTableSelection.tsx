@@ -30,9 +30,10 @@ interface RowWithId {
 interface CustomTableProps<TData extends RowWithId> {
   data: TData[];
   columns: ColumnDef<TData>[];
+  status?: string;
 }
 
-function CustomTableSelectionSuspense<TData extends RowWithId>({ data, columns }: CustomTableProps<TData>) {
+function CustomTableSelectionSuspense<TData extends RowWithId>({ data, columns, status }: CustomTableProps<TData>) {
   const [rowSelection, setRowSelection] = useState({});
   const searchParams = useSearchParams();
   const params = useParams();
@@ -46,15 +47,11 @@ function CustomTableSelectionSuspense<TData extends RowWithId>({ data, columns }
       creatorsAssign: selectedIds,
     }
 
-    console.log(payload);
-
     toast.loading("Request Send to Creators...", { id: "requestSend" });
     const res = await myFetch(`/assign-task-creator/finally-create-assign-by-brand-creator`, {
       method: "POST",
       body: payload,
     });
-
-    console.log(res?.data);
 
     if (res?.data) {
       toast.success("All creators fetched successfully!", { id: "requestSend" });
@@ -140,23 +137,23 @@ function CustomTableSelectionSuspense<TData extends RowWithId>({ data, columns }
             </TableBody>
           </Table>
         </div>
-        <div className="flex items-center justify-end gap-2 py-4">
+        {status === "approved_by_admin" && <div className="flex items-center justify-end gap-2 py-4">
           {(step === "creator-list" || step === "agreed-creators") && <button
             className="mb-4 px-4 py-2 bg-green-700 text-white rounded"
             onClick={() => sendRequestToUser(selectedIds)}
           >
             Approve
           </button>}
-        </div>
+        </div>}
       </div>
     </div>
   )
 }
 
-export default function CustomTableSelection<TData extends RowWithId>({ data, columns }: CustomTableProps<TData>) {
+export default function CustomTableSelection<TData extends RowWithId>({ data, columns, status }: CustomTableProps<TData>) {
   return (
     <React.Suspense fallback={<div>Loading...</div>} >
-      <CustomTableSelectionSuspense data={data} columns={columns} />
+      <CustomTableSelectionSuspense data={data} columns={columns} status={status} />
     </React.Suspense>
   )
 }

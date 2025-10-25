@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { Marquee } from "@/components/magicui/marquee";
@@ -27,13 +26,13 @@ const VideoCard = memo(({ video }: { video: Video }) => {
     const currentRef = containerRef.current;
     if (currentRef) {
       observer.observe(currentRef);
-      console.log("👀 Observing video container:", currentRef);
+      // console.log("👀 Observing video container:", currentRef);
     }
 
     return () => {
       if (currentRef) {
         observer.unobserve(currentRef);
-        console.log("🛑 Stopped observing video container:", currentRef);
+        // console.log("🛑 Stopped observing video container:", currentRef);
       }
     };
   }, []);
@@ -46,7 +45,7 @@ const VideoCard = memo(({ video }: { video: Video }) => {
     const handlePlay = async () => {
       try {
         await videoEl.play();
-        console.log("🔊 Video playing:", video.url);
+        // console.log("🔊 Video playing:", video.url);
       } catch (err) {
         console.error("❌ Video play failed:", err);
       }
@@ -56,7 +55,7 @@ const VideoCard = memo(({ video }: { video: Video }) => {
       handlePlay();
     } else {
       videoEl.pause();
-      console.log("⏸️ Video paused:", video.url);
+      // console.log("⏸️ Video paused:", video.url);
     }
   }, [isInView]);
 

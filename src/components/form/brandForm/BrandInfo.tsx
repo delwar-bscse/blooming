@@ -66,7 +66,6 @@ const BrandInfo = ({ handleStep }: { handleStep: (step: number) => void }) => {
   });
 
   function onSubmit(data: ContactUsFormValues) {
-    console.log("Submitted Data:", data);
     setBrandForm((prev) => ({
       ...prev, ...data
     }));

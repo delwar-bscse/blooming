@@ -44,7 +44,6 @@ const VerifyOtp = () => {
   });
 
   async function onSubmit(data: ContactUsFormValues) {
-    // console.log("Submitted Data:", data);
     const res = await myFetch("/auth/forgot-password-otp-match", {
       method: "PATCH",
       body: {
@@ -55,7 +54,6 @@ const VerifyOtp = () => {
       },
     });
 
-    // console.log("Response Verify OTP:", res);
     if (res.success) {
       toast.success(res.message || "OTP verified successfully!");
       localStorage.removeItem("forgetPasswordToken");

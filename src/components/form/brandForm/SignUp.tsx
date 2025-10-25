@@ -78,7 +78,6 @@ const SignUp = () => {
   }, []);
 
   async function onSubmit(data: ContactUsFormValues) {
-    // console.log("Submitted Data:", data);
 
     const res = await myFetch("/users/create", {
       method: "POST",
@@ -90,7 +89,6 @@ const SignUp = () => {
       },
     });
 
-    // console.log("Response from server:", res);
     if (res.success) {
       toast.success(`res.message || "Check your email!"`);
       localStorage.setItem("createUserToken", JSON.stringify(res?.data?.createUserToken));

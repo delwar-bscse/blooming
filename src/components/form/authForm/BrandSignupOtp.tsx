@@ -44,7 +44,6 @@ const BrandSignupOtp = () => {
   });
 
   async function onSubmit(data: ContactUsFormValues) {
-    // console.log("Submitted Data:", data);
     const token = JSON.parse(localStorage.getItem("createUserToken") || "{}");
     const res = await myFetch("/users/create-user-verify-otp", {
       method: "POST",
@@ -55,7 +54,7 @@ const BrandSignupOtp = () => {
         token,
       },
     });
-    // console.log("Response Data:", res);
+    
     if (res.success) {
       toast.success(res.message || "OTP verified successfully!");
       localStorage.removeItem("createUserToken");

@@ -18,7 +18,6 @@ const CreatorDetails = () => {
 
   const getAdminApprovedCreators = async () => {
     const res = await myFetch(`/assign-task-creator/single/video/${creatorId}`);
-    console.log("Creator Videos : ", res)
 
     if (res?.data) {
       setCreator(res?.data?.creatorId);

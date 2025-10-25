@@ -46,18 +46,15 @@ const ProfileInfoChange = () => {
   });
 
    async function onSubmit(data: ContactUsFormValues) {
-    // toast.success("Message send successfully!");
-    // console.log("Submitted Data:", data);
     const formData = new FormData();
     formData.append("fullName", data.fullName);
-    // formData.append("email", data.email);
     formData.append("phone", data.phoneNumber);
 
     const response = await myFetch("/users/update-my-profile", {
       method: "PATCH",
       body: formData,
     });
-    // console.log("User Data:", response);
+    
     if (response?.success) {
       // toast.success("Profile updated successfully!");
       toast.success(response?.message || "Profile updated successfully!");
@@ -72,7 +69,7 @@ const ProfileInfoChange = () => {
       const response = await myFetch("/users/my-profile", {
         method: "GET",
       });
-      // console.log("User Data:", response);
+      
       form.reset({
         fullName: response?.data?.fullName || "",
         email: response?.data?.email || "",

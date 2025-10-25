@@ -13,12 +13,12 @@ function AppReview() {
       toast.error("Please write a review before send.");
       return;
     }
-    console.log("Submitted Data:", reviewData);
+    
     const res = await myFetch(`/review`, {
       method: "POST",
       body: { review: reviewData },
     });
-    console.log(res);
+    
     if (res.success) {
       setIsReview(false);
     } else {

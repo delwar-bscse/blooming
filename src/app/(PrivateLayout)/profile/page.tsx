@@ -72,7 +72,6 @@ const ProfileContent = () => {
   }, [pathname, step]);
 
   const handleImgUrl = async (file: File) => {
-    console.log("File:", file);
     if (file && file !== null && file.type.startsWith("image/")) {
       const reader = new FileReader();
       reader.onload = () => {

@@ -45,7 +45,6 @@ const PackageSection = () => {
         method: "GET",
         tags: ["user"]
       });
-      // console.log("Nav User Data:", response);
       setUser(response?.data);
     };
     getUser();

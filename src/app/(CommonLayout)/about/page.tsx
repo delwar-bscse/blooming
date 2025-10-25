@@ -38,7 +38,7 @@ const About = async () => {
           <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-center'>Meet Our Team</h2>
           <div>
             <video width="40" height="20" controls className='h-full max-h-[500px] w-full max-w-[1000px] object-contain'>
-              <source src={res.data.videos[0].url as string ?? ""} type="video/mp4" />
+              <source src={res?.data?.videos[0]?.url as string ?? ""} type="video/mp4" />
               <track
                 src="/path/to/captions.vtt"
                 kind="subtitles"

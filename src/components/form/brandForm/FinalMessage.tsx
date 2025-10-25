@@ -80,7 +80,6 @@ const FinalMessage = () => {
 
 
   const handleSubmit = async () => {
-    console.log("Submitted Data:", payload);
 
 
     toast.loading("Loading...", { id: "loading" });
@@ -88,11 +87,9 @@ const FinalMessage = () => {
       method: "POST",
       body: payload,
     })
-    console.log("Response from server:", res);
 
     if (res?.success) {
       toast.success(res?.message || "Order created successfully!", { id: "loading" });
-      // console.log(res?.data?.url);
       if (res?.data?.url) {
         window.location.href = res?.data?.url;
       } else {

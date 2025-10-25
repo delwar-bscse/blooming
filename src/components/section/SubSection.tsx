@@ -20,20 +20,12 @@ const SubSection = () => {
       const res = await myFetch(`/package/subscription-packages`, {
         method: "GET",
       })
-      // console.log(res);
       if (res.success) {
         setPackageDatas(res?.data)
-        // console.log(res.data)
       }
     }
     getPost();
-  }, [isPackage, myPackage])
-
-
-  // const handlePurchasePackage = async (packageId: string) => {
-  //   // console.log("packageId", packageId);
-  //   toast.success("Admin will contact you as soon as possible!")
-  // }
+  }, [isPackage, myPackage]);
 
   return (
     <div className='px-2 flex justify-center items-center py-28 bg-[#D9E2CF]'>

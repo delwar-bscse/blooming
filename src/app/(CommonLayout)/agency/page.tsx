@@ -17,7 +17,6 @@ const Agency = async () => {
   const res = await myFetch(`/upload-video?category=Warm And collaboration`, {
     method: "GET",
   })
-  console.log("Warm And collaboration Fetch Response:", res)
 
   return (
     <div>
@@ -46,10 +45,12 @@ const Agency = async () => {
         </div>
 
       </div>
+
       {/* Section 02 Video */}
       <div>
         <BloomSection title='&quot;From First-Time Projects to Full-Funnel Campaigns&quot;' des='See the quality and versatility our creative team brings to the table' />
       </div>
+
       {/* Section 03 */}
       <div className='maxWidth flex flex-col-reverse lg:flex-row justify-between items-center py-20 gap-4'>
         <div className='w-full md:basis-[50%] space-y-3'>
@@ -61,9 +62,10 @@ const Agency = async () => {
         </div>
         <div className='w-full md:basis-[50%] flex flex-col sm:flex-row items-center lg:justify-end gap-8'>
           <Image src={agencyImg3} alt="content image" className='w-full max-w-[182px] h-[340px] md:relative md:top-10 object-cover' />
-          <VideoViewWithoutFrame videoUrl={res.data.videos[0].url as string ?? ""} videoId='video100' />
+          <VideoViewWithoutFrame videoUrl={res?.data?.videos[0]?.url as string ?? ""} videoId='video100' />
         </div>
       </div>
+
       {/* Section 04 */}
       <div className='maxWidth flex flex-col-reverse sm:flex-row justify-between items-center py-20 gap-4'>
         <div className='basis-[50%] space-y-3'>
@@ -75,7 +77,7 @@ const Agency = async () => {
         </div>
         <div className='w-full md:basis-[50%] flex flex-col sm:flex-row items-center lg:justify-end gap-8'>
           <Image src={agencyImg3} alt="content image" className='w-full max-w-[182px] h-[340px] md:relative md:top-10 object-cover' />
-          <VideoViewWithoutFrame videoUrl={res.data.videos[1].url as string ?? ""} videoId='video101' />
+          <VideoViewWithoutFrame videoUrl={res?.data?.videos[1]?.url as string ?? ""} videoId='video101' />
         </div>
       </div>
     </div>

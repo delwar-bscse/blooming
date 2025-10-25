@@ -23,7 +23,6 @@ const BrandProjectDetails = () => {
     const res = await myFetch(`/hire-creator/${id}`, {
       method: "GET",
     });
-    console.log(res?.data);
 
     if (res?.data) {
       toast.success("Order Details fetched successfully!", { id: "fetch" });
@@ -35,7 +34,6 @@ const BrandProjectDetails = () => {
 
   useEffect(() => {
     getOrderDetails();
-    // console.log(orderDetails)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

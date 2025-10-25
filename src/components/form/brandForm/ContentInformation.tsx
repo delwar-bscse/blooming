@@ -58,8 +58,6 @@ const ContentInformation = ({ handleStep }: { handleStep: (step: number) => void
   });
 
   function onSubmit(data: ContactUsFormValues) {
-    // toast.success("Form submitted successfully!");
-    // console.log("Submitted Data:", data);
     setBrandForm((prev) => ({
       ...prev, ...data
     }));

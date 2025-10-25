@@ -16,9 +16,6 @@ const Signup08 = () => {
   const handleCreateAccount = async () => {
     toast.loading("Creating creator account...", { id: "creator-account-loading" });
 
-    // console.log("Creator Form Data size:", creatorForm?.length || 0);
-    // console.log("Creator Form Data:", creatorForm);
-
     const formData = new FormData();
 
     Object.entries(creatorForm).forEach(([key, value]) => {
@@ -33,8 +30,6 @@ const Signup08 = () => {
       method: "POST",
       body: formData,
     });
-
-    // console.log("Response from server:", res);
 
     toast.dismiss("creator-account-loading");
 

@@ -3,7 +3,7 @@
 "use client"
 
 import { useParams, useSearchParams } from 'next/navigation';
-import React, { Suspense, useEffect } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { AnimatePresence, motion } from "framer-motion";
 import CustomStep from '@/components/cui/CustomStep';
 import CreatorProjectDetails from '@/components/cui/CreatorProjectDetails';
@@ -46,16 +46,14 @@ const CreatorProjectDetailsPage = () => {
   const hireCreatorId = params["id"];
   const searchParams = useSearchParams();
   const step = searchParams.get("step");
-
-  console.log("Hirecreator Id: ", hireCreatorId);
+  const [status, setStatus] = useState<string>("");
 
   const getAdminApprovedCreators = async () => {
     toast.loading("Fetching Agreed Creators...", { id: "fetchAgreedCreators" });
     const res = await myFetch(`/hire-creator/all-assigned-creators-by-hirecreator/${hireCreatorId}`);
-    console.log("Creator List : ", res?.data);
 
     if (res?.data) {
-      // console.log(res?.data);
+      setStatus(res?.data[0]?.status || "");
       const modifyDatas = await res?.data?.map((item: any) => {
         return {
           _id: item?._id,
@@ -64,7 +62,7 @@ const CreatorProjectDetailsPage = () => {
           status: item?.status,
         }
       });
-      console.log("Modify Data: ", modifyDatas);
+      
       setCreatorList(modifyDatas);
       toast.success("Agreed Creators Fetched Successfully!", { id: "fetchAgreedCreators" });
     } else {
@@ -119,7 +117,7 @@ const CreatorProjectDetailsPage = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              {creatorList && <CustomTableSelection<TCreator> data={creatorList} columns={creatorListColumns} />}
+              {creatorList && <CustomTableSelection<TCreator> data={creatorList} columns={creatorListColumns} status={status} />}
             </motion.div>
           )}
           {step === "script" && (

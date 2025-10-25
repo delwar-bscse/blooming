@@ -71,8 +71,6 @@ const CharacteristicCreator = ({ handleStep }: { handleStep: (step: number) => v
   });
 
   function onSubmit(data: ContactUsFormValues) {
-    // toast.success("Message send successfully!");
-    // console.log("Submitted Data:", data);
     setBrandForm((prev) => ({
       ...prev, ...data,
     }));

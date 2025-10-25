@@ -53,8 +53,7 @@ const ContactUs = () => {
       body: data
     })
     if (res.success) {
-      // console.log("Contact Us Response from server:", res);
-      toast.success(res.message || "Message send successfully!", { id: "contactus" });
+      toast.success("Message send successfully!", { id: "contactus" });
     } else {
       toast.error(res.message || "Something went wrong!", { id: "contactus" });
     }

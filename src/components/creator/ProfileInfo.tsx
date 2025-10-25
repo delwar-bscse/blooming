@@ -22,28 +22,12 @@ type UserData = {
 const ProfileInfo = () => {
 
   const [userData, setUserData] = useState<Partial<UserData>>({});
-  // Sample data from your backend
-  // const userData2= {
-  //   "_id": "685e12b2aff4a5828e935678",
-  //   "profile": "/uploads/profile/default-user.jpg",
-  //   "fullName": "hggkjg",
-  //   "email": "cayox28621@asimarif.com",
-  //   "role": "user",
-  //   "phone": "",
-  //   "isActive": true,
-  //   "isDeleted": false,
-  //   "address": "",
-  //   "createdAt": "2025-06-27T03:40:34.444Z",
-  //   "updatedAt": "2025-06-27T05:30:29.546Z",
-  //   "__v": 0
-  // };
 
   useEffect(() => {
     async function getUserData() {
       const response = await myFetch("/users/my-profile", {
         method: "GET",
       });
-      // console.log("User Data:", response);
       setUserData(response?.data); 
     }
     getUserData();
