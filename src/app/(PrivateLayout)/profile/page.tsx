@@ -13,6 +13,7 @@ import CustomStep from '@/components/cui/CustomStep';
 import { StepDataType } from '@/types/types';
 import { usePathname, useSearchParams } from 'next/navigation';
 import LoadingSpinner from '@/components/cui/LoadingSpinner';
+import { formatImagePath } from '../../../utils/formatImagePath';
 
 
 const stepDatas: StepDataType[] = [
@@ -63,7 +64,7 @@ const ProfileContent = () => {
 
     if (response?.data?.profile) {
       setUser(response?.data);
-      setImgUrl(response?.data?.profile);
+      setImgUrl(formatImagePath(response?.data?.profile ?? ""));
     }
   }
 

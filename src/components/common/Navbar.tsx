@@ -6,7 +6,6 @@ import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
 import BrandLogo from '@/assets/common/TheSocialChance.png'
-import UserImage from '@/assets/common/user.png'
 
 
 import {
@@ -26,6 +25,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { formatImagePath } from '@/utils/formatImagePath'
 
 
 
@@ -48,6 +48,7 @@ const Navbar = () => {
         tags: ["user"]
       });
       setUser(response?.data);
+      console.log("Navbar : ",response?.data);
     };
     getUser();
   }, [pathname]);
@@ -102,7 +103,7 @@ const Navbar = () => {
           ) : (
             <div className='flex items-center gap-2 cursor-pointer'>
               <Link href="/profile" className='hidden lg:flex items-center gap-3 font-bold text-gray-700'>
-                <Image src={user ? user?.profile : UserImage} alt="User Profile" width={40} height={40} className='w-12 h-12 rounded-full object-fit' />
+                <Image src={formatImagePath(user?.profile ?? "")} alt="User Profile" width={40} height={40} className='w-12 h-12 rounded-full object-fit' />
                 <span>{user?.fullName}</span>
                 </Link>
             </div>
@@ -126,7 +127,7 @@ const Navbar = () => {
                     <li onClick={() => setOpen(false)} className='cursor-pointer hover:bg-gray-100 px-3 py-2 rounded'>
                       <Link href="/profile" className='flex gap-2 items-center'>
                         <span className='w-12 h-12 block rounded-full overflow-hidden border-2 border-primary'>
-                          <Image src={user ? user?.profile : UserImage} alt="User Profile" width={100} height={100} />
+                          <Image src={formatImagePath(user?.profile ?? "")} alt="User Profile" width={100} height={100} />
                         </span>
                         <span className='flex flex-col text-gray-600 text-sm'>
                           {user?.fullName}

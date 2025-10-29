@@ -111,7 +111,7 @@ const BrandVideo = () => {
           ))}
         </div>
         {awsVideoUrls?.length > 0 && isForward && <div className="flex justify-center gap-4 py-6">
-          {revisionCount > 0 && <Button onClick={() => handleRevisionOrDone("revision")} variant="customYellow" type="submit" size="llg" className="w-32">
+          {revisionCount > 0 && status !== "delivered" && <Button onClick={() => handleRevisionOrDone("revision")} variant="customYellow" type="submit" size="llg" className="w-32">
             Revision
           </Button>}
           {status !== "delivered" && <Button type="button" onClick={() => handleRevisionOrDone("delivered")} variant="customYellow" size="llg" className="w-32">
