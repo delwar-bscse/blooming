@@ -14,8 +14,9 @@ export interface IBlog {
   image: string;
   title: string;
   details: string;
-  createdAt: string; // or `Date` if you parse it
-  updatedAt: string; // or `Date` if you parse it
+  detailsTextEditor?: string;
+  createdAt: string;
+  updatedAt: string;
   __v: number;
 }
  
