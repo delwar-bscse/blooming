@@ -37,10 +37,6 @@ export async function generateMetadata(): Promise<Metadata> {
     description: blogDatasJson,
   }
 }
- 
-// export const metadata: Metadata = {
-//   title: 'Blog - The Social Chance',
-// }
 
 
 
@@ -84,7 +80,7 @@ const Blog = async() => {
               <h3 className='text-lg md:text-xl font-bold text-font01'>{data.title}</h3>
               <p className='text-center'>{data.details.slice(0, 100)}</p>
               <div className='w-full max-w-[200px] mx-auto'>
-                <CustomButton text="Read More" url={`/blog/${data._id}`}/>
+                <CustomButton text="Read More" url={`/blog/${data.title}`}/>
               </div>
             </div>
           </div>
