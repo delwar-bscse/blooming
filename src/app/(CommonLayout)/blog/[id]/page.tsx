@@ -41,10 +41,10 @@ const Blog = async ({ params }: { params: Promise<{ id: string }> }) => {
   const blogData = res?.data;
 
   return (
-    <div className='maxWidth space-y-8 pb-16'>
+    <div className='maxWidth space-y-4 py-12'>
 
       {/* -------------------------- blog Image & Title -------------------------- */}
-      <div className='space-y-5 py-8'>
+      <div className='space-y-6'>
         <h2 className='text-xl sm:text-3xl md:text-6xl font-bold text-font02 pb-3'>{blogData?.title}</h2>
         <Image src={formatImagePath(blogData?.image ?? "")} width={800} height={600} alt="cover image" className="rounded" />
       </div>
