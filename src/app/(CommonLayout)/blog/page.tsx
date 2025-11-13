@@ -26,8 +26,6 @@ export async function generateMetadata(): Promise<Metadata> {
   const blogDatas = res?.data?.map((blog: IBlog) => ({
     title: blog.title,
     description: blog.details.slice(0, 100), // Short description for metadata
-    image: formatImagePath(blog.image), // Ensure the image path is formatted correctly
-    url: `/blog/${blog._id}`, // URL for the blog post
   }));
  
   const blogDatasJson = JSON.stringify(blogDatas);

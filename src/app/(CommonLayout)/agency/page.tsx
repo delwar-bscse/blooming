@@ -11,6 +11,7 @@ import VideoViewWithoutFrame from '@/components/cui/VideoViewWithoutFrame'
 
 export const metadata: Metadata = {
   title: 'Agency - The Social Chance',
+  description: "Your Agency. Our Creators. Seamless UGC Delivery. From First-Time Projects to Full-Funnel Campaigns&quot;' des='See the quality and versatility our creative team brings to the table We’re kicking off the foundation of our The Social Chance brands marketing funnel — laying the groundwork for a high-impact campaign, executed in three streamlined steps for maximum efficiency and results. Subtle & StrategicWe fill the gaps your agency doesn’t have. When your clients have hyper-specific creator needs, we step in quietly but powerfully — sourcing the perfect match from our vetted network and handling the details from start to finish."
 }
 
 const Agency = async () => {

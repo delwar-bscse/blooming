@@ -10,7 +10,7 @@ import BrandsChooseSlider from '@/components/section/BrandsChooseSlider'
  
 export const metadata: Metadata = {
   title: 'Portfolio - The Social Chance',
-  description: '&quot;They Bloomed With Us. You Can Too!&quot, Join the growing list of brands thriving with custom UGC content. Let’s find the best fit for your goals  no pressure, just a chat.'
+  description: "They Bloomed With Us. You Can Too! Join the growing list of brands thriving with custom UGC content. New brand looking to be seen? Established brand ready to reignite the spark? No worries! we're here to make it all work for you."
 }
 
 const Protfolio = () => {

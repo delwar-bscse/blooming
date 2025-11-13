@@ -39,7 +39,7 @@ const PackageSection = () => {
   const [packageDatas, setPackageDatas] = useState<IPackage[]>([]);
   const [user, setUser] = useState<any>(null);
 
-   useEffect(() => {
+  useEffect(() => {
     const getUser = async () => {
       const response = await myFetch("/users/my-profile", {
         method: "GET",
@@ -51,16 +51,17 @@ const PackageSection = () => {
   }, []);
 
   useEffect(() => {
-    const getPost = async () => {
+    const getPackages = async () => {
       const res = await myFetch(`/package/packages`, {
         method: "GET",
       })
+      console.log("Package Datas : ", res?.data)
       if (res.success) {
         setPackageDatas(res.data as IPackage[])
       }
 
     }
-    getPost();
+    getPackages();
   }, [])
 
   const handleSelectPackage = (packageId: string) => {
