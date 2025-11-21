@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image"
-import heroImage from "@/assets/common/heroImage2.png"
+import heroImage from "@/assets/common/heroImage3.png"
 import CustomButton from "../ui/CustomButton"
 import { MarqueeDemo } from "../shared/HeroMarquee";
 // import butterfly from "@/assets/common/butterfly.png"
@@ -42,6 +42,7 @@ const HeroSection = () => {
               alt="Hero Image"
               width={500}
               height={500}
+              className="rounded-br-[120px] rounded-tl-[120px] h-76 object-cover"
             />
           </div>
         </div>

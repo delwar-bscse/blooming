@@ -2,7 +2,10 @@
 
 import Image from 'next/image'
 import React from 'react'
-import video_analysis from '@/assets/common/video_analysis.png'
+// import video_analysis from '@/assets/common/video_analysis.png'
+import video_analysis1 from '@/assets/common/video_analysis1.jpeg'
+import video_analysis2 from '@/assets/common/video_analysis2.jpeg'
+import video_analysis3 from '@/assets/common/video_analysis3.jpeg'
 import { motion } from "framer-motion"
 
 const NewBarandLooking = () => {
@@ -21,7 +24,7 @@ const NewBarandLooking = () => {
             viewport={{ once: false }}
             className='mt-12 relative flex flex-col items-center'
           >
-            <Image src={video_analysis} alt="video analysis" />
+            <Image src={video_analysis1} alt="video analysis" />
             <div
               className="absolute -bottom-10 w-[90%] h-8 mx-auto mt-4 bg-gray-400 rounded-b-full blur-md shadow opacity-70"
               style={{
@@ -40,7 +43,7 @@ const NewBarandLooking = () => {
             viewport={{ once: false }}
             className='relative flex flex-col items-center'
           >
-            <Image src={video_analysis} alt="video analysis" />
+            <Image src={video_analysis2} alt="video analysis" />
             <div
               className="absolute -bottom-0 w-[90%] h-8 mx-auto mt-4 bg-gray-400 rounded-b-full blur-md shadow opacity-70"
               style={{
@@ -59,7 +62,7 @@ const NewBarandLooking = () => {
             viewport={{ once: false }}
             className='mt-12 relative flex flex-col items-center'
           >
-            <Image src={video_analysis} alt="video analysis" />
+            <Image src={video_analysis3} alt="video analysis" />
             <div
               className="absolute -bottom-10 w-[90%] h-8 mx-auto mt-4 bg-gray-400 rounded-b-full blur-md shadow opacity-70"
               style={{

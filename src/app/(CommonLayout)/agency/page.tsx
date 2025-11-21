@@ -5,7 +5,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import agencyImg1 from "@/assets/common/agency1.png"
 // import agencyImg2 from "@/assets/common/agency2.jpg"
-import agencyImg3 from "@/assets/common/agency3.png"
+import agencyImg2 from "@/assets/common/agency002.jpg"
+import agencyImg3 from "@/assets/common/agency003.jpg"
 import { myFetch } from '@/utils/myFetch'
 import VideoViewWithoutFrame from '@/components/cui/VideoViewWithoutFrame'
 
@@ -44,7 +45,6 @@ const Agency = async () => {
             </div>
           </div>
         </div>
-
       </div>
 
       {/* Section 02 Video */}
@@ -63,7 +63,7 @@ const Agency = async () => {
           </div>
         </div>
         <div className='w-full md:basis-[50%] flex flex-col sm:flex-row items-center lg:justify-end gap-8'>
-          <Image src={agencyImg3} alt="content image" className='w-full max-w-[182px] h-[340px] md:relative md:top-10 object-cover' />
+          <Image src={agencyImg2} alt="content image" className='w-full max-w-[182px] h-[340px] md:relative md:top-10 object-cover' />
           <VideoViewWithoutFrame videoUrl={res?.data?.videos[0]?.url as string ?? ""} videoId='video100' />
         </div>
       </div>
@@ -80,7 +80,7 @@ const Agency = async () => {
         </div>
         <div className='w-full md:basis-[50%] flex flex-col sm:flex-row items-center lg:justify-end gap-8'>
           <Image src={agencyImg3} alt="content image" className='w-full max-w-[182px] h-[340px] md:relative md:top-10 object-cover' />
-          <VideoViewWithoutFrame videoUrl={res?.data?.videos[1]?.url as string ?? ""} videoId='video101' />
+          <VideoViewWithoutFrame  videoUrl={res?.data?.videos[1]?.url as string ?? ""} videoId='video101' />
         </div>
       </div>
     </div>

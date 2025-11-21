@@ -1,6 +1,6 @@
 import React from 'react'
-import aboutImg2 from "@/assets/common/about02.png"
-import aboutImg3 from "@/assets/common/about03.png"
+import aboutImg2 from "@/assets/common/about002.png"
+import aboutImg3 from "@/assets/common/about003.png"
 import Image from 'next/image'
 import CustomButton from '@/components/ui/CustomButton'
 import TimelineComponent from '@/components/shared/Timeline'
@@ -53,7 +53,7 @@ const About = async () => {
         {/* --------------------------- Our Vision --------------------------- */}
         <div className='parentDiv maxWidth flex flex-col lg:flex-row gap-8 lg:gap-16 py-28'>
           <div className='childDiv transition-transform duration-500 ease-in-out w-full md:basis-[40%]'>
-            <Image src={aboutImg2} alt="The Social Chance Brands" className='' />
+            <Image src={aboutImg2} alt="The Social Chance Brands" className='w-full h-80 object-cover rounded-tl-[80px] rounded-br-[80px]' />
           </div>
           <div className='basis-[60%] flex flex-col justify-center gap-4 lg:p-8'>
             <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold'>Our Vision</h2>
@@ -64,7 +64,7 @@ const About = async () => {
         {/* --------------------------- What We Offer --------------------------- */}
         <div className='parentDiv maxWidth flex flex-col lg:flex-row gap-8 lg:gap-16 pb-28'>
           <div className='childDiv transition-transform duration-500 ease-in-out w-full md:basis-[40%]'>
-            <Image src={aboutImg3} alt="The Social Chance Brands" className='' />
+            <Image src={aboutImg3} alt="The Social Chance Brands" className='w-full h-80 object-cover rounded-tr-[80px] rounded-bl-[80px]' />
           </div>
           <div className='basis-[60%] flex flex-col justify-center gap-8 lg:p-8'>
             <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-center'>It’s time your content worked as hard as you do. See what we offer</h2>

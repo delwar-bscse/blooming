@@ -7,22 +7,50 @@ import SingleChooseUs from '@/components/shared/SingleChooseUs';
 import { turnCreativityDatas } from '@/constants/turnCreativity';
 import { whyChoseUsType } from '@/types/types';
 import Title from '@/components/shared/Title';
-import { motion } from "framer-motion"
-import { TypingAnimation } from "@/components/magicui/typing-animation";
+// import { motion } from "framer-motion"
+// import { TypingAnimation } from "@/components/magicui/typing-animation";
+import Image from 'next/image';
+import agencyImg1 from "@/assets/common/agency1.png"
+// import agencyImg2 from "@/assets/common/agency2.jpg"
+import agencyImg3 from "@/assets/common/agency3.png"
 
 const ForCreator = () => {
   return (
     <div>
-      <div className='flex items-center justify-center bg-[#F6F2EA]/50 px-2' style={{ height: "calc(100vh - 80px)" }}>
+      <div className='flex items-center' style={{ minHeight: "calc(100vh - 60px)" }}>
+        <div className='w-full max-w-[1400px] px-4 mx-auto flex items-center justify-center'>
+          <div className=' flex flex-col-reverse sm:flex-row sm:justify-between py-20'>
+            <div className='sm:basis-[50%] space-y-3'>
+              <h2 className='text-xl md:text-2xl xl:text-3xl font-bold text-font01'>Become a creator and make an impact with us.</h2>
+              <h3 className='text-xl md:text-2xl xl:text-3xl font-bold text-font01'>Your creativity. Our platform. Let’s make it happen.</h3>
+              <p className=' md:text-xl text-font02'>Join The Social Chance and showcase your talent, We handle the details so you can focus on creating content that matters and grow your influence.</p>
+              <div className='max-w-[200px] pt-8'>
+                <CustomButton text="Apply As Creators" url="/creator-signup" />
+              </div>
+            </div>
+            <div className='sm:basis-[50%] h-full flex items-center justify-end'>
+              <div className='flex justify-center w-full gap-8'>
+                <div className=''>
+                  <Image src={agencyImg3} alt="content image" className='relative -bottom-10 w-60 h-80 object-cover' />
+                </div>
+                <div className=''>
+                  <Image src={agencyImg1} alt="content image" className='relative bottom-20 w-72 h-100 object-cover' />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div className='flex items-center justify-center bg-[#F6F2EA]/50 px-2' style={{ height: "calc(100vh - 80px)" }}>
         <div className='relative w-full py-28 space-y-12'>
           <div className='relative z-10 flex flex-col justify-center items-center gap-3'>
-              <TypingAnimation
-                className='text-2xl md:text-3xl xl:text-4xl font-bold text-[#6D715F] capitalize'
-                style={{ textShadow: '2px 2px 6px rgba(1, 1, 0, 0.1)' }}
-                duration={100}
-              >
-                Become a creator and make an impact with us.
-              </TypingAnimation>
+            <TypingAnimation
+              className='text-2xl md:text-3xl xl:text-4xl font-bold text-[#6D715F] capitalize'
+              style={{ textShadow: '2px 2px 6px rgba(1, 1, 0, 0.1)' }}
+              duration={100}
+            >
+              Become a creator and make an impact with us.
+            </TypingAnimation>
             <TypingAnimation
               className='text-2xl md:text-3xl xl:text-4xl font-bold max-md:text-center text-[#6D715F] capitalize'
               style={{ textShadow: '2px 2px 6px rgba(1, 1, 0, 0.1)' }}
@@ -40,10 +68,8 @@ const ForCreator = () => {
           <div className='w-full max-w-[200px] mx-auto'>
             <CustomButton text="Apply As Creators" url="/creator-signup" />
           </div>
-          {/* <Image src={butterfly} alt="butterfly" width={100} height={100} className='absolute top-10 left-10' />
-          <Image src={butterfly} alt="butterfly" width={100} height={100} className='absolute bottom-10 right-10' /> */}
         </div>
-      </div>
+      </div> */}
       <div className='py-28'>
         <div className='block md:sticky md:top-40'>
           <Title title="Turn Your Creativity Into Consistent Paid Work" className="text-center" />
