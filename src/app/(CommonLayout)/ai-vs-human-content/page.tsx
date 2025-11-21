@@ -29,7 +29,7 @@ const Blog = () => {
           </div>
           <div className='flex flex-col-reverse sm:flex-row gap-4 justify-between sm:items-start'>
             <p className='shrink-1'>Following and keeping up to date with digital content trends involves understanding not only the ever-evolving landscape of User  -Generated Content (UGC) but also the emergence of Artificially Generated Content (AGC), particularly the controversial realm of deep fake content created by AI.</p>
-            <h3 className='shrink-0 text-xl md:text-2xl xl:text-3xl font-semibold text-font01 text-center'>The Blooming<br />Brands Agency</h3>
+            <h3 className='shrink-0 text-xl md:text-2xl xl:text-3xl font-semibold text-font01 text-center'>The Social Chance<br />Brands Agency</h3>
           </div>
         </div>
         </div>

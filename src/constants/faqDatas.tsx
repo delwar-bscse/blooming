@@ -4,13 +4,13 @@ import { faqType } from "@/types/types";
 export const faqDatas: faqType[] = [
   {
     id: 1,
-    question: "What does Blooming Brands do?",
+    question: "What does The Social Chance Brands do?",
     answer: "We create high-quality, on-brand User Generated Content (UGC) for brands by connecting them with vetted creators. From unboxings to lifestyle and talking-to-camera videos, we tailor content that resonates with your audience.",
   },
   {
     id: 2,
     question: "How does the process work for brands?",
-    answer: "After selecting a package and submitting the Brand Form, you'll receive a list of creators. Once you choose your preferred creator and send the product, we handle the rest — from scripting to final delivery.",
+    answer: "After selecting a package and submitting the Brand Form, you'll receive a list of creators. Once you choose your preferred creator and send the product, we handle the rest from scripting to final delivery.",
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const faqDatas: faqType[] = [
   {
     id: 6,
     question: "Do I own the content?",
-    answer: "You get unlimited usage rights across all platforms, but the ownership remains with Blooming Brands. You’re free to use",
+    answer: "You get unlimited usage rights across all platforms, but the ownership remains with The Social Chance Brands. You’re free to use",
   },
   {
     id: 7,

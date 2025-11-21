@@ -13,7 +13,7 @@ const Footer = () => {
       <div className='maxWidth flex-1 flex flex-col lg:flex-row gap-12 lg:gap-4'>
         <div className='lg:basis-[50%] pt-8 space-y-8'>
           <h3>
-            <Image src={BrandLogo} alt="Blooming Brands" width={200} height={40} className='w-[200px] h-[90px]' />
+            <Image src={BrandLogo} alt="The Social Chance Brands" width={200} height={40} className='w-[200px] h-[90px]' />
           </h3>
           <div className='flex items-center gap-2'>
             <p>Follow Us : </p>

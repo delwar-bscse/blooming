@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import PackageSection from '@/components/section/PackageSection'
-import SubSection from '@/components/section/SubSection'
+// import SubSection from '@/components/section/SubSection'
 import ContactUsTelephone from '@/components/shared/ContactUsTelephone'
 import React, { Suspense } from 'react'
 import type { Metadata } from 'next'
@@ -29,9 +29,9 @@ const Service = () => {
       <div>
         <PackageSection />
       </div>
-      <>
+      {/* <>
         <SubSection />
-      </>
+      </> */}
       <div>
         <ContactUsTelephone title='Let’s find the best fit for your goals no pressure, just a chat."' />
       </div>

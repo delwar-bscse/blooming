@@ -10,7 +10,7 @@ import TheSister from '@/components/cui/TheSister'
 
 export const metadata: Metadata = {
   title: 'About - The Social Chance',
-  description: "He Sisters Behind Blooming Brands - Shamim and Fareshta Nader — sisters, creatives, and co-founders of Blooming Brands.With degrees in architecture and a deep-rooted love for creativity, we realized after university that the corporate world wasn’t for us. We wanted to build something of our own — something that gave us freedom, purpose, and a way to stay creative every single day.That’s how Blooming Brands was born.As creators ourselves, we understand both sides of the UGC world — the brand expectations and the creator experience. Our mission is to build an agency that empowers creators with real opportunities, and helps brands connect through authentic, scroll-stopping content.We’re not just an agency — we’re a creative home for brands and creators alike. Welcome to the house."
+  description: "Shamim and Fareshta Nader, sisters, creatives, and co-founders of THE SOCIAL CHANCE ugc agency . With degrees in architecture and a deep rooted love for creativity, we realized after university that the corporate world wasn’t for us. We wanted to build something of our own, something that gave us freedom, purpose, and a way to stay creative every single day.That’s how THE SOCIAL CHANCE ugc agency was born. As ex UGC creators ourselves, we understand both sides of the UGC world, the brand expectations and the creator experience. Our mission is to build a UGC agency that empowers UGC creators with real opportunities, and helps brands connect through authentic, scroll stopping content.We’re not just a UGC agency, we’re a creative Chance for brands and UGC creators alike. Welcome to The Social Chance UGC agency. "
 }
 
 
@@ -24,7 +24,7 @@ const About = async () => {
   return (
     <section>
       <div>
-        {/* --------------------------- He Sisters Behind Blooming Brands --------------------------- */}
+        {/* --------------------------- He Sisters Behind The Social Chance Brands --------------------------- */}
         <>
           <TheSister />
         </>
@@ -53,18 +53,18 @@ const About = async () => {
         {/* --------------------------- Our Vision --------------------------- */}
         <div className='parentDiv maxWidth flex flex-col lg:flex-row gap-8 lg:gap-16 py-28'>
           <div className='childDiv transition-transform duration-500 ease-in-out w-full md:basis-[40%]'>
-            <Image src={aboutImg2} alt="Blooming Brands" className='' />
+            <Image src={aboutImg2} alt="The Social Chance Brands" className='' />
           </div>
           <div className='basis-[60%] flex flex-col justify-center gap-4 lg:p-8'>
             <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold'>Our Vision</h2>
-            <p className='lg:leading-8'>Shamim and Fareshta Nader — sisters, creatives, and co-founders of Blooming Brands.With degrees in architecture and a deep-rooted love for creativity, we realized after university that the corporate world wasn’t for us. We wanted to build something of our own — something that gave us freedom, purpose, and a way to stay creative every single day.That’s how Blooming Brands was born.As creators ourselves, we understand both sides of the UGC world — the brand expectations and the creator experience. Our mission is to build an agency that empowers creators with real opportunities, and helps brands connect through authentic, scroll-stopping content.We’re not just an agency — we’re a creative home for brands and creators alike. Welcome to the house. 🏠</p>
+            <p className='lg:leading-8'>At The Social Chance UGC agency, our vision is to redefine how Brands connect with their audiences through Authentic, Creator Driven Content. Built by 2 Sisters and Ex ugc creators with a passion for creativity and storytelling, We believe in the Power of short form video to spark Emotion, Drive action and build Trust. We exist to Empower Creators, not just as freelancers, but as Partners and to help Brands of all sizes stand out in a fast moving Digital World. Our Dream is to be more than a UGC agency. We aim to become a trusted Creative UGC agency, where Talent, Strategy and meaningful Content come together. In five years, We see ourselves Expanding into Social Media Marketing, Launching Digital products and growing a team that leads with Heart, Skill and Purpose.</p>
           </div>
         </div>
 
         {/* --------------------------- What We Offer --------------------------- */}
         <div className='parentDiv maxWidth flex flex-col lg:flex-row gap-8 lg:gap-16 pb-28'>
           <div className='childDiv transition-transform duration-500 ease-in-out w-full md:basis-[40%]'>
-            <Image src={aboutImg3} alt="Blooming Brands" className='' />
+            <Image src={aboutImg3} alt="The Social Chance Brands" className='' />
           </div>
           <div className='basis-[60%] flex flex-col justify-center gap-8 lg:p-8'>
             <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-center'>It’s time your content worked as hard as you do. See what we offer</h2>

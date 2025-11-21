@@ -15,10 +15,10 @@ const TimelineComponent: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-10">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 capitalize">
-            our approach to The Social Chance brands
+            our approach to The Social Chance
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            At The Social Chance brands we believe that every brand has the potential to bloom grow, evolve, and thrive. Our approach is centered around understanding your unique brand story, audience, and goals to craft strategies
+            ‘We believe that every brand has the potential to bloom, grow, evolve, and thrive. Our approach is centered around understanding your unique brand story, audience and goals to craft strategies’
           </p>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-8 mb-20">
@@ -32,7 +32,7 @@ const TimelineComponent: React.FC = () => {
         </div>
         <div className="text-center mb-20">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-            The Story Of The Social Chance Brands
+            The Story Of The Social Chance
           </h1>
         </div>
 
@@ -81,7 +81,7 @@ const TimelineComponent: React.FC = () => {
                       </p>
 
                       {/* Arrow */}
-                      <div className={`hidden md:block absolute z-20 top-10 ${item.side === "left"
+                      <div className={`hidden md:block absolute z-20 top-1/2 transform -translate-y-1/2 ${item.side === "left"
                           ? "right-0 transform translate-x-full"
                           : "left-0 transform -translate-x-full"
                         }`}>

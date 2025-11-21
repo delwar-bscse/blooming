@@ -5,33 +5,33 @@ import startedImg from "@/assets/common/StartedImg.png";
 
 export const timelineData: TimelineItem[]   = [
   {
-    year: "2019",
-    title: "Studying Architecture And Corporate World",
-    description: "We've Been Creating Together Since Childhood And Ever Since Then We've Been Drawing, Building, Imagining.",
+    year: "2011",
+    title: "Where It Began",
+    description: "We’ve always been creatives since childhood always painting, crafting, building. That passion led us to study architecture, but we quickly realized our creativity wasn’t meant to stay behind a desk.",
     side: "right"
   },
   {
     year: "2021",
-    title: "How UGC Changed Us",
-    description: "We Discovered UGC And Instantly Became Addicted To Post Brand Deals. We Grew In Learning How To Script And Learned Content That Brands.",
+    title: "Where Creativity Evolved",
+    description: "Then we discovered UGC and everything clicked. We fell in love with creating content, learned to write converting scripts, and figured out exactly what brands need to grow.",
     side: "left"
   },
   {
     year: "2024",
-    title: "The Idea Sparks",
-    description: "After Months Of Creating, We Know It Was Time To Start Something Bigger...",
+    title: "Our Bigger Vision",
+    description: "After months of creating and growing, we felt it, we knew it was time for something bigger.",
     side: "right"
   },
   {
     year: "2025",
-    title: "Launching The Agency",
-    description: "We Launched 'Blooming Brands' Bringing Our Vision To Life With A Clear Mission...",
+    title: "Our Next Chapter",
+    description: "We launched The Social Chance to take our creativity beyond ourselves, a space where creativity sparks real connections and meaningful impact.",
     side: "left"
   },
   {
-    year: "2025",
-    title: "Our Team Grows",
-    description: "What Started As Two Sisters Is Now A Multi-Talented Creative Agency...",
+    year: "Now",
+    title: "Our Story Continues",
+    description: "What began as two sisters chasing their dreams has grown into a thriving UGC agency, empowering brands and creators to collaborate and produce authentic, impactful content.",
     side: "right"
   }
 ];

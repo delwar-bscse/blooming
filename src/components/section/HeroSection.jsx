@@ -28,7 +28,8 @@ const HeroSection = () => {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut", delay: 2 }}
               viewport={{ once: false }}
-              className='text-[#545454] max-w-[650px] text-center'>whether you are here to create or collaborate this is where it all starts.creator and brand connects a space for authentic collaboration and impactful ugc content
+              className='text-[#545454] max-w-[650px] text-center'>Whether you’re here to create or collaborate, this is where it all starts. A space where creators and brands connect, built for authentic partnerships and impactful UGC content
+
             </motion.p>
             <div className="w-full max-w-[500px] mx-auto flex flex-col md:flex-row gap-4 mt-4">
               <CustomButton text="Apply As Creator" url="/creator-signup" variant="button02" />

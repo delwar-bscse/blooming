@@ -85,7 +85,7 @@ const PackageSection = () => {
       <div className='maxWidth'>
         <div className='space-y-4 pb-20'>
           <h1 className={`${courgette.className} text-3xl dm:text-5xl lg:text-8xl font-semibold text-center text-[#333333] capitalize text-shadow`} style={{ textShadow: '2px 2px 6px rgba(0, 0, 0, 0.1)' }}>our services</h1>
-          <p className='text-center text-[#333333] text-lg font-semibold'>We offer packages and a monthly services. you can purchase now or book a call.</p>
+          <p className='text-center text-[#333333] text-lg font-semibold'>We offer a variety of packages, you can purchase now or book a call.</p>
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10'>

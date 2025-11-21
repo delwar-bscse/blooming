@@ -18,7 +18,7 @@ export const turnCreativityDatas: creativityDataType[] = [
   {
     id: 2,
     title: "Timely Payments",
-    description: "No delays. We pay you on time, every time — because your work deserves respect and reliability.",
+    description: "No delays. We pay you on time, every time because your work deserves respect and reliability.",
     image: creativityImg02
   },
   {
@@ -36,7 +36,7 @@ export const turnCreativityDatas: creativityDataType[] = [
   {
     id: 5,
     title: "Creator Spotlights & Features",
-    description: "Get featured on our website, blog, or social media — we love promoting our creators and helping you grow your presence",
+    description: "Get featured on our website, blog, or social media we love promoting our creators and helping you grow your presence",
     image: creativityImg05
   },
   {
@@ -48,7 +48,7 @@ export const turnCreativityDatas: creativityDataType[] = [
   {
     id: 7,
     title: "No Exclusivity Clauses",
-    description: "Work with other agencies or brands freely — we don’t lock you in. We support your freedom and flexibility.",
+    description: "Work with other agencies or brands freely we don’t lock you in. We support your freedom and flexibility.",
     image: creativityImg07
   }
 ];

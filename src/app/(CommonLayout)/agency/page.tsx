@@ -11,7 +11,7 @@ import VideoViewWithoutFrame from '@/components/cui/VideoViewWithoutFrame'
 
 export const metadata: Metadata = {
   title: 'Agency - The Social Chance',
-  description: "Your Agency. Our Creators. Seamless UGC Delivery. From First-Time Projects to Full-Funnel Campaigns&quot;' des='See the quality and versatility our creative team brings to the table We’re kicking off the foundation of our The Social Chance brands marketing funnel — laying the groundwork for a high-impact campaign, executed in three streamlined steps for maximum efficiency and results. Subtle & StrategicWe fill the gaps your agency doesn’t have. When your clients have hyper-specific creator needs, we step in quietly but powerfully — sourcing the perfect match from our vetted network and handling the details from start to finish."
+  description: "Your Agency. Our Creators. Seamless UGC Delivery. From First-Time Projects to Full-Funnel Campaigns&quot;' des='See the quality and versatility our creative team brings to the table We’re kicking off the foundation of our The Social Chance brands marketing funnel laying the groundwork for a high-impact campaign, executed in three streamlined steps for maximum efficiency and results. Subtle & StrategicWe fill the gaps your agency doesn’t have. When your clients have hyper-specific creator needs, we step in quietly but powerfully sourcing the perfect match from our vetted network and handling the details from start to finish."
 }
 
 const Agency = async () => {
@@ -27,7 +27,7 @@ const Agency = async () => {
           <div className=' flex flex-col-reverse sm:flex-row sm:justify-between py-20'>
             <div className='sm:basis-[50%] space-y-3'>
               <h2 className='text-3xl md:text-4xl xl:text-5xl font-bold text-font01 lg:leading-12'>Your Agency. Our Creators. Seamless UGC Delivery.</h2>
-              <p className=' md:text-xl text-font02'>&quot;We’re kicking off the foundation of our The Social Chance brands marketing funnel — laying the groundwork for a high-impact campaign, executed in three streamlined steps for maximum efficiency and results.&quot;</p>
+              <p className=' md:text-xl text-font02'>Let us handle the content so you can focus on growing your clients.</p>
               <div className='max-w-[200px] pt-8'>
                 <CustomButton text="Contact Us" url='/contact' />
               </div>
@@ -55,7 +55,8 @@ const Agency = async () => {
       {/* Section 03 */}
       <div className='maxWidth flex flex-col-reverse lg:flex-row justify-between items-center py-20 gap-4'>
         <div className='w-full md:basis-[50%] space-y-3'>
-          <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-gray-800'>Warm & Collaborative Unique client needs? We’re built for that. </h2>
+          <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-gray-800'>Warm & Collaborative</h2>
+          <h3 className='text-lg md:text-xl xl:text-2xl font-bold text-gray-800'>Unique client needs? We’re built for that. </h3>
           <p className='text-gray-600'>Whether it’s a hyper-targeted audience or a mainstream campaign, our team handles the heavy lifting. We’ll find the right creators, manage contracts, and deliver content that fits  seamlessly and reliably.</p>
           <div className='max-w-[200px] pt-8'>
             <CustomButton text="Contact Us" url='/contact' />
@@ -70,8 +71,9 @@ const Agency = async () => {
       {/* Section 04 */}
       <div className='maxWidth flex flex-col-reverse sm:flex-row justify-between items-center py-20 gap-4'>
         <div className='basis-[50%] space-y-3'>
-          <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-gray-800'>Subtle & StrategicWe fill the gaps your agency doesn’t have</h2>
-          <p className='text-gray-600'>When your clients have hyper-specific creator needs, we step in quietly but powerfully — sourcing the perfect match from our vetted network and handling the details from start to finish.</p>
+          <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-gray-800'>Subtle & Strategic</h2>
+          <h3 className='text-lg md:text-xl xl:text-2xl font-bold text-gray-800'>We Fill The Gaps Your Agency Needs</h3>
+          <p className='text-gray-600'>When your clients have hyper-specific creator needs, we step in quietly but powerfully sourcing the perfect match from our vetted network and handling the details from start to finish.</p>
           <div className='max-w-[200px] pt-8'>
             <CustomButton text="Contact Us" url='/contact' />
           </div>

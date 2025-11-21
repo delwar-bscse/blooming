@@ -10,7 +10,7 @@ const BloomSection = async ({ title, des }: { title: string, des: string }) => {
     <section className='bg-[#E9EDF2]'>
       <div className='maxWidth py-20'>
         <div className='pb-16'>
-          <BloomHeading title={`See Why Brands Choose "The Social Chance" And Why You Should Too.`} des="Explore real feedback from real clients then start your story with us." />
+          <BloomHeading title={`Work You'd Be Proud To Present To Your Clients`} des="See The Quality And Versatility Our Creative Team Brings To The Table." />
         </div>
         <div>
           <BloomSectionSlider url="/upload-video?category=Landing Page" />

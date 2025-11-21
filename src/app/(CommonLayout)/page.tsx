@@ -19,10 +19,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const metaDescriptions = {
     hero: "Whether you are here to create or collaborate, this is where it all starts. Creators and brands connect in a space for authentic collaboration and impactful UGC content.",
     createContent: "Trusted by 600+ leading creators and brands.",
-    threeStep: "Only 3 steps to get your dream content — quick and hassle-free.",
+    threeStep: "Only 3 steps to get your dream content quick and hassle-free.",
     newBrand: "New brand looking to be seen? Established brand ready to reignite the spark? We're here to make it all work for you.",
     whyChooseBrand: "Explore real feedback from real clients, then start your story with us.",
-    theyBloom: "They Bloomed With Us — Join the growing list of brands thriving with custom UGC content.",
+    theyBloom: "They Bloomed With Us Join the growing list of brands thriving with custom UGC content.",
   };
 
   // --- 2️⃣ Dynamic sections (Dream Content, Why Choose Us, FAQ) --- //
@@ -93,7 +93,7 @@ export default function Home() {
         <NewBarandLooking />
       </div>
 
-      {/*See Why Brands Choose Blooming Brands And Why You Should Too.*/}
+      {/*See Why Brands Choose The Social Chance Brands And Why You Should Too.*/}
       {/*"They Bloomed With Us. You Can Too!"*/}
       <div className="">
         <BloomSection title='&quot;They Bloomed With Us. You Can Too!&quot;' des='Join the growing list of brands thriving with custom UGC content.' />

@@ -17,25 +17,25 @@ const ForCreator = () => {
         <div className='relative w-full py-28 space-y-12'>
           <div className='relative z-10 flex flex-col justify-center items-center gap-3'>
               <TypingAnimation
-                className='text-2xl md:text-3xl xl:text-6xl font-bold text-[#6D715F] capitalize'
+                className='text-2xl md:text-3xl xl:text-4xl font-bold text-[#6D715F] capitalize'
                 style={{ textShadow: '2px 2px 6px rgba(1, 1, 0, 0.1)' }}
                 duration={100}
               >
-                want to become
+                Become a creator and make an impact with us.
               </TypingAnimation>
             <TypingAnimation
-              className='text-2xl md:text-3xl xl:text-6xl font-bold max-md:text-center text-[#6D715F] capitalize'
+              className='text-2xl md:text-3xl xl:text-4xl font-bold max-md:text-center text-[#6D715F] capitalize'
               style={{ textShadow: '2px 2px 6px rgba(1, 1, 0, 0.1)' }}
               delay={2400} duration={100}
             >
-              a creator partner with &quot;the social chance&quot; ?
+              Your creativity. Our platform. Let’s make it happen.
             </TypingAnimation>
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut", delay: 7 }}
               viewport={{ once: false }}
-              className=' text-sm lg:text-xl text-center max-w-[1000px] text-font02 pt-4'>&quot;We’re kicking off the foundation of our The Social Chance brands marketing funnel — laying the groundwork for a high-impact campaign, executed in three streamlined steps for maximum efficiency and results.&quot;</motion.p>
+              className=' text-sm lg:text-xl text-center max-w-[1000px] text-font02 pt-4'>Join The Social Chance and showcase your talent, We handle the details so you can focus on creating content that matters and grow your influence.</motion.p>
           </div>
           <div className='w-full max-w-[200px] mx-auto'>
             <CustomButton text="Apply As Creators" url="/creator-signup" />

@@ -11,7 +11,7 @@ const WhyChooseUs = () => {
   return (
     <div className='space-y-14 px-2'>
       <div className=''>
-        <Title title="Why Choose Us" className='xl:text-5xl text-center'/>
+        <Title title="Why Choose Us ?" className='xl:text-5xl text-center'/>
       </div>
       {/* <div className='relative maxWidth'>
         {whyChoseUsDatas?.map((item: whyChoseUsType) => (
