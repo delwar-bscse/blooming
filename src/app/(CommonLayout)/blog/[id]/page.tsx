@@ -15,19 +15,9 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   })
   const blog: IBlog = res?.data;
 
-  const blogData = {
-    title: blog?.title ?? "",
-    description: blog.details.slice(0, 100) ?? "",
-    detailsTextEditor: blog?.detailsTextEditor ?? "",
-    image: formatImagePath(blog.image ?? ""),
-    url: `/blog/${blog._id}`,
-  }
-
-  const blogJson = JSON.stringify(blogData);
-
   return {
-    title: 'Blog - The Social Chance',
-    description: blogJson,
+    title: blog?.title ?? 'Blog - The Social Chance',
+    description: blog.details ?? "",
   }
 }
 

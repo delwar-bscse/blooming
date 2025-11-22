@@ -3,8 +3,8 @@ import CustomButton from '@/components/ui/CustomButton'
 import React from 'react'
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import agencyImg1 from "@/assets/common/agency1.png"
-// import agencyImg2 from "@/assets/common/agency2.jpg"
+import agencyHero01 from "@/assets/common/agencyHero01.jpg"
+import agencyHero02 from "@/assets/common/agencyHero02.jpg"
 import agencyImg2 from "@/assets/common/agency002.jpg"
 import agencyImg3 from "@/assets/common/agency003.jpg"
 import { myFetch } from '@/utils/myFetch'
@@ -36,10 +36,10 @@ const Agency = async () => {
             <div className='sm:basis-[50%] h-full flex items-center justify-end'>
               <div className='flex justify-center w-full gap-8'>
                 <div className=''>
-                  <Image src={agencyImg3} alt="content image" className='relative -bottom-10 w-60 h-80 object-cover' />
+                  <Image src={agencyHero01} alt="content image" className='relative -bottom-10 w-60 h-80 object-cover' />
                 </div>
                 <div className=''>
-                  <Image src={agencyImg1} alt="content image" className='relative bottom-20 w-72 h-100 object-cover' />
+                  <Image src={agencyHero02} alt="content image" className='relative bottom-20 w-72 h-100 object-cover' />
                 </div>
               </div>
             </div>

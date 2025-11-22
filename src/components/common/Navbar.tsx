@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 import BrandLogo from '@/assets/common/TheSocialChance.png'
 
@@ -33,7 +34,7 @@ import { formatImagePath } from '@/utils/formatImagePath'
 const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
   const pathname = usePathname();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const router = useRouter();
   const [user, setUser] = useState<any>(null);
 
   const isActive = (url: string) => {
@@ -79,7 +80,6 @@ const Navbar = () => {
             <DropdownMenuTrigger className='px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 cursor-pointer'>More...</DropdownMenuTrigger>
             <DropdownMenuContent>
               {navbarItems2.map((item) => {
-                if (item.title === 'My Package' && user?.role !== "user") return null; // Hide 'My Package' if user is not logged in
                 return (
                   <DropdownMenuItem
                     key={item.id}
@@ -87,8 +87,10 @@ const Navbar = () => {
                       ? 'bg-[#FFECAC] text-primary font-bold'
                       : 'hover:bg-[#FFECAC]'
                       }`}
+                      onClick={()=>{router.push(item.url)}}
                   >
-                    <Link href={item.url}>{item.title}</Link>
+                    {/* <Link href={item.url}>{item.title}</Link> */}
+                    {item.title}
                   </DropdownMenuItem>
                 )
               })}

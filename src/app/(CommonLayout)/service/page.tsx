@@ -12,13 +12,17 @@ export async function generateMetadata(): Promise<Metadata> {
     method: "GET",
   });
 
-  const formatedData = resPackages?.data.map((item: any) => { return { title: item?.title, subtitle: item?.subtitle, type: item?.type } });
+  let formatedData = "";
+  resPackages?.data.forEach((item: any) => { 
+    formatedData += item?.title + " " + item?.subtitle + " " + item?.type + " ";
+    // return { title: item?.title, subtitle: item?.subtitle, type: item?.type } 
+  });
 
-  const services = JSON.stringify(formatedData);
+  // const services = JSON.stringify(formatedData);
 
   return {
     title: 'Service - The Social Chance',
-    description: `Service: ${services}`,
+    description: formatedData,
   }
 }
 

@@ -19,26 +19,25 @@ export interface IBlog {
   updatedAt: string;
   __v: number;
 }
- 
+
 export async function generateMetadata(): Promise<Metadata> {
- 
   const res = await myFetch("/blog");
-  const blogDatas = res?.data?.map((blog: IBlog) => ({
-    title: blog.title,
-    description: blog.details.slice(0, 100), // Short description for metadata
-  }));
- 
-  const blogDatasJson = JSON.stringify(blogDatas);
- 
+  let blogDescription = "";
+
+  res?.data?.forEach((blog: IBlog) => {
+    blogDescription += blog?.title;
+  });
+
   return {
-    title: 'Blog - The Social Chance',
-    description: blogDatasJson,
-  }
+    title: "Blog - The Social Chance",
+    description: blogDescription,
+  };
 }
 
 
 
-const Blog = async() => {
+
+const Blog = async () => {
 
   const res = await myFetch("/blog");
   const blogDatas = res?.data;
@@ -46,15 +45,15 @@ const Blog = async() => {
   return (
     <div className='pb-20'>
       <div className='max-w-[1400px] mx-auto h-[500px] flex justify-between items-center bg-gray-800 bg-no-repeat bg-cover relative' style={{ backgroundImage: `url(${blogHeroImg?.src})` }}>
-        
-          <div className='h-[80%] w-full md:max-w-[50%] ml-20 px-2 py-1 md:px-10 md:py-4 bg-white flex flex-col justify-center items-end customShadow3 gap-3'>
-            <h1 className='text-3xl md:text-4xl xl:text-5xl font-bold text-font01 lg:leading-16'>{blogDatas[0]?.title}</h1>
-            <p>{blogDatas[0]?.details.slice(0, 120)}...</p>
-            {/* <Link href={`/blog/${blogDatas[0]?._id}`} className='mt-4 bg-yellow-200 px-6 py-1 rounded-md'>Read More</Link> */}
-            <div className='w-full max-w-[200px]'>
-                <CustomButton text="Read More" url={`/blog/${blogDatas[0]?._id}`} className='customShadow3'/>
-              </div>
+
+        <div className='h-[80%] w-full md:max-w-[50%] ml-20 px-2 py-1 md:px-10 md:py-4 bg-white flex flex-col justify-center items-end customShadow3 gap-3'>
+          <h1 className='text-3xl md:text-4xl xl:text-5xl font-bold text-font01 lg:leading-16'>{blogDatas[0]?.title}</h1>
+          <p>{blogDatas[0]?.details.slice(0, 120)}...</p>
+          {/* <Link href={`/blog/${blogDatas[0]?._id}`} className='mt-4 bg-yellow-200 px-6 py-1 rounded-md'>Read More</Link> */}
+          <div className='w-full max-w-[200px]'>
+            <CustomButton text="Read More" url={`/blog/${blogDatas[0]?._id}`} className='customShadow3' />
           </div>
+        </div>
       </div>
       {/* <div className='max-w-[1400px] mx-auto h-[500px] flex justify-between items-center bg-gray-800'>
         <div className='basis-[40%] h-full relative'>
@@ -69,7 +68,7 @@ const Blog = async() => {
         <h2 className='text-2xl md:text-3xl xl:text-5xl font-bold text-[#6D715F] text-center'>Latest Stories</h2>
       </div>
       <div className='maxWidth grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16'>
-        {blogDatas?.map((data : IBlog)=>(
+        {blogDatas?.map((data: IBlog) => (
           <div key={data._id} className='parentDiv rounded-lg customShadow4 p-4 space-y-4'>
             <div className='rounded-lg overflow-hidden'>
               <Image src={formatImagePath(data.image)} width={500} height={300} alt="content image" className='object-cover w-full h-[240px] childDiv transition-transform duration-500 ease-in-out' />
@@ -78,7 +77,7 @@ const Blog = async() => {
               <h3 className='text-lg md:text-xl font-bold text-font01'>{data.title}</h3>
               <p className='text-center'>{data.details.slice(0, 100)}</p>
               <div className='w-full max-w-[200px] mx-auto'>
-                <CustomButton text="Read More" url={`/blog/${data.title}`}/>
+                <CustomButton text="Read More" url={`/blog/${data.title}`} />
               </div>
             </div>
           </div>

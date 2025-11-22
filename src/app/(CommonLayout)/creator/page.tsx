@@ -1,17 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Metadata } from 'next';
 import ForCreator from '@/components/section/ForCreator';
 import { turnCreativityDatas } from '@/constants/turnCreativity';
-import { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
 
-  const formatedData = turnCreativityDatas?.map((item: any) => { return { title: item?.title, description: item?.description} });
-
-  const creatorsData = JSON.stringify(formatedData);
+  let formatedData = "";
+  turnCreativityDatas?.forEach((item: any) => {
+    formatedData += item?.title + " " + item?.description + " ";
+  });
 
   return {
     title: 'Creator - The Social Chance',
-    description: `${creatorsData}`,
+    description: formatedData,
   }
 }
 
