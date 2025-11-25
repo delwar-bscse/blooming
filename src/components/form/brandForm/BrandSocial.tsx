@@ -54,7 +54,7 @@ const BrandSocial = ({ handleStep }: { handleStep: (step: number) => void }) => 
   }
 
   return (
-    <div className="w-full max-w-[600px] mx-auto px-2 flex text-center justify-center">
+    <div className="w-full max-w-[540px] mx-auto px-2 flex text-center justify-center">
       <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-2xl">
         <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Brand Social</h2>
         <Form {...form}>

@@ -13,6 +13,7 @@ export interface IBlog {
   _id: string;
   image: string;
   title: string;
+  slug: string;
   details: string;
   detailsTextEditor?: string;
   createdAt: string;
@@ -51,7 +52,7 @@ const Blog = async () => {
           <p>{blogDatas[0]?.details.slice(0, 120)}...</p>
           {/* <Link href={`/blog/${blogDatas[0]?._id}`} className='mt-4 bg-yellow-200 px-6 py-1 rounded-md'>Read More</Link> */}
           <div className='w-full max-w-[200px]'>
-            <CustomButton text="Read More" url={`/blog/${blogDatas[0]?._id}`} className='customShadow3' />
+            <CustomButton text="Read More" url={`/blog/${blogDatas[0]?.slug}`} className='customShadow3' />
           </div>
         </div>
       </div>
@@ -69,15 +70,17 @@ const Blog = async () => {
       </div>
       <div className='maxWidth grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16'>
         {blogDatas?.map((data: IBlog) => (
-          <div key={data._id} className='parentDiv rounded-lg customShadow4 p-4 space-y-4'>
+          <div key={data._id} className='parentDiv rounded-lg customShadow4 p-4 space-y-4 flex flex-col '>
             <div className='rounded-lg overflow-hidden'>
               <Image src={formatImagePath(data.image)} width={500} height={300} alt="content image" className='object-cover w-full h-[240px] childDiv transition-transform duration-500 ease-in-out' />
             </div>
-            <div className='flex flex-col items-center gap-4'>
-              <h3 className='text-lg md:text-xl font-bold text-font01'>{data.title}</h3>
-              <p className='text-center'>{data.details.slice(0, 100)}</p>
+            <div className='flex-1 flex flex-col justify-between items-center gap-4'>
+              <div className='flex-1 flex flex-col items-center gap-2 text-center'>
+                <h3 className='text-lg md:text-xl font-bold text-font01'>{data.title}</h3>
+                <p className='text-center'>{data.details.slice(0, 100)}</p>
+              </div>
               <div className='w-full max-w-[200px] mx-auto'>
-                <CustomButton text="Read More" url={`/blog/${data.title}`} />
+                <CustomButton text="Read More" url={`/blog/${data?.slug}`} />
               </div>
             </div>
           </div>

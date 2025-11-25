@@ -39,7 +39,7 @@ function BrandFormSuspense() {
           {formStep === 6 && <FinalMessage />}
 
           {formStep !== 6 && <div className="w-full px-2">
-            <div className="w-full max-w-[588px] flex justify-center items-center bg-[#56515166] rounded-xl mx-auto  gap-2 md:gap-4 h-10 py-2 px-2">
+            <div className="w-full max-w-[528px] flex justify-center items-center bg-[#56515166] rounded-xl mx-auto  gap-2 md:gap-4 h-10 py-2 px-2">
               {[...Array(5)].map((_, idx) => (
                 <div
                   onClick={() => handleStep(idx + 1)}

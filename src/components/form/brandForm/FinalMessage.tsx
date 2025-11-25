@@ -109,7 +109,7 @@ const FinalMessage = () => {
 
 
   return (
-    <div className="w-full max-w-[600px] mx-auto px-2 h-full flex text-center justify-center items-center">
+    <div className="w-full max-w-[540px] mx-auto px-2 h-full flex text-center justify-center items-center">
       <div className="bg-white px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-2xl">
         <p className="text-lg md:text-xl font-bold text-left text-gray-700">Please Select Payment Option And Continue</p>
         <div className="flex flex-col items-start gap-2 mt-4">
