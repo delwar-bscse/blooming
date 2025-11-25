@@ -142,7 +142,7 @@ const CharacteristicCreator = ({ handleStep }: { handleStep: (step: number) => v
                 <FormItem>
                   <FormLabel className="text-white text-lg">Location Of The Creator</FormLabel>
                   <FormControl>
-                    <Input variant="borderwhite" placeholder="Type..." {...field} />
+                    <Input variant="borderwhite" placeholder="Type here..." {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -158,7 +158,7 @@ const CharacteristicCreator = ({ handleStep }: { handleStep: (step: number) => v
                 <FormItem>
                   <FormLabel className="text-white text-lg">Any Special Request</FormLabel>
                   <FormControl>
-                    <Input variant="borderwhite" placeholder="Scripting" {...field} />
+                    <Input variant="borderwhite" placeholder="Type here..." {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -223,7 +223,7 @@ const CharacteristicCreator = ({ handleStep }: { handleStep: (step: number) => v
                 <FormItem>
                   <FormLabel className="text-white text-lg">What Does Your Product Solve For Them ?</FormLabel>
                   <FormControl>
-                    <Input variant="borderwhite" placeholder="Scripting" {...field} />
+                    <Input variant="borderwhite" placeholder="Type here" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -238,7 +238,7 @@ const CharacteristicCreator = ({ handleStep }: { handleStep: (step: number) => v
                 <FormItem>
                   <FormLabel className="text-white text-lg">Share 2-3 Link Of Your Top Performing Ads From Last 30 Days</FormLabel>
                   <FormControl>
-                    <Input variant="borderwhite" placeholder="Scripting" {...field} />
+                    <Input variant="borderwhite" placeholder="Type here" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
