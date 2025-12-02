@@ -6,7 +6,7 @@ type Variant = 'button01' | 'button02'
 
 const variantClasses: Record<Variant, string> = {
   button01: 'py-2 px-3',
-  button02: 'lg:py-3 lg:px-4 py-2 px-3',
+  button02: 'lg:py-3 lg:px-4 py-2 px-3 customShadow1',
 }
 
 const CustomButton = ({

@@ -5,7 +5,7 @@ export const faqDatas: faqType[] = [
   {
     id: 1,
     question: "What does The Social Chance do?",
-    answer: "We create high-quality, on-brand User Generated Content (UGC) for brands by connecting them with vetted creators. From unboxings to lifestyle and talking-to-camera videos, we tailor content that resonates with your audience.",
+    answer: "We create high quality, on brand User Generated Content (UGC) for brands by connecting them with vetted creators. From unboxings to lifestyle and talking to camera videos, we tailor content that resonates with your audience.",
   },
   {
     id: 2,
@@ -20,12 +20,12 @@ export const faqDatas: faqType[] = [
   {
     id: 4,
     question: "What kind of videos can I get?",
-    answer: "We offer formats like unboxing, lifestyle content, skits, voiceovers, greenscreen, and talking-to-camera videos. You can choose based on your campaign goals.",
+    answer: "We offer formats like unboxing, lifestyle content, skits, voiceovers, greenscreen, and talking to camera videos. You can choose based on your campaign goals.",
   },
   {
     id: 5,
     question: " What’s the turnaround time?",
-    answer: "The average turnaround time is 4 days after script approval (excluding shipping). We always keep you updated along the way.",
+    answer: "The average turnaround time is 7 days after script approval (excluding shipping). We always keep you updated along the way.",
   },
   {
     id: 6,
@@ -45,11 +45,11 @@ export const faqDatas: faqType[] = [
   {
     id: 9,
     question: "What if I’m unsure which package is right for me?",
-    answer: "Yes! We offer monthly subscription models for brands looking for consistent, fresh UGC content. Contact us to tailor a plan that fits your goals.",
+    answer: "Contact us to tailor a plan that fits your goals.",
   },
-  {
-    id: 10,
-    question: "Do You Offer Monthly Packages Or Subscriptions?",
-    answer: "Yes! We Offer Monthly Subscription Models For Brands Looking For Consistent, Fresh UGC Content. Contact Us To Tailor A Plan That Fits Your Goals.",
-  }
+  // {
+  //   id: 10,
+  //   question: "Do You Offer Monthly Packages Or Subscriptions?",
+  //   answer: "Yes! We Offer Monthly Subscription Models For Brands Looking For Consistent, Fresh UGC Content. Contact Us To Tailor A Plan That Fits Your Goals.",
+  // }
 ];

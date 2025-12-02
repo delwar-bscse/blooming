@@ -249,6 +249,9 @@
   .customShadow2 {
     @apply shadow-[0_0_5px_rgba(0,0,0,0.1)];
   }
+  .customShadow21 {
+    @apply shadow-[0_0_5px_rgba(0,0,20,0.2)];
+  }
   .customShadow3 {
     @apply shadow-[0_0_10px_rgba(0,0,0,0.5)];
   }

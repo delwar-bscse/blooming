@@ -69,8 +69,8 @@ const Navbar = () => {
             <li
               key={item.id}
               className={`cursor-pointer px-3 hover:scale-105 py-1 rounded-sm transition-all duration-300 customShadow ${isActive(item.url)
-                ? 'bg-[#FFECAC] text-primary font-bold'
-                : 'hover:bg-[#FFECAC]'
+                ? 'bg-[#FFECAC] text-primary font-bold customShadow21'
+                : 'hover:bg-[#FFECAC]  hover:customShadow21'
                 }`}
             >
               <Link href={item.url}>{item.title}</Link>
