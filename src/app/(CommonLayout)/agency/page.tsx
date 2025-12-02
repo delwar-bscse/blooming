@@ -3,8 +3,8 @@ import CustomButton from '@/components/ui/CustomButton'
 import React from 'react'
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import agencyHero01 from "@/assets/common/agencyHero01.jpg"
-import agencyHero02 from "@/assets/common/agencyHero02.jpg"
+import agencyHero01 from "@/assets/common/agency3.png"
+import agencyHero02 from "@/assets/common/agency1.jpg"
 import agencyImg2 from "@/assets/common/agency002.jpg"
 import agencyImg3 from "@/assets/common/agency003.jpg"
 import { myFetch } from '@/utils/myFetch'

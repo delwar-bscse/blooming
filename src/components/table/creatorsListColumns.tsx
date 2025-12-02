@@ -9,7 +9,7 @@ import { PiEyeLight } from "react-icons/pi";
 export const creatorListColumns: ColumnDef<TCreator>[] = [
   {
     accessorKey: "_id",
-    header: () => <div className="text-center">No.</div>,
+    header: () => <div className="text-center">Creator ID</div>,
     cell: ({ row }) => (
       <div className="capitalize text-center">{row.getValue("_id")}</div>
     ),

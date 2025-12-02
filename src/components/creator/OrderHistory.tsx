@@ -37,9 +37,9 @@ export type OrderDataType = {
 export const columns: ColumnDef<OrderDataType>[] = [
   {
     accessorKey: "id",
-    header: () => <div className="text-center">ID</div>,
+    header: () => <div className="text-center">Order ID</div>,
     cell: ({ row }) => (
-      <div className="capitalize text-center">#00{row.getValue("id")}</div>
+      <div className="capitalize text-center">{row.getValue("id")}</div>
     ),
   },
   {
@@ -96,10 +96,12 @@ export function OrderHistory() {
 
   const getBrandOrders = async() => { 
     const res = await myFetch(`/hire-creator/user`);
+    console.log("Order List : ", res?.data)
     if (res.success) {
       const formatData = res.data.map((item: any) => {
         return {
           id: item._id,
+          hireCreatorId: item.hireCreatorId,
           deadline: item.createdAt,
           amount: item.brandPrice || 0,
           status: item.status,
