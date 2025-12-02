@@ -87,6 +87,7 @@ const FinalMessage = () => {
       method: "POST",
       body: payload,
     })
+    console.log("order res", res);
 
     if (res?.success) {
       toast.success(res?.message || "Order created successfully!", { id: "loading" });

@@ -24,13 +24,13 @@ const CreatorAndBrands = () => {
         </div>
         <div className='flex items-center justify-center'>
           <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.8 }}
+            initial={{ opacity: 0, y: 40, scale: 0.9 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             whileHover={{ scale: 1.05 }}
-            transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
             viewport={{ once: false }}
           >
-            <Image src={mapImage} width={1200} height={600} alt="creator and brands" className='w-full h-auto mx-auto'/>
+            <Image src={mapImage} width={1600} height={800} alt="creator and brands" className='w-full h-auto mx-auto object-cover'/>
           </motion.div>
         </div>
       </div>

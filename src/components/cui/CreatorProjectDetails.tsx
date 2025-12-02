@@ -10,6 +10,22 @@ import LoveEmogi from "@/assets/common/loveEmoji.png"
 
 
 
+function toTitleWords(str: string) {
+  if (str === "isUgc5Photos") {
+    return "UGC 5 Photos";
+  }
+  // remove leading "is" only if it appears at the beginning
+  const newStr = str.replace(/^is(?=[A-Z])/, "");
+
+  return newStr
+    .replace(/([A-Z])/g, " $1")
+    .replace(/^./, c => c.toUpperCase());
+}
+
+
+
+
+
 
 const BrandProjectDetails = () => {
   const [orderDetails, setOrderDetails] = useState<TOrdersData>({} as TOrdersData);
@@ -23,6 +39,8 @@ const BrandProjectDetails = () => {
     const res = await myFetch(`/hire-creator/${id}`, {
       method: "GET",
     });
+
+    console.log("Order Details :", res?.data);
 
     if (res?.data) {
       toast.success("Order Details fetched successfully!", { id: "fetch" });
@@ -77,7 +95,7 @@ const SubComponent = ({ title, list }: { title: string; list: any }) => {
         {Object.entries(list)?.map(([key, value], index) => {
           if (key === "_id") return null;
           return <li key={index} className="list-disc list-inside pl-4 text-gray-600">
-            <span className="font-semibold text-gray-700 text-lg capitalize">{key ?? ""}:</span><br />
+            <span className="font-semibold text-gray-700 text-lg capitalize">{toTitleWords(key) ?? ""}:</span><br />
             <span className="pl-6">{String(value)}</span>
           </li>
         })}

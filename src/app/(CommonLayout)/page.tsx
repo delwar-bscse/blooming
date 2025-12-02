@@ -83,7 +83,7 @@ export default function Home() {
         <CreatorAndBrands />
       </div>
 
-      {/* only 3 steps to get your dream content  */}
+      {/* Only 3 steps to get your dream content  */}
       <div className="py-10">
         <DreamContent />
       </div>

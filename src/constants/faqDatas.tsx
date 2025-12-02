@@ -4,7 +4,7 @@ import { faqType } from "@/types/types";
 export const faqDatas: faqType[] = [
   {
     id: 1,
-    question: "What does The Social Chance Brands do?",
+    question: "What does The Social Chance do?",
     answer: "We create high-quality, on-brand User Generated Content (UGC) for brands by connecting them with vetted creators. From unboxings to lifestyle and talking-to-camera videos, we tailor content that resonates with your audience.",
   },
   {
@@ -30,7 +30,7 @@ export const faqDatas: faqType[] = [
   {
     id: 6,
     question: "Do I own the content?",
-    answer: "You get unlimited usage rights across all platforms, but the ownership remains with The Social Chance Brands. You’re free to use",
+    answer: "You get unlimited usage rights across all platforms, but the ownership remains with The Social Chance. You’re free to use",
   },
   {
     id: 7,

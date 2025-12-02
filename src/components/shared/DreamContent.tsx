@@ -10,8 +10,8 @@ const DreamContent = () => {
     <div>
       <div className='max-w-[1000px] mx-auto px-4 md:px-12'>
         <div className='flex flex-col items-center gap-2 py-10'>
-          <h2 className='inline-block p-2 sm:px-8 sm:py-3 rounded-md text-2xl md:text-3xl xl:text-4xl font-semibold text-gray-800 bg-[#F6F2EA]'>only 3 steps to get your dream content</h2>
-          <p>Collaborating with us is quick and hassle-free with only 3 steps</p>
+          <h2 className='inline-block p-2 sm:px-8 sm:py-3 rounded-md text-2xl md:text-3xl xl:text-4xl font-semibold text-gray-800 bg-[#F6F2EA]'>Only 3 steps to get your dream content</h2>
+          {/* <p>Collaborating with us is quick and hassle-free with only 3 steps</p> */}
         </div>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8'>
           {dreamContentDatas?.map((item) => (
@@ -23,11 +23,13 @@ const DreamContent = () => {
                 loop
                 autoplay
               />
-              <div className='flex items-center gap-2 capitalize'>
-                <span className='h-10 w-10 font-bold flex items-center justify-center text-gray-800 rounded-full bg-[#EBE2D1]'>{item.id}</span>
-                <h3 className="text-[#6D715F] text-xl font-semibold">{item.title}</h3>
+              <div className='px-2.5 space-y-2'>
+                <div className='flex items-center gap-2 capitalize'>
+                  <span className='h-10 w-10 font-bold flex items-center justify-center text-gray-800 rounded-full bg-[#EBE2D1]'>{item.id}</span>
+                  <h3 className="text-[#6D715F] text-xl font-semibold">{item.title}</h3>
+                </div>
+                <p className="text-[#6D715F] text-sm capitalize">{item.description}</p>
               </div>
-              <p className="text-[#6D715F] capitalize">{item.description}</p>
             </div>
           ))}
         </div>

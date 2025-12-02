@@ -10,7 +10,7 @@ const SingleChooseUs = ({item}:{item:whyChoseUsType}) => {
         <p className='text-gray-500 text-sm lg:text-lg'>{item.description}</p>
       </div>
       <div className={`sm:basis-[30%] flex justify-center items-center`}>
-        <Image id="singleChooseUsImg" src={item.image} alt={item.title} width={200} height={200} className='transition-transform duration-500 ease-in-out'/>
+        <Image id="singleChooseUsImg" src={item.image} alt={item.title} width={1000} height={1000} className='transition-transform duration-500 ease-in-out'/>
       </div>
     </div>
   )

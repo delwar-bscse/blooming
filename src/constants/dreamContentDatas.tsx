@@ -19,7 +19,7 @@ export const dreamContentDatas: dreamContentDatasType[] = [
   {
     id: 3,
     title: "Receive Your Content",
-    description: "We’ll bring your vision to life with scroll-stopping UGC tailored to your audience.",
+    description: "We’ll bring your vision to life with scroll stopping UGC tailored to your audience.",
     image: dreamContent03
   }
 ];

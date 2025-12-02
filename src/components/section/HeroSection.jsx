@@ -4,8 +4,8 @@ import heroImage from "@/assets/common/heroImage3.png"
 import CustomButton from "../ui/CustomButton"
 import { MarqueeDemo } from "../shared/HeroMarquee";
 // import butterfly from "@/assets/common/butterfly.png"
-import { TypingAnimation } from "@/components/magicui/typing-animation";
-import { SparklesText } from "@/components/magicui/sparkles-text";
+// import { TypingAnimation } from "@/components/magicui/typing-animation";
+// import { SparklesText } from "@/components/magicui/sparkles-text";
 import { motion } from "framer-motion"
 import HeroSectionSlider from "./HeroSectionSlider";
 
@@ -16,7 +16,7 @@ const HeroSection = () => {
       <div className="relative z-10">
         <div className="parentDiv relative z-10 maxWidth flex flex-col-reverse sm:flex-row items-center justify-between gap-10 p-5">
           <div className=" basis-[60%] flex flex-col justify-center items-center gap-6">
-            <SparklesText>
+            {/* <SparklesText>
               <TypingAnimation className='text-[#636C43] text-3xl md:text-5xl lg:text-7xl font-bold text-center' startOnView={true} duration={100}
                 style={{ textShadow: '4px 4px 8px rgba(1, 1, 0, 0.6)' }}
               >
@@ -30,7 +30,11 @@ const HeroSection = () => {
               viewport={{ once: false }}
               className='text-[#545454] max-w-[650px] text-center'>Whether you’re here to create or collaborate, this is where it all starts. A space where creators and brands connect, built for authentic partnerships and impactful UGC content
 
-            </motion.p>
+            </motion.p> */}
+            <div>
+              <h2 className='text-center text-2xl md:text-4xl xl:text-5xl font-bold text-gray-700 pb-4 capitalize'>The Social Chance</h2>
+              <p className='text-[#545454] max-w-[650px] text-center'>Whether you’re here to create or collaborate, this is where it all starts. A space where creators and brands connect, built for authentic partnerships and impactful UGC content</p>
+            </div>
             <div className="w-full max-w-[500px] mx-auto flex flex-col md:flex-row gap-4 mt-4">
               <CustomButton text="Apply As Creator" url="/creator-signup" variant="button02" />
               <CustomButton text="Hire a Creator" url="/service" variant="button02" />
@@ -40,9 +44,9 @@ const HeroSection = () => {
             <Image
               src={heroImage}
               alt="Hero Image"
-              width={500}
-              height={500}
-              className="rounded-br-[120px] rounded-tl-[120px] h-76 object-cover"
+              width={460}
+              height={400}
+              className="rounded-br-[80px] sm:rounded-br-[100px] md:rounded-br-[120px] rounded-tl-[80px] sm:rounded-tl-[100px] md:rounded-tl-[120px] h-52 sm:h-60 md:h-72 w-120 object-cover"
             />
           </div>
         </div>
