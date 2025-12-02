@@ -1,5 +1,4 @@
 import CustomButton from '@/components/ui/CustomButton'
-// import { blogDatas } from '@/constants/blogDatas'
 import Image from 'next/image'
 import React from 'react'
 // import blogBanner from "@/assets/common/blog/blogBanner.png"

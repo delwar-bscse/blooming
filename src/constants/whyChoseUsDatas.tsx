@@ -2,10 +2,6 @@ import choose_us_01 from "@/assets/common/choose_us/chooseUs01.png";
 import choose_us_02 from "@/assets/common/choose_us/chooseUs02.png";
 import choose_us_03 from "@/assets/common/choose_us/chooseUs03.png";
 import choose_us_04 from "@/assets/common/choose_us/chooseUs04.png";
-// import choose_us_05 from "@/assets/common/choose_us/chooseUs05.png";
-// import choose_us_06 from "@/assets/common/choose_us/chooseUs06.png";
-// import choose_us_07 from "@/assets/common/choose_us/chooseUs07.png";
-// import choose_us_08 from "@/assets/common/choose_us/chooseUs08.png";
 import { whyChoseUsType } from "@/types/types";
 
 

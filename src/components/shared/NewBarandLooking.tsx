@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import React from 'react'
-// import video_analysis from '@/assets/common/video_analysis.png'
 import video_analysis1 from '@/assets/common/video_analysis1.jpeg'
 import video_analysis2 from '@/assets/common/video_analysis2.jpeg'
 import video_analysis3 from '@/assets/common/video_analysis3.jpeg'
