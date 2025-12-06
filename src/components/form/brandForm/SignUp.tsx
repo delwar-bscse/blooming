@@ -261,6 +261,34 @@ const SignUp = () => {
             )}
           />
 
+          {/* Checkbox */}
+          <div className="flex items-center mb-4 text-white space-x-2">
+            <input
+              type="checkbox"
+              id="terms"
+              className="mr-2 leading-tight"
+              required
+            />
+            <label htmlFor="terms" className="text-sm">
+              I agree to the{" "}
+              <a
+                target="_blank"
+                href="/terms-and-condition"
+                className="text-[#21419F] hover:text-blue-800 font-bold transition"
+              >
+                Terms & Condition
+              </a>
+              <span> and </span>
+              <a
+                target="_blank"
+                href="/privacy-policy"
+                className="text-[#21419F] hover:text-blue-800 font-bold transition"
+              >
+                Privacy Policy
+              </a>
+            </label>
+          </div>
+
           {/* Submit Button */}
           <Button variant="customWhite" type="submit" size="llg" className="w-full">
             Sign Up

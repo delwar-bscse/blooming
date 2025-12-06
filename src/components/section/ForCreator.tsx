@@ -17,23 +17,23 @@ const ForCreator = () => {
   return (
     <div>
       <div className='flex items-center' style={{ minHeight: "calc(100vh - 60px)" }}>
-        <div className='w-full max-w-[1400px] px-4 mx-auto flex items-center justify-center'>
+        <div className='w-full maxWidth px-4 mx-auto flex items-center justify-center'>
           <div className=' flex flex-col-reverse sm:flex-row sm:justify-between py-20'>
             <div className='sm:basis-[50%] space-y-3'>
-              <h2 className='text-xl md:text-2xl xl:text-3xl font-bold text-font01'>Become a creator and make an impact with us.</h2>
-              <h3 className='text-xl md:text-2xl xl:text-3xl font-bold text-font01'>Your creativity. Our platform. Let’s make it happen.</h3>
+              <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-font01'>Become a creator and make an impact with us.</h2>
+              <h3 className='text-lg md:text-xl xl:text-2xl font-bold text-font01'>Your creativity. Our platform. Let’s make it happen.</h3>
               <p className=' md:text-xl text-font02'>Join The Social Chance and showcase your talent, We handle the details so you can focus on creating content that matters and grow your influence.</p>
               <div className='max-w-[200px] pt-8'>
                 <CustomButton text="Apply As Creators" url="/creator-signup" />
               </div>
             </div>
             <div className='sm:basis-[50%] h-full flex items-center justify-end'>
-              <div className='flex justify-center w-full gap-8'>
+              <div className='flex justify-end w-full gap-8'>
                 <div className=''>
                   <Image src={agencyHero01} alt="content image" className='relative -bottom-10 w-60 h-80 object-cover' />
                 </div>
                 <div className=''>
-                  <Image src={agencyHero02} alt="content image" className='relative bottom-20 w-72 h-100 object-cover' />
+                  <Image src={agencyHero02} alt="content image" className='relative bottom-20 w-64 h-90 object-cover' />
                 </div>
               </div>
             </div>

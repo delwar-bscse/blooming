@@ -169,11 +169,11 @@ const ContentInformation = ({ handleStep }: { handleStep: (step: number) => void
               name="isUgc5Photos"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white text-lg">5 UGC Photos (300$)</FormLabel>
+                  <FormLabel className="text-white text-lg">UGC Photos (300$)</FormLabel>
                   <Select value={field.value} onValueChange={field.onChange} >
                     <FormControl>
                       <SelectTrigger variant="borderwhite" className="w-full">
-                        <SelectValue placeholder="5" />
+                        <SelectValue placeholder="0" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>

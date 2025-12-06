@@ -30,7 +30,7 @@ export const faqDatas: faqType[] = [
   {
     id: 6,
     question: "Do I own the content?",
-    answer: "You get unlimited usage rights across all platforms, but the ownership remains with The Social Chance. You’re free to use",
+    answer: "You get unlimited usage rights across all platforms, but the ownership remains with The Social Chance.",
   },
   {
     id: 7,

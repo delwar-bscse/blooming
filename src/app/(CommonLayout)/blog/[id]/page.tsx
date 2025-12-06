@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
   return {
     title: blog?.title ?? 'Blog - The Social Chance',
-    description: blog.details ?? "",
+    description: blog?.details ?? "",
   }
 }
 

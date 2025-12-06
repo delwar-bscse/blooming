@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 
   let formatedData = "";
-  resPackages?.data.forEach((item: any) => { 
+  resPackages?.data?.forEach((item: any) => { 
     formatedData += item?.title + " " + item?.subtitle + " " + item?.type + " ";
     // return { title: item?.title, subtitle: item?.subtitle, type: item?.type } 
   });

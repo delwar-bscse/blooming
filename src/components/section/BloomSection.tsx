@@ -3,14 +3,15 @@ import CustomButton from '../ui/CustomButton'
 import BloomHeading from '../shared/BloomHeading'
 import BloomSectionSlider from './BloomSectionSlider'
 
-const BloomSection = async ({ title, des }: { title: string, des: string }) => {
+const BloomSection = async ({ title, des, title2, des2 }: { title: string, des: string, title2: string, des2: string  }) => {
 
 
   return (
     <section className='bg-[#E9EDF2]'>
       <div className='maxWidth py-20'>
         <div className='pb-16'>
-          <BloomHeading title={`Work You'd Be Proud To Present To Your Clients`} des="See The Quality And Versatility Our Creative Team Brings To The Table." />
+          <BloomHeading title={title2} des={des2} />
+          {/* <BloomHeading title={title} des={des} /> */}
         </div>
         <div>
           <BloomSectionSlider url="/upload-video?category=Landing Page" />

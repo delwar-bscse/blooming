@@ -40,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const Blog = async () => {
 
   const res = await myFetch("/blog");
-  const blogDatas = res?.data;
+  const blogDatas = res?.data || [];
 
   return (
     <div className='pb-20'>
@@ -48,7 +48,7 @@ const Blog = async () => {
 
         <div className='h-[80%] w-full md:max-w-[50%] ml-20 px-2 py-1 md:px-10 md:py-4 bg-white flex flex-col justify-center items-end customShadow3 gap-3'>
           <h1 className='text-3xl md:text-4xl xl:text-5xl font-bold text-font01 lg:leading-16'>{blogDatas[0]?.title}</h1>
-          <p>{blogDatas[0]?.details.slice(0, 120)}...</p>
+          <p>{blogDatas[0]?.details?.slice(0, 120)}...</p>
           {/* <Link href={`/blog/${blogDatas[0]?._id}`} className='mt-4 bg-yellow-200 px-6 py-1 rounded-md'>Read More</Link> */}
           <div className='w-full max-w-[200px]'>
             <CustomButton text="Read More" url={`/blog/${blogDatas[0]?.slug}`} className='customShadow3' />
@@ -67,7 +67,7 @@ const Blog = async () => {
         <p className='text-center text-gray-700 font-semibold text-sm'>BROWSE AND READ THE LATEST BLOG POST</p>
         <h2 className='text-2xl md:text-3xl xl:text-5xl font-bold text-[#6D715F] text-center'>Latest Stories</h2>
       </div>
-      <div className='maxWidth grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16'>
+      <div className='maxWidth grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 mt-16'>
         {blogDatas?.map((data: IBlog) => (
           <div key={data._id} className='parentDiv rounded-lg customShadow4 p-4 space-y-4 flex flex-col '>
             <div className='rounded-lg overflow-hidden'>

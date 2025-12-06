@@ -96,7 +96,7 @@ export default function Home() {
       {/*See Why Brands Choose The Social Chance Brands And Why You Should Too.*/}
       {/*"They Bloomed With Us. You Can Too!"*/}
       <div className="">
-        <BloomSection title='&quot;They Bloomed With Us. You Can Too!&quot;' des='Join the growing list of brands thriving with custom UGC content.' />
+        <BloomSection title='&quot;They Bloomed With Us. You Can Too!&quot;' des='Join the growing list of brands thriving with custom UGC content.'  title2="See Why Brands Choose The Social Chance And Why You Should Too." des2="Explore real feedback from real clients then start your story with us."/>
       </div>
 
       {/* Why Choose Us  */}

@@ -55,9 +55,10 @@ const About = async () => {
           <div className='parentDiv w-full md:basis-[40%]  h-80 rounded-tl-[80px] rounded-br-[80px] overflow-hidden mt-2'>
             <Image src={aboutImg2} alt="The Social Chance Brands" className='childDiv transition-transform duration-500 ease-in-out w-full  h-80 object-cover ' />
           </div>
-          <div className='basis-[60%] flex flex-col gap-4 lg:px-8'>
+          <div className='basis-[60%] flex flex-col items-center justify-center gap-4 lg:px-8'>
             <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold'>Our Vision</h2>
-            <p className='lg:leading-8'>At The Social Chance UGC agency, our vision is to redefine how Brands connect with their audiences through Authentic, Creator Driven Content. Built by 2 Sisters and Ex ugc creators with a passion for creativity and storytelling, We believe in the Power of short form video to spark Emotion, Drive action and build Trust. We exist to Empower Creators, not just as freelancers, but as Partners and to help Brands of all sizes stand out in a fast moving Digital World. Our Dream is to be more than a UGC agency. We aim to become a trusted Creative UGC agency, where Talent, Strategy and meaningful Content come together. In five years, We see ourselves Expanding into Social Media Marketing, Launching Digital products and growing a team that leads with Heart, Skill and Purpose.</p>
+            <p className='lg:leading-8'>At The Social Chance UGC agency, we help brands connect through authentic, creator-driven content. Founded by two sisters and former UGC creators, we believe short-form video builds trust and inspires action.</p>
+            <p className='lg:leading-8'>We empower creators as true partners and help brands stand out in a fast-moving digital world. Our goal is to grow into a trusted creative agency, expanding into social media marketing, digital products and a purpose-driven team.</p>
           </div>
         </div>
 
@@ -69,7 +70,7 @@ const About = async () => {
           <div className='basis-[60%] flex flex-col justify-center gap-8 lg:p-8'>
             <h2 className='text-2xl md:text-3xl xl:text-4xl font-bold text-center'>It’s time your content worked as hard as you do. See what we offer</h2>
             <div className='w-full max-w-40 mx-auto'>
-              <CustomButton text="contact Us" url='/contact' />
+              <CustomButton text="contact Us" url='/service' />
             </div>
           </div>
         </div>
