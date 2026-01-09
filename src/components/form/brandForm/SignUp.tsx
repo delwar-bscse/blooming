@@ -88,6 +88,7 @@ const SignUp = () => {
         role: "user",
       },
     });
+    console.log("Sign up : ", res)
 
     if (res.success) {
       toast.success(`res.message || "Check your email!"`);

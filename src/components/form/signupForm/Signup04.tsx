@@ -102,7 +102,8 @@ const Signup04 = ({ handleStep }: { handleStep: (step: number) => void }) => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="White & European">White & European</SelectItem>
+                      <SelectItem value="European">European</SelectItem>
+                      <SelectItem value="Western">Western</SelectItem>
                       <SelectItem value="African">African</SelectItem>
                       <SelectItem value="Middle Eastern">Middle Eastern</SelectItem>
                       <SelectItem value="Asian">Asian</SelectItem>

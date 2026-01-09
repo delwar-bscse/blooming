@@ -14,19 +14,20 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+// import {
+//   Select,
+//   SelectContent,
+//   SelectItem,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/components/ui/select"
 import { useCreator } from "@/context/CreatorContext";
 // import toast, { Toaster } from 'react-hot-toast';
+const nicheItems = ["Fitness & Health", "Beauty & Skin Care", "Fashion", "Home Decor", "Gardening", "Food & Drink", "Travel", "Family & Parenting", "Gaming", "Pets & Animals", "Tech & Gadgets", "Business Money", "Digital Products"]
 
 // Schema
 const contactUsFormSchema = z.object({
-  niche: z.string(),
+  niche: z.array(z.string()),
   language: z.string(),
   profession: z.string(),
 });
@@ -35,7 +36,7 @@ const contactUsFormSchema = z.object({
 type ContactUsFormValues = z.infer<typeof contactUsFormSchema>;
 
 const defaultValues: Partial<ContactUsFormValues> = {
-  niche: "",
+  niche: [],
   language: "",
   profession: "",
 };
@@ -49,6 +50,7 @@ const Signup03 = ({ handleStep }: { handleStep: (step: number) => void }) => {
   });
 
   function onSubmit(data: ContactUsFormValues) {
+    // console.log(data);
     setCreatorForm((prev) => ({
       ...prev, ...data
     }))
@@ -61,8 +63,8 @@ const Signup03 = ({ handleStep }: { handleStep: (step: number) => void }) => {
         <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12">Step Three</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
-                        {/* Brand Name */}
-            <FormField
+            {/* Brand Name */}
+            {/* <FormField
               control={form.control}
               name="niche"
               render={({ field }) => (
@@ -93,8 +95,45 @@ const Signup03 = ({ handleStep }: { handleStep: (step: number) => void }) => {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             
+            <FormField
+              control={form.control}
+              name="niche"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">
+                    Niche (Select multiple)
+                  </FormLabel>
+
+                  <div className="flex flex-wrap gap-3">
+                    {nicheItems.map((item) => (
+                      <label
+                        key={item}
+                        className="flex items-center gap-2 text-white text-sm"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={field.value?.includes(item)}
+                          onChange={(e) => {
+                            const checked = e.target.checked;
+                            field.onChange(
+                              checked
+                                ? [...(field.value || []), item]
+                                : field.value.filter((v: string) => v !== item)
+                            );
+                          }}
+                        />
+                        {item}
+                      </label>
+                    ))}
+                  </div>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             {/* Brand Name */}
             <FormField
               control={form.control}
@@ -109,7 +148,7 @@ const Signup03 = ({ handleStep }: { handleStep: (step: number) => void }) => {
                 </FormItem>
               )}
             />
-            
+
             {/* Brand Name */}
             <FormField
               control={form.control}

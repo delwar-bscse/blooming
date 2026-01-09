@@ -11,7 +11,6 @@ import Signup06 from "@/components/form/signupForm/Signup06";
 import Signup07 from "@/components/form/signupForm/Signup07";
 import { CreatorProvider } from "@/context/CreatorContext";
 import { useState } from "react";
-import Signup08 from "@/components/form/signupForm/Signup08";
 
 export default function CreatorSignup() {
   const [formStep, setFormStep] = useState(1);
@@ -32,11 +31,11 @@ export default function CreatorSignup() {
           {formStep === 4 && <Signup04 handleStep={handleStep} />}
           {formStep === 5 && <Signup05 handleStep={handleStep} />}
           {formStep === 6 && <Signup06 handleStep={handleStep} />}
-          {formStep === 7 && <Signup07 handleStep={handleStep} />}
-          {formStep === 8 && <Signup08 />}
+          {/* {formStep === 7 && <Signup07 handleStep={handleStep} />} */}
+          {formStep === 7 && <Signup07 />}
           <div className="w-full px-2">
             <div className="w-full max-w-[588px] bg-[#56515166] rounded-xl mx-auto flex items-center justify-center gap-4 h-10 py-1 px-3">
-              {[...Array(8)].map((_, idx) => (
+              {[...Array(7)].map((_, idx) => (
                 <div
                   onClick={() => handleStep(idx + 1)}
                   key={idx}
