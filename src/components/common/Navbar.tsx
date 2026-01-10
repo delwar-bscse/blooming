@@ -49,7 +49,7 @@ const Navbar = () => {
         tags: ["user"]
       });
       setUser(response?.data);
-      console.log("Navbar : ",response?.data);
+      // console.log("Navbar : ",response?.data);
     };
     getUser();
   }, [pathname]);
