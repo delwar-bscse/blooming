@@ -54,7 +54,7 @@ const BrandSignupOtp = () => {
         token,
       },
     });
-    
+
     if (res.success) {
       toast.success(res.message || "OTP verified successfully!");
       localStorage.removeItem("createUserToken");
@@ -66,8 +66,8 @@ const BrandSignupOtp = () => {
 
 
   return (
-    <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-6 md:py-8 w-full rounded-4xl">
-      <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-12 text-center">Verify OTP</h2>
+    <div className="bg-[#56515166] px-2 sm:px-4 md:px-8 py-2 md:py-8 w-full rounded-xl md:rounded-4xl overflow-hidden">
+      <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white pb-4 md:pb-8 text-center">Verify OTP</h2>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -96,9 +96,11 @@ const BrandSignupOtp = () => {
           />
 
           {/* Submit Button */}
-          <Button variant="customWhite" type="submit" size="llg" className="w-full">
-            Submit
-          </Button>
+          <div className="w-full max-w-[320px] mx-auto">
+            <Button variant="customWhite" type="submit" size="llg" className="w-full">
+              Submit
+            </Button>
+          </div>
 
         </form>
       </Form>

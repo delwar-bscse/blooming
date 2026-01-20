@@ -19,6 +19,7 @@ import Image from "next/image";
 import profileInputIcon from "@/assets/common/ProfileInputIcon.png";
 import bgImage from "@/assets/common/formBackground.png";
 import { useCreator } from "@/context/CreatorContext";
+import { toast } from "sonner";
 
 // Schema
 const contactUsFormSchema = z.object({
@@ -50,6 +51,7 @@ const defaultValues: Partial<ContactUsFormValues> = {
   dateOfBirth: "",
   password: "",
 };
+
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const Signup01 = ({ handleStep }: { handleStep: (step: number) => void }) => {
   const { creatorForm, setCreatorForm } = useCreator();
@@ -63,6 +65,10 @@ const Signup01 = ({ handleStep }: { handleStep: (step: number) => void }) => {
   });
 
   function onSubmit(data: ContactUsFormValues) {
+    if(!data.profile){
+      toast.error("Please upload a profile image file.");
+      return;
+    }
     setCreatorForm((prev) => ({
       ...prev, ...data,
     }));

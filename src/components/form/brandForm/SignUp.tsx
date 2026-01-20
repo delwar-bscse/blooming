@@ -78,15 +78,20 @@ const SignUp = () => {
   }, []);
 
   async function onSubmit(data: ContactUsFormValues) {
+    const formData = new FormData();
+
+    if (data.profileImg) {
+      formData.append("profile", data.profileImg);
+    }
+
+    formData.append("fullName", data.name);
+    formData.append("email", data.email);
+    formData.append("password", data.password);
+    formData.append("role", "user");
 
     const res = await myFetch("/users/create", {
       method: "POST",
-      body: {
-        fullName: data.name,
-        email: data.email,
-        password: data.password,
-        role: "user",
-      },
+      body: formData
     });
     console.log("Sign up : ", res)
 

@@ -32,6 +32,7 @@ const Signup07 = () => {
     });
 
     toast.dismiss("creator-account-loading");
+    console.log("Create account response : ", res);
 
     if (res?.success) {
       toast.success("Creator account created successfully!", { id: "creator-account-success" });
@@ -39,7 +40,7 @@ const Signup07 = () => {
       router.push("/");
     } else {
       toast.error( "Failed to create creator account.", { id: "creator-account-error" });
-      // console.error("Error creating creator account:", res);
+      console.error("Error creating creator account:", res);
     }
   };
 

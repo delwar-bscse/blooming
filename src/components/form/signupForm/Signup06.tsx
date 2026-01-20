@@ -81,7 +81,7 @@ const Signup06 = ({ handleStep }: { handleStep: (step: number) => void }) => {
                         <Input
                         variant="borderwhiteVideo"
                         type="file"
-                        accept="video/*"
+                        accept="video/mp4,.mp4"
                         multiple
                         onChange={(e) => {
                           const files = Array.from(e.target.files ?? []);
@@ -108,7 +108,7 @@ const Signup06 = ({ handleStep }: { handleStep: (step: number) => void }) => {
                         <Input
                         variant="borderwhiteVideo"
                         type="file"
-                        accept="video/*"
+                        accept="video/mp4,.mp4"
                         onChange={(e) => field.onChange(e.target.files?.[0])}
                       />
                       <div className="text-gray-700">{creatorForm?.introductionvideo?.name}</div>
