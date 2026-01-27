@@ -55,6 +55,16 @@ const BrandProjectDetails = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // const packageId = {
+  //   price: 1,
+  //   subtitle: "Ex et ipsum ullam re",
+  //   title: "Modi voluptatem dolo",
+  //   type: "one_time",
+  //   videoCount: 2,
+  //   _id: "6954e4da7243ec2b5f2a5264"
+  // };
+
+
 
 
   return (
@@ -64,6 +74,7 @@ const BrandProjectDetails = () => {
         <p className='text-xl font-semibold text-gray-700'>Price ${orderDetails?.brandPrice}</p>
         <Image src={LoveEmogi} alt="package" width={30} height={30} />
       </div>
+
       <div className='bg-white rounded-2xl p-8'>
         {orderDetails?.brandInfo && <SubComponent title="Brand Info" list={orderDetails.brandInfo} />}
       </div>
@@ -79,6 +90,9 @@ const BrandProjectDetails = () => {
       <div className='bg-white rounded-2xl p-8'>
         <SubComponent title="Add Ons" list={orderDetails.addOns} />
       </div>
+      <div className='bg-white rounded-2xl p-8'>
+        <SubComponent title="Package Info" list={orderDetails?.subscriptionId?.packageId} />
+      </div>
     </div>
   )
 }
@@ -91,7 +105,7 @@ const SubComponent = ({ title, list }: { title: string; list: any }) => {
   return (
     <div>
       <h2 className='text-2xl font-bold mb-4'>{title}</h2>
-      <ul className='space-y-1.5'>
+      <ul className='space-y-4'>
         {Object.entries(list)?.map(([key, value], index) => {
           if (key === "_id") return null;
           return <li key={index} className="list-disc list-inside pl-4 text-gray-600">
