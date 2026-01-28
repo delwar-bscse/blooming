@@ -63,8 +63,8 @@ const SignIn = () => {
     
     if (res.success) {
       setCookie("bloom_brand_accessToken", res?.data?.accessToken);
-      toast.success("Login Success");
       router.push("/");
+      toast.success("Login Success");
     } else {
       // Handle error, e.g., show a toast notification
       toast.error(res?.message || "Login failed!");
