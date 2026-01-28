@@ -2,7 +2,6 @@
 
 import { useBrand } from "@/context/BrandContext";
 import { myFetch } from "@/utils/myFetch";
-import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import Image from "next/image";
 import cardPayment from "@/assets/common/cardPayment.png";
@@ -11,7 +10,6 @@ import { useEffect, useState } from "react";
 
 {/* ---------------------------- Sign Up Form ---------------------------- */ }
 const FinalMessage = () => {
-  const router = useRouter();
   const { brandForm } = useBrand();
   const [paymentMethod, setPaymentMethod] = useState<string>("card");
 
@@ -24,7 +22,7 @@ const FinalMessage = () => {
       email: brandForm?.email,
       phone: brandForm?.phone,
       websiteUrl: brandForm?.websiteUrl,
-      productName: "It should remove",
+      productName: brandForm?.productName,
       brandPronounceName: brandForm?.brandPronounceName,
       isScript: brandForm?.isScript,
       isVideoCaption: brandForm?.isVideoCaption
@@ -80,6 +78,7 @@ const FinalMessage = () => {
 
 
   const handleSubmit = async () => {
+    // console.log("Order payload", payload);
 
 
     toast.loading("Loading...", { id: "loading" });
@@ -87,22 +86,18 @@ const FinalMessage = () => {
       method: "POST",
       body: payload,
     })
-    console.log("order res", res);
+    // console.log("order res", res);
 
     if (res?.success) {
       toast.success(res?.message || "Order created successfully!", { id: "loading" });
       if (res?.data?.url) {
         window.location.href = res?.data?.url;
+        // window.open(res.data.url, "_blank", "noopener,noreferrer");
       } else {
-        setTimeout(() => {
-          router.push("/");
-        }, 1000)
+        toast.error(res?.message || "Something went wrong!", { id: "loading" });
       }
     } else {
       toast.error(res?.message || "Something went wrong!", { id: "loading" });
-      // setTimeout(() => {
-      //   router.push("/");
-      // }, 3000)
     }
   }
 
