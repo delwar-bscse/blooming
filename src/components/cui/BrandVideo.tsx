@@ -71,7 +71,8 @@ const BrandVideo = () => {
     if (res.success) {
       toast.success("Revision Requested Successfully!");
       setIsForward(false);
-      setRevisionCount(revisionCount - 1)
+      setRevisionCount(revisionCount - 1);
+      getAwsVideosUrls();
       if (status === "delivered") {
         document.getElementById("openAppReview")?.click()
       }
