@@ -21,7 +21,7 @@ const BrandVideo = () => {
   const getAwsVideosUrls = async () => {
     toast.loading("Fetching uploaded videos...", { id: "fetch" })
     const res = await myFetch(`/hire-creator/all-videos-by-hirecreator/${id}`, { method: 'GET' });
-    console.log("Videos in brand : ", res?.data);
+    // console.log("Videos in brand : ", res?.data);
 
     if (res.success) {
       if (res?.data?.allVideos?.length <= 0) {

@@ -32,7 +32,7 @@ const Signup07 = () => {
     });
 
     toast.dismiss("creator-account-loading");
-    console.log("Create account response : ", res);
+    // console.log("Create account response : ", res);
 
     if (res?.success) {
       toast.success("Creator account created successfully!", { id: "creator-account-success" });

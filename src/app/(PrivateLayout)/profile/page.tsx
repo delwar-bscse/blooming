@@ -62,7 +62,7 @@ const ProfileContent = () => {
       cache: "no-cache",
     });
 
-    console.log("My profile : ", response?.data)
+    // console.log("My profile : ", response?.data)
 
     if (response?.data?.profile) {
       setUser(response?.data);

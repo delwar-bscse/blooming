@@ -93,7 +93,7 @@ const SignUp = () => {
       method: "POST",
       body: formData
     });
-    console.log("Sign up : ", res)
+    // console.log("Sign up : ", res)
 
     if (res.success) {
       toast.success(`res.message || "Check your email!"`);

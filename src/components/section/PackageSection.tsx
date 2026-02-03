@@ -55,7 +55,7 @@ const PackageSection = () => {
       const res = await myFetch(`/package/packages`, {
         method: "GET",
       })
-      console.log("Package Datas : ", res?.data)
+      // console.log("Package Datas : ", res?.data)
       if (res.success) {
         setPackageDatas(res.data as IPackage[])
       }
